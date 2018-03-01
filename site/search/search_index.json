@@ -19,6 +19,26 @@
             "location": "/#my-github-personal-page",
             "text": "Check here",
             "title": "My GitHub personal page"
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/",
+            "text": "Lab1.\n\n\nIntroduction to Open CV and installation\n\n\nLab1 pdf\n\n\nToday's algorithm\n\n\nBilinear Interpolation",
+            "title": "Junior 2nd sem. UAV Autopilot and Image Processing"
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#lab1",
+            "text": "",
+            "title": "Lab1."
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#introduction-to-open-cv-and-installation",
+            "text": "Lab1 pdf",
+            "title": "Introduction to Open CV and installation"
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#todays-algorithm",
+            "text": "Bilinear Interpolation",
+            "title": "Today's algorithm"
         }
     ]
 }

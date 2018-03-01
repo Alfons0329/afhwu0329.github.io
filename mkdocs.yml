@@ -9,6 +9,8 @@ theme: 'material'
 #site contents, which will be connected to the docs/ directories
 pages:
     - Home: index.md
+    - Learning notes:
+        - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
     #- About_me: about_me.md
 
 #extra plugins
