@@ -1,4 +1,5 @@
 # Welcome to afhwu0329's Blog
+![Time now](../site/assets/javascripts/analog_clock/main.js)
 ![Screenshot](images/index/Myself.png)
 ## About Me
 * Undergraduate student major in Dept. of Computer Science at National Chaio Tung University Taiwan
