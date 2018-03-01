@@ -1,8 +1,8 @@
 #!/bin/bash
 mkdocs build
-cd my-website
-git add -u
+cd mysite
+git add -u && git add -A
 git commit -m "auto update"
 git push origin master
-cd my-website
+cd mysite
 mkdocs serve
