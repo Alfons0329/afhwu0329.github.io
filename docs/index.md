@@ -14,7 +14,8 @@ Sep. 2017 ARM Assembly in Microprocessor Lab [GitHub repository of this course](
 
 * Favorite extracurricular activities
 * Language abilities
-TOEIC 925 and TOEFL iBT102(26/28/23/25) on First try
 
+TOEIC 925 and TOEFL iBT102(26/28/23/25) on First try
+Want to try on Japanese JLPT N3(Intermediate level) on Jul. 2018
 ##My GitHub personal page
 [Check here](https://github.com/Alfons0329)
