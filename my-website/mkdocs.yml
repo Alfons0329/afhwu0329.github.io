@@ -6,7 +6,6 @@ site_url: 'https://afhwu0329.github.io/'
 repo_url: 'https://github.com/Alfons0329/afhwu0329.github.io'
 #stylish components
 theme: 'material'  
-theme_dir: 'theme'
 #site contents
 pages:
     - Home: index.md
