@@ -5,20 +5,20 @@
 ## Install Open CV
 * In the Ubuntu 16.04 64bit
 Required dependencies are the followings <br />
-1.Git
-2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)
-3.CMake 2.6 or higher
-4.GCC 4.4.x or later
+1.Git <br />
+2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy) <br />
+3.CMake 2.6 or higher <br />
+4.GCC 4.4.x or later <br />
 
 ```
 sudo apt-get install libopencv-dev python-opencv
 ```
-
 Once installed
 ```
 pkg-config --modversion opencv
 ```
 If the version is shown, then we're good to rock with opencv. <br />
+
 * Build your opencv_file.cpp with CMake or g++ standards
 
 1.With CMake (Don't forget to add CMakeLists.txt)
