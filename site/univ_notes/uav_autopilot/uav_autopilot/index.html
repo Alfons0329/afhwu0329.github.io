@@ -398,11 +398,11 @@
 <h2 id="install-open-cv">Install Open CV</h2>
 <ul>
 <li>In the Ubuntu 16.04 64bit
-Required dependencies are the followings <br /></li>
-<li>Git</li>
-<li>Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)</li>
-<li>CMake 2.6 or higher</li>
-<li>GCC 4.4.x or later</li>
+Required dependencies are the followings <br />
+1.Git
+2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)
+3.CMake 2.6 or higher
+4.GCC 4.4.x or later</li>
 </ul>
 <pre><code>sudo apt-get install libopencv-dev python-opencv
 </code></pre>
@@ -411,9 +411,9 @@ Required dependencies are the followings <br /></li>
 <pre><code>pkg-config --modversion opencv
 </code></pre>
 
-<p>If the version is shown, then we're good to rock with opencv.
-* Build your opencv_file.cpp with CMake or g++ standards
-1.With CMake (Don't forget to add CMakeLists.txt)</p>
+<p>If the version is shown, then we're good to rock with opencv. <br />
+* Build your opencv_file.cpp with CMake or g++ standards</p>
+<p>1.With CMake (Don't forget to add CMakeLists.txt)</p>
 <pre><code class="make">cmake_minimum_required(VERSION 2.8)
 project( &lt;project_name&gt; )
 find_package( OpenCV REQUIRED )
@@ -421,9 +421,7 @@ add_executable( &lt;project_name&gt; &lt;project_name&gt;.cpp )
 target_link_libraries( &lt;project_name&gt; ${OpenCV_LIBS} )
 </code></pre>
 
-<ol>
-<li>With g++ and flags for opencv libraries</li>
-</ol>
+<p>2.With g++ and flags for opencv libraries</p>
 <pre><code>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
 </code></pre>
 
