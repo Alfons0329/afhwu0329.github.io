@@ -11,7 +11,10 @@ pages:
     - Home: index.md
     - Learning notes:
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
-    #- About_me: about_me.md
+        - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
 
+    #- About_me: about_me.md
+extra_javascript:
+    - '../site/assets/javascripts/analog_clock/main.js'
 #extra plugins
 #others

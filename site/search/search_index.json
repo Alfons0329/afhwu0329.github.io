@@ -39,6 +39,11 @@
             "location": "/univ_notes/uav_autopilot/uav_autopilot/#todays-algorithm",
             "text": "Bilinear Interpolation \nBasically ,this is an algorithm aimed for image transformation in this lab.  \nThe interpolated value of a point is a reversely-weighted average of the neighboring points,  \nsuch method is quite useful in the image transformation.",
             "title": "Today's algorithm"
+        },
+        {
+            "location": "/univ_notes/internet_security/internet_security/",
+            "text": "",
+            "title": "Junior 2nd sem. Internet Security"
         }
     ]
 }
