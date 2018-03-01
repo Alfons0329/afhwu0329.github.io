@@ -1,5 +1,5 @@
 # Welcome to afhwu0329's Blog
-![Screenshot](docs/images/index/Myself.png)
+![Screenshot](images/index/Myself.png)
 ## About Me
 * Undergraduate student major in Dept. of Computer Science at National Chaio Tung University Taiwan
 * Started to learn programming in Oct. 2015
