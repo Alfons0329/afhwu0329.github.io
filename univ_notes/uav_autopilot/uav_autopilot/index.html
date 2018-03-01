@@ -303,6 +303,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#install-open-cv" title="Install Open CV" class="md-nav__link">
+    Install Open CV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#todays-algorithm" title="Today's algorithm" class="md-nav__link">
     Today's algorithm
   </a>
@@ -353,6 +360,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#install-open-cv" title="Install Open CV" class="md-nav__link">
+    Install Open CV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#todays-algorithm" title="Today's algorithm" class="md-nav__link">
     Today's algorithm
   </a>
@@ -381,8 +395,43 @@
                 <h1 id="lab1">Lab1.</h1>
 <h2 id="introduction-to-open-cv-and-installation">Introduction to Open CV and installation</h2>
 <p><a href="../Lab1.pdf">Lab1 pdf</a></p>
+<h2 id="install-open-cv">Install Open CV</h2>
+<ul>
+<li>In the Ubuntu 16.04 64bit
+Required dependencies are the followings <br /></li>
+<li>Git</li>
+<li>Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy)</li>
+<li>CMake 2.6 or higher</li>
+<li>GCC 4.4.x or later</li>
+</ul>
+<pre><code>sudo apt-get install libopencv-dev python-opencv
+</code></pre>
+
+<p>Once installed</p>
+<pre><code>pkg-config --modversion opencv
+</code></pre>
+
+<p>If the version is shown, then we're good to rock with opencv.
+* Build your opencv_file.cpp with CMake or g++ standards
+1.With CMake (Don't forget to add CMakeLists.txt)</p>
+<pre><code class="Cmake">cmake_minimum_required(VERSION 2.8)
+project( DisplayImage )
+find_package( OpenCV REQUIRED )
+add_executable( DisplayImage DisplayImage.cpp )
+target_link_libraries( DisplayImage ${OpenCV_LIBS} )
+</code></pre>
+
+<ol>
+<li>With g++ and flags for opencv libraries</li>
+</ol>
+<pre><code>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
+</code></pre>
+
 <h2 id="todays-algorithm">Today's algorithm</h2>
-<p><a href="https://en.wikipedia.org/wiki/Bilinear_interpolation">Bilinear Interpolation</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Bilinear_interpolation">Bilinear Interpolation</a>
+Basically ,this is an algorithm aimed for image transformation in this lab. <br />
+The interpolated value of a point is a reversely-weighted average of the neighboring points, <br />
+such method is quite useful in the image transformation.</p>
                 
                   
                 
