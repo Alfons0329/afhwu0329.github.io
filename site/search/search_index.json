@@ -22,18 +22,13 @@
         },
         {
             "location": "/univ_notes/uav_autopilot/uav_autopilot/",
-            "text": "Lab1.\n\n\nIntroduction to Open CV and installation\n\n\nLab1 pdf\n\n\nInstall Open CV\n\n\n\n\nIn the Ubuntu 16.04 64bit\nRequired dependencies are the followings \n\n1.Git \n\n2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy) \n\n3.CMake 2.6 or higher \n\n4.GCC 4.4.x or later \n\n\n\n\nsudo apt-get install libopencv-dev python-opencv\n\n\n\n\nOnce installed\n\n\npkg-config --modversion opencv\n\n\n\n\nIf the version is shown, then we're good to rock with opencv. \n\n\n\n\nBuild your opencv_file.cpp with CMake or g++ standards\n\n\n\n\n1.With CMake (Don't forget to add CMakeLists.txt)\n\n\ncmake_minimum_required(VERSION 2.8)\nproject( <project_name> )\nfind_package( OpenCV REQUIRED )\nadd_executable( <project_name> <project_name>.cpp )\ntarget_link_libraries( <project_name> ${OpenCV_LIBS} )\n\n\n\n\n2.With g++ and flags for opencv libraries\n\n\ng++ lab1-2.cpp `pkg-config --cflags --libs opencv`\n\n\n\n\nToday's algorithm\n\n\nBilinear Interpolation\n\nBasically ,this is an algorithm aimed for image transformation in this lab. \n\nThe interpolated value of a point is a reversely-weighted average of the neighboring points, \n\nsuch method is quite useful in the image transformation.",
+            "text": "Lab1. Introduction to Open CV and installation\n\n\nLab1 pdf\n\n\nInstall Open CV\n\n\n\n\nIn the Ubuntu 16.04 64bit\nRequired dependencies are the followings \n\n1.Git \n\n2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy) \n\n3.CMake 2.6 or higher \n\n4.GCC 4.4.x or later \n\n\n\n\nsudo apt-get install libopencv-dev python-opencv\n\n\n\n\nOnce installed\n\n\npkg-config --modversion opencv\n\n\n\n\nIf the version is shown, then we're good to rock with opencv. \n\n\n\n\nBuild your opencv_file.cpp with CMake or g++ standards\n\n\n\n\n1.With CMake (Don't forget to add CMakeLists.txt)\n\n\ncmake_minimum_required(VERSION 2.8)\nproject( <project_name> )\nfind_package( OpenCV REQUIRED )\nadd_executable( <project_name> <project_name>.cpp )\ntarget_link_libraries( <project_name> ${OpenCV_LIBS} )\n\n\n\n\n2.With g++ and flags for opencv libraries\n\n\ng++ lab1-2.cpp `pkg-config --cflags --libs opencv`\n\n\n\n\nToday's algorithm\n\n\nBilinear Interpolation\n\nBasically ,this is an algorithm aimed for image transformation in this lab. \n\nThe interpolated value of a point is a reversely-weighted average of the neighboring points, \n\nsuch method is quite useful in the image transformation.",
             "title": "Junior 2nd sem. UAV Autopilot and Image Processing"
         },
         {
-            "location": "/univ_notes/uav_autopilot/uav_autopilot/#lab1",
-            "text": "",
-            "title": "Lab1."
-        },
-        {
-            "location": "/univ_notes/uav_autopilot/uav_autopilot/#introduction-to-open-cv-and-installation",
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#lab1-introduction-to-open-cv-and-installation",
             "text": "Lab1 pdf",
-            "title": "Introduction to Open CV and installation"
+            "title": "Lab1. Introduction to Open CV and installation"
         },
         {
             "location": "/univ_notes/uav_autopilot/uav_autopilot/#install-open-cv",

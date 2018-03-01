@@ -1,5 +1,4 @@
-# Lab1.
-## Introduction to Open CV and installation
+# Lab1. Introduction to Open CV and installation
 [Lab1 pdf](Lab1.pdf)
 
 ## Install Open CV
