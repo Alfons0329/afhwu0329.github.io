@@ -1,4 +1,4 @@
-# Lab1. Introduction to Open CV and installation
+# Lab1. Introduction to Open CV and installation Mar 01, 2018
 [Lab1 pdf](Lab1.pdf)
 
 ## Install Open CV
