@@ -22,12 +22,12 @@ If the version is shown, then we're good to rock with opencv.
 * Build your opencv_file.cpp with CMake or g++ standards
 1.With CMake (Don't forget to add CMakeLists.txt)
 
-```Cmake
+```make
 cmake_minimum_required(VERSION 2.8)
-project( DisplayImage )
+project( <project_name> )
 find_package( OpenCV REQUIRED )
-add_executable( DisplayImage DisplayImage.cpp )
-target_link_libraries( DisplayImage ${OpenCV_LIBS} )
+add_executable( <project_name> <project_name>.cpp )
+target_link_libraries( <project_name> ${OpenCV_LIBS} )
 ```
 
 2. With g++ and flags for opencv libraries
