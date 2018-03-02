@@ -18,9 +18,7 @@ pages:
 extra:
     social:
         - type: 'github'
-        link: 'https://github.com/Alfons0329'
-        - type: 'YouTube'
-        link: 'https://www.youtube.com/channel/UCXrFbRqo-QV6lwybmgLhB-Q?view_as=subscriber'
+          link: 'https://github.com/Alfons0329'
 extra_javascript:
     - '../site/assets/javascripts/analog_clock/main.js'
 #extra plugins
