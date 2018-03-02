@@ -26,7 +26,7 @@ extra_javascript:
     - '../site/assets/javascripts/analog_clock/main.js'
 theme:
     name: 'material'
-    custom_dir: 'site/theme'
+    custom_dir: 'theme'
     palette:
         primary: 'green'
         accent: 'light green'
