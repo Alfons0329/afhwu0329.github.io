@@ -20,17 +20,14 @@ pages:
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
         - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
-        - CS Graduation Project:
+        #- CS Graduation Project:
     - Extracurricular activities:
-        
+
 
 extra:
     social:
         - type: 'github'
           link: 'https://github.com/Alfons0329'
-extra_javascript:
-    - '../site/assets/javascripts/analog_clock/main.js'
-
 extra_css:
     - stylesheets/dark_theme.css
     - stylesheets/codehilite.css
