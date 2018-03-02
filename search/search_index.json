@@ -52,8 +52,38 @@
         },
         {
             "location": "/univ_notes/mpslab/mpslab/",
-            "text": "",
+            "text": "Microprocessor Lab Final Project\n\n\nPart0. Preparation and the origin of this idea.\n\n\nPart1. Circuit connection\n\n\nPart2. Key factor of this project\n\n\nPart3. It's time to change the color.\n\n\nPart4. More idea: the ADC of light-sensitive",
             "title": "Junior 1st sem. STM32 Microprocessor Embedded Lab"
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#microprocessor-lab-final-project",
+            "text": "",
+            "title": "Microprocessor Lab Final Project"
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#part0-preparation-and-the-origin-of-this-idea",
+            "text": "",
+            "title": "Part0. Preparation and the origin of this idea."
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#part1-circuit-connection",
+            "text": "",
+            "title": "Part1. Circuit connection"
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#part2-key-factor-of-this-project",
+            "text": "",
+            "title": "Part2. Key factor of this project"
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#part3-its-time-to-change-the-color",
+            "text": "",
+            "title": "Part3. It's time to change the color."
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/#part4-more-idea-the-adc-of-light-sensitive",
+            "text": "",
+            "title": "Part4. More idea: the ADC of light-sensitive"
         }
     ]
 }
