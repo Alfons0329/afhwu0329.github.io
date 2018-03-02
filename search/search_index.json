@@ -52,12 +52,12 @@
         },
         {
             "location": "/univ_notes/mpslab/mpslab/",
-            "text": "Microprocessor Lab Final Project\n\n\nPart0. Preparation and the origin of this idea.\n\n\nPart1. Circuit connection\n\n\nPart2. Key factor of this project\n\n\nPart3. It's time to change the color.\n\n\nPart4. More idea: the ADC of light-sensitive",
+            "text": "Microprocessor Lab Final Project\n\n\n\n\nEmbedded board spec: Nucleo STM32L476RG ARM Microarchitecture\n\n\nBuilt-in 400MHz CPU (customizable frequency with internal clock settings provided) \n\n\nGPIO Available \n\n\n\n\nDetailed specs\n\n* Project name: The RGB Ambient light.\nspec\n1. Fully-customizable RGB porprotion control. \n\n2. Color cycle speed controller (faster->original)\n\n3. Light-sensitive resistor ADC ,detecting the background light for light quantity settings\n\n\nPart0. Preparation and the origin of this idea.\n\n\nPart1. Circuit connection\n\n\nPart2. Key factor of this project\n\n\nPart3. It's time to change the color.\n\n\nPart4. More idea: the ADC of light-sensitive resistor",
             "title": "Junior 1st sem. STM32 Microprocessor Embedded Lab"
         },
         {
             "location": "/univ_notes/mpslab/mpslab/#microprocessor-lab-final-project",
-            "text": "",
+            "text": "Embedded board spec: Nucleo STM32L476RG ARM Microarchitecture  Built-in 400MHz CPU (customizable frequency with internal clock settings provided)   GPIO Available    Detailed specs \n* Project name: The RGB Ambient light.\nspec\n1. Fully-customizable RGB porprotion control.  \n2. Color cycle speed controller (faster->original) \n3. Light-sensitive resistor ADC ,detecting the background light for light quantity settings",
             "title": "Microprocessor Lab Final Project"
         },
         {
@@ -81,9 +81,9 @@
             "title": "Part3. It's time to change the color."
         },
         {
-            "location": "/univ_notes/mpslab/mpslab/#part4-more-idea-the-adc-of-light-sensitive",
+            "location": "/univ_notes/mpslab/mpslab/#part4-more-idea-the-adc-of-light-sensitive-resistor",
             "text": "",
-            "title": "Part4. More idea: the ADC of light-sensitive"
+            "title": "Part4. More idea: the ADC of light-sensitive resistor"
         }
     ]
 }
