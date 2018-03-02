@@ -7,9 +7,9 @@
 
 * Project name: The RGB Ambient light. <br />
 * Features: <br />
-1. Fully-customizable RGB porprotion control. <br />
-2. Color cycle speed controller (faster->original)<br />
-3. Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
+1.Fully-customizable RGB porprotion control. <br />
+2.Color cycle speed controller (faster->original)<br />
+3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
 
 ## Part0. Preparation and the origin of this idea.
 
