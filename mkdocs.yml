@@ -10,10 +10,13 @@ theme: 'material'
 pages:
     - Home: index.md
     - Learning notes:
-        - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
-        - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
         - Junior 1st sem. Intro. to Machine Learning: univ_notes/intro_ml/intro_ml.md
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
+        - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
+        - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
+        - CS Graduation Project:
+    - Extracurricular activities:
+        -
 
 extra:
     social:
@@ -21,5 +24,15 @@ extra:
           link: 'https://github.com/Alfons0329'
 extra_javascript:
     - '../site/assets/javascripts/analog_clock/main.js'
+theme:
+    name: 'material'
+    custom_dir: 'site/theme'
+    palette:
+        primary: 'green'
+        accent: 'light green'
+
+extra_css:
+    - stylesheets/dark_theme.css
+    - stylesheets/codehilite.css
 #extra plugins
 #others
