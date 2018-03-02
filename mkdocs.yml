@@ -29,7 +29,7 @@ extra:
         - type: 'github'
           link: 'https://github.com/Alfons0329'
 extra_css:
-    - stylesheets/dark_theme.css
-    - stylesheets/codehilite.css
+    - site/asstes/stylesheets/dark_theme.css
+    - site/asstes/stylesheets/codehilite.css
 #extra plugins
 #others
