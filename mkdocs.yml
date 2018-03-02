@@ -5,7 +5,13 @@ site_description: 'CS coding practice, university notes, life ,gaming ,travel an
 site_url: 'https://alfons0329.github.io/afhwu0329.github.io/'
 repo_url: 'https://github.com/Alfons0329/afhwu0329.github.io'
 #stylish components
-theme: 'material'
+theme:
+    name: 'material'
+    custom_dir: 'theme'
+    palette:
+        primary: 'green'
+        accent: 'light green'
+
 #site contents, which will be connected to the docs/ directories
 pages:
     - Home: index.md
@@ -24,12 +30,6 @@ extra:
           link: 'https://github.com/Alfons0329'
 extra_javascript:
     - '../site/assets/javascripts/analog_clock/main.js'
-theme:
-    name: 'material'
-    custom_dir: 'theme'
-    palette:
-        primary: 'green'
-        accent: 'light green'
 
 extra_css:
     - stylesheets/dark_theme.css
