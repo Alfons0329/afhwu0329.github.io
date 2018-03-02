@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-{% for nav_item in nav %}
-    {% if nav_item.children %}
-        {% for nav_item in nav_item.children %}
+
+    
     <url>
-     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
-     <lastmod>{{nav_item.update_date}}</lastmod>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io//</loc>
+     <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        {% endfor %}
-    {% else %}
+    
+
+    
+        
     <url>
-     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
-     <lastmod>{{nav_item.update_date}}</lastmod>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/intro_ml/intro_ml/</loc>
+     <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    {% endif %}
-{% endfor %}
+        
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/mpslab/mpslab/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/uav_autopilot/uav_autopilot/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/internet_security/internet_security/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
 </urlset>
