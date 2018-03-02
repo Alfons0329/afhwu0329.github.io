@@ -44,6 +44,16 @@
             "location": "/univ_notes/internet_security/internet_security/",
             "text": "",
             "title": "Junior 2nd sem. Internet Security"
+        },
+        {
+            "location": "/univ_notes/intro_ml/intro_ml/",
+            "text": "",
+            "title": "Junior 1st sem. Intro. to Machine Learning"
+        },
+        {
+            "location": "/univ_notes/mpslab/mpslab/",
+            "text": "",
+            "title": "Junior 1st sem. STM32 Microprocessor Embedded Lab"
         }
     ]
 }
