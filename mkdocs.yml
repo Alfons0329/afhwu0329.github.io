@@ -21,11 +21,8 @@ pages:
         - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
     - Programming practice:
         leetcode_OJ(New): univ_notes/programming_practice/leetcode_OJ/lcojindex.md
-
         #- CS Graduation Project:
     #- Extracurricular activities:
-
-
 extra:
     social:
         - type: 'github'
