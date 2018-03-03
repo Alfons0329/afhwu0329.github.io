@@ -37,11 +37,11 @@ typically written in the ARM Assembly, while the last five labs are written in C
 [GitHub repo for this final project](https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project)
 [Project demo video](https://www.youtube.com/watch?v=FdnTKmdjxIc)
 ### Part0. Origin of this idea and preparation
-* Origin of this idea
+* Origin of this idea <br />
 I once have the fully-customizable dynamic RGB LED backlit keyboard [SteelSeries APEXM 650](https://steelseries.com/gaming-keyboards/apex-m650) <br /> On account of having not much time in the end of semester(machine learning final project + compiler design final project.)
 My [teammate](https://github.com/clialice123) and I decided to do it.
 
-* Preparation of materials and tools for this project
+* Preparation of materials and tools for this project <br />
 1.A STM32L476RG Embedded board<br />
 2.Breadboard<br />
 3.4pin RGB LED*5 [Click here](https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234)<br />
@@ -337,8 +337,31 @@ case 4:
 ### Part4. More idea: the ADC of light-sensitive resistor
 The Earth is now facing the serve global warming, it is vital for us to construct a power saving model, consequently Alice and I came out the idea of using the
 ADC to detect the light intensity.<br />
+Concept of ADC configuration credit to [my classmate's hackMD]() (Add later)
 The stronger the intensity, the dimmer the light to be to saving the energy since this module is aimed for atmosphere night light. <br />
+[ADC Code is here](ADC.h)
 
+```c
+case 11:
+{
+	// light ADC mode for keypad key11
+	cur_state = LIGHT_MODE;
+	break;
+}
+
+if(cur_state == LIGHT_MODE)
+{
+	get_light_resistor();
+	light = 255-((resistor_value-REF_LIGHT)/10);
+	duty_cycle_R = light;
+	duty_cycle_G = light;
+	duty_cycle_B = light;
+	set_timer();
+	start_timer();
+}
+```
 ### Part5. Done all.
 
-Really thanks to my teammate [chialice123](https://github.com/chialice123) who helps me alot during the semester and in the final project, and [vava24680](https://github.com/vava24680) for teaching me some concepts of ADC configuration.
+Really thanks to my teammate [chialice123](https://github.com/chialice123) who helps me alot during the semester and in the final project making the project score over 90 and overall semester score to be 95 (93 original and +2 adjust), and [vava24680](https://github.com/vava24680) for teaching me some concepts of ADC configuration.
+
+[Project demo video](https://www.youtube.com/watch?v=FdnTKmdjxIc)
