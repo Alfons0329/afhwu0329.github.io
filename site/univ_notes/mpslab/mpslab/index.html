@@ -544,8 +544,48 @@ My <a href="https://github.com/clialice123">teammate</a> and I decided to do it.
 2.Connect separately to the GPIO pin on the STM32 providing the capability of PWM output.
 3.Connect the keypad to the STM32
 4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter)
-5.The GPIO Connection is like</p>
-<pre><code>
+5.The GPIO Connection is like
+6.Overall GPIO port configuration</p>
+<pre><code class="C">GPIOB-&gt;ASCR |= 0b1; //turn on the analog controller in PB0
+
+void keypad_init()//keypad along with GPIO Init together
+{
+
+    RCC-&gt;AHB2ENR   |= 0b00000000000000000000000000000111; //open port A,B,C
+                      //10987654321098765432109876543210
+    GPIOC-&gt;MODER   &amp;= 0b11111111111111111111111100000000; //pc 3 2 1 0 as input of keypad
+    GPIOC-&gt;MODER   |= 0b00000000000000000000000001010101;
+    GPIOC-&gt;PUPDR   &amp;= 0b11111111111111111111111100000000;
+    GPIOC-&gt;PUPDR   |= 0b00000000000000000000000001010101;
+    GPIOC-&gt;OSPEEDR &amp;= 0b11111111111111111111111100000000;
+    GPIOC-&gt;OSPEEDR |= 0b00000000000000000000000001010101;
+    GPIOC-&gt;ODR     |= 0b00000000000000000000000000001111;
+                      //10987654321098765432109876543210
+    GPIOB-&gt;MODER   &amp;= 0b11111111111111110000000011111111; //pb 7 6 5 4 as output of keypad
+    GPIOB-&gt;PUPDR   &amp;= 0b11111111111111110000000011111111;
+    GPIOB-&gt;PUPDR   |= 0b00000000000000001010101000000000;
+
+
+}
+
+void GPIO_init_AF() //GPIO Alternate Function Init
+{
+    /***************pin and alternate function***************
+     * PB3 + AF1 which is corresponding to TIM2_CH2 RED
+     * PA1 + AF2 which is corresponding to TIM5_CH2 GREEN
+     * PA6 + AF2 which is corresponding to TIM3_CH1 BLUE
+     ********************************************************/
+                       //10987654321098765432109876543210
+    GPIOA-&gt;MODER    &amp;= 0b11111111111111111100111111110011;
+    GPIOA-&gt;MODER    |= 0b00000000000000000010000000001000;
+    //PortA Pin        //10987654321098765432109876543210
+    GPIOA-&gt;AFR[0]   =  0b00000010000100000000000000100000;
+
+    //PB3 TIM2_CH2
+    GPIOB-&gt;AFR[0]   &amp;= ~GPIO_AFRL_AFSEL3;//AFR[0] LOW
+    GPIOB-&gt;AFR[0]   |= (0b0001&lt;&lt;GPIO_AFRL_AFSEL3_Pos);//PB3 Alternate function mode
+}
+
 </code></pre>
 
 <h2 id="part2-key-factor-of-this-project">Part2. Key factor of this project</h2>

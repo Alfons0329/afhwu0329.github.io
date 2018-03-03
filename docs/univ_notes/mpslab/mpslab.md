@@ -49,9 +49,51 @@ My [teammate](https://github.com/clialice123) and I decided to do it.
 3.Connect the keypad to the STM32
 4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter)
 5.The GPIO Connection is like
-```
+6.Overall GPIO port configuration
+```C
+GPIOB->ASCR |= 0b1; //turn on the analog controller in PB0
+
+void keypad_init()//keypad along with GPIO Init together
+{
+
+	RCC->AHB2ENR   |= 0b00000000000000000000000000000111; //open port A,B,C
+				      //10987654321098765432109876543210
+	GPIOC->MODER   &= 0b11111111111111111111111100000000; //pc 3 2 1 0 as input of keypad
+	GPIOC->MODER   |= 0b00000000000000000000000001010101;
+	GPIOC->PUPDR   &= 0b11111111111111111111111100000000;
+	GPIOC->PUPDR   |= 0b00000000000000000000000001010101;
+	GPIOC->OSPEEDR &= 0b11111111111111111111111100000000;
+	GPIOC->OSPEEDR |= 0b00000000000000000000000001010101;
+	GPIOC->ODR     |= 0b00000000000000000000000000001111;
+	                  //10987654321098765432109876543210
+	GPIOB->MODER   &= 0b11111111111111110000000011111111; //pb 7 6 5 4 as output of keypad
+	GPIOB->PUPDR   &= 0b11111111111111110000000011111111;
+	GPIOB->PUPDR   |= 0b00000000000000001010101000000000;
+
+
+}
+
+void GPIO_init_AF() //GPIO Alternate Function Init
+{
+	/***************pin and alternate function***************
+	 * PB3 + AF1 which is corresponding to TIM2_CH2 RED
+	 * PA1 + AF2 which is corresponding to TIM5_CH2 GREEN
+	 * PA6 + AF2 which is corresponding to TIM3_CH1 BLUE
+	 ********************************************************/
+					   //10987654321098765432109876543210
+	GPIOA->MODER   	&= 0b11111111111111111100111111110011;
+	GPIOA->MODER   	|= 0b00000000000000000010000000001000;
+	//PortA Pin		   //10987654321098765432109876543210
+	GPIOA->AFR[0]	=  0b00000010000100000000000000100000;
+
+	//PB3 TIM2_CH2
+	GPIOB->AFR[0] 	&= ~GPIO_AFRL_AFSEL3;//AFR[0] LOW
+	GPIOB->AFR[0] 	|= (0b0001<<GPIO_AFRL_AFSEL3_Pos);//PB3 Alternate function mode
+}
 
 ```
+
+
 
 ## Part2. Key factor of this project
 

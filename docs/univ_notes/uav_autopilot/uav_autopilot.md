@@ -1,6 +1,5 @@
 # Lab1. Introduction to Open CV and installation Mar 01, 2018
 [Lab1 pdf](Lab1.pdf)
-
 ## Install Open CV
 * In the Ubuntu 16.04 64bit
 Required dependencies are the followings <br />
@@ -34,7 +33,10 @@ target_link_libraries( <project_name> ${OpenCV_LIBS} )
 ```
 g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
 ```
-## Today's algorithm
+## Today's course contents
+Basic understanding of image processing and image data format.
+[Course week1 pdf](DIP_1.pdf)
+
 [Bilinear Interpolation](https://en.wikipedia.org/wiki/Bilinear_interpolation)
 Basically ,this is an algorithm aimed for image transformation in this lab. <br />
 The interpolated value of a point is a reversely-weighted average of the neighboring points, <br />
