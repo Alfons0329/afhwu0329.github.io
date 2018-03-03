@@ -5,7 +5,12 @@ site_description: 'CS coding practice, university notes, life ,gaming ,travel an
 site_url: 'https://alfons0329.github.io/afhwu0329.github.io/'
 repo_url: 'https://github.com/Alfons0329/afhwu0329.github.io'
 #stylish components
-theme: 'material'
+theme:
+    name: material
+    palette:
+        primary: 'Blue'
+    feature:
+        tabs: false
 #site contents, which will be connected to the docs/ directories
 pages:
     - Home: index.md
@@ -26,4 +31,24 @@ extra:
     #- site/assets/stylesheets/dark_theme.css
     #- site/assets/stylesheets/codehilite.css
 #extra plugins
-#others
+markdown_extensions:
+    - admonition
+    - codehilite(guess_lang=true,linenums=true)
+    - toc(permalink=true)
+    - footnotes
+    - meta
+    - def_list
+    - pymdownx.arithmatex
+    - pymdownx.betterem(smart_enable=all)
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_png
+        - pymdownx.inlinehilite
+        - pymdownx.magiclink
+        - pymdownx.mark
+        - pymdownx.smartsymbols
+        - pymdownx.superfences
+        - pymdownx.tasklist
+    - pymdownx.tilde

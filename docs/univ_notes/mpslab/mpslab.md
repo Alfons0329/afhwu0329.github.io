@@ -3,7 +3,6 @@ Fall 2017<br />
 Lecturer: [S.L. Tsao](https://www.cs.nctu.edu.tw/cswebsite/members/detail/sltsao) in CS@NCTU <br />
 Time: 5EF @EDB27_NCTU 3IJK @EC222_NCTU<br />
 
-##
 ## Microprocessor Lab Final Project
 
 * Course Introduction <br />
@@ -50,12 +49,13 @@ My [teammate](https://github.com/clialice123) and I decided to do it.
 5.Some jumper lines
 
 ### Part1. Circuit connection
-1.Parallel connection of 5 RGB LEDs on the breadboard.
-2.Connect separately to the GPIO pin on the STM32 providing the capability of PWM output.
-3.Connect the keypad to the STM32
-4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter)
-5.The GPIO Connection is like
-6.Overall GPIO port configuration
+1.Parallel connection of 5 RGB LEDs on the breadboard.<br />
+2.Connect separately to the GPIO pin on the STM32 providing the capability of PWM output.<br />
+3.Connect the keypad to the STM32.<br />
+4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter).<br />
+5.The GPIO Connection is like.<br />
+6.Overall GPIO port configuration.<br />
+
 ```c
 GPIOB->ASCR |= 0b1; //turn on the analog controller in PB0
 
@@ -99,11 +99,9 @@ void GPIO_init_AF() //GPIO Alternate Function Init
 
 ```
 
+### Part2. Key idea of this project
 
-
-### Part2. Key factor of this project
-
-The PWM,
+The PWM(Pulse Width Modulation) [Wiki](https://en.wikipedia.org/wiki/Pulse-width_modulation)
 (c code here)
 
 ### Part3. It's time to change the color.
