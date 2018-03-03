@@ -28,8 +28,8 @@ extra:
         - type: 'github'
           link: 'https://github.com/Alfons0329'
 extra_css:
-    - theme/extra.css
-    - theme/extra.scss
+    - docs/theme/extra.css
+    - docs/theme/extra.scss
     #- site/assets/stylesheets/dark_theme.css
     #- site/assets/stylesheets/codehilite.css
 #extra plugins
