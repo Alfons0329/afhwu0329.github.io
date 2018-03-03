@@ -61,6 +61,10 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     
     
+      <link rel="stylesheet" href="../../../theme/extra.css">
+    
+      <link rel="stylesheet" href="../../../theme/extra.scss">
+    
     
   </head>
   
@@ -539,22 +543,23 @@ typically written in the ARM Assembly, while the last five labs are written in C
 1.Fully-customizable RGB proportion control. <br />
 2.Color cycle speed controller (faster-&gt;original)<br />
 3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
-<a href="https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project">GitHub repo for this final project</a></li>
+<a href="https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project">GitHub repo for this final project</a>
+<a href="https://www.youtube.com/watch?v=FdnTKmdjxIc">Project demo video</a></li>
 </ul>
 <h3 id="part0-origin-of-this-idea-and-preparation">Part0. Origin of this idea and preparation</h3>
 <ul>
 <li>
 <p>Origin of this idea
-I once have the fully-customizable dynamic RGB LED backlit keyboard <a href="https://steelseries.com/gaming-keyboards/apex-m650">SteelSeries APEXM 650</a>on account of having not much time in the end of semester(machine learning final project + compiler design final project.)
+I once have the fully-customizable dynamic RGB LED backlit keyboard <a href="https://steelseries.com/gaming-keyboards/apex-m650">SteelSeries APEXM 650</a> <br /> On account of having not much time in the end of semester(machine learning final project + compiler design final project.)
 My <a href="https://github.com/clialice123">teammate</a> and I decided to do it.</p>
 </li>
 <li>
 <p>Preparation of materials and tools for this project
-1.A STM32L476RG Embedded board
-2.Breadboard
-3.4pin RGB LED*5 <a href="https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234">Click here</a>
-4.R1000 Resistor
-5.Some jumper lines</p>
+1.A STM32L476RG Embedded board<br />
+2.Breadboard<br />
+3.4pin RGB LED*5 <a href="https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234">Click here</a><br />
+4.R1000 Resistor<br />
+5.Some Dupont cables<br /></p>
 </li>
 </ul>
 <h3 id="part1-circuit-connection">Part1. Circuit connection</h3>
@@ -646,7 +651,9 @@ My <a href="https://github.com/clialice123">teammate</a> and I decided to do it.
 
 <h3 id="part2-key-idea-of-this-project">Part2. Key idea of this project</h3>
 <p>The PWM(Pulse Width Modulation) <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">Wiki</a>
-(c code here)</p>
+PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the brighter of the certain part of RGB(either one) will do.
+The Pulse Width can be used to simulate the analog output like this.
+![]</p>
 <h3 id="part3-its-time-to-change-the-color">Part3. It's time to change the color.</h3>
 <h3 id="part4-more-idea-the-adc-of-light-sensitive-resistor">Part4. More idea: the ADC of light-sensitive resistor</h3>
                 

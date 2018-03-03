@@ -27,7 +27,9 @@ extra:
     social:
         - type: 'github'
           link: 'https://github.com/Alfons0329'
-#extra_css:
+extra_css:
+    - theme/extra.css
+    - theme/extra.scss
     #- site/assets/stylesheets/dark_theme.css
     #- site/assets/stylesheets/codehilite.css
 #extra plugins

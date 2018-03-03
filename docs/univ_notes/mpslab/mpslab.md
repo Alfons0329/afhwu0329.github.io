@@ -35,18 +35,18 @@ typically written in the ARM Assembly, while the last five labs are written in C
 2.Color cycle speed controller (faster->original)<br />
 3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
 [GitHub repo for this final project](https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project)
-
+[Project demo video](https://www.youtube.com/watch?v=FdnTKmdjxIc)
 ### Part0. Origin of this idea and preparation
 * Origin of this idea
-I once have the fully-customizable dynamic RGB LED backlit keyboard [SteelSeries APEXM 650](https://steelseries.com/gaming-keyboards/apex-m650)on account of having not much time in the end of semester(machine learning final project + compiler design final project.)
+I once have the fully-customizable dynamic RGB LED backlit keyboard [SteelSeries APEXM 650](https://steelseries.com/gaming-keyboards/apex-m650) <br /> On account of having not much time in the end of semester(machine learning final project + compiler design final project.)
 My [teammate](https://github.com/clialice123) and I decided to do it.
 
 * Preparation of materials and tools for this project
-1.A STM32L476RG Embedded board
-2.Breadboard
-3.4pin RGB LED*5 [Click here](https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234)
-4.R1000 Resistor
-5.Some jumper lines
+1.A STM32L476RG Embedded board<br />
+2.Breadboard<br />
+3.4pin RGB LED*5 [Click here](https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234)<br />
+4.R1000 Resistor<br />
+5.Some Dupont cables<br />
 
 ### Part1. Circuit connection
 1.Parallel connection of 5 RGB LEDs on the breadboard.<br />
@@ -102,8 +102,9 @@ void GPIO_init_AF() //GPIO Alternate Function Init
 ### Part2. Key idea of this project
 
 The PWM(Pulse Width Modulation) [Wiki](https://en.wikipedia.org/wiki/Pulse-width_modulation)
-(c code here)
-
+PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the brighter of the certain part of RGB(either one) will do.
+The Pulse Width can be used to simulate the analog output like this.
+![]
 ### Part3. It's time to change the color.
 
 ### Part4. More idea: the ADC of light-sensitive resistor
