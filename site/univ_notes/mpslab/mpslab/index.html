@@ -331,8 +331,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part0-preparation-and-the-origin-of-this-idea" title="Part0. Preparation and the origin of this idea." class="md-nav__link">
-    Part0. Preparation and the origin of this idea.
+  <a href="#part0-origin-of-this-idea-and-preparation" title="Part0. Origin of this idea and preparation" class="md-nav__link">
+    Part0. Origin of this idea and preparation
   </a>
   
 </li>
@@ -433,8 +433,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part0-preparation-and-the-origin-of-this-idea" title="Part0. Preparation and the origin of this idea." class="md-nav__link">
-    Part0. Preparation and the origin of this idea.
+  <a href="#part0-origin-of-this-idea-and-preparation" title="Part0. Origin of this idea and preparation" class="md-nav__link">
+    Part0. Origin of this idea and preparation
   </a>
   
 </li>
@@ -504,10 +504,15 @@ To briefly understand the ARM Assembly, how to write C code in the embedded deve
 <a href="http://www.st.com/en/microcontrollers/stm32l476rg.html">Detailed specs</a> <br /></p>
 </li>
 <li>
-<p>Lab project and final project <br />
-There are 10 labs in this semester on a weekly basis, the first five focus on basic operation of ARM Assembly, namely the lab assignments are
-typically written in the ARM Assembly, while the last five labs are written in C language, but a embedded-like C language.</p>
+<p>IDE for this course
+<strong>Eclipse  AC6 System Workbench for STM32 where JRE7 is required in your system</strong></p>
 </li>
+</ul>
+<p>1.Download from <a href="http://www.ac6-tools.com/downloads/SW4STM32/install_sw4stm32_linux_64bits-v2.2.run">Here for Linux version</a></p>
+<ul>
+<li>Lab project and final project <br />
+There are 10 labs in this semester on a weekly basis, the first five focus on basic operation of ARM Assembly, namely the lab assignments are
+typically written in the ARM Assembly, while the last five labs are written in C language, but a embedded-like C language.</li>
 </ul>
 <h2 id="about-my-final-project">About my final project</h2>
 <ul>
@@ -518,9 +523,31 @@ typically written in the ARM Assembly, while the last five labs are written in C
 3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
 <a href="https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project">GitHub repo for this final project</a></li>
 </ul>
-<h2 id="part0-preparation-and-the-origin-of-this-idea">Part0. Preparation and the origin of this idea.</h2>
-<p>I once have the fully-customizable dynamic RGB LED backlit keyboard <a href="https://steelseries.com/gaming-keyboards/apex-m650">SteelSeries APEXM 650</a></p>
+<h2 id="part0-origin-of-this-idea-and-preparation">Part0. Origin of this idea and preparation</h2>
+<ul>
+<li>
+<p>Origin of this idea
+I once have the fully-customizable dynamic RGB LED backlit keyboard <a href="https://steelseries.com/gaming-keyboards/apex-m650">SteelSeries APEXM 650</a>on account of having not much time in the end of semester(machine learning final project + compiler design final project.)
+My <a href="https://github.com/clialice123">teammate</a> and I decided to do it.</p>
+</li>
+<li>
+<p>Preparation of materials and tools for this project
+1.A STM32L476RG Embedded board
+2.Breadboard
+3.4pin RGB LED*5 <a href="https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234">Click here</a>
+4.R1000 Resistor
+5.Some jumper lines</p>
+</li>
+</ul>
 <h2 id="part1-circuit-connection">Part1. Circuit connection</h2>
+<p>1.Parallel connection of 5 RGB LEDs on the breadboard.
+2.Connect separately to the GPIO pin on the STM32 providing the capability of PWM output.
+3.Connect the keypad to the STM32
+4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter)
+5.The GPIO Connection is like</p>
+<pre><code>
+</code></pre>
+
 <h2 id="part2-key-factor-of-this-project">Part2. Key factor of this project</h2>
 <p>The PWM,
 (c code here)</p>
