@@ -19,6 +19,9 @@ pages:
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
         - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
+    - Programming practice:
+        leetcode_OJ(New): Programming/leetcode_OJ
+        leetcode_OJ(Old blog, from google blogger): 'http://alfonshwu.blogspot.tw/2018/02/'
         #- CS Graduation Project:
     #- Extracurricular activities:
 
