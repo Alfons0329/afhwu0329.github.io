@@ -621,60 +621,7 @@
 41
 42
 43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83
-84
-85
-86
-87
-88
-89
-90
-91
-92
-93
-94
-95
-96
-97</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//Runtime Error (stack overflow)</span>
+44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//Runtime Error (stack overflow)</span>
 <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">can</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
@@ -718,11 +665,62 @@
 
     <span class="p">}</span>
 <span class="p">};</span>
-<span class="o">*</span> <span class="err">正確思路，參考了討論區提示：由於</span><span class="n">R只能向右</span><span class="err">，而</span><span class="n">L只能向左</span><span class="err">，因此我們可以透過兩個指標在兩字串中跑，找到第一個非</span><span class="n">X的字元</span><span class="err">，若不一樣則必然無法替換，而要使得</span><span class="n">R能夠替換成結果</span>
-<span class="err">唯有</span><span class="n">start</span> <span class="err">的</span> <span class="n">R</span> <span class="err">較</span> <span class="n">end</span> <span class="err">的</span> <span class="n">R</span> <span class="err">左側，才有機會向右，若</span><span class="n">R已經太右邊了</span><span class="err">（亦即超出</span><span class="n">end的R</span> <span class="err">）</span> <span class="err">便是換不過去了，同理可得</span><span class="n">L的概念</span>
+</pre></div>
+</td></tr></table>
 
-<span class="err">```</span><span class="n">cpp</span>
-<span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<ul>
+<li>正確思路，參考了討論區提示：由於R只能向右，而L只能向左，因此我們可以透過兩個指標在兩字串中跑，找到第一個非X的字元，若不一樣則必然無法替換，而要使得R能夠替換成結果
+唯有start 的 R 較 end 的 R 左側，才有機會向右，若R已經太右邊了（亦即超出end的R ） 便是換不過去了，同理可得L的概念</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">can</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
     <span class="kt">bool</span> <span class="nf">canTransform</span><span class="p">(</span><span class="n">string</span> <span class="n">start</span><span class="p">,</span> <span class="n">string</span> <span class="n">end</span><span class="p">)</span>
