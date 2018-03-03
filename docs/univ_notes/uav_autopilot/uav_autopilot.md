@@ -1,6 +1,11 @@
-# Lab1. Introduction to Open CV and installation Mar 01, 2018
+# UAV Drone autopilot, computer vision and image processing.
+Spring 2018<br />
+Lecturer: [K.W. Chen](https://www.cs.nctu.edu.tw/cswebsite/members/detail/kuanwen) in CS@NCTU <br />
+Time: 4IJK @EC330_NCTU<br />
+
+## Lab1. Introduction to Open CV and installation Mar 01, 2018
 [Lab1 pdf](Lab1.pdf)
-## Install Open CV
+### Install Open CV
 * In the Ubuntu 16.04 64bit
 Required dependencies are the followings <br />
 1.Git <br />
@@ -33,7 +38,7 @@ target_link_libraries( <project_name> ${OpenCV_LIBS} )
 ```
 g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
 ```
-## Today's course contents
+### Today's course contents
 Basic understanding of image processing and image data format.
 [Course week1 pdf](DIP_1.pdf)
 

@@ -1,4 +1,10 @@
-# Microprocessor Lab Final Project
+# Microprocessor Lab
+Fall 2017<br />
+Lecturer: [S.L. Tsao](https://www.cs.nctu.edu.tw/cswebsite/members/detail/sltsao) in CS@NCTU <br />
+Time: 5EF @EDB27_NCTU 3IJK @EC222_NCTU<br />
+
+##
+## Microprocessor Lab Final Project
 
 * Course Introduction <br />
 This course mainly focus on the embedded system understanding, and we use the ARM microarchitecture in this semester.
@@ -22,7 +28,7 @@ There are 10 labs in this semester on a weekly basis, the first five focus on ba
 typically written in the ARM Assembly, while the last five labs are written in C language, but a embedded-like C language.
 
 
-## About my final project
+### About my final project
 
 * Project name: The RGB Ambient light. <br />
 * Features: <br />
@@ -31,7 +37,7 @@ typically written in the ARM Assembly, while the last five labs are written in C
 3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings<br />
 [GitHub repo for this final project](https://github.com/Alfons0329/MPSLab_Fall_2017/tree/master/Final_Project)
 
-## Part0. Origin of this idea and preparation
+### Part0. Origin of this idea and preparation
 * Origin of this idea
 I once have the fully-customizable dynamic RGB LED backlit keyboard [SteelSeries APEXM 650](https://steelseries.com/gaming-keyboards/apex-m650)on account of having not much time in the end of semester(machine learning final project + compiler design final project.)
 My [teammate](https://github.com/clialice123) and I decided to do it.
@@ -43,7 +49,7 @@ My [teammate](https://github.com/clialice123) and I decided to do it.
 4.R1000 Resistor
 5.Some jumper lines
 
-## Part1. Circuit connection
+### Part1. Circuit connection
 1.Parallel connection of 5 RGB LEDs on the breadboard.
 2.Connect separately to the GPIO pin on the STM32 providing the capability of PWM output.
 3.Connect the keypad to the STM32
@@ -95,11 +101,11 @@ void GPIO_init_AF() //GPIO Alternate Function Init
 
 
 
-## Part2. Key factor of this project
+### Part2. Key factor of this project
 
 The PWM,
 (c code here)
 
-## Part3. It's time to change the color.
+### Part3. It's time to change the color.
 
-## Part4. More idea: the ADC of light-sensitive resistor
+### Part4. More idea: the ADC of light-sensitive resistor
