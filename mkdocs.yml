@@ -5,13 +5,7 @@ site_description: 'CS coding practice, university notes, life ,gaming ,travel an
 site_url: 'https://alfons0329.github.io/afhwu0329.github.io/'
 repo_url: 'https://github.com/Alfons0329/afhwu0329.github.io'
 #stylish components
-theme:
-    name: 'material'
-    custom_dir: 'theme'
-    palette:
-        primary: 'green'
-        accent: 'light green'
-
+theme: 'material'
 #site contents, which will be connected to the docs/ directories
 pages:
     - Home: index.md
