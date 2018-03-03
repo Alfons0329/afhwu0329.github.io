@@ -102,9 +102,243 @@ void GPIO_init_AF() //GPIO Alternate Function Init
 ### Part2. Key idea of this project
 
 The PWM(Pulse Width Modulation) [Wiki](https://en.wikipedia.org/wiki/Pulse-width_modulation)
-PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the brighter of the certain part of RGB(either one) will do.
-The Pulse Width can be used to simulate the analog output like this.
-![]
+PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the brighter of the certain part of RGB(either one) will do.<br />
+The Pulse Width can be used to simulate the analog output like this.<br />
+![PWM Video](final_project_pics/PWM.MOV)<br />
+The same is true of other 3 colors, configuring with the following code and expanations.<br />
+* Basic logic for this project <br />
+Initialize system -> PWM and timer configuration -> Presskey -> Color changing scheme along with ADC light intensity detection for power saving.
+```c
+int keypad_value[4][4] = {{0,1,2,3},
+						  {4,5,6,7},
+						  {8,9,10,11},
+						  {12,13,14,15}};
+```
+keypad explanation <br />
+0 red+<br />
+1 green+<br />
+2 blue+<br />
+3 cycle_speed+<br />
+4 red-<br />
+5 green-<br />
+6 blue-<br />
+7 customize mode(0 1 2 4 5 6 applicable)<br />
+8 only red<br />
+9 only green<br />
+10 only blue<br />
+11 light ADC mode<br />
+12 red+greren<br />
+13 green+blue<br />
+14 red+blue<br />
+15 off system, remember the last state, s.t. user configuration is not lost after shut down<br />
+* Setup the PWM channel<br />
+Refer to [this pdf](https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/STM32%20Datasheet.pdf) for PWM channel-GPIO port configuration, each port has its corresponding PWM channel and built-in system clock, be sure to make it right! <br />
+
+More understanding and details are written in comments of the following source code.<br />
+Please refer to **p.1006-1039**[this pdf](https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/Cortex%20M4%20STM32%20Manual.pdf) to see how to config the PWM cycle with certain registers in timer.
+```c
+void Timer_init() //Use 3
+{
+	// PA3 + AF1 which is corresponding to TIM2_CH1
+	// PA1 + AF2 which is corresponding to TIM5_CH2
+	// PA6 + AF2 which is corresponding to TIM3_CH1
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM2EN;
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM3EN;
+	RCC->APB1ENR1 |= RCC_APB1ENR1_TIM5EN;
+
+	//setting for timer 2
+	TIM2->CR1 &= 0x0000; //p1027 Turned on the counter as the count up mode
+	TIM2->ARR = (uint32_t)SECOND_SLICE;//Reload value
+	TIM2->PSC = (uint32_t)COUNT_UP;//Prescaler
+	TIM2->EGR = TIM_EGR_UG; 	//update the counter again p1035
+
+	//setting for timer 3
+	TIM3->CR1 &= 0x0000; //p1027 Turned on the counter as the count up mode
+	TIM3->ARR = (uint32_t)SECOND_SLICE;//Reload value
+	TIM3->PSC = (uint32_t)COUNT_UP;//Prescaler
+	TIM3->EGR = TIM_EGR_UG;//Reinitialize the counter
+
+	//setting for timer 5
+	TIM5->CR1 &= 0x0000; //p1027 Turned on the counter as the count up mode
+	TIM5->ARR = (uint32_t)SECOND_SLICE;//Reload value
+	TIM5->PSC = (uint32_t)COUNT_UP;//Prescaler
+	TIM5->EGR = TIM_EGR_UG;//Reinitialize the counter
+}
+
+
+void PWM_channel_init()
+{
+	/***********************setting for the TIM2_CH2 RED**************************/
+	// PB3 + AF1 which is corresponding to TIM2_CH2 RED
+	//Output compare 2 mode
+	TIM2->CCMR1 &= ~TIM_CCMR1_OC2M;
+	//110: PWM mode 1: TIMx_CNT<TIMx_CCR2-->active, or inactive
+	TIM2->CCMR1 |= (0b0110 << TIM_CCMR1_OC2M_Pos);
+
+	//Output Compare 2 Preload Enable
+	TIM2->CCMR1 &= ~TIM_CCMR1_OC2PE;//OCxPE
+	//1: enable TIMx_CCR1 Preload
+	TIM2->CCMR1 |= (0b1 << TIM_CCMR1_OC2PE_Pos);
+	//enable auto reload pre-load
+	TIM2->CR1 |= TIM_CR1_ARPE;
+
+	//duty cycle initial 50 (CCR2/ARR)
+	//TIM2->CCR2 = duty_cycle_R;
+	//enable output compare
+	TIM2->CCER |= TIM_CCER_CC2E;
+
+	/***********************setting for the TIM5_CH2 GREEN**************************/
+	// PA1 + AF2 which is corresponding to TIM5_CH2 GREEN
+	//Output compare 2 mode
+	TIM5->CCMR1 &= ~TIM_CCMR1_OC2M;
+	//110: PWM mode 1: TIMx_CNT<TIMx_CCR2-->active, or inactive
+	TIM5->CCMR1 |= (0b0110 << TIM_CCMR1_OC2M_Pos);
+
+	//Output Compare 2 Preload Enable
+	TIM5->CCMR1 &= ~TIM_CCMR1_OC2PE;//OCxPE
+	//1: enable TIMx_CCR1 Preload
+	TIM5->CCMR1 |= (0b1 << TIM_CCMR1_OC2PE_Pos);
+	//enable auto reload pre-load
+	TIM5->CR1 |= TIM_CR1_ARPE;
+
+	//duty cycle initial 50 (CCR2/ARR)
+	//TIM5->CCR2 = duty_cycle_G;
+	//enable output compare
+	TIM5->CCER |= TIM_CCER_CC2E;
+
+	/***********************setting for the TIM3_CH1 BLUE**************************/
+	// PA6 + AF2 which is corresponding to TIM3_CH1 BLUE
+	//Output compare 2 mode
+	TIM3->CCMR1 &= ~TIM_CCMR1_OC1M;
+	//110: PWM mode 1: TIMx_CNT<TIMx_CCR2-->active, or inactive
+	TIM3->CCMR1 |= (0b0110 << TIM_CCMR1_OC1M_Pos);
+
+	//Output Compare 2 Preload Enable
+	TIM3->CCMR1 &= ~TIM_CCMR1_OC1PE;//OCxPE
+	//1: enable TIMx_CCR1 Preload
+	TIM3->CCMR1 |= (0b1 << TIM_CCMR1_OC1PE_Pos);
+	//enable auto reload pre-load
+	TIM3->CR1 |= TIM_CR1_ARPE;
+
+	//duty cycle initial 50 (CCR2/ARR)
+	//TIM3->CCR1 = duty_cycle_B;
+	//enable output compare
+	TIM3->CCER |= TIM_CCER_CC1E;
+
+}
+
+```
+*
 ### Part3. It's time to change the color.
 
+* Initialize to different duty cycle. <br />
+Each color has its own PWM cycle, by setting the PWM cycle differently, we will be able to interleave 3 colors
+and mixing them together since there pulse waves have "time shifting (or say phase shifting)" to each other. <br />
+```c
+
+#define RED_START 10
+#define GREEN_START 91
+#define BLUE_START 172
+
+duty_cycle_R = RED_START;
+duty_cycle_G = GREEN_START;
+duty_cycle_B = BLUE_START;
+
+int main()
+{
+	//use the time delay mode to make the interleaving and the color changing scheme
+	fpu_enable();
+	keypad_init();
+	GPIO_init_AF();
+	Timer_init();
+	configureADC();
+	startADC();
+	duty_cycle_R = RED_START;
+	duty_cycle_G = GREEN_START;
+	duty_cycle_B = BLUE_START;
+	cur_state = CYCLE_MODE;
+	while(1)
+	{
+		PWM_channel_init();
+		chromatic_scheme(keypad_scan());
+	}
+	return 0;
+}
+
+```
+
+* Increase, decrease and cycle. <br />
+
+state_color is the state indicating whether to increase the pulse cycle or decrease, with an view to simulating the sin-wave-like phase wave. <br />
+
+```c
+void cycle_mode(int delay_time){
+	PWM_channel_init();
+	if (state_R){
+		if (duty_cycle_R > SECOND_SLICE){
+			state_R = 0;
+		} else {
+			duty_cycle_R += 20;
+		}
+	} else {
+		if (duty_cycle_R < 20){
+			state_R = 1;
+		} else {
+			duty_cycle_R -= 20;
+		}
+	}
+
+	if (state_G){
+		if (duty_cycle_G > SECOND_SLICE){
+			state_G = 0;
+	} else {
+		duty_cycle_G += 40;
+		}
+	} else {
+		if (duty_cycle_G < 40){
+			state_G = 1;
+		} else {
+			duty_cycle_G -= 40;
+		}
+	}
+
+	if (state_B){
+		if (duty_cycle_B > SECOND_SLICE){
+			state_B = 0;
+		} else {
+			duty_cycle_B += 50;
+		}
+	} else {
+		if (duty_cycle_B < 50){
+			state_B = 1;
+		} else {
+			duty_cycle_B -= 50;
+		}
+	}
+	set_timer();
+	start_timer();
+	delay_ms(delay_time);
+}
+```
+
+* Customizable mode <br />
+If it is in the customize mode, we are able to increase the proportion of color, to achieve that, just increase/decrease the duty cycle of that color. DELTA_VALUE is used to adjust the amount of duty cycle applied in PWM mode.
+
+```c
+case 4:
+{
+	if(duty_cycle_R > DELTA_VALUE)
+		duty_cycle_R -= DELTA_VALUE; (or add the DELTA_VALUE)
+	else
+		duty_cycle_R = 0;
+	break;
+}
+```
 ### Part4. More idea: the ADC of light-sensitive resistor
+The Earth is now facing the serve global warming, it is vital for us to construct a power saving model, consequently Alice and I came out the idea of using the
+ADC to detect the light intensity.<br />
+The stronger the intensity, the dimmer the light to be to saving the energy since this module is aimed for atmosphere night light. <br />
+
+### Part5. Done all.
+
+Really thanks to my teammate [chialice123](https://github.com/chialice123) who helps me alot during the semester and in the final project, and [vava24680](https://github.com/vava24680) for teaching me some concepts of ADC configuration.
