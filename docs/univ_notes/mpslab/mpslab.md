@@ -104,7 +104,7 @@ void GPIO_init_AF() //GPIO Alternate Function Init
 The PWM(Pulse Width Modulation) [Wiki](https://en.wikipedia.org/wiki/Pulse-width_modulation)
 PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the brighter of the certain part of RGB(either one) will do.<br />
 The Pulse Width can be used to simulate the analog output like this.<br />
-![PWM Video](final_project_pics/PWM.MOV)<br />
+[PWM Video](final_project_pics/PWM.MOV)<br />
 The same is true of other 3 colors, configuring with the following code and expanations.<br />
 * Basic logic for this project <br />
 Initialize system -> PWM and timer configuration -> Presskey -> Color changing scheme along with ADC light intensity detection for power saving.
@@ -135,7 +135,7 @@ keypad explanation <br />
 Refer to [this pdf](https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/STM32%20Datasheet.pdf) for PWM channel-GPIO port configuration, each port has its corresponding PWM channel and built-in system clock, be sure to make it right! <br />
 
 More understanding and details are written in comments of the following source code.<br />
-Please refer to **p.1006-1039**[this pdf](https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/Cortex%20M4%20STM32%20Manual.pdf) to see how to config the PWM cycle with certain registers in timer.
+Please refer to **p.1006-1039** of [this pdf](https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/Cortex%20M4%20STM32%20Manual.pdf) to see how to config the PWM cycle with certain registers in timer.
 ```c
 void Timer_init() //Use 3
 {
@@ -268,7 +268,6 @@ int main()
 ```
 
 * Increase, decrease and cycle. <br />
-
 state_color is the state indicating whether to increase the pulse cycle or decrease, with an view to simulating the sin-wave-like phase wave. <br />
 
 ```c
