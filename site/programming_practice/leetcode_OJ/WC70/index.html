@@ -718,9 +718,7 @@
 44
 45
 46
-47
-48
-49</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">can</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
     <span class="kt">bool</span> <span class="nf">canTransform</span><span class="p">(</span><span class="n">string</span> <span class="n">start</span><span class="p">,</span> <span class="n">string</span> <span class="n">end</span><span class="p">)</span>
@@ -749,9 +747,7 @@
 
             <span class="k">if</span><span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="n">ptr1</span><span class="p">]</span> <span class="o">==</span> <span class="sc">&#39;R&#39;</span> <span class="o">&amp;&amp;</span> <span class="n">ptr1</span> <span class="o">&gt;</span> <span class="n">ptr2</span><span class="p">)</span> <span class="c1">//R of start is right to the R of end,</span>
             <span class="c1">//R can only move right but this situation needs R to move left, which is a contradiction</span>
-            <span class="cm">/*</span>
-<span class="cm">            注意不能寫ptr1 &gt;= ptr2 因為 XRXL XRLX   XR部份已經滿足，是 XR RX才不行！！</span>
-<span class="cm">            */</span>
+            <span class="c1">//注意不能寫ptr1 &gt;= ptr2 因為 XRXL XRLX   XR部份已經滿足，是 XR RX才不行！！</span>
             <span class="p">{</span>
                 <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
             <span class="p">}</span>
