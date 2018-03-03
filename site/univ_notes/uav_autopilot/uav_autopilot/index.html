@@ -46,6 +46,8 @@
     
       <link rel="stylesheet" href="../../../assets/stylesheets/application.78aab2dc.css">
       
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+      
     
     
       <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
@@ -62,7 +64,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="">
   
     <svg class="md-svg">
       <defs>
@@ -455,28 +459,36 @@ Required dependencies are the followings <br />
 3.CMake 2.6 or higher <br />
 4.GCC 4.4.x or later <br /></li>
 </ul>
-<pre><code>sudo apt-get install libopencv-dev python-opencv
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt-get install libopencv-dev python-opencv
+</pre></div>
+</td></tr></table>
 
 <p>Once installed</p>
-<pre><code>pkg-config --modversion opencv
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pkg-config --modversion opencv
+</pre></div>
+</td></tr></table>
 
 <p>If the version is shown, then we're good to rock with opencv. <br /></p>
 <ul>
 <li>Build your opencv_file.cpp with CMake or g++ standards</li>
 </ul>
 <p>1.With CMake (Don't forget to add CMakeLists.txt)</p>
-<pre><code class="make">cmake_minimum_required(VERSION 2.8)
-project( &lt;project_name&gt; )
-find_package( OpenCV REQUIRED )
-add_executable( &lt;project_name&gt; &lt;project_name&gt;.cpp )
-target_link_libraries( &lt;project_name&gt; ${OpenCV_LIBS} )
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
+<span class="err">project(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">)</span>
+<span class="err">find_package(</span> <span class="err">OpenCV</span> <span class="err">REQUIRED</span> <span class="err">)</span>
+<span class="err">add_executable(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">&lt;project_name&gt;.cpp</span> <span class="err">)</span>
+<span class="err">target_link_libraries(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">${OpenCV_LIBS}</span> <span class="err">)</span>
+</pre></div>
+</td></tr></table>
 
 <p>2.With g++ and flags for opencv libraries</p>
-<pre><code>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
-</code></pre>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
+</pre></div>
+</td></tr></table>
 
 <h3 id="todays-course-contents">Today's course contents</h3>
 <p>Basic understanding of image processing and image data format.
