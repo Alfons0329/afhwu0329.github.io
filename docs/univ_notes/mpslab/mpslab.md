@@ -13,9 +13,16 @@
 
 ## Part0. Preparation and the origin of this idea.
 
+The course
+
 ## Part1. Circuit connection
 
+Will add photo later
+
 ## Part2. Key factor of this project
+
+The PWM,
+(c code here)
 
 ## Part3. It's time to change the color.
 

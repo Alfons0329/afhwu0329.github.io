@@ -27,7 +27,7 @@
         },
         {
             "location": "/univ_notes/mpslab/mpslab/",
-            "text": "Microprocessor Lab Final Project\n\n\n\n\nEmbedded board spec: Nucleo STM32L476RG ARM Microarchitecture \n\n1.Built-in 400MHz CPU (customizable frequency with internal clock settings provided) \n\n2.GPIO Available \n\n\n\n\nDetailed specs\n \n\n\n\n\nProject name: The RGB Ambient light. \n\n\nFeatures: \n\n1.Fully-customizable RGB porprotion control. \n\n2.Color cycle speed controller (faster->original)\n\n3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings\n\n\n\n\nPart0. Preparation and the origin of this idea.\n\n\nPart1. Circuit connection\n\n\nPart2. Key factor of this project\n\n\nPart3. It's time to change the color.\n\n\nPart4. More idea: the ADC of light-sensitive resistor",
+            "text": "Microprocessor Lab Final Project\n\n\n\n\nEmbedded board spec: Nucleo STM32L476RG ARM Microarchitecture \n\n1.Built-in 400MHz CPU (customizable frequency with internal clock settings provided) \n\n2.GPIO Available \n\n\n\n\nDetailed specs\n \n\n\n\n\nProject name: The RGB Ambient light. \n\n\nFeatures: \n\n1.Fully-customizable RGB porprotion control. \n\n2.Color cycle speed controller (faster->original)\n\n3.Light-sensitive resistor ADC ,detecting the background light for light quantity settings\n\n\n\n\nPart0. Preparation and the origin of this idea.\n\n\nThe course\n\n\nPart1. Circuit connection\n\n\nWill add photo later\n\n\nPart2. Key factor of this project\n\n\nThe PWM,\n(c code here)\n\n\nPart3. It's time to change the color.\n\n\nPart4. More idea: the ADC of light-sensitive resistor",
             "title": "Junior 1st sem. STM32 Microprocessor Embedded Lab"
         },
         {
@@ -37,17 +37,17 @@
         },
         {
             "location": "/univ_notes/mpslab/mpslab/#part0-preparation-and-the-origin-of-this-idea",
-            "text": "",
+            "text": "The course",
             "title": "Part0. Preparation and the origin of this idea."
         },
         {
             "location": "/univ_notes/mpslab/mpslab/#part1-circuit-connection",
-            "text": "",
+            "text": "Will add photo later",
             "title": "Part1. Circuit connection"
         },
         {
             "location": "/univ_notes/mpslab/mpslab/#part2-key-factor-of-this-project",
-            "text": "",
+            "text": "The PWM,\n(c code here)",
             "title": "Part2. Key factor of this project"
         },
         {
