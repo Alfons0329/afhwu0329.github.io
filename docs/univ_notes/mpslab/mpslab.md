@@ -56,7 +56,7 @@ My [teammate](https://github.com/clialice123) and I decided to do it.
 4.Connect the light-sensitive resistor to GPIO with capability of ADC(Analog-Digital Converter)
 5.The GPIO Connection is like
 6.Overall GPIO port configuration
-```C
+```c
 GPIOB->ASCR |= 0b1; //turn on the analog controller in PB0
 
 void keypad_init()//keypad along with GPIO Init together
