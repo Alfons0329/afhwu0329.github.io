@@ -20,7 +20,10 @@ pages:
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
         - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
     - Programming practice:
-        - leetcode_OJ(New): univ_notes/programming_practice/leetcode_OJ/lcojindex.md
+        - leetcode_OJ:
+                    - Index: programming_practice/leetcode_OJ/lcojindex.md
+                    - WC70: programming_practice/leetcode_OJ/WC70.md
+
         #- CS Graduation Project:
     #- Extracurricular activities:
 extra:
