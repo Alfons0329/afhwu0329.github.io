@@ -563,12 +563,12 @@ typically written in the ARM Assembly, while the last five labs are written in C
 <h3 id="part0-origin-of-this-idea-and-preparation">Part0. Origin of this idea and preparation</h3>
 <ul>
 <li>
-<p>Origin of this idea
+<p>Origin of this idea <br />
 I once have the fully-customizable dynamic RGB LED backlit keyboard <a href="https://steelseries.com/gaming-keyboards/apex-m650">SteelSeries APEXM 650</a> <br /> On account of having not much time in the end of semester(machine learning final project + compiler design final project.)
 My <a href="https://github.com/clialice123">teammate</a> and I decided to do it.</p>
 </li>
 <li>
-<p>Preparation of materials and tools for this project
+<p>Preparation of materials and tools for this project <br />
 1.A STM32L476RG Embedded board<br />
 2.Breadboard<br />
 3.4pin RGB LED*5 <a href="https://www.ebay.com/p/5pcs-5mm-4pin-Common-Anode-Diffused-RGB-Tri-color-Red-Green-Blue-LED-Diodes-US/582514711?iid=192112725234">Click here</a><br />
@@ -1072,9 +1072,48 @@ If it is in the customize mode, we are able to increase the proportion of color,
 <h3 id="part4-more-idea-the-adc-of-light-sensitive-resistor">Part4. More idea: the ADC of light-sensitive resistor</h3>
 <p>The Earth is now facing the serve global warming, it is vital for us to construct a power saving model, consequently Alice and I came out the idea of using the
 ADC to detect the light intensity.<br />
-The stronger the intensity, the dimmer the light to be to saving the energy since this module is aimed for atmosphere night light. <br /></p>
+Concept of ADC configuration credit to <a href="">my classmate's hackMD</a> (Add later)
+The stronger the intensity, the dimmer the light to be to saving the energy since this module is aimed for atmosphere night light. <br />
+<a href="../ADC.h">ADC Code is here</a></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">case</span> <span class="mi">11</span><span class="o">:</span>
+<span class="p">{</span>
+    <span class="c1">// light ADC mode for keypad key11</span>
+    <span class="n">cur_state</span> <span class="o">=</span> <span class="n">LIGHT_MODE</span><span class="p">;</span>
+    <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">cur_state</span> <span class="o">==</span> <span class="n">LIGHT_MODE</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">get_light_resistor</span><span class="p">();</span>
+    <span class="n">light</span> <span class="o">=</span> <span class="mi">255</span><span class="o">-</span><span class="p">((</span><span class="n">resistor_value</span><span class="o">-</span><span class="n">REF_LIGHT</span><span class="p">)</span><span class="o">/</span><span class="mi">10</span><span class="p">);</span>
+    <span class="n">duty_cycle_R</span> <span class="o">=</span> <span class="n">light</span><span class="p">;</span>
+    <span class="n">duty_cycle_G</span> <span class="o">=</span> <span class="n">light</span><span class="p">;</span>
+    <span class="n">duty_cycle_B</span> <span class="o">=</span> <span class="n">light</span><span class="p">;</span>
+    <span class="n">set_timer</span><span class="p">();</span>
+    <span class="n">start_timer</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
+
 <h3 id="part5-done-all">Part5. Done all.</h3>
-<p>Really thanks to my teammate <a href="https://github.com/chialice123">chialice123</a> who helps me alot during the semester and in the final project, and <a href="https://github.com/vava24680">vava24680</a> for teaching me some concepts of ADC configuration.</p>
+<p>Really thanks to my teammate <a href="https://github.com/chialice123">chialice123</a> who helps me alot during the semester and in the final project making the project score over 90 and overall semester score to be 95 (93 original and +2 adjust), and <a href="https://github.com/vava24680">vava24680</a> for teaching me some concepts of ADC configuration.</p>
+<p><a href="https://www.youtube.com/watch?v=FdnTKmdjxIc">Project demo video</a></p>
                 
                   
                 
