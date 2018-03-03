@@ -1,17 +1,18 @@
 # Microprocessor Lab Final Project
 
-* Course Introduction
+* Course Introduction <br />
 This course mainly focus on the embedded system understanding, and we use the ARM microarchitecture in this semester.
 
-* Goal of this course
+* Goal of this course <br />
 To briefly understand the ARM Assembly, how to write C code in the embedded developing board and make a small project from it by your own.
 
-* Embedded board spec: Nucleo STM32L476RG ARM Microarchitecture <br />
-1.Built-in 400MHz CPU (customizable frequency with internal clock settings provided) <br />
-2.GPIO Available <br />
+* Embedded board spec:<br />
+1.Nucleo STM32L476RG ARM Microarchitecture <br />
+2.Built-in 400MHz CPU (customizable frequency with internal clock settings provided) <br />
+3.GPIO Available <br />
 [Detailed specs](http://www.st.com/en/microcontrollers/stm32l476rg.html) <br />
 
-* Lab project and final project
+* Lab project and final project <br />
 There are 10 labs in this semester on a weekly basis, the first five focus on basic operation of ARM Assembly, namely the lab assignments are
 typically written in the ARM Assembly, while the last five labs are written in C language, but a embedded-like C language.
 
