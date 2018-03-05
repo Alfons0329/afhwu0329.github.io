@@ -1121,6 +1121,102 @@ No more moves can be played if the game is over.
 69 <br />
 來看，演算法跑出後三變數的結果如下
 <img alt="Screenshot" src="../WC74pc.JPG" /></p>
+<h1 id="pd">PD.</h1>
+<p><a href="https://leetcode.com/contest/weekly-contest-74/problems/preimage-size-of-factorial-zeroes-function/">793. Preimage Size of Factorial Zeroes Function</a>
+解不粗乃，先放置</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">preimageSizeFZF</span><span class="p">(</span><span class="kt">int</span> <span class="n">kin</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">factorial</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">zeros</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">current_pow</span> <span class="o">=</span> <span class="mi">25</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">factorial</span> <span class="o">==</span>  <span class="n">current_pow</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; factorial is now &quot;</span><span class="o">&lt;&lt;</span><span class="n">factorial</span><span class="o">&lt;&lt;</span><span class="s">&quot; current_pow is now &quot;</span><span class="o">&lt;&lt;</span><span class="n">current_pow</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">current_pow</span><span class="o">*=</span><span class="mi">5</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">factorial</span> <span class="o">%</span> <span class="n">current_pow</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">factorial</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">zeros</span> <span class="o">+=</span> <span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">log</span><span class="p">(</span><span class="n">factorial</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="mi">5</span><span class="p">)));</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; factorial is of 25 multiple &quot;</span><span class="o">&lt;&lt;</span><span class="n">factorial</span><span class="o">&lt;&lt;</span><span class="s">&quot; zeros &quot;</span><span class="o">&lt;&lt;</span><span class="n">zeros</span> <span class="o">&lt;&lt;</span><span class="s">&quot; add &quot;</span><span class="o">&lt;&lt;</span><span class="p">((</span><span class="kt">int</span><span class="p">)(</span><span class="n">log</span><span class="p">(</span><span class="n">factorial</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">factorial</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">factorial</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; factorial not 25 &quot;</span><span class="o">&lt;&lt;</span><span class="n">factorial</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">zeros</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">zeros</span> <span class="o">==</span> <span class="n">kin</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">cnt</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">zeros</span> <span class="o">&gt;</span> <span class="n">kin</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot; factorial &quot;</span><span class="o">&lt;&lt;</span><span class="n">factorial</span><span class="o">&lt;&lt;</span><span class="s">&quot; zeros &quot;</span><span class="o">&lt;&lt;</span><span class="n">zeros</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="n">factorial</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">//compare 2 casting, one is the original integer value of log and the other is the double type log, if they are equal of each other</span>
+    <span class="c1">//in double precision</span>
+    <span class="c1">//then this is correct one</span>
+    <span class="kt">bool</span> <span class="n">is_powoffive</span><span class="p">(</span><span class="kt">int</span> <span class="n">real</span><span class="p">,</span> <span class="kt">int</span> <span class="n">base</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">integer</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">log</span><span class="p">(</span><span class="n">real</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="n">base</span><span class="p">));</span>
+        <span class="kt">double</span> <span class="n">precised</span> <span class="o">=</span> <span class="p">(</span><span class="n">log</span><span class="p">(</span><span class="n">real</span><span class="p">)</span><span class="o">/</span><span class="n">log</span><span class="p">(</span><span class="n">base</span><span class="p">));</span>
+        <span class="k">return</span> <span class="n">integer</span> <span class="o">==</span> <span class="n">precised</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
