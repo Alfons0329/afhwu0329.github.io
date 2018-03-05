@@ -19,6 +19,7 @@ pages:
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
         - Junior 2nd sem. Internet Security: univ_notes/internet_security/internet_security.md
+        - Junior 2nd sem. Social Psychology: univ_notes/social_psy/social_psy.md
     - Programming practice:
         - leetcode_OJ:
                     - Index: programming_practice/leetcode_OJ/lcojindex.md
