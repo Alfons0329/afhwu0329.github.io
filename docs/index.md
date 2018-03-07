@@ -4,8 +4,7 @@
 ## About Me
 * Undergraduate student major in Dept. of Computer Science at National Chaio Tung University Taiwan
 * Started to learn programming in Oct. 2015
-* Time stamp of learning programming language
-
+* Time stamp of learning programming language <br />
 Oct. 2015 C in Intro to Computer Science and Programming<br />
 Feb. 2016 C++ in Object-Oriented programming [GitHub repository of this course](https://github.com/Alfons0329/OOP_Spring_2016)<br />
 Mar. 2016 Verilog in Digital Circuit Lab [GitHub repository of this course](https://github.com/Alfons0329/DLAB_Fall_2016)<br />
