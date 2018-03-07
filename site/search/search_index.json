@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to alfons0329's Blog\n\n\n\n\n\n\nAbout Me\n\n\n\n\nUndergraduate student major in Dept. of Computer Science at National Chaio Tung University Taiwan\n\n\nStarted to learn programming in Oct. 2015\n\n\n\n\nTime stamp of learning programming language \n\nOct. 2015 C in Intro to Computer Science and Programming\n\nFeb. 2016 C++ in Object-Oriented programming \nGitHub repository of this course\n\nMar. 2016 Verilog in Digital Circuit Lab \nGitHub repository of this course\n\nJun. 2017 JavaScript, processing simple HTML and CSS in my own website practice\nGitHub repository of this course\n\nSep. 2017 Python in Intro to Machine Learning \nGitHub repository of this course\n\nSep. 2017 ARM Assembly in Microprocessor Lab \nGitHub repository of this course\n\n\n\n\n\n\nExperience and achievements in major area \n\n2016 NTU Hackathon Winner, Category: Smart Life \nGitHub repo\n \n\nParticipated in 2017 MakeNTU Hackthon, a hackathon mainly focus on software-hardware integration\n\n\n\n\n\n\nFavorite extracurricular activities\nAug. 2015 - Sep. 2016 Swimming Team in National Chiao Tung University\n\n\n\n\nLanguage abilities \n\nTOEIC 925 and TOEFL iBT102(26/28/23/25) both on First try \n\nWant to try on Japanese JLPT N3(Intermediate level) on Jul. 2018\n\n\n\n\nMy GitHub personal page\n\n\nCheck here",
+            "text": "Welcome to alfons0329's Blog\n\n\n\n\nAbout Me\n\n\nEducation\n\n\n\n\nBS in Dept. of Computer Science at National Chaio Tung University Taiwan (Sep 2015 - Jun 2019)\n    --- Successfully Applied to Exchange Student Program in Dept. of Computer Science in Carnegie Mellon University (Jan 2019 - May 2019) \n\n\nOverall GPA 3.91/4.3, Major 4.07/4.3 \n\n\nMost Relevant Courses: Intro to Machine Learning, Operating System, STM32 Embedded Microprocessor Lab, Network Security, UAVAutopilot and Computer Vision\n\n\nFavorite area in CS: Machine Learning, Computer Security and Computer Vision\n\n\nStarted to learn programming in Oct. 2015 from zero\n\n\nTime stamp of learning programming language \n\nOct. 2015 C in Intro to Computer Science and Programming\n\nFeb. 2016 C++ in Object-Oriented programming \nGitHub repository of this course\n\nMar. 2016 Verilog in Digital Circuit Lab \nGitHub repository of this course\n\nJun. 2017 JavaScript, processing simple HTML and CSS in my own website practice\nGitHub repository of this course\n\nSep. 2017 Python in Intro to Machine Learning \nGitHub repository of this course\n\nSep. 2017 ARM Assembly in Microprocessor Lab \nGitHub repository of this course\n\n\n\n\nMy GitHub personal page\n\n\nCheck here\n\n\nExperience and achievements in professional area \n\n\n2016 NTU Hackathon Winner, Category: Smart Life \nGitHub repo\n , we build an eye-care sensor which notifies user to set a period for easing one's eyes along with some game-like feature to make it more interesting\nParticipated in 2017 MakeNTU Hackthon, a hackathon mainly focus on software-hardware integration \nGitHub repo\n, we build a dog house with weight-sensor, once someone throw in a garbage, the feeder will work in order to feed the dog, want to make the balance between recycling and animal caring \n\n\nLeadership and extracurricular activities\n\n\nAug. 2015 - Sep. 2016 Swimming Team in National Chiao Tung University, Participated in 2 inter-collegiate swimming competition \n\n\nUniversity graduation projcts\n\n\nLanguage abilities \n\n\nTOEIC 925 and TOEFL iBT102(26/28/23/25) both on First try \n\nWant to try on Japanese JLPT N3(Intermediate level) on Jul. 2018",
             "title": "Home"
         },
         {
@@ -12,13 +12,38 @@
         },
         {
             "location": "/#about-me",
-            "text": "Undergraduate student major in Dept. of Computer Science at National Chaio Tung University Taiwan  Started to learn programming in Oct. 2015   Time stamp of learning programming language  \nOct. 2015 C in Intro to Computer Science and Programming \nFeb. 2016 C++ in Object-Oriented programming  GitHub repository of this course \nMar. 2016 Verilog in Digital Circuit Lab  GitHub repository of this course \nJun. 2017 JavaScript, processing simple HTML and CSS in my own website practice GitHub repository of this course \nSep. 2017 Python in Intro to Machine Learning  GitHub repository of this course \nSep. 2017 ARM Assembly in Microprocessor Lab  GitHub repository of this course    Experience and achievements in major area  \n2016 NTU Hackathon Winner, Category: Smart Life  GitHub repo   \nParticipated in 2017 MakeNTU Hackthon, a hackathon mainly focus on software-hardware integration    Favorite extracurricular activities\nAug. 2015 - Sep. 2016 Swimming Team in National Chiao Tung University   Language abilities  \nTOEIC 925 and TOEFL iBT102(26/28/23/25) both on First try  \nWant to try on Japanese JLPT N3(Intermediate level) on Jul. 2018",
+            "text": "",
             "title": "About Me"
+        },
+        {
+            "location": "/#education",
+            "text": "BS in Dept. of Computer Science at National Chaio Tung University Taiwan (Sep 2015 - Jun 2019)\n    --- Successfully Applied to Exchange Student Program in Dept. of Computer Science in Carnegie Mellon University (Jan 2019 - May 2019)   Overall GPA 3.91/4.3, Major 4.07/4.3   Most Relevant Courses: Intro to Machine Learning, Operating System, STM32 Embedded Microprocessor Lab, Network Security, UAVAutopilot and Computer Vision  Favorite area in CS: Machine Learning, Computer Security and Computer Vision  Started to learn programming in Oct. 2015 from zero  Time stamp of learning programming language  \nOct. 2015 C in Intro to Computer Science and Programming \nFeb. 2016 C++ in Object-Oriented programming  GitHub repository of this course \nMar. 2016 Verilog in Digital Circuit Lab  GitHub repository of this course \nJun. 2017 JavaScript, processing simple HTML and CSS in my own website practice GitHub repository of this course \nSep. 2017 Python in Intro to Machine Learning  GitHub repository of this course \nSep. 2017 ARM Assembly in Microprocessor Lab  GitHub repository of this course",
+            "title": "Education"
         },
         {
             "location": "/#my-github-personal-page",
             "text": "Check here",
             "title": "My GitHub personal page"
+        },
+        {
+            "location": "/#experience-and-achievements-in-professional-area",
+            "text": "2016 NTU Hackathon Winner, Category: Smart Life  GitHub repo  , we build an eye-care sensor which notifies user to set a period for easing one's eyes along with some game-like feature to make it more interesting\nParticipated in 2017 MakeNTU Hackthon, a hackathon mainly focus on software-hardware integration  GitHub repo , we build a dog house with weight-sensor, once someone throw in a garbage, the feeder will work in order to feed the dog, want to make the balance between recycling and animal caring",
+            "title": "Experience and achievements in professional area "
+        },
+        {
+            "location": "/#leadership-and-extracurricular-activities",
+            "text": "Aug. 2015 - Sep. 2016 Swimming Team in National Chiao Tung University, Participated in 2 inter-collegiate swimming competition",
+            "title": "Leadership and extracurricular activities"
+        },
+        {
+            "location": "/#university-graduation-projcts",
+            "text": "",
+            "title": "University graduation projcts"
+        },
+        {
+            "location": "/#language-abilities",
+            "text": "TOEIC 925 and TOEFL iBT102(26/28/23/25) both on First try  \nWant to try on Japanese JLPT N3(Intermediate level) on Jul. 2018",
+            "title": "Language abilities "
         },
         {
             "location": "/univ_notes/intro_ml/intro_ml/",
