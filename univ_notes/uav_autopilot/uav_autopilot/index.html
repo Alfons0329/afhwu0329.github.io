@@ -369,6 +369,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#todays-lab-spacial-domain-histogram-equalization" title="Today's lab, Spacial Domain histogram equalization." class="md-nav__link">
+    Today's lab, Spacial Domain histogram equalization.
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -584,6 +591,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#todays-lab-spacial-domain-histogram-equalization" title="Today's lab, Spacial Domain histogram equalization." class="md-nav__link">
+    Today's lab, Spacial Domain histogram equalization.
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -663,12 +677,107 @@ The interpolated value of a point is a reversely-weighted average of the neighbo
 such method is quite useful in the image transformation.</p>
 <h2 id="lab2-linear-and-non-linear-mar-01-2018">Lab2. Linear and non-linear Mar 01, 2018</h2>
 <ul>
-<li>Edge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) and sharpening</li>
+<li>Spacial-domain image processing.</li>
+<li>Histogram equalization and mask processing    </li>
+<li>Edge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) ,sharpening and dege detection.</li>
 <li>Computer vision <br />
 1.Low level measurement such as brightness,Enhancements,Region segments,Features</li>
 </ul>
 <h3 id="todays-course-contents_1">Today's course contents</h3>
 <p><a href="../DIP_2.pdf">Course week1 pdf</a></p>
+<h3 id="todays-lab-spacial-domain-histogram-equalization">Today's lab, Spacial Domain histogram equalization.</h3>
+<ul>
+<li>Problem1 Histogram equalization
+1.We may use the vector to implement the map for statistical data.<br />
+2.Accumulate using another vector <br />
+3.Count and mapping to the relative proportion * max_value, then that's all <br /></li>
+</ul>
+<p>NOTE!!!! THE DEFAULT IMG MAT IS 3-CHANNEL TYPE, NOT ONE CHANNEL GREY-SCALE, SO IF WE DONT DO THE GREY SCALE CONVERSION, ONLY 1/3 OF THE IMAGE WILL BE PROCESSED, THUS THE FOLLOWING CODE IS NEEDED</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Mat</span> <span class="n">input_img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<span class="c1">//since the bgr channel is used for default action, then the BGR 3 channel image must be converted to GREY channel</span>
+<span class="n">cvtColor</span><span class="p">(</span><span class="n">input_img</span><span class="p">,</span> <span class="n">input_img</span><span class="p">,</span> <span class="n">CV_BGR2GRAY</span><span class="p">);</span>
+<span class="n">Mat</span> <span class="n">output_img</span> <span class="o">=</span> <span class="n">input_img</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
+<span class="n">histogram_equal</span><span class="p">(</span><span class="n">input_img</span><span class="p">,</span> <span class="n">output_img</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">histogram_equal</span><span class="p">(</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span> <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">hash_distribution</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">intensity_cdf</span><span class="p">;</span>
+    <span class="n">hash_distribution</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+    <span class="n">intensity_cdf</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">256</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">input</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">input</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">hash_distribution</span><span class="p">[(</span><span class="kt">int</span><span class="p">)</span> <span class="n">input</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">//search the maxium value</span>
+    <span class="kt">int</span> <span class="n">max_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cnt</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">cumulative_cnt</span> <span class="o">=</span> <span class="mf">0.0f</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">hash_distribution</span><span class="p">.</span><span class="n">size</span><span class="p">();</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">hash_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">max_value</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">max_value</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+            <span class="n">cumulative_cnt</span> <span class="o">+=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="n">hash_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="kt">double</span><span class="p">)(</span><span class="n">input</span><span class="p">.</span><span class="n">rows</span> <span class="o">*</span> <span class="n">input</span><span class="p">.</span><span class="n">cols</span><span class="p">);</span>
+            <span class="n">cnt</span> <span class="o">+=</span> <span class="n">hash_distribution</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+            <span class="n">intensity_cdf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cumulative_cnt</span><span class="p">;</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s">&quot;cnt &quot;</span><span class="o">&lt;&lt;</span><span class="n">cnt</span><span class="o">&lt;&lt;</span><span class="s">&quot; at &quot;</span><span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">&lt;&lt;</span><span class="s">&quot; Cumulate to &quot;</span><span class="o">&lt;&lt;</span><span class="n">cumulative_cnt</span><span class="o">&lt;&lt;</span><span class="s">&quot; where intensity is now &quot;</span><span class="o">&lt;&lt;</span><span class="n">intensity_cdf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">input</span><span class="p">.</span><span class="n">rows</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;</span><span class="n">input</span><span class="p">.</span><span class="n">cols</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">output</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">intensity_cdf</span><span class="p">[</span><span class="n">input</span><span class="p">.</span><span class="n">at</span><span class="o">&lt;</span><span class="n">uchar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)]</span> <span class="o">*</span> <span class="n">max_value</span> <span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
