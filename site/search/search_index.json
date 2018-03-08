@@ -126,9 +126,19 @@
             "title": "Today's course contents"
         },
         {
-            "location": "/univ_notes/internet_security/internet_security/",
-            "text": "",
+            "location": "/univ_notes/network_security/network_security/",
+            "text": "Network Security\n\n\nSpring 2018 \n\nLecturer:\nTime:\n\n\nRSA Encryption standard\n\n\n\n\nAsymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003\n\u5916\u661f\u4eba\u7684\u7b46\u8a18",
             "title": "Junior 2nd sem. Internet Security"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#network-security",
+            "text": "Spring 2018  \nLecturer:\nTime:",
+            "title": "Network Security"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#rsa-encryption-standard",
+            "text": "Asymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003 \u5916\u661f\u4eba\u7684\u7b46\u8a18",
+            "title": "RSA Encryption standard"
         },
         {
             "location": "/univ_notes/general/social_psy/",
