@@ -102,7 +102,7 @@
         },
         {
             "location": "/univ_notes/uav_autopilot/uav_autopilot/",
-            "text": "UAV Drone autopilot, computer vision and image processing.\n\n\nSpring 2018\n\nLecturer: \nK.W. Chen\n in CS@NCTU \n\nTime: 4IJK @EC330_NCTU\n\n\nLab1. Introduction to Open CV and installation Mar 01, 2018\n\n\nLab1 pdf\n\n\nInstall Open CV\n\n\n\n\nIn the Ubuntu 16.04 64bit\nRequired dependencies are the followings \n\n1.Git \n\n2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy) \n\n3.CMake 2.6 or higher \n\n4.GCC 4.4.x or later \n\n\n\n\n1\nsudo apt-get install libopencv-dev python-opencv\n\n\n\n\n\n\nOnce installed\n\n\n1\npkg-config --modversion opencv\n\n\n\n\n\n\nIf the version is shown, then we're good to rock with opencv. \n\n\n\n\nBuild your opencv_file.cpp with CMake or g++ standards\n\n\n\n\n1.With CMake (Don't forget to add CMakeLists.txt)\n\n\n1\n2\n3\n4\n5\ncmake_minimum_required(VERSION\n \n2.8)\n\n\nproject(\n \n<project_name>\n \n)\n\n\nfind_package(\n \nOpenCV\n \nREQUIRED\n \n)\n\n\nadd_executable(\n \n<project_name>\n \n<project_name>.cpp\n \n)\n\n\ntarget_link_libraries(\n \n<project_name>\n \n${OpenCV_LIBS}\n \n)\n\n\n\n\n\n\n\n2.With g++ and flags for opencv libraries\n\n\n1\ng++ lab1-2.cpp `pkg-config --cflags --libs opencv`\n\n\n\n\n\n\nToday's course contents\n\n\nBasic understanding of image processing and image data format.\n\nCourse week1 pdf\n\n\nBilinear Interpolation\n\nBasically ,this is an algorithm aimed for image transformation in this lab. \n\nThe interpolated value of a point is a reversely-weighted average of the neighboring points, \n\nsuch method is quite useful in the image transformation.",
+            "text": "UAV Drone autopilot, computer vision and image processing.\n\n\nSpring 2018\n\nLecturer: \nK.W. Chen\n in CS@NCTU \n\nTime: 4IJK @EC330_NCTU\n\n\nLab1. Introduction to Open CV and installation Mar 01, 2018\n\n\nLab1 pdf\n\n\nInstall Open CV\n\n\n\n\nIn the Ubuntu 16.04 64bit\nRequired dependencies are the followings \n\n1.Git \n\n2.Python 2.6 or later and Numpy 1.5 or later with developer packages (python-dev, python-numpy) \n\n3.CMake 2.6 or higher \n\n4.GCC 4.4.x or later \n\n\n\n\n1\nsudo apt-get install libopencv-dev python-opencv\n\n\n\n\n\n\nOnce installed\n\n\n1\npkg-config --modversion opencv\n\n\n\n\n\n\nIf the version is shown, then we're good to rock with opencv. \n\n\n\n\nBuild your opencv_file.cpp with CMake or g++ standards\n\n\n\n\n1.With CMake (Don't forget to add CMakeLists.txt)\n\n\n1\n2\n3\n4\n5\ncmake_minimum_required(VERSION\n \n2.8)\n\n\nproject(\n \n<project_name>\n \n)\n\n\nfind_package(\n \nOpenCV\n \nREQUIRED\n \n)\n\n\nadd_executable(\n \n<project_name>\n \n<project_name>.cpp\n \n)\n\n\ntarget_link_libraries(\n \n<project_name>\n \n${OpenCV_LIBS}\n \n)\n\n\n\n\n\n\n\n2.With g++ and flags for opencv libraries\n\n\n1\ng++ lab1-2.cpp `pkg-config --cflags --libs opencv`\n\n\n\n\n\n\nToday's course contents\n\n\nBasic understanding of image processing and image data format.\n\nCourse week1 pdf\n\n\nBilinear Interpolation\n\nBasically ,this is an algorithm aimed for image transformation in this lab. \n\nThe interpolated value of a point is a reversely-weighted average of the neighboring points, \n\nsuch method is quite useful in the image transformation.\n\n\nLab2. Linear and non-linear Mar 01, 2018\n\n\n\n\nEdge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) and sharpening\n\n\nComputer vision \n\n1.Low level measurement such as brightness,Enhancements,Region segments,Features\n\n\n\n\nToday's course contents\n\n\nCourse week1 pdf",
             "title": "Junior 2nd sem. UAV Autopilot and Image Processing"
         },
         {
@@ -123,6 +123,16 @@
         {
             "location": "/univ_notes/uav_autopilot/uav_autopilot/#todays-course-contents",
             "text": "Basic understanding of image processing and image data format. Course week1 pdf  Bilinear Interpolation \nBasically ,this is an algorithm aimed for image transformation in this lab.  \nThe interpolated value of a point is a reversely-weighted average of the neighboring points,  \nsuch method is quite useful in the image transformation.",
+            "title": "Today's course contents"
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#lab2-linear-and-non-linear-mar-01-2018",
+            "text": "Edge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) and sharpening  Computer vision  \n1.Low level measurement such as brightness,Enhancements,Region segments,Features",
+            "title": "Lab2. Linear and non-linear Mar 01, 2018"
+        },
+        {
+            "location": "/univ_notes/uav_autopilot/uav_autopilot/#todays-course-contents_1",
+            "text": "Course week1 pdf",
             "title": "Today's course contents"
         },
         {

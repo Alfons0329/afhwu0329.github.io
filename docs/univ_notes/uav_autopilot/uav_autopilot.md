@@ -46,3 +46,13 @@ Basic understanding of image processing and image data format.
 Basically ,this is an algorithm aimed for image transformation in this lab. <br />
 The interpolated value of a point is a reversely-weighted average of the neighboring points, <br />
 such method is quite useful in the image transformation.
+
+
+## Lab2. Linear and non-linear Mar 01, 2018
+
+* Edge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) and sharpening
+* Computer vision <br />
+1.Low level measurement such as brightness,Enhancements,Region segments,Features
+
+### Today's course contents
+[Course week1 pdf](DIP_2.pdf)
