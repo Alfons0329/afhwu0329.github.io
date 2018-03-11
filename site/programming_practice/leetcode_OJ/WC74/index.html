@@ -445,22 +445,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pa" title="PA." class="md-nav__link">
-    PA.
+  <a href="#pa-794-valid-tic-tac-toe-state" title="PA. 794. Valid Tic-Tac-Toe State 觀察暴力題" class="md-nav__link">
+    PA. 794. Valid Tic-Tac-Toe State 觀察暴力題
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pb" title="PB." class="md-nav__link">
-    PB.
+  <a href="#pb-792-number-of-matching-subsequences-a-b" title="PB. 792. Number of Matching Subsequences a 是否為 b的子序列，經典字串問題" class="md-nav__link">
+    PB. 792. Number of Matching Subsequences a 是否為 b的子序列，經典字串問題
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc" title="PC." class="md-nav__link">
-    PC.
+  <a href="#pc-792-number-of-matching-subsequences" title="PC. 792. Number of Matching Subsequences 找規律推理題" class="md-nav__link">
+    PC. 792. Number of Matching Subsequences 找規律推理題
   </a>
   
 </li>
@@ -531,22 +531,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pa" title="PA." class="md-nav__link">
-    PA.
+  <a href="#pa-794-valid-tic-tac-toe-state" title="PA. 794. Valid Tic-Tac-Toe State 觀察暴力題" class="md-nav__link">
+    PA. 794. Valid Tic-Tac-Toe State 觀察暴力題
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pb" title="PB." class="md-nav__link">
-    PB.
+  <a href="#pb-792-number-of-matching-subsequences-a-b" title="PB. 792. Number of Matching Subsequences a 是否為 b的子序列，經典字串問題" class="md-nav__link">
+    PB. 792. Number of Matching Subsequences a 是否為 b的子序列，經典字串問題
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc" title="PC." class="md-nav__link">
-    PC.
+  <a href="#pc-792-number-of-matching-subsequences" title="PC. 792. Number of Matching Subsequences 找規律推理題" class="md-nav__link">
+    PC. 792. Number of Matching Subsequences 找規律推理題
   </a>
   
 </li>
@@ -577,8 +577,7 @@
 <p><img alt="Screenshot" src="../WC74res.png" />
 今天上午打，家裡的網路速度只有學校的百分之一不到R（下載 10 上傳4），加上LeetCode的server一直timeout，用debug模式一直粗不乃，特判和優化花了好多時間才找到w
 不過map還真的是好用，而且觀摩了一下uwi和dreamoon的解法，不愧是奧賽大神R</p>
-<h2 id="pa">PA.</h2>
-<p><a href="https://leetcode.com/contest/weekly-contest-74/problems/valid-tic-tac-toe-state/">794. Valid Tic-Tac-Toe State</a></p>
+<h2 id="pa-794-valid-tic-tac-toe-state">PA. <a href="https://leetcode.com/contest/weekly-contest-74/problems/valid-tic-tac-toe-state/">794. Valid Tic-Tac-Toe State</a> 觀察暴力題</h2>
 <ul>
 <li>思路：暴力＋情況邏輯特判。
 題目規則所述為：</li>
@@ -922,8 +921,7 @@ No more moves can be played if the game is over.
 </pre></div>
 </td></tr></table>
 
-<h2 id="pb">PB.</h2>
-<p><a href="https://leetcode.com/contest/weekly-contest-74/problems/number-of-matching-subsequences/">792. Number of Matching Subsequences</a></p>
+<h2 id="pb-792-number-of-matching-subsequences-a-b">PB. <a href="https://leetcode.com/contest/weekly-contest-74/problems/number-of-matching-subsequences/">792. Number of Matching Subsequences</a> a 是否為 b的子序列，經典字串問題</h2>
 <p>經典題目，看看word[i]是否為str的subsequence
 * 思路：兩個指標分別迭代str和word[i]，看到一樣的便將word的指針向前，如果指針最後＝＝長度則存在，否則即無</p>
 <p>簡單的想法卻TLE了，因為有大量重複的word[i]需要被重複操作，因此改用map優化統計各種word的出現次數，再將subseq符合的狀況加上map-&gt;second計數器即可</p>
@@ -1012,8 +1010,7 @@ No more moves can be played if the game is over.
 </pre></div>
 </td></tr></table>
 
-<h2 id="pc">PC.</h2>
-<p><a href="https://leetcode.com/contest/weekly-contest-74/problems/number-of-matching-subsequences/">792. Number of Matching Subsequences</a></p>
+<h2 id="pc-792-number-of-matching-subsequences">PC. <a href="https://leetcode.com/contest/weekly-contest-74/problems/number-of-subarrays-with-bounded-maximum">792. Number of Matching Subsequences</a> 找規律推理題</h2>
 <p><br />
 有點微妙的一題，看似簡單實際上不好拿分
 本來的算法如下，總是多一個或少一個，因為在進入的邊界問題沒有拿捏好</p>
@@ -1157,9 +1154,8 @@ No more moves can be played if the game is over.
 69 <br />
 來看，演算法跑出後三變數的結果如下
 <img alt="Screenshot" src="../WC74pc.JPG" /></p>
-<h1 id="pd">PD.</h1>
-<p><a href="https://leetcode.com/contest/weekly-contest-74/problems/preimage-size-of-factorial-zeroes-function/">793. Preimage Size of Factorial Zeroes Function</a>
-解不粗乃，先放置</p>
+<h1 id="pd-793-preimage-size-of-factorial-zeroes-function-mod">PD. <a href="https://leetcode.com/contest/weekly-contest-74/problems/preimage-size-of-factorial-zeroes-function/">793. Preimage Size of Factorial Zeroes Function</a> 高難度找mod規律數學題</h1>
+<p>解不粗乃，先放置</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
