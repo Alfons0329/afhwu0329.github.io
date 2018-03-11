@@ -26,6 +26,7 @@ pages:
                     - Index: programming_practice/leetcode_OJ/lcojindex.md
                     - WC70: programming_practice/leetcode_OJ/WC70.md
                     - WC74: programming_practice/leetcode_OJ/WC74.md
+                    - WC75: programming_practice/leetcode_OJ/WC75.md
 
     - CS Graduation Project: univ_notes/cs_project/cs_proj.md
 
