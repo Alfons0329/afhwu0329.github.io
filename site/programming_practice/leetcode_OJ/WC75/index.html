@@ -477,6 +477,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pd-800-smallest-rotation-with-highest-score-on" title="PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)" class="md-nav__link">
+    PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)
+  </a>
+  
+</li>
+      
       
       
       
@@ -547,6 +554,13 @@
         <li class="md-nav__item">
   <a href="#pc-799-champagne-tower" title="PC. 799. Champagne Tower 數學規劃與觀察題" class="md-nav__link">
     PC. 799. Champagne Tower 數學規劃與觀察題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd-800-smallest-rotation-with-highest-score-on" title="PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)" class="md-nav__link">
+    PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)
   </a>
   
 </li>
@@ -933,6 +947,105 @@ weibo的作法採用非遞迴做法 <br />
         <span class="k">return</span> <span class="n">cups</span><span class="p">[</span><span class="n">query_row</span><span class="p">][</span><span class="n">query_glass</span><span class="p">];</span>
     <span class="p">}</span>
 <span class="p">};</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="pd-800-smallest-rotation-with-highest-score-on">PD. <a href="https://leetcode.com/problems/smallest-rotation-with-highest-score/">800. Smallest rotation with highest score</a> 數學推理+區間查詢線性優化O(N)</h2>
+<p><strong>此題的時間複雜度一定要在O(N)</strong>
+<a href="https://www.geeksforgeeks.org/find-the-point-where-maximum-intervals-overlap/">區間查詢算法概念，從暴力到NlogN 到N</a> <br />
+* 思路，可以看出有兩種情形，一種是本來就會得分的(value &lt;= index)，一種是還沒有得分的 else<br />
+第一類型<br />
+首先第一種本來就可以得分，例如[2,3,1,4,0]中的1 , 0，向右移動自然可以得分，所以他的右邊可以的步數便是[index+1(直接向左移動到最右側（超過後重新從結尾回來），必然符合的開外掛模式),len-1（移動到他下一個）]
+以及[0(不動)，index - value（例如上面的1在2 至多移動到1的位置，也就是 2 - 1 一步）] <br />
+第二類型<br />
+而另外一種當前無法得分的，便要[index+1 (開外掛移到最右邊), total_len - (value - index)(繼續移動，value - index 代表與最大移動次數的相差，也就是它必須向右移動val - index這個差值才有分，向右移動的至少次數，換過來講用 len 來扣除就是向左移動的最大次數)]
+<br /></p>
+<p>求出每一個數字應該有的區間，把他們映射到區間查詢段，使用python的pair表示開始和結束 <br /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#one segment for this ones</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">,</span><span class="n">total_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">index</span><span class="p">)])</span> <span class="c1">#segment start and end</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#two segments for this one</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">value</span><span class="p">])</span>
+</pre></div>
+</td></tr></table>
+
+<p>最後找到prefix sum (加總到此時的總和)，思緒見註解 <br /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)):</span> <span class="c1">#+1 padding</span>
+    <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#go in the interval, overlapping with all the other segment</span>
+    <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#leave the interval, cancelling the infulence of segment overlapping</span>
+</pre></div>
+</td></tr></table>
+
+<p>整體AC代碼如下 <br /></p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">bestRotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="n">best</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="c1">#start_pos_arr = []</span>
+        <span class="n">pair</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#initial the start_pos_arr to record the starting position of the given array</span>
+        <span class="c1">#initial score</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#one segment for this ones</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">,</span><span class="n">total_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">index</span><span class="p">)])</span> <span class="c1">#segment start and end</span>
+            <span class="k">else</span><span class="p">:</span> <span class="c1">#two segments for this one</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">value</span><span class="p">])</span>
+
+
+        <span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)):</span> <span class="c1">#+1 padding</span>
+            <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#go in the interval, overlapping with all the other segment</span>
+            <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#leave the interval, cancelling the infulence of segment overlapping</span>
+
+        <span class="n">cur_pts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_query</span><span class="p">)):</span>
+             <span class="n">cur_pts</span> <span class="o">+=</span> <span class="n">segment_query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+             <span class="k">if</span><span class="p">(</span> <span class="n">cur_pts</span> <span class="o">&gt;</span> <span class="n">best</span><span class="p">):</span>
+                 <span class="n">best</span> <span class="o">=</span> <span class="n">cur_pts</span>
+                 <span class="n">shift</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="k">return</span> <span class="n">shift</span>
 </pre></div>
 </td></tr></table>
                 
