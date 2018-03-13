@@ -142,18 +142,38 @@
         },
         {
             "location": "/univ_notes/network_security/network_security/",
-            "text": "Network Security\n\n\nSpring 2018 \n\nLecturer:\nTime:\n\n\nRSA Encryption standard\n\n\n\n\nAsymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003\n\u5916\u661f\u4eba\u7684\u7b46\u8a18",
+            "text": "Network Security\n\n\nSpring 2018 \n\nLecturer: Shiuhpyng Shieh \n\n\nRSA Encryption standard\n\n\n\n\nAsymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003\n\u5916\u661f\u4eba\u7684\u7b46\u8a18\n\n\n\n\nCourse project1. Chosen cipher attack\n\n\n\n\nWill post report after the session of this homework ends.\n\n\n\n\nDES Encryption standard\n\n\n\n\nAn encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.\n\n \n\n\nImage src\n\n\nProne to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.\n\n\n\n\nFrom DES to 3DES\n\n\n Please feel free to refer to my classmate's \nnote\n for more information\n\n\nAES Encryption standard",
             "title": "Junior 2nd sem. Internet Security"
         },
         {
             "location": "/univ_notes/network_security/network_security/#network-security",
-            "text": "Spring 2018  \nLecturer:\nTime:",
+            "text": "Spring 2018  \nLecturer: Shiuhpyng Shieh",
             "title": "Network Security"
         },
         {
             "location": "/univ_notes/network_security/network_security/#rsa-encryption-standard",
             "text": "Asymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003 \u5916\u661f\u4eba\u7684\u7b46\u8a18",
             "title": "RSA Encryption standard"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#course-project1-chosen-cipher-attack",
+            "text": "Will post report after the session of this homework ends.",
+            "title": "Course project1. Chosen cipher attack"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#des-encryption-standard",
+            "text": "An encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.    Image src  Prone to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.",
+            "title": "DES Encryption standard"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#from-des-to-3des",
+            "text": "Please feel free to refer to my classmate's  note  for more information",
+            "title": "From DES to 3DES"
+        },
+        {
+            "location": "/univ_notes/network_security/network_security/#aes-encryption-standard",
+            "text": "",
+            "title": "AES Encryption standard"
         },
         {
             "location": "/univ_notes/general/social_psy/",
