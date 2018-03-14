@@ -302,7 +302,7 @@
         },
         {
             "location": "/univ_notes/cs_project/cs_proj/",
-            "text": "CS Graduation Project Meeting\n\n\nMar 7, 2018 bootcamp\n\n\nWelcome to coVis lab\n\n\u76f8\u6a5f\u53c3\u6578\uff0c\u5167\u5916\u90e8\u53c3\u6578\uff0c\u5f71\u50cf\u8207\u76f8\u6a5f\u6821\u6b63\uff0c\u5728\u7121\u4eba\u6a5f\u5132\u5b58\u4e09\u570d\u7a7a\u9593\u5f71\u50cf\u6703\u7528\u5230",
+            "text": "CS Graduation Project Meeting\n\n\nMar 7, 2018 bootcamp\n\n\nWelcome to coVis lab\n\n\u76f8\u6a5f\u53c3\u6578\uff0c\u5167\u5916\u90e8\u53c3\u6578\uff0c\u5f71\u50cf\u8207\u76f8\u6a5f\u6821\u6b63\uff0c\u5728\u7121\u4eba\u6a5f\u5132\u5b58\u4e09\u570d\u7a7a\u9593\u5f71\u50cf\u6703\u7528\u5230 \n\n\nMar 14, 2018 bootcamp",
             "title": "CS Graduation Project"
         },
         {
@@ -314,6 +314,11 @@
             "location": "/univ_notes/cs_project/cs_proj/#mar-7-2018-bootcamp",
             "text": "Welcome to coVis lab \n\u76f8\u6a5f\u53c3\u6578\uff0c\u5167\u5916\u90e8\u53c3\u6578\uff0c\u5f71\u50cf\u8207\u76f8\u6a5f\u6821\u6b63\uff0c\u5728\u7121\u4eba\u6a5f\u5132\u5b58\u4e09\u570d\u7a7a\u9593\u5f71\u50cf\u6703\u7528\u5230",
             "title": "Mar 7, 2018 bootcamp"
+        },
+        {
+            "location": "/univ_notes/cs_project/cs_proj/#mar-14-2018-bootcamp",
+            "text": "",
+            "title": "Mar 14, 2018 bootcamp"
         }
     ]
 }
