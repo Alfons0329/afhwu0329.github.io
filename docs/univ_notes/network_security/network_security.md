@@ -19,11 +19,23 @@ This encryption standard mainly focus on prime factorization
 * Prone to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.
 * 16rounds are needed for the encryption process
 * The encryption and decryption are run under the same algorithm but they are in the reverse order with each other
+* This is a model based on the [Fiestel model](https://zh.wikipedia.org/wiki/%E8%B4%B9%E6%96%AF%E5%A6%A5%E5%AF%86%E7%A0%81), namely for the encryption and decryption they use the same function but in the reversed order.
+
 ## From DES to 3DES
 * DES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis
 * 3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.
 
-![Screenshot](DES_procedure.png)
+![Screenshot](DES_procedure.png) <br />
 * Please feel free to refer to my classmate's [note](https://hackmd.io/AhM957LCSuCMNzq0b5c1fw#Cryptography) for more information
 
 ## AES Encryption standard
+* Make a better encryption of 3DES, namely evolve from 3DES for a stronger and faster encryption algorithm.
+* AES is still the same as the DES in the category of block cipher encryption, but the block size of AES is 128 bits, doubled of the DES encryption.
+* 10 Rounds of encryption again and again is needed.
+![Screenshot](AES_procedure.png)  <br /> Image source from textbook
+One grey-colored box is the one "round" of the encryption in AES<br />
+Each of the round we take the preceding round's output as the input of this round and do the encryption again, with the following 4 tasks to be done<br />
+1.The **Sub Bytes** is to use the non-linear transform to let the input transformed with a "Affine transformation", making the encryption robust and hard to be cracked<br />
+2.The **Shift Rows** is shifting the data, to rearrange the text, for row i we shift i-1 times to the left.<br />
+3.The **Mix Columns** is a linear 
+4.The **Add Round Key** is let the input XOR with the Key in the current state. (Rijndael key generator solution)<br />
