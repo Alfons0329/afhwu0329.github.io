@@ -142,7 +142,7 @@
         },
         {
             "location": "/univ_notes/network_security/network_security/",
-            "text": "Network Security\n\n\nSpring 2018 \n\nLecturer: Shiuhpyng Shieh \n\n\nRSA Encryption standard\n\n\n\n\nAsymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003\n\u5916\u661f\u4eba\u7684\u7b46\u8a18\n\n\n\n\nCourse project1. Chosen cipher attack\n\n\n\n\nWill post report after the session of this homework ends.\n\n\n\n\nDES Encryption standard\n\n\n\n\nAn encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.\n\n \n\n\nImage src\n\n\nProne to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.\n\n\n\n\nFrom DES to 3DES\n\n\n Please feel free to refer to my classmate's \nnote\n for more information\n\n\nAES Encryption standard",
+            "text": "Network Security\n\n\nSpring 2018 \n\nLecturer: Shiuhpyng Shieh \n\n\nRSA Encryption standard\n\n\n\n\nAsymmetric encryption standard.\nThis encryption standard mainly focus on prime factorization\n\u66f4\u591a\u8cc7\u8a0a\u53ef\u4ee5\u53c3\u8003\n\u5916\u661f\u4eba\u7684\u7b46\u8a18\n\n\n\n\nCourse project1. Chosen cipher attack\n\n\n\n\nWill post report after the session of this homework ends.\n\n\n\n\nDES Encryption standard\n\n\n\n\nAn encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.\n\n\nDivide the plaintext into 64-bit-long in size for each if the block, and use the same length key for encryption(actually the key is not in the same length since there are 8 bits used for the parity-checking during the encryption)\n\n \n\n\nImage src\n\n\nDES Briefly introduction\n\n\nProne to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.\n\n\n16rounds are needed for the encryption process\n\n\nThe encryption and decryption are run under the same algorithm but they are in the reverse order with each other\n\n\n\n\nFrom DES to 3DES\n\n\n\n\nDES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis\n\n\n3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.\n![Screenshot](DES Procedure.png) \n\n\n\n\n Please feel free to refer to my classmate's \nnote\n for more information\n\n\nAES Encryption standard",
             "title": "Junior 2nd sem. Internet Security"
         },
         {
@@ -162,12 +162,12 @@
         },
         {
             "location": "/univ_notes/network_security/network_security/#des-encryption-standard",
-            "text": "An encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.    Image src  Prone to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.",
+            "text": "An encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.  Divide the plaintext into 64-bit-long in size for each if the block, and use the same length key for encryption(actually the key is not in the same length since there are 8 bits used for the parity-checking during the encryption)    Image src  DES Briefly introduction  Prone to brute force attack since the key space is too small to guarantee the safe area, so the safer 3-DES algorithm is used nowadays.  16rounds are needed for the encryption process  The encryption and decryption are run under the same algorithm but they are in the reverse order with each other",
             "title": "DES Encryption standard"
         },
         {
             "location": "/univ_notes/network_security/network_security/#from-des-to-3des",
-            "text": "Please feel free to refer to my classmate's  note  for more information",
+            "text": "DES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis  3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.\n![Screenshot](DES Procedure.png)     Please feel free to refer to my classmate's  note  for more information",
             "title": "From DES to 3DES"
         },
         {
