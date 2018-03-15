@@ -48,7 +48,7 @@ The interpolated value of a point is a reversely-weighted average of the neighbo
 such method is quite useful in the image transformation.
 
 
-## Lab2. Linear and non-linear Mar 01, 2018
+## Lab2. Image processing in spacial domain, linear and non-linear transformation Mar 08, 2018
 * Spacial-domain image processing.
 * Histogram equalization and mask processing    
 * Edge detection algorithm: Sobel filter, Laplician smoothing (W.J.Tsai OS Fall2017 HW3) ,sharpening and dege detection.
@@ -113,3 +113,4 @@ void histogram_equal(Mat& input, Mat& output)
 }
 
 ```
+## Lab3. Brief introduction to Computer Vision Mar 15, 2018
