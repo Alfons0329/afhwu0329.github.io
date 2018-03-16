@@ -3,4 +3,4 @@
 [leetcode_OJ(Old blog, from google blogger)](http://alfonshwu.blogspot.tw/2018/02/) <br />
 [WC70](WC70.md) <br />
 [WC74](WC74.md) <br />
-[WC74](WC75.md)
+[WC75](WC75.md)

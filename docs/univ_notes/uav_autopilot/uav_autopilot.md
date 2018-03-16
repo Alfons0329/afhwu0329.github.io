@@ -113,4 +113,8 @@ void histogram_equal(Mat& input, Mat& output)
 }
 
 ```
-## Lab3. Brief introduction to Computer Vision Mar 15, 2018
+## Lab3. Brief introduction to Computer Vision  Mar 15, 2018
+###Binary Machine Vision
+
+###Today's lab, connected component labeling
+[Check here](https://ccw1986.blogspot.tw/2016/03/connected-component-labeling-using.html)

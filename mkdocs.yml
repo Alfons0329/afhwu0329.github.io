@@ -1,4 +1,4 @@
-#main tiele
+#main title
 site_name: alfons0329's Blog
 site_description: 'CS coding practice, university notes, life ,gaming ,travel and photography'
 #informations and connections
@@ -18,7 +18,7 @@ pages:
         - Junior 1st sem. Intro. to Machine Learning: univ_notes/intro_ml/intro_ml.md
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
         - Junior 2nd sem. UAV Autopilot and Image Processing: univ_notes/uav_autopilot/uav_autopilot.md
-        - Junior 2nd sem. Internet Security: univ_notes/network_security/network_security.md
+        - Junior 2nd sem. Network Security: univ_notes/network_security/network_security.md
         - Junior 2nd sem. Social Psychology: univ_notes/general/social_psy.md
         - Junior 2nd sem. Japanese Culture: univ_notes/general/jp_cul.md
     - Programming practice:

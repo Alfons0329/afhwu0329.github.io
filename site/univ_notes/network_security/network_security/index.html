@@ -40,7 +40,7 @@
     
     
       
-        <title>Junior 2nd sem. Internet Security - alfons0329's Blog</title>
+        <title>Junior 2nd sem. Network Security - alfons0329's Blog</title>
       
     
     
@@ -127,7 +127,7 @@
                 alfons0329's Blog
               </span>
               <span class="md-header-nav__topic">
-                Junior 2nd sem. Internet Security
+                Junior 2nd sem. Network Security
               </span>
             
           
@@ -322,11 +322,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Junior 2nd sem. Internet Security
+        Junior 2nd sem. Network Security
       </label>
     
-    <a href="./" title="Junior 2nd sem. Internet Security" class="md-nav__link md-nav__link--active">
-      Junior 2nd sem. Internet Security
+    <a href="./" title="Junior 2nd sem. Network Security" class="md-nav__link md-nav__link--active">
+      Junior 2nd sem. Network Security
     </a>
     
       
@@ -376,6 +376,20 @@
         <li class="md-nav__item">
   <a href="#aes-encryption-standard" title="AES Encryption standard" class="md-nav__link">
     AES Encryption standard
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-truly-random-number-and-pseudo-random-number" title="The truly random number and pseudo random number" class="md-nav__link">
+    The truly random number and pseudo random number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-cipher-vs-stream-cipher" title="Block cipher vs Stream cipher" class="md-nav__link">
+    Block cipher vs Stream cipher
   </a>
   
 </li>
@@ -589,6 +603,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#the-truly-random-number-and-pseudo-random-number" title="The truly random number and pseudo random number" class="md-nav__link">
+    The truly random number and pseudo random number
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#block-cipher-vs-stream-cipher" title="Block cipher vs Stream cipher" class="md-nav__link">
+    Block cipher vs Stream cipher
+  </a>
+  
+</li>
+      
       
       
       
@@ -614,7 +642,7 @@ Lecturer: Shiuhpyng Shieh <br /></p>
 <h2 id="rsa-encryption-standard">RSA Encryption standard</h2>
 <ul>
 <li>Asymmetric encryption standard.
-This encryption standard mainly focus on prime factorization
+This encryption standard mainly focus on prime factorisation
 更多資訊可以參考<a href="">外星人的筆記</a></li>
 </ul>
 <h3 id="course-project1-chosen-cipher-attack">Course project1. Chosen cipher attack</h3>
@@ -646,12 +674,42 @@ This encryption standard mainly focus on prime factorization
 <li>AES is still the same as the DES in the category of block cipher encryption, but the block size of AES is 128 bits, doubled of the DES encryption.</li>
 <li>10 Rounds of encryption again and again is needed.
 <img alt="Screenshot" src="../AES_procedure.png" />  <br /> Image source from textbook
-One grey-colored box is the one "round" of the encryption in AES<br />
+One grey-coloured box is the one "round" of the encryption in AES<br />
 Each of the round we take the preceding round's output as the input of this round and do the encryption again, with the following 4 tasks to be done<br />
-1.The <strong>Sub Bytes</strong> is to use the non-linear transform to let the input transformed with a "Affine transformation", making the encryption robust and hard to be cracked<br />
-2.The <strong>Shift Rows</strong> is shifting the data, to rearrange the text, for row i we shift i-1 times to the left.<br />
-3.The <strong>Mix Columns</strong> is a linear 
-4.The <strong>Add Round Key</strong> is let the input XOR with the Key in the current state. (Rijndael key generator solution)<br /></li>
+1.The <strong>Substitution Bytes</strong> is to use the non-linear transform to let the input transformed with a "Affine transformation", making the encryption robust and hard to be cracked<br />
+2.The <strong>Shift Rows(Bit transposition)</strong> is shifting the data, to rearrange the text, for row i we shift i-1 times to the left.<br />
+<img alt="Screenshot" src="../AES_shiftrows.png" />
+<br /> Image source from wikipedia <br />
+3.The <strong>Mix Columns</strong> is a linear transform under the mod multiplication <br />
+4.The <strong>Add Round Key</strong> is let the input XOR with the Key in the current state. (Rijndael key generator solution,which is a subkey in each round, which we can be seen from the image provided above that Key(16 bytes and expand to match for each round, divided into 10 subkeys for 10 operations in AES encryption))<br />
+5.After the aforementioned four steps are done, go to the next encryption box. The operation is bytewise<br /></li>
+</ul>
+<h2 id="the-truly-random-number-and-pseudo-random-number">The truly random number and pseudo random number</h2>
+<ul>
+<li>Applications of the random number
+1.RSA pub-key generation and other pub-key algorithms.<br />
+2.Session key for encryption in system such as Wi-Fi, e-mail<br />
+<img alt="Screenshot" src="../CSPRNG.png" />
+<br /> Image source from wikipedia <br /></li>
+<li>The following 2 criteria are used to validate a sequence is random.
+1.Uniform distribution: The each element in the seed of random number must take the same proportion of being taken out.<br />
+2.Independence: A sequence cannot be inferred from the other sequence, strictly and absolutely.<br /></li>
+</ul>
+<h2 id="block-cipher-vs-stream-cipher">Block cipher vs Stream cipher</h2>
+<p><a href="http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87">Useful reference site</a>
+<em> Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
+The key of such encryption algorithm should have a extremely large period, o.w. it is crack-prone 
+<img alt="Screenshot" src="../SCD.png" />
+As we can see the sender and receiver generate the same key for encryption and decryption.
+Image source from textbook <br />
+</em> Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time.</p>
+<p><br />(Need validation) I think the AES, DES, 3DES are lie in this category.</p>
+<ul>
+<li>Serveral block modes for the block cipher.
+1.<br />
+2.<br />
+3.<br />
+4.<br /></li>
 </ul>
                 
                   
