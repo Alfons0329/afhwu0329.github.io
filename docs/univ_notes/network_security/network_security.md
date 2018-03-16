@@ -55,20 +55,61 @@ Each of the round we take the preceding round's output as the input of this roun
 2.Independence: A sequence cannot be inferred from the other sequence, strictly and absolutely.<br />
 
 ## Block cipher vs Stream cipher
-[Useful reference site](http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87)
 
 * Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
-The key of such encryption algorithm should have a extremely large period, o.w. it is crack-prone
+The key of such encryption algorithm should have a extremely large period and as random as possible, o.w. it is crack-prone.<br />
+In order to guard the BF attack, the longer key is preferred (However there is a trade-off b/w speed and security.)
 ![Screenshot](SCD.png)
 As we can see the sender and receiver generate the same key for encryption and decryption.
 Image source from textbook <br />
+* RC4 Algorithm
+1.An algorithm with changeable key length encryption. <br />
+2.SSL TLS WEP WPA use this encryption algorithm<br />
+3.Easy to implement in both HW ans SW, but terminated in 2015 due to attack<br />
 
-* Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time.
+RC4 Encryption procedure <br />
+1.Shuffle the key, make it randomised.
+```cpp
+for i from 0 to 255
+     S[i] := i
+ endfor
+ j := 0
+ for( i=0 ; i<256 ; i++)
+     j := (j + S[i] + key[i mod keylength]) % 256 //randomly take the new j and swap, make a permutation
+     swap values of S[i] and S[j]
+ endfor
+```
+2.Get even more shuffle data, each time for a input byte, locate the i and j value by take the value in the key, XOR the inputByte with the key (since the reverse of XOR operation is itself, once we insert the ciphertext we'll get plaintext, and converse is true as well.)
+```cpp
+i := 0
+j := 0
+while GeneratingOutput:
+    i := (i + 1) mod 256   //a
+    j := (j + S[i]) mod 256 //b
+    swap values of S[i] and S[j]  //c
+    k := inputByte ^ S[(S[i] + S[j]) % 256] //XOR operation suit for this case. Reverse operation also works
+    output K
+endwhile
+```
 
-<br />(Need validation) I think the AES, DES, 3DES are lie in this category.
+2.
+* Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
+totally different ciphertext for cryptographically secure. <br />
 
-* Serveral block modes for the block cipher.
-1.<br />
-2.<br />
-3.<br />
-4.<br />
+The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br />
+
+* 5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.
+1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
+2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. **If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.**<br />
+![Screenshot](CBCmode.png) <br />
+3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption.<br />
+![Screenshot](CFBmode.png) <br />
+4.CounTeR , use the counter directly for the key of encryption. Can be processed parallelly since each block can be processed with its counter and independent with other blocks, random access is suitable as well. And use the same key for decryption due to the properties of XOR operation, once the ciphertext XOR key ---> plaintext is decrypted.<br />
+The CTR mode is both HW and SW efficiency (parallelism are able to implemented in both CPU and compiler, OS ...etc). <br/>
+What's more, the preprocessing can be done as well, even without the presence of the plaintext, we can still generate the required key and the next task is just let plaintext XOR key ---> ciphertext.
+
+5.Output FeedBack similar too Cipher FeedBack, take the ciphertext from previous round and encrypt again<br />
+
+[Useful reference site ,MUST READ!!!](http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87)
+
+**All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
