@@ -49,17 +49,20 @@ Each of the round we take the preceding round's output as the input of this roun
 2.Session key for encryption in system such as Wi-Fi, e-mail<br />
 ![Screenshot](CSPRNG.png)
 <br /> Image source from wikipedia <br />
+
 * The following 2 criteria are used to validate a sequence is random.
 1.Uniform distribution: The each element in the seed of random number must take the same proportion of being taken out.<br />
 2.Independence: A sequence cannot be inferred from the other sequence, strictly and absolutely.<br />
 
 ## Block cipher vs Stream cipher
 [Useful reference site](http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87)
+
 * Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
-The key of such encryption algorithm should have a extremely large period, o.w. it is crack-prone 
+The key of such encryption algorithm should have a extremely large period, o.w. it is crack-prone
 ![Screenshot](SCD.png)
 As we can see the sender and receiver generate the same key for encryption and decryption.
 Image source from textbook <br />
+
 * Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time.
 
 <br />(Need validation) I think the AES, DES, 3DES are lie in this category.
