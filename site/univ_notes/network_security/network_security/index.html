@@ -758,16 +758,16 @@ Image source from textbook <br /></li>
 totally different ciphertext for cryptographically secure. <br /></p>
 <p>The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br /></p>
 <ul>
-<li>5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.
-1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
+<li>5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.  .<br /></li>
+</ul>
+<p>1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
 2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. <strong>If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.</strong><br />
 <img alt="Screenshot" src="../CBCmode.png" /> <br />
 3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption.<br />
 <img alt="Screenshot" src="../CFBmode.png" /> <br />
 4.CounTeR , use the counter directly for the key of encryption. Can be processed parallelly since each block can be processed with its counter and independent with other blocks, random access is suitable as well. And use the same key for decryption due to the properties of XOR operation, once the ciphertext XOR key ---&gt; plaintext is decrypted.<br />
 The CTR mode is both HW and SW efficiency (parallelism are able to implemented in both CPU and compiler, OS ...etc). <br/>
-What's more, the preprocessing can be done as well, even without the presence of the plaintext, we can still generate the required key and the next task is just let plaintext XOR key ---&gt; ciphertext.</li>
-</ul>
+What's more, the preprocessing can be done as well, even without the presence of the plaintext, we can still generate the required key and the next task is just let plaintext XOR key ---&gt; ciphertext.</p>
 <p>5.Output FeedBack similar too Cipher FeedBack, take the ciphertext from previous round and encrypt again<br /></p>
 <p><a href="http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87">Useful reference site ,MUST READ!!!</a></p>
 <p><strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>

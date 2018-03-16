@@ -98,7 +98,8 @@ totally different ciphertext for cryptographically secure. <br />
 
 The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br />
 
-* 5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.
+* 5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.  .<br />
+
 1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
 2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. **If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.**<br />
 ![Screenshot](CBCmode.png) <br />
