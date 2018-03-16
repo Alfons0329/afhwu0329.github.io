@@ -2,15 +2,16 @@
 Spring 2018 <br />
 Lecturer: Shiuhpyng Shieh <br />
 
-## RSA Encryption standard
+## Ch2. Symmetric Encryption and Message Confidentiality
+### RSA Encryption standard
 
 * Asymmetric encryption standard.
 This encryption standard mainly focus on prime factorisation
 更多資訊可以參考[外星人的筆記]()
-### Course project1. Chosen cipher attack
+#### Course project1. Chosen cipher attack
 * Will post report after the session of this homework ends.
 
-## DES Encryption standard
+### DES Encryption standard
 * An encryption algorithm use round, permutation shift and XOR operation to generate the ciphertext.
 * Divide the plaintext into 64-bit-long in size for each if the block, and use the same length key for encryption(actually the key is not in the same length since there are 8 bits used for the parity-checking during the encryption)
 ![Screenshot](AES_youtube.png)
@@ -21,14 +22,14 @@ This encryption standard mainly focus on prime factorisation
 * The encryption and decryption are run under the same algorithm but they are in the reverse order with each other
 * This is a model based on the [Fiestel model](https://zh.wikipedia.org/wiki/%E8%B4%B9%E6%96%AF%E5%A6%A5%E5%AF%86%E7%A0%81), namely for the encryption and decryption they use the same function but in the reversed order.
 
-## From DES to 3DES
+### From DES to 3DES
 * DES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis
 * 3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.
 
 ![Screenshot](DES_procedure.png) <br />
 * Please feel free to refer to my classmate's [note](https://hackmd.io/AhM957LCSuCMNzq0b5c1fw#Cryptography) for more information
 
-## AES Encryption standard
+### AES Encryption standard
 * Make a better encryption of 3DES, namely evolve from 3DES for a stronger and faster encryption algorithm.
 * AES is still the same as the DES in the category of block cipher encryption, but the block size of AES is 128 bits, doubled of the DES encryption.
 * 10 Rounds of encryption again and again is needed.
@@ -43,20 +44,20 @@ Each of the round we take the preceding round's output as the input of this roun
 4.The **Add Round Key** is let the input XOR with the Key in the current state. (Rijndael key generator solution,which is a subkey in each round, which we can be seen from the image provided above that Key(16 bytes and expand to match for each round, divided into 10 subkeys for 10 operations in AES encryption))<br />
 5.After the aforementioned four steps are done, go to the next encryption box. The operation is bytewise<br />
 
-## The truly random number and pseudo random number
+### The truly random number and pseudo random number
 * Applications of the random number
 1.RSA pub-key generation and other pub-key algorithms.<br />
 2.Session key for encryption in system such as Wi-Fi, e-mail<br />
 ![Screenshot](CSPRNG.png)
 <br /> Image source from wikipedia <br />
 
-* The following 2 criteria are used to validate a sequence is random.
+* The following 2 criteria are used to validate a sequence is random. <br />
 1.Uniform distribution: The each element in the seed of random number must take the same proportion of being taken out.<br />
 2.Independence: A sequence cannot be inferred from the other sequence, strictly and absolutely.<br />
 
-## Block cipher vs Stream cipher
+### Block cipher vs Stream cipher
 
-### Stream cipher
+#### Stream cipher
 * Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
 The key of such encryption algorithm should have a extremely large period and as random as possible, o.w. it is crack-prone.<br />
 In order to guard the BF attack, the longer key is preferred (However there is a trade-off b/w speed and security.)
@@ -93,11 +94,11 @@ while GeneratingOutput:
 endwhile
 ```
 
-### Block cipher
+#### Block cipher
 * Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
 totally different ciphertext for cryptographically secure. <br />
 
-The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br />
+* The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br />
 
 * 5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.  .<br />
 
@@ -113,5 +114,20 @@ What's more, the preprocessing can be done as well, even without the presence of
 5.Output FeedBack similar too Cipher FeedBack, take the ciphertext from previous round and encrypt again<br />
 
 [Useful reference site ,MUST READ!!!](http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87)
+
+
+## Ch3. Message Authencation and Public Key Cryptography
+### Message Authencation Code (MAC)
+* Using some hash value of the data and encrypt that value at the end of data for validation (see the image below)
+* Clarify!!: MAC cannot perform the data encryption, it can only be used for data authentication and validation. <br />
+* Such as parity checking is also a kind of message authentication. <br />
+![Screenshot](MAC1.png) <br />
+<br /> Image source from wikipedia <br />
+
+### Secure Hash Functions
+![Screenshot](hashXOR.png) <br />
+1.Collision and preimage-found resistant, making it unable to do the reverse of hash to forge the data. <br />
+
+### SHA Encryption standard
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
