@@ -700,27 +700,77 @@ Each of the round we take the preceding round's output as the input of this roun
 </li>
 </ul>
 <h2 id="block-cipher-vs-stream-cipher">Block cipher vs Stream cipher</h2>
-<p><a href="http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87">Useful reference site</a></p>
 <ul>
-<li>
-<p>Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
-The key of such encryption algorithm should have a extremely large period, o.w. it is crack-prone
+<li>Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
+The key of such encryption algorithm should have a extremely large period and as random as possible, o.w. it is crack-prone.<br />
+In order to guard the BF attack, the longer key is preferred (However there is a trade-off b/w speed and security.)
 <img alt="Screenshot" src="../SCD.png" />
 As we can see the sender and receiver generate the same key for encryption and decryption.
-Image source from textbook <br /></p>
-</li>
-<li>
-<p>Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time.</p>
-</li>
+Image source from textbook <br /></li>
+<li>RC4 Algorithm
+1.An algorithm with changeable key length encryption. <br />
+2.SSL TLS WEP WPA use this encryption algorithm<br />
+3.Easy to implement in both HW ans SW, but terminated in 2015 due to attack<br /></li>
 </ul>
-<p><br />(Need validation) I think the AES, DES, 3DES are lie in this category.</p>
+<p>RC4 Encryption procedure <br />
+1.Shuffle the key, make it randomised.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="n">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">255</span>
+     <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:=</span> <span class="n">i</span>
+ <span class="n">endfor</span>
+ <span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
+ <span class="k">for</span><span class="p">(</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">256</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+     <span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span> <span class="n">mod</span> <span class="n">keylength</span><span class="p">])</span> <span class="o">%</span> <span class="mi">256</span> <span class="c1">//randomly take the new j and swap, make a permutation</span>
+     <span class="n">swap</span> <span class="n">values</span> <span class="n">of</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">and</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+ <span class="n">endfor</span>
+</pre></div>
+</td></tr></table>
+
+<p>2.Get even more shuffle data, each time for a input byte, locate the i and j value by take the value in the key, XOR the inputByte with the key (since the reverse of XOR operation is itself, once we insert the ciphertext we'll get plaintext, and converse is true as well.)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nl">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
+<span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="nl">GeneratingOutput</span><span class="p">:</span>
+    <span class="nl">i</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">mod</span> <span class="mi">256</span>   <span class="c1">//a</span>
+    <span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">mod</span> <span class="mi">256</span> <span class="c1">//b</span>
+    <span class="n">swap</span> <span class="n">values</span> <span class="n">of</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">and</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>  <span class="c1">//c</span>
+    <span class="nl">k</span> <span class="p">:</span><span class="o">=</span> <span class="n">inputByte</span> <span class="o">^</span> <span class="n">S</span><span class="p">[(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">%</span> <span class="mi">256</span><span class="p">]</span> <span class="c1">//XOR operation suit for this case. Reverse operation also works</span>
+    <span class="n">output</span> <span class="n">K</span>
+<span class="n">endwhile</span>
+</pre></div>
+</td></tr></table>
+
+<p>2.
+* Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
+totally different ciphertext for cryptographically secure. <br /></p>
+<p>The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br /></p>
 <ul>
-<li>Serveral block modes for the block cipher.
-1.<br />
-2.<br />
-3.<br />
-4.<br /></li>
+<li>5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.
+1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
+2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. <strong>If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.</strong><br />
+<img alt="Screenshot" src="../CBCmode.png" /> <br />
+3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption.<br />
+<img alt="Screenshot" src="../CFBmode.png" /> <br />
+4.CounTeR , use the counter directly for the key of encryption. Can be processed parallelly since each block can be processed with its counter and independent with other blocks, random access is suitable as well. And use the same key for decryption due to the properties of XOR operation, once the ciphertext XOR key ---&gt; plaintext is decrypted.<br />
+The CTR mode is both HW and SW efficiency (parallelism are able to implemented in both CPU and compiler, OS ...etc). <br/>
+What's more, the preprocessing can be done as well, even without the presence of the plaintext, we can still generate the required key and the next task is just let plaintext XOR key ---&gt; ciphertext.</li>
 </ul>
+<p>5.Output FeedBack similar too Cipher FeedBack, take the ciphertext from previous round and encrypt again<br /></p>
+<p><a href="http://morris821028.github.io/2015/03/21/security-block-ciphers/#%E5%8A%A0%E5%AF%86%E8%A8%AD%E8%A8%88%E5%9F%BA%E7%A4%8E%E5%8E%9F%E5%89%87">Useful reference site ,MUST READ!!!</a></p>
+<p><strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
                 
                   
                 
