@@ -56,7 +56,8 @@ Each of the round we take the preceding round's output as the input of this roun
 
 ## Block cipher vs Stream cipher
 
-* Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
+### Stream cipher
+* Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
 The key of such encryption algorithm should have a extremely large period and as random as possible, o.w. it is crack-prone.<br />
 In order to guard the BF attack, the longer key is preferred (However there is a trade-off b/w speed and security.)
 ![Screenshot](SCD.png)
@@ -92,8 +93,8 @@ while GeneratingOutput:
 endwhile
 ```
 
-2.
-* Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
+### Block cipher
+* Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
 totally different ciphertext for cryptographically secure. <br />
 
 The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br />

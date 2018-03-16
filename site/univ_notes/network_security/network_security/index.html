@@ -392,6 +392,26 @@
     Block cipher vs Stream cipher
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-cipher" title="Stream cipher" class="md-nav__link">
+    Stream cipher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-cipher" title="Block cipher" class="md-nav__link">
+    Block cipher
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -615,6 +635,26 @@
     Block cipher vs Stream cipher
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stream-cipher" title="Stream cipher" class="md-nav__link">
+    Stream cipher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#block-cipher" title="Block cipher" class="md-nav__link">
+    Block cipher
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -700,8 +740,9 @@ Each of the round we take the preceding round's output as the input of this roun
 </li>
 </ul>
 <h2 id="block-cipher-vs-stream-cipher">Block cipher vs Stream cipher</h2>
+<h3 id="stream-cipher">Stream cipher</h3>
 <ul>
-<li>Stream cipher: Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
+<li>Change the encryption key from time to time, and each time the two part(sender-receiver) can generate the same random key s.t. they can encrypt and decrypt the same message.
 The key of such encryption algorithm should have a extremely large period and as random as possible, o.w. it is crack-prone.<br />
 In order to guard the BF attack, the longer key is preferred (However there is a trade-off b/w speed and security.)
 <img alt="Screenshot" src="../SCD.png" />
@@ -753,9 +794,11 @@ Image source from textbook <br /></li>
 </pre></div>
 </td></tr></table>
 
-<p>2.
-* Block cipher: Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
-totally different ciphertext for cryptographically secure. <br /></p>
+<h3 id="block-cipher">Block cipher</h3>
+<ul>
+<li>Use the same key for the text, and divide the text into blocks, processing ONE BLOCK for each time. Processing procedure including shift position, substitute text to let the plaintext look similar, however, generating the
+totally different ciphertext for cryptographically secure. <br /></li>
+</ul>
 <p>The AES(128 bits per block), DES(64 bits per block), 3DES(64 bits per block) are lie in this category.<br /></p>
 <ul>
 <li>5 Block modes for the block cipher, defined by NIST USA. Intended to use for the symmetric cipher.  .<br /></li>
