@@ -129,5 +129,11 @@ What's more, the preprocessing can be done as well, even without the presence of
 1.Collision and preimage-found resistant, making it unable to do the reverse of hash to forge the data. <br />
 
 ### SHA Encryption standard
+* Term explanation (waiting for the answer from OAlienO)
+1.Message Digest Size: Message digest, MD(same as MD of MD5), of how much data amount we output, such as in the following SHA1 algorithm, we produce 160bits output (hex * 40 = 160). <br />
+![Screenshot](SHA1ex)
+2.Message Size: Message amount that we can process in one time.<br />
+3.Block Size: In block cipher, cut all the message into several blocks, in the block is how much message in a block to be processed<br />
+4.Word Size: <br />
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
