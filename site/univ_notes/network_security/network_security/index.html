@@ -484,6 +484,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#public-key-cryptography" title="Public key cryptography" class="md-nav__link">
+    Public key cryptography
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -802,6 +809,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#public-key-cryptography" title="Public key cryptography" class="md-nav__link">
+    Public key cryptography
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1011,21 +1025,34 @@ result is called Avalanche Effect. It ensures the security of hash algorithm.</l
 <img alt="Screenshot" src="../HMAC.png" />
 <img alt="Screenshot" src="../HMACwiki.png" /></p>
 <h3 id="message-encryption-vs-message-digestionhashing-what-is-the-difference">Message encryption vs Message digestion(hashing), what is the difference?</h3>
-<p><a href="https://stackoverflow.com/questions/3332662/encryption-vs-digest">so encryption-vs-digest</a>
-<a href="https://stackoverflow.com/questions/7574023/how-is-an-md5-or-sha-x-hash-different-from-an-encryption">so how-is-an-md5-or-sha-x-hash-different-from-an-encryption</a>
-<a href="https://www.securityinnovationeurope.com/blog/page/whats-the-difference-between-hashing-and-encrypting">hash ,encryption and more</a>
-<em> Encryption: Really make the message secret, hard to be cracked and aims for security.
-<strong>key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key</strong>.ex. RSA AES DES ...
-</em> Digestion (hashing): Digest the whole data, may be used for message authentication, producing an ID or FINGERPRINT of the input data.<br />
-Hashing is great for usage in any instance where you want to <strong>compare a value with a stored value, but can't store its plain representation for security reasons</strong>. Other use cases could be checking the last few digits of a credit card match up with user input or comparing the hash of a file you have with the hash of it stored in a database to make sure that they're both the same. ex. MD5 SHA ...<br />
-Furthermore, if the digested data is encrypted, than it can be used for DIGITAL SIGNATURE.
+<p><a href="https://stackoverflow.com/questions/3332662/encryption-vs-digest">so encryption-vs-digest</a> <br />
+<a href="https://stackoverflow.com/questions/7574023/how-is-an-md5-or-sha-x-hash-different-from-an-encryption">so how-is-an-md5-or-sha-x-hash-different-from-an-encryption</a> <br />
+<a href="https://www.securityinnovationeurope.com/blog/page/whats-the-difference-between-hashing-and-encrypting">hash ,encryption and more</a> <br />
+<a href="https://crypto.stackexchange.com/questions/12178/why-should-i-use-authenticated-encryption-instead-of-just-encryption">so why-should-i-use-authenticated-encryption-instead-of-just-encryption</a> <br /></p>
+<ul>
+<li>Encryption: Really make the message secret, hard to be cracked and aims for security.
+<strong>key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key</strong> ex. RSA AES DES ...</li>
+<li>Digestion (hashing): Digest the whole data, may be used for message authentication, producing an ID or FINGERPRINT of the input data.<br />
+Hashing is great for usage in any instance where you want to <strong>compare a value with a stored value, but can't store its plain representation for security reasons</strong>. Other use cases could be checking the last few digits of a credit card match up with user input or comparing the hash of a file you have with the hash of it stored in a database to make sure that they're both the same. ex. MD5 SHA ...<br /></li>
+<li>Furthermore, if the digested data is encrypted, than it can be used for DIGITAL SIGNATURE.
 1.For example in SHA family <strong>能計算出一個數位訊息所對應到的，長度固定的字串（又稱訊息摘要）的演算法。且若輸入的訊息不同，它們對應到不同字串的機率很高。</strong>
-<strong>OAlienO : SHA 不是加密因為他沒辦法解回原本的 input</strong></p>
+<strong>OAlienO : SHA 不是加密因為他沒辦法解回原本的 input</strong></li>
+</ul>
 <h3 id="authenticated-encryption">Authenticated encryption</h3>
 <ul>
 <li>A term used to describe encryption systems that simultaneously protect confidentiality and authenticity of communications.</li>
+<li>Compared with traditional encryption, the authenticated encryption  additionally provides authenticity, while plain encryption provides only confidentiality.</li>
+<li>Usually more complicated than confidentiality-only or authenticity-only schemes.
+<img alt="Screenshot" src="../CCM.png" /></li>
 </ul>
-<p><strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
+<h3 id="public-key-cryptography">Public key cryptography</h3>
+<ul>
+<li>Encrypt with public key: Want to send someone a message that only they(certain of groups,...etc) will be able to read, encrypt it with that person's public key.</li>
+<li>Encrypt with private key: Want to publish some information and guarantee that you're the author <strong>(Reason is that the only person who encrypt with HIS PRIVATE KEY CAN ONLY BE THE ORGINAL AUTHOR, and everyone can use the public related to that private key to decrypt it)</strong>, and that it hasn't been tampered with, then you encrypt it with your private key.(We can as well use the authenticated encryption to ensure the authenticity. Just like the aforementioned <strong>Digital signature</strong>)
+<img alt="Screenshot" src="../pbkey.png" />
+<a href="https://stackoverflow.com/questions/16405240/encrypt-message-with-private-key">so What is we encrypt with private key??</a>
+<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></li>
+</ul>
                 
                   
                 
