@@ -129,11 +129,44 @@ What's more, the preprocessing can be done as well, even without the presence of
 1.Collision and preimage-found resistant, making it unable to do the reverse of hash to forge the data. <br />
 
 ### SHA Encryption standard
-* Term explanation (waiting for the answer from OAlienO)
+* Term explanation (waiting for the answer from OAlienO) <br />
 1.Message Digest Size: Message digest, MD(same as MD of MD5), of how much data amount we output, such as in the following SHA1 algorithm, we produce 160bits output (hex * 40 = 160). <br />
-![Screenshot](SHA1ex)
-2.Message Size: Message amount that we can process in one time.<br />
+![Screenshot](SHA1ex.png)
+2.Message Size: Message amount that we can process in one time(Maxium input).<br />
 3.Block Size: In block cipher, cut all the message into several blocks, in the block is how much message in a block to be processed<br />
-4.Word Size: <br />
+4.Word Size: A size of a given state.<br />
+
+* The following are the Message digest from the SHA512.
+![Screenshot](MDsha512.png)
+
+### Hashing, Why and How?
+[hash youtube](https://www.youtube.com/watch?v=yXmNmckX4sI) <br />
+
+* Hash aims for reduce the huge amount of data to the small amount.
+* Can be used for verify and prevent the errors in the communication.
+* Evan a small change in the original plaintext (such as only a bit), it will cause the totally different hash value, this
+result is called Avalanche Effect. It ensures the security of hash algorithm.
+* Hash has to be one-way and pre image, collision-resistant, otherwise , data will be forged.
+**Hash is doomed to be broken or cracked, what matters is that we have to try out best to lengthen the time before being cracked**
+![Screenshot](avalanche.png)
+### Hash-based message authentication code (HMAC)
+**Watch out the color correspondence for better understanding the procedure**
+![Screenshot](HMAC.png)
+![Screenshot](HMACwiki.png)
+
+### Message encryption vs Message digestion(hashing), what is the difference?
+[so encryption-vs-digest](https://stackoverflow.com/questions/3332662/encryption-vs-digest)
+[so how-is-an-md5-or-sha-x-hash-different-from-an-encryption](https://stackoverflow.com/questions/7574023/how-is-an-md5-or-sha-x-hash-different-from-an-encryption)
+[hash ,encryption and more](https://www.securityinnovationeurope.com/blog/page/whats-the-difference-between-hashing-and-encrypting)
+* Encryption: Really make the message secret, hard to be cracked and aims for security.
+**key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key**.ex. RSA AES DES ...
+* Digestion (hashing): Digest the whole data, may be used for message authentication, producing an ID or FINGERPRINT of the input data.<br />
+Hashing is great for usage in any instance where you want to **compare a value with a stored value, but can't store its plain representation for security reasons**. Other use cases could be checking the last few digits of a credit card match up with user input or comparing the hash of a file you have with the hash of it stored in a database to make sure that they're both the same. ex. MD5 SHA ...<br />
+Furthermore, if the digested data is encrypted, than it can be used for DIGITAL SIGNATURE.
+1.For example in SHA family **能計算出一個數位訊息所對應到的，長度固定的字串（又稱訊息摘要）的演算法。且若輸入的訊息不同，它們對應到不同字串的機率很高。**
+**OAlienO : SHA 不是加密因為他沒辦法解回原本的 input**
+
+### Authenticated encryption
+* A term used to describe encryption systems that simultaneously protect confidentiality and authenticity of communications.
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
