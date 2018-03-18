@@ -745,7 +745,7 @@
 此外，如果本來就符合嚴格增，就不用擔心，或是因為之前的交換(至i-1)而導致第i個需要替換，便需要檢查此次是否要換，也就是向前檢查到前一個。
 因此既有符合重疊子問題，又有最優子結構，那就是動態規劃試用的範圍囉
 <a href="https://hk.saowen.com/a/4828e12cd690ddf64c6469a905194c7672628d731f560080578408609b5cf760">參考連結:什麼時候用動態規劃演算法</a>
-<a href="https://discuss.leetcode.com/topic/121082/minimum-swaps-to-make-sequences-increasing/2">Discussion thread</a>
+<a href="https://discuss.leetcode.com/topic/121082/minimum-swaps-to-make-sequences-increasing/6">出題者解析</a>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -784,7 +784,9 @@
 36
 37
 38
-39</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+39
+40
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">minSwap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">B</span><span class="p">)</span>
@@ -797,7 +799,8 @@
 
         <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span><span class="n">i</span> <span class="o">&lt;</span> <span class="n">sz</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">//如果兩方都依然符合遞增，則可以一次換兩個column或是都不要換，因為之前的已經符合嚴格遞增</span>
+            <span class="c1">//如果兩方都依然符合遞增，則可以一次換兩個column或是都不要換，因為之前的已經符合嚴格遞增</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
             <span class="c1">//推理過來必定也會繼續嚴格遞增，否則就會被替換了</span>
             <span class="p">{</span>
                 <span class="n">unswap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">unswap</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">unswap</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
@@ -808,15 +811,16 @@
                 <span class="c1">//如果要替換，那麼先前累積的替換次數到這裡就會再多一次，因為現在多的i又要再換一次了。</span>
             <span class="p">}</span>
 
-            <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">//若是這種交叉符合形，則i或是i-1位置可以允許有一個要被替換，因為兩個都換的話效果等於沒有換</span>
+            <span class="c1">//若是這種交叉符合形，則i或是i-1位置可以有一個必要被替換，也就是i, i-1會有遞增形成。（這種意思就是說，因為A B的『雙重符合』遞增在此被打斷了』</span>
+            <span class="c1">//因為被打斷，勢必得利用交換其中一個，例如將i or i-1 其中之一各自替換即可。</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="n">B</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
             <span class="p">{</span>
                 <span class="n">unswap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">unswap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">swap</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
-                <span class="c1">//如果不要替換這一個，那麼先前的勢必都要符合嚴格遞增的形式，而一路依據單一替換換過來</span>
-
-
+                <span class="c1">//如果不要替換這一個，依然能讓整個數列嚴格增，那麼先前的勢必都要符合嚴格遞增的形式，因此得替換上一個</span>
+                <span class="c1">//也就是討論串裡面所說的：the cost n2 of having a legal sequence up to column i that ends with column i not flipped, is going //to be the cost s1 of having a legal sequence up to column i-1 that ends in column i-1 flipped</span>
 
                 <span class="n">swap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">unswap</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">swap</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
-                <span class="c1">//如果要替換，因為如果只換這一個就能讓整個數列符合要求，那麼代表先前的都沒有必要換，直接從這一個位置開始換，所以swap重新計算，從之前未替換的+1</span>
+                <span class="c1">//如果要替換這一個，才能讓整個數列嚴格增，那就代表先前到i-1都要是持續嚴格增，因此從這裡開始替換就是算先前沒替換但這個有替換，所以是從unswap + 1</span>
             <span class="p">}</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">min</span><span class="p">(</span><span class="n">swap</span><span class="p">[</span><span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">unswap</span><span class="p">[</span><span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
