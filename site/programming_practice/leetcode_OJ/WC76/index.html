@@ -487,6 +487,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pb801-minimum-swaps-to-make-sequences-increasing" title="PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃" class="md-nav__link">
+    PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃
+  </a>
+  
+</li>
+      
       
       
       
@@ -543,6 +550,13 @@
         <li class="md-nav__item">
   <a href="#pa-800-similar-rgb-color" title="PA. 800. Similar RGB Color 麻煩的水題" class="md-nav__link">
     PA. 800. Similar RGB Color 麻煩的水題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pb801-minimum-swaps-to-make-sequences-increasing" title="PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃" class="md-nav__link">
+    PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃
   </a>
   
 </li>
@@ -725,6 +739,12 @@
 <span class="p">};</span>
 </pre></div>
 </td></tr></table></p>
+<h2 id="pb801-minimum-swaps-to-make-sequences-increasing">PB.<a href="https://leetcode.com/contest/weekly-contest-76/problems/minimum-swaps-to-make-sequences-increasing/">801. Minimum Swaps To Make Sequences Increasing</a> 動態規劃</h2>
+<p>從題目的性質可以看出，每一個階段均要不斷求解這個階段是否要交換（重疊子問題），以符合嚴格遞增的序列。
+但是在每一個遞增中，如果每一個元素和它前一個元素都符合嚴格增（最優子結構），那麼整個數列也會是一個嚴格增。
+此外，如果本來就符合嚴格增，就不用擔心，或是因為之前的交換(至i-1)而導致第i個需要替換，便需要檢查此次是否要換，也就是向前檢查到前一個。
+因此既有符合重疊子問題，又有最優子結構，那就是動態規劃試用的範圍囉
+<a href="https://hk.saowen.com/a/4828e12cd690ddf64c6469a905194c7672628d731f560080578408609b5cf760">參考連結:什麼時候用動態規劃演算法</a></p>
                 
                   
                 
