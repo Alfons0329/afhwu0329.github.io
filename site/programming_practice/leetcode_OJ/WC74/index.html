@@ -323,6 +323,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
+      Junior 2nd sem. Statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../univ_notes/general/social_psy/" title="Junior 2nd sem. Social Psychology" class="md-nav__link">
       Junior 2nd sem. Social Psychology
     </a>
@@ -488,6 +500,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC76/" title="WC75" class="md-nav__link">
+      WC75
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -580,8 +604,7 @@
 <h2 id="pa-794-valid-tic-tac-toe-state">PA. <a href="https://leetcode.com/contest/weekly-contest-74/problems/valid-tic-tac-toe-state/">794. Valid Tic-Tac-Toe State</a> 觀察暴力題</h2>
 <ul>
 <li>思路：暴力＋情況邏輯特判。
-題目規則所述為：</li>
-</ul>
+題目規則所述為：
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -595,10 +618,10 @@ The game also ends if all squares are non-empty.
 No more moves can be played if the game is over.
 </pre></div>
 </td></tr></table>
-
-<p>一定要是x先攻，並且有任一方獲勝後則不可以再下標記，獲勝的方法同傳統井字遊戲。
-從邏輯來看，首先我們統計o的個數以及x的個數</p>
-<p>由於是輪流進行 ，且先x後o，因此x至多比o多出1，而且o不可能大於x，這些都是不合理的情形，可以先刪除</p>
+一定要是x先攻，並且有任一方獲勝後則不可以再下標記，獲勝的方法同傳統井字遊戲。
+從邏輯來看，首先我們統計o的個數以及x的個數</li>
+</ul>
+<p>由於是輪流進行 ，且先x後o，因此x至多比o多出1，而且o不可能大於x，這些都是不合理的情形，可以先刪除
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -623,8 +646,7 @@ No more moves can be played if the game is over.
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></p>
 <p>接下來檢查獲勝的情形，當獲勝時，只能有一次的獲勝，亦即不能有ooo xxx同時出現的情況
 因此我們用 win_cnt來統計獲勝的次數，只要 win_cnt&gt;1一定是不合法的結構。
 而在獲勝後，可以判斷是x獲勝或是o獲勝</p>
@@ -925,7 +947,7 @@ No more moves can be played if the game is over.
 <p>經典題目，看看word[i]是否為str的subsequence
 * 思路：兩個指標分別迭代str和word[i]，看到一樣的便將word的指針向前，如果指針最後＝＝長度則存在，否則即無</p>
 <p>簡單的想法卻TLE了，因為有大量重複的word[i]需要被重複操作，因此改用map優化統計各種word的出現次數，再將subseq符合的狀況加上map-&gt;second計數器即可</p>
-<p>map優化過後AC如下</p>
+<p>map優化過後AC如下
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1008,12 +1030,11 @@ No more moves can be played if the game is over.
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></p>
 <h2 id="pc-792-number-of-matching-subsequences">PC. <a href="https://leetcode.com/contest/weekly-contest-74/problems/number-of-subarrays-with-bounded-maximum">792. Number of Matching Subsequences</a> 找規律推理題</h2>
 <p><br />
 有點微妙的一題，看似簡單實際上不好拿分
-本來的算法如下，總是多一個或少一個，因為在進入的邊界問題沒有拿捏好</p>
+本來的算法如下，總是多一個或少一個，因為在進入的邊界問題沒有拿捏好
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1076,10 +1097,9 @@ No more moves can be played if the game is over.
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
-
+</td></tr></table></p>
 <p>後來參考了<a href="https://leetcode.com/problems/number-of-subarrays-with-bounded-maximum/discuss/117612/C++-O(n)-solution-with-explanations">大神的解法</a>，理解後如下 <br /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1148,14 +1168,13 @@ No more moves can be played if the game is over.
 <span class="p">};</span>
 </pre></div>
 </td></tr></table>
-
-<p>以[73,55,36,5,55,14,9,7,72,52]<br />
+以[73,55,36,5,55,14,9,7,72,52]<br />
 32 <br />
 69 <br />
 來看，演算法跑出後三變數的結果如下
 <img alt="Screenshot" src="../WC74pc.JPG" /></p>
 <h1 id="pd-793-preimage-size-of-factorial-zeroes-function-mod">PD. <a href="https://leetcode.com/contest/weekly-contest-74/problems/preimage-size-of-factorial-zeroes-function/">793. Preimage Size of Factorial Zeroes Function</a> 高難度找mod規律數學題</h1>
-<p>解不粗乃，先放置</p>
+<p>解不粗乃，先放置
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1248,7 +1267,7 @@ No more moves can be played if the game is over.
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
+</td></tr></table></p>
                 
                   
                 

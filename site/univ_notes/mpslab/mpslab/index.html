@@ -418,6 +418,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
+      Junior 2nd sem. Statistics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../general/social_psy/" title="Junior 2nd sem. Social Psychology" class="md-nav__link">
       Junior 2nd sem. Social Psychology
     </a>
@@ -522,6 +534,18 @@
 
   <li class="md-nav__item">
     <a href="../../../programming_practice/leetcode_OJ/WC75/" title="WC75" class="md-nav__link">
+      WC75
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../programming_practice/leetcode_OJ/WC76/" title="WC75" class="md-nav__link">
       WC75
     </a>
   </li>
@@ -801,8 +825,8 @@ PWM cycle (HV/ALL) = The proportion where light lights, the longer HV lasts, the
 The Pulse Width can be used to simulate the analog output like this.<br />
 <a href="../final_project_pics/PWM.MOV">PWM Video</a><br />
 The same is true of other 3 colors, configuring with the following code and expanations.<br />
-* Basic logic for this project <br />
-Initialize system -&gt; PWM and timer configuration -&gt; Presskey -&gt; Color changing scheme along with ADC light intensity detection for power saving.</p>
+<em> Basic logic for this project <br />
+Initialize system -&gt; PWM and timer configuration -&gt; Presskey -&gt; Color changing scheme along with ADC light intensity detection for power saving.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -812,8 +836,7 @@ Initialize system -&gt; PWM and timer configuration -&gt; Presskey -&gt; Color c
                           <span class="p">{</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">}};</span>
 </pre></div>
 </td></tr></table>
-
-<p>keypad explanation <br />
+keypad explanation <br />
 0 red+<br />
 1 green+<br />
 2 blue+<br />
@@ -830,10 +853,10 @@ Initialize system -&gt; PWM and timer configuration -&gt; Presskey -&gt; Color c
 13 green+blue<br />
 14 red+blue<br />
 15 off system, remember the last state, s.t. user configuration is not lost after shut down<br />
-* Setup the PWM channel<br />
+</em> Setup the PWM channel<br />
 Refer to <a href="https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/STM32%20Datasheet.pdf">this pdf</a> for PWM channel-GPIO port configuration, each port has its corresponding PWM channel and built-in system clock, be sure to make it right! <br /></p>
 <p>More understanding and details are written in comments of the following source code.<br />
-Please refer to <strong>p.1006-1039</strong> of <a href="https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/Cortex%20M4%20STM32%20Manual.pdf">this pdf</a> to see how to config the PWM cycle with certain registers in timer.</p>
+Please refer to <strong>p.1006-1039</strong> of <a href="https://github.com/Alfons0329/MPSLab_Fall_2017/blob/master/Cortex%20M4%20STM32%20Manual.pdf">this pdf</a> to see how to config the PWM cycle with certain registers in timer.
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1013,14 +1036,13 @@ Please refer to <strong>p.1006-1039</strong> of <a href="https://github.com/Alfo
 <span class="p">}</span>
 </pre></div>
 </td></tr></table>
-
-<p>*</p>
+*</p>
 <h3 id="part3-its-time-to-change-the-color">Part3. It's time to change the color.</h3>
 <ul>
-<li>Initialize to different duty cycle. <br />
+<li>
+<p>Initialize to different duty cycle. <br />
 Each color has its own PWM cycle, by setting the PWM cycle differently, we will be able to interleave 3 colors
-and mixing them together since there pulse waves have "time shifting (or say phase shifting)" to each other. <br /></li>
-</ul>
+and mixing them together since there pulse waves have "time shifting (or say phase shifting)" to each other. <br />
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1077,11 +1099,12 @@ and mixing them together since there pulse waves have "time shifting (or say pha
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
-
-<ul>
-<li>Increase, decrease and cycle. <br />
-state_color is the state indicating whether to increase the pulse cycle or decrease, with an view to simulating the sin-wave-like phase wave. <br /></li>
+</td></tr></table></p>
+</li>
+<li>
+<p>Increase, decrease and cycle. <br />
+state_color is the state indicating whether to increase the pulse cycle or decrease, with an view to simulating the sin-wave-like phase wave. <br /></p>
+</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
