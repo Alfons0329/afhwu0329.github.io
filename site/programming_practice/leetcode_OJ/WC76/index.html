@@ -495,8 +495,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，" class="md-nav__link">
-    PC. 802. Find Eventual Safe States 圖論經典題，
+  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，查找環以及可能觸及環之所有點" class="md-nav__link">
+    PC. 802. Find Eventual Safe States 圖論經典題，查找環以及可能觸及環之所有點
   </a>
   
 </li>
@@ -569,8 +569,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，" class="md-nav__link">
-    PC. 802. Find Eventual Safe States 圖論經典題，
+  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，查找環以及可能觸及環之所有點" class="md-nav__link">
+    PC. 802. Find Eventual Safe States 圖論經典題，查找環以及可能觸及環之所有點
   </a>
   
 </li>
@@ -844,12 +844,12 @@
 <span class="p">};</span>
 </pre></div>
 </td></tr></table></p>
-<h2 id="pc-802-find-eventual-safe-states">PC. <a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a> 圖論經典題，</h2>
+<h2 id="pc-802-find-eventual-safe-states">PC. <a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a> 圖論經典題，查找環以及可能觸及環之所有點</h2>
 <p>利用一個資料結構來儲存所有點的類型 -1代表尚未處理 0代表不在環上，或是不可能觸及到他人的環 1代表是環的一部分
-優化只尋找還沒處理過得點，其他再把標記為0的點，放到結果裡面。
-但依然優化不夠TLE:( 先放置吧
-<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_WA.cpp">Wrong Answer 37/111 複雜的暴力作法，還會錯</a>
-<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_TLE.cpp">TLE 81/111 提早跳出，但依然TLE</a>
+優化只尋找還沒處理過得點，其他再把標記為0的點，放到結果裡面。<br />
+但依然優化不夠TLE:( 先放置吧 <br />
+<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_WA.cpp">Wrong Answer 37/111 複雜的暴力作法，還會錯</a> <br />
+<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_TLE.cpp">TLE 81/111 提早跳出，但依然TLE</a> <br />
 以下代碼優化到 101/111 但依然TLE了 先『精神』ac一下。
 代碼邏輯見註解
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
