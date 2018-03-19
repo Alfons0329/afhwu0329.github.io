@@ -494,6 +494,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，" class="md-nav__link">
+    PC. 802. Find Eventual Safe States 圖論經典題，
+  </a>
+  
+</li>
+      
       
       
       
@@ -557,6 +564,13 @@
         <li class="md-nav__item">
   <a href="#pb801-minimum-swaps-to-make-sequences-increasing" title="PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃" class="md-nav__link">
     PB.801. Minimum Swaps To Make Sequences Increasing 動態規劃
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pc-802-find-eventual-safe-states" title="PC. 802. Find Eventual Safe States 圖論經典題，" class="md-nav__link">
+    PC. 802. Find Eventual Safe States 圖論經典題，
   </a>
   
 </li>
@@ -826,6 +840,181 @@
         <span class="p">}</span>
         <span class="k">return</span> <span class="n">min</span><span class="p">(</span><span class="n">swap</span><span class="p">[</span><span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">unswap</span><span class="p">[</span><span class="n">sz</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]);</span>
 
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></p>
+<h2 id="pc-802-find-eventual-safe-states">PC. <a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a> 圖論經典題，</h2>
+<p>利用一個資料結構來儲存所有點的類型 -1代表尚未處理 0代表不在環上，或是不可能觸及到他人的環 1代表是環的一部分
+優化只尋找還沒處理過得點，其他再把標記為0的點，放到結果裡面。
+但依然優化不夠TLE:( 先放置吧
+<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_WA.cpp">Wrong Answer 37/111 複雜的暴力作法，還會錯</a>
+<a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_TLE.cpp">TLE 81/111 提早跳出，但依然TLE</a>
+以下代碼優化到 101/111 但依然TLE了 先『精神』ac一下。
+代碼邏輯見註解
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">in_cycle</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">eventualSafeNodes</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">graph</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">in_cycle</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="n">fill</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">in_cycle</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">//-1 for unprocessed, 1 for in cycle and 0 for not in cycle</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">//if this node is not the terminal node</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">())</span> <span class="c1">//the node which unsure in a node should be processed, otherwiswe, just dont do</span>
+                <span class="p">{</span>
+                    <span class="n">visited</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+                    <span class="n">fill</span><span class="p">(</span><span class="n">visited</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">visited</span><span class="p">.</span><span class="n">end</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+                    <span class="c1">// cout&lt;&lt;&quot;Start from &quot;&lt;&lt;i&lt;&lt;endl;</span>
+                    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                    <span class="p">{</span>
+                        <span class="n">in_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">in_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">// cout&lt;&lt;&quot; is in_cycle &quot;;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">// cout&lt;&lt;in_cycle[i]&lt;&lt;&quot; &quot;;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">bool</span> <span class="n">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur_node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">graph</span><span class="p">,</span><span class="kt">int</span> <span class="n">step</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// cout&lt;&lt;&quot; DFS to &quot;&lt;&lt;cur_node&lt;&lt;endl;</span>
+        <span class="c1">// cout&lt;&lt;&quot; is in_cycle &quot;;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">in_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="s">&quot; &quot;</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// cout&lt;&lt;endl;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">// cout&lt;&lt;&quot;Hit a node that causes cycle &quot;&lt;&lt;endl;</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">in_cycle</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1">//reach the node that will not form a cycle, which is safe</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">//visit the visited node again, that is a cycle</span>
+        <span class="p">{</span>
+            <span class="c1">// cout&lt;&lt;&quot;Hit a node that visited before, CYCLE CONFIRMED!! now cur_node is &quot;&lt;&lt;cur_node&lt;&lt;endl;</span>
+            <span class="n">in_cycle</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">//traversed_path.push_back(cur_node);</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">cur_node</span><span class="p">].</span><span class="n">size</span><span class="p">())</span> <span class="c1">//search the next node that can be traversed from the current node</span>
+        <span class="p">{</span>
+            <span class="c1">//if this node will connect to its neighbor that forms a circle, than cur_node will be treated as circle-hazard as well</span>
+            <span class="c1">//cout&lt;&lt;i&lt;&lt;endl;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">cur_node</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">start</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">step</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+            <span class="p">{</span>
+                <span class="n">in_cycle</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="c1">// cout&lt;&lt;&quot;Node &quot;&lt;&lt;cur_node&lt;&lt;&quot; connect to &quot;&lt;&lt;i&lt;&lt;&quot; that forms a cycle &quot;&lt;&lt;endl;</span>
+                <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//if next traverse meet the terminal, it does not count as meet before that form a cycle since terminal is OK to meet again</span>
+        <span class="n">in_cycle</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//this node is terminal since the aforementioned FORI wont get in, so this is the node with output degree zero</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
