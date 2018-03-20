@@ -44,9 +44,9 @@ extra_css:
     #- site/assets/stylesheets/codehilite.css
 #extra plugins
 markdown_extensions:
+    - pymdownx.arithmatex
     - admonition
     - codehilite(guess_lang=true,linenums=true)
-    - pymdownx.arithmatex
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details

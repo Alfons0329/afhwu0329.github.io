@@ -180,3 +180,18 @@ Hashing is great for usage in any instance where you want to **compare a value w
 ![Screenshot](pbkey.png)
 [so What is we encrypt with private key??](https://stackoverflow.com/questions/16405240/encrypt-message-with-private-key)
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
+### Private key vs Secret key, what is the difference?
+* Private key: Use in asymmetric encryption.
+* Secret key: Use in symmetric encryption, but it is quite hard for us (or say unsafe) to exchange secret key, so the Diffie Hellman key exchange algorithm is invented.
+
+### Diffie Hellman key exchange
+* A way to exchange the secret key via an unsafe path
+![Screenshot](DHkey.png)
+[Math theory behind this algorithm](https://www.youtube.com/watch?v=Yjrfm_oRO0w)
+![Screenshot](DHkeymath.png)
+* SSL, TLS, SFTP use it. Like the AES implemetation AES is symmetric encryption and a shared-secret-key exchange is needed for end-to-end data encryption.
+* Both of end to end does not need to know each other (or cant break) his / her provate key but share a same secret key to do secret data exchange.
+* In this algorithm, we should choose a very big a, b and p s.t. Bob is unable so solve 'a' of Alice's secret and neither is Alice. o.w. Eve will hack into it and solve the shared secret key.
+* Aside from the RSA, why use Diffie Hellman key exchange? <br />
+Since the process of RSA is quite burdensome (numbers in it are extremely huge) so if we can back to the traditional symmetric encryption such as AES (just now we need a "secure pipe" under the "insecure pipe") to perform key exchange.
+Than the end-to-end encryption can be achieved, what's more, this method is faster in which stream cipher are performed
