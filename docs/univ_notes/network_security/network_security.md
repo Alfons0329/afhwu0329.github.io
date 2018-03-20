@@ -179,7 +179,6 @@ Hashing is great for usage in any instance where you want to **compare a value w
 * Encrypt with private key: Want to publish some information and guarantee that you're the author **(Reason is that the only person who encrypt with HIS PRIVATE KEY CAN ONLY BE THE ORGINAL AUTHOR, and everyone can use the public related to that private key to decrypt it)**, and that it hasn't been tampered with, then you encrypt it with your private key.(We can as well use the authenticated encryption to ensure the authenticity. Just like the aforementioned **Digital signature**)
 ![Screenshot](pbkey.png)
 [so What is we encrypt with private key??](https://stackoverflow.com/questions/16405240/encrypt-message-with-private-key)
-**All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
 ### Private key vs Secret key, what is the difference?
 * Private key: Use in asymmetric encryption.
 * Secret key: Use in symmetric encryption, but it is quite hard for us (or say unsafe) to exchange secret key, so the Diffie Hellman key exchange algorithm is invented.
@@ -203,8 +202,26 @@ And the wikipedia analogy ,note: sequence different from the image<br />
 ![Screenshot](MITMwiki.png)
 The core idea about this is still the mathematical expression, for example for the secret key K1, since Darth intercepts the message, then he can forge the key with his secret key XD2 ,due to the following mathematical theory about modulo exponential.<br />
 ![Screenshot](MITMmath.png) <br />
-So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. **BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!!** <br />
+So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. **BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!! and the same is true for Bob!!** <br />
 Originally the shared secret key should be lie on the mathematical expression like this<br />
 ![Screenshot](MITMright.png) <br />
 Rather than this <br />
 ![Screenshot](MITMwrong.png) <br />
+
+
+## Ch.4 Key Distribution and User Authentication
+
+### Key distribution
+* Used in the symmetric key crypto system to exchange keys from one end point to another.
+
+### Kerberos and its components
+* Centralised key distribution and authentication service b/w user and server(3rd party) that relies on symmetric encryption (No public key in it)
+* Generates a symmetric secret key b/w two end points.
+* Distributed system makes computing power better.
+#### Authencation server (AS)
+* Authenticate the user
+#### Ticket granting server (TGS)
+* Grant authenticated user permissions to act with the real server (SS, Service Server)
+[wikipedia for detailed procedure](https://zh.wikipedia.org/wiki/Kerberos) <br />
+[Detailed explanation video](https://www.youtube.com/watch?v=kp5d8Yv3-0c) <br />
+**All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**

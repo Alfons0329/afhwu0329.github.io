@@ -517,6 +517,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ch4-key-distribution-and-user-authentication" title="Ch.4 Key Distribution and User Authentication" class="md-nav__link">
+    Ch.4 Key Distribution and User Authentication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-distribution" title="Key distribution" class="md-nav__link">
+    Key distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-and-its-components" title="Kerberos and its components" class="md-nav__link">
+    Kerberos and its components
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authencation-server-as" title="Authencation server (AS)" class="md-nav__link">
+    Authencation server (AS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-granting-server-tgs" title="Ticket granting server (TGS)" class="md-nav__link">
+    Ticket granting server (TGS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -887,6 +934,53 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ch4-key-distribution-and-user-authentication" title="Ch.4 Key Distribution and User Authentication" class="md-nav__link">
+    Ch.4 Key Distribution and User Authentication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-distribution" title="Key distribution" class="md-nav__link">
+    Key distribution
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kerberos-and-its-components" title="Kerberos and its components" class="md-nav__link">
+    Kerberos and its components
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authencation-server-as" title="Authencation server (AS)" class="md-nav__link">
+    Authencation server (AS)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ticket-granting-server-tgs" title="Ticket granting server (TGS)" class="md-nav__link">
+    Ticket granting server (TGS)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
       
@@ -1114,8 +1208,7 @@ Hashing is great for usage in any instance where you want to <strong>compare a v
 <li>Encrypt with public key: Want to send someone a message that only they(certain of groups,...etc) will be able to read, encrypt it with that person's public key.</li>
 <li>Encrypt with private key: Want to publish some information and guarantee that you're the author <strong>(Reason is that the only person who encrypt with HIS PRIVATE KEY CAN ONLY BE THE ORGINAL AUTHOR, and everyone can use the public related to that private key to decrypt it)</strong>, and that it hasn't been tampered with, then you encrypt it with your private key.(We can as well use the authenticated encryption to ensure the authenticity. Just like the aforementioned <strong>Digital signature</strong>)
 <img alt="Screenshot" src="../pbkey.png" />
-<a href="https://stackoverflow.com/questions/16405240/encrypt-message-with-private-key">so What is we encrypt with private key??</a>
-<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></li>
+<a href="https://stackoverflow.com/questions/16405240/encrypt-message-with-private-key">so What is we encrypt with private key??</a></li>
 </ul>
 <h3 id="private-key-vs-secret-key-what-is-the-difference">Private key vs Secret key, what is the difference?</h3>
 <ul>
@@ -1143,11 +1236,33 @@ And the wikipedia analogy ,note: sequence different from the image<br />
 <img alt="Screenshot" src="../MITMwiki.png" />
 The core idea about this is still the mathematical expression, for example for the secret key K1, since Darth intercepts the message, then he can forge the key with his secret key XD2 ,due to the following mathematical theory about modulo exponential.<br />
 <img alt="Screenshot" src="../MITMmath.png" /> <br />
-So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. <strong>BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!!</strong> <br />
+So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. <strong>BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!! and the same is true for Bob!!</strong> <br />
 Originally the shared secret key should be lie on the mathematical expression like this<br />
 <img alt="Screenshot" src="../MITMright.png" /> <br />
 Rather than this <br />
 <img alt="Screenshot" src="../MITMwrong.png" /> <br /></li>
+</ul>
+<h2 id="ch4-key-distribution-and-user-authentication">Ch.4 Key Distribution and User Authentication</h2>
+<h3 id="key-distribution">Key distribution</h3>
+<ul>
+<li>Used in the symmetric key crypto system to exchange keys from one end point to another.</li>
+</ul>
+<h3 id="kerberos-and-its-components">Kerberos and its components</h3>
+<ul>
+<li>Centralised key distribution and authentication service b/w user and server(3<sup>rd</sup> party) that relies on symmetric encryption (No public key in it)</li>
+<li>Generates a symmetric secret key b/w two end points.</li>
+<li>Distributed system makes computing power better.</li>
+</ul>
+<h4 id="authencation-server-as">Authencation server (AS)</h4>
+<ul>
+<li>Authenticate the user</li>
+</ul>
+<h4 id="ticket-granting-server-tgs">Ticket granting server (TGS)</h4>
+<ul>
+<li>Grant authenticated user permissions to act with the real server (SS, Service Server)
+<a href="https://zh.wikipedia.org/wiki/Kerberos">wikipedia for detailed procedure</a> <br />
+<a href="https://www.youtube.com/watch?v=kp5d8Yv3-0c">Detailed explanation video</a> <br />
+<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></li>
 </ul>
                 
                   
