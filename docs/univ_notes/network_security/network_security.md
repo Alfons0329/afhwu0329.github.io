@@ -208,7 +208,6 @@ Originally the shared secret key should be lie on the mathematical expression li
 Rather than this <br />
 ![Screenshot](MITMwrong.png) <br />
 
-
 ## Ch.4 Key Distribution and User Authentication
 
 ### Key distribution
