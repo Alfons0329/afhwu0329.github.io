@@ -195,3 +195,9 @@ Hashing is great for usage in any instance where you want to **compare a value w
 * Aside from the RSA, why use Diffie Hellman key exchange? <br />
 Since the process of RSA is quite burdensome (numbers in it are extremely huge) so if we can back to the traditional symmetric encryption such as AES (just now we need a "secure pipe" under the "insecure pipe") to perform key exchange.
 Than the end-to-end encryption can be achieved, what's more, this method is faster in which stream cipher are performed
+
+### Man in the middle attack (MITM)
+* The MITM forges the key of both side and deceives them, act as both fake Alice and Bob.
+![Screenshot](MITM.png)
+And the wikipedia analogy ,note: sequence different from the image<br />
+![Screenshot](MITMwiki.png)
