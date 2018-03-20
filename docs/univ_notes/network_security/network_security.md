@@ -217,6 +217,8 @@ Rather than this <br />
 * Centralised key distribution and authentication service b/w user and server(3rd party) that relies on symmetric encryption (No public key in it)
 * Generates a symmetric secret key b/w two end points.
 * Distributed system makes computing power better.
+* During the key's lifetime (embedded in the message), the key can be used again and again.
+* **Central idea relies on the trustworthy 3RD PARTY SERVER**
 #### Authencation server (AS)
 * Authenticate the user
 #### Ticket granting server (TGS)
