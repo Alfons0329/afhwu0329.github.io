@@ -202,5 +202,9 @@ Than the end-to-end encryption can be achieved, what's more, this method is fast
 And the wikipedia analogy ,note: sequence different from the image<br />
 ![Screenshot](MITMwiki.png)
 The core idea about this is still the mathematical expression, for example for the secret key K1, since Darth intercepts the message, then he can forge the key with his secret key XD2 ,due to the following mathematical theory about modulo exponential.<br />
-![Screenshot](MITMmath.png)
-So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. **BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!!**
+![Screenshot](MITMmath.png) <br />
+So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. **BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!!** <br />
+Originally the shared secret key should be lie on the mathematical expression like this<br />
+![Screenshot](MITMright.png) <br />
+Rather than this <br />
+![Screenshot](MITMwrong.png) <br />
