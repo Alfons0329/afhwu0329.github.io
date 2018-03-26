@@ -25,6 +25,7 @@ pages:
     - Programming practice:
         - leetcode_OJ:
             - Index: programming_practice/leetcode_OJ/lcojindex.md
+            - WC67: programming_practice/leetcode_OJ/WC67.md
             - WC70: programming_practice/leetcode_OJ/WC70.md
             - WC74: programming_practice/leetcode_OJ/WC74.md
             - WC75: programming_practice/leetcode_OJ/WC75.md
