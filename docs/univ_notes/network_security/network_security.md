@@ -283,4 +283,7 @@ To decrypt the signature, the corresponding public key is required. A digital ce
 
 [Original discussion thread ](https://stackoverflow.com/questions/2882506/what-is-the-difference-between-digital-signature-and-digital-certificate)
 [Similar reference](http://support.unethost.com/knowledgebase.php?action=displayarticle&id=82)
+
+### PKI, CA, Key...etc great explanation video
+[Here](https://www.youtube.com/watch?v=i-rtxrEz_E8)
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
