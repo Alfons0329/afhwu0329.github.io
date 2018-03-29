@@ -56,7 +56,7 @@ such method is quite useful in the image transformation.
 1.Low level measurement such as brightness,Enhancements,Region segments,Features
 
 ### Today's course contents
-[Course week1 pdf](DIP_2.pdf)
+[Course pdf](DIP_2.pdf)
 
 ### Today's lab, Spacial Domain histogram equalization.
 * Problem1 Histogram equalization
@@ -118,3 +118,11 @@ void histogram_equal(Mat& input, Mat& output)
 
 ###Today's lab, connected component labeling
 [Check here](https://ccw1986.blogspot.tw/2016/03/connected-component-labeling-using.html)
+
+## Lab4. Camera Calibration Mar 29, 2018
+[Course pdf](Camera_Calibration.pdf)
+### Camera Calibration
+* (From official openCV document)Basically, you need to take snapshots of these patterns with your camera and let OpenCV find them. Each found pattern results in a new equation. To solve the equation you need at least a predetermined number of pattern snapshots to form a well-posed equation system. This number is higher for the chessboard pattern and less for the circle ones. For example, in theory the chessboard pattern requires at least two snapshots. However, in practice we have a good amount of noise present in our input images, so for good results you will probably need at least 10 good snapshots of the input pattern in different positions.
+* First, download ![Screenshot](pattern.png), measure the size of those square
+* Take many photos (approx 50 images ) of this grid and save it as jpg file
+* Iterate all the point on the
