@@ -126,3 +126,6 @@ void histogram_equal(Mat& input, Mat& output)
 * First, download ![Screenshot](pattern.png), measure the size of those square
 * Take many photos (approx 50 images ) of this grid and save it as jpg file
 * Iterate all the point on the
+
+###Today's lab, camera calibration and wraping
+[Lab4.pdf](Lab4.pdf)

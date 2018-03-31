@@ -279,11 +279,41 @@ sr is the server response<br />
 * From stackoverflow:
 A digital signature is used to verify a message. It is basically an encrypted hash (encrypted by the private key of the sender) of the message. The recipient can check if the message was tampered with by hashing the received message and comparing this value with the decrypted signature (decrypted the signature with the public key from the sender).
 
-To decrypt the signature, the corresponding public key is required. A digital certificate is used to bind public keys to persons or other entities. If there were no certificates, the signature could be easily be forged, as the recipient could not check if the public key belongs to the sender.
+To decrypt the signature, the corresponding public key is required. **A digital certificate is used to bind public keys to persons or other entities. If there were no certificates, the signature could be easily be forged, as the recipient could not check if the public key belongs to the sender.**
 
-[Original discussion thread ](https://stackoverflow.com/questions/2882506/what-is-the-difference-between-digital-signature-and-digital-certificate)
-[Similar reference](http://support.unethost.com/knowledgebase.php?action=displayarticle&id=82)
+[Original discussion thread ](https://stackoverflow.com/questions/2882506/what-is-the-difference-between-digital-signature-and-digital-certificate) <br />
+[Similar reference](http://support.unethost.com/knowledgebase.php?action=displayarticle&id=82) <br />
 
+* The "Chain of Trust" SSL certificate, root certificate are all related to this topic **Actually the public key certification (certification distribution of authorize a genuine key) is the core concept of SSL/TLS portocal**
+[Chain of Trust YouTube video](https://www.youtube.com/watch?v=heacxYUnFHA)
+* Private key of root CA should be absolutely inaccessible.
+* Once the "Chain of Trust" is successfully formed, an secure communication path can be formed (TLS using SSL certificate to do such things)
+#### So a question comes to my mind, **What is the differenct b/w HTTPS,TLS and SSL?**
+* Answer as follows:
+1.TLS is just the new name (or say acronym) of SSL Namely, SSL protocol got to version 3.0; TLS 1.0 is "SSL 3.1". TLS versions currently defined include TLS 1.1 and 1.2. Each new version adds a few features and modifies some internal details. We sometimes say "SSL/TLS".<br />
+
+2.HTTPS is the HTTP under the secured transmission protocol, i.e. HTTPS is HTTP-within-SSL/TLS. SSL (TLS) establishes a secured, bidirectional tunnel for arbitrary binary data between two hosts.<br />
+
+### Why chain of trust??
+* Even though the asymmetric (Public-key cryptography RSA) can ensure the secret communication, digital signature can ensure the correctness of content
+, however, we are still not sure about whether the issuer of the digital certificate is the real "good guy" or the "forged guy."
+[wikipedia ref](https://zh.wikipedia.org/wiki/%E4%BF%A1%E4%BB%BB%E9%8F%88)
 ### PKI, CA, Key...etc great explanation video
 [Here](https://www.youtube.com/watch?v=i-rtxrEz_E8)
+
+* A public key infrastructure (PKI) is a set of roles, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption.
+
+### When to revoke a user's certification??
+* The user’s private key is assumed to be compromised(假定被洩漏出去了)
+* The user is no longer certified by this CA; reasons for this
+include subject’s name has changed, the certificate is
+superseded, or the certificate was not issued in conformance
+with the CA’s policies
+* The CA’s certificate is assumed to be compromised
+
+### The PKI architecture
+![Screenshot](PKI_model.png)
+[PKI YouTube video](https://www.youtube.com/watch?v=t0F7fe5Alwg)
+* PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
+![Screenshot](CRL.png)
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**

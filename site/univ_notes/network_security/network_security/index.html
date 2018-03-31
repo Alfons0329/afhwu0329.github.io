@@ -612,11 +612,45 @@
     What is the difference b/w the digital signature and public key authentication.
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#so-a-question-comes-to-my-mind-what-is-the-differenct-bw-httpstls-and-ssl" title="So a question comes to my mind, What is the differenct b/w HTTPS,TLS and SSL?" class="md-nav__link">
+    So a question comes to my mind, What is the differenct b/w HTTPS,TLS and SSL?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-chain-of-trust" title="Why chain of trust??" class="md-nav__link">
+    Why chain of trust??
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#pki-ca-keyetc-great-explanation-video" title="PKI, CA, Key...etc great explanation video" class="md-nav__link">
     PKI, CA, Key...etc great explanation video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-revoke-a-users-certification" title="When to revoke a user's certification??" class="md-nav__link">
+    When to revoke a user's certification??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pki-architecture" title="The PKI architecture" class="md-nav__link">
+    The PKI architecture
   </a>
   
 </li>
@@ -1103,11 +1137,45 @@
     What is the difference b/w the digital signature and public key authentication.
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#so-a-question-comes-to-my-mind-what-is-the-differenct-bw-httpstls-and-ssl" title="So a question comes to my mind, What is the differenct b/w HTTPS,TLS and SSL?" class="md-nav__link">
+    So a question comes to my mind, What is the differenct b/w HTTPS,TLS and SSL?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-chain-of-trust" title="Why chain of trust??" class="md-nav__link">
+    Why chain of trust??
+  </a>
+  
 </li>
         
           <li class="md-nav__item">
   <a href="#pki-ca-keyetc-great-explanation-video" title="PKI, CA, Key...etc great explanation video" class="md-nav__link">
     PKI, CA, Key...etc great explanation video
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-to-revoke-a-users-certification" title="When to revoke a user's certification??" class="md-nav__link">
+    When to revoke a user's certification??
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#the-pki-architecture" title="The PKI architecture" class="md-nav__link">
+    The PKI architecture
   </a>
   
 </li>
@@ -1461,11 +1529,46 @@ sr is the server response<br /></li>
 <li>From stackoverflow:
 A digital signature is used to verify a message. It is basically an encrypted hash (encrypted by the private key of the sender) of the message. The recipient can check if the message was tampered with by hashing the received message and comparing this value with the decrypted signature (decrypted the signature with the public key from the sender).</li>
 </ul>
-<p>To decrypt the signature, the corresponding public key is required. A digital certificate is used to bind public keys to persons or other entities. If there were no certificates, the signature could be easily be forged, as the recipient could not check if the public key belongs to the sender.</p>
-<p><a href="https://stackoverflow.com/questions/2882506/what-is-the-difference-between-digital-signature-and-digital-certificate">Original discussion thread </a>
-<a href="http://support.unethost.com/knowledgebase.php?action=displayarticle&amp;id=82">Similar reference</a></p>
+<p>To decrypt the signature, the corresponding public key is required. <strong>A digital certificate is used to bind public keys to persons or other entities. If there were no certificates, the signature could be easily be forged, as the recipient could not check if the public key belongs to the sender.</strong></p>
+<p><a href="https://stackoverflow.com/questions/2882506/what-is-the-difference-between-digital-signature-and-digital-certificate">Original discussion thread </a> <br />
+<a href="http://support.unethost.com/knowledgebase.php?action=displayarticle&amp;id=82">Similar reference</a> <br /></p>
+<ul>
+<li>The "Chain of Trust" SSL certificate, root certificate are all related to this topic <strong>Actually the public key certification (certification distribution of authorize a genuine key) is the core concept of SSL/TLS portocal</strong>
+<a href="https://www.youtube.com/watch?v=heacxYUnFHA">Chain of Trust YouTube video</a></li>
+<li>Private key of root CA should be absolutely inaccessible.</li>
+<li>Once the "Chain of Trust" is successfully formed, an secure communication path can be formed (TLS using SSL certificate to do such things)</li>
+</ul>
+<h4 id="so-a-question-comes-to-my-mind-what-is-the-differenct-bw-httpstls-and-ssl">So a question comes to my mind, <strong>What is the differenct b/w HTTPS,TLS and SSL?</strong></h4>
+<ul>
+<li>Answer as follows:
+1.TLS is just the new name (or say acronym) of SSL Namely, SSL protocol got to version 3.0; TLS 1.0 is "SSL 3.1". TLS versions currently defined include TLS 1.1 and 1.2. Each new version adds a few features and modifies some internal details. We sometimes say "SSL/TLS".<br /></li>
+</ul>
+<p>2.HTTPS is the HTTP under the secured transmission protocol, i.e. HTTPS is HTTP-within-SSL/TLS. SSL (TLS) establishes a secured, bidirectional tunnel for arbitrary binary data between two hosts.<br /></p>
+<h3 id="why-chain-of-trust">Why chain of trust??</h3>
+<ul>
+<li>Even though the asymmetric (Public-key cryptography RSA) can ensure the secret communication, digital signature can ensure the correctness of content
+, however, we are still not sure about whether the issuer of the digital certificate is the real "good guy" or the "forged guy."
+<a href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E4%BB%BB%E9%8F%88">wikipedia ref</a></li>
+</ul>
 <h3 id="pki-ca-keyetc-great-explanation-video">PKI, CA, Key...etc great explanation video</h3>
-<p><a href="https://www.youtube.com/watch?v=i-rtxrEz_E8">Here</a>
+<p><a href="https://www.youtube.com/watch?v=i-rtxrEz_E8">Here</a></p>
+<ul>
+<li>A public key infrastructure (PKI) is a set of roles, policies, and procedures needed to create, manage, distribute, use, store, and revoke digital certificates and manage public-key encryption.</li>
+</ul>
+<h3 id="when-to-revoke-a-users-certification">When to revoke a user's certification??</h3>
+<ul>
+<li>The user’s private key is assumed to be compromised(假定被洩漏出去了)</li>
+<li>The user is no longer certified by this CA; reasons for this
+include subject’s name has changed, the certificate is
+superseded, or the certificate was not issued in conformance
+with the CA’s policies</li>
+<li>The CA’s certificate is assumed to be compromised</li>
+</ul>
+<h3 id="the-pki-architecture">The PKI architecture</h3>
+<p><img alt="Screenshot" src="../PKI_model.png" />
+<a href="https://www.youtube.com/watch?v=t0F7fe5Alwg">PKI YouTube video</a>
+* PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
+<img alt="Screenshot" src="../CRL.png" />
 <strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
                 
                   
