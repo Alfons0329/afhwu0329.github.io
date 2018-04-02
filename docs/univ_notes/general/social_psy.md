@@ -47,3 +47,4 @@
 * 腦袋計有的語詞儲存，計有的認知會影像對他人的評價
 * 既定的自動化刻板印象思考，例如說乾淨比較有道德或是不乾淨就是不道德(Auto thinking and metaphors about the body and the mind)
 * MEtaphor can influence decision：隱喻性思考會影響自己的判斷（就是自動化思考，一些比較偏向已經熟既有框架會影響你的思考行為）
+* 虛擬理解：如果想當初步怎麼樣或是當初怎麼樣，就會有不一樣的結果了

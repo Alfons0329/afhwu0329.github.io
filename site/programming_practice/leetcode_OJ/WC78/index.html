@@ -519,8 +519,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc-808-soup-servings" title="PC. 808. Soup Servings 有點難觀察出規律的動態規劃題" class="md-nav__link">
-    PC. 808. Soup Servings 有點難觀察出規律的動態規劃題
+  <a href="#pc-808-soup-servings" title="PC. 808. Soup Servings 有點難觀察出規律的動態規劃題(施工中)" class="md-nav__link">
+    PC. 808. Soup Servings 有點難觀察出規律的動態規劃題(施工中)
   </a>
   
 </li>
@@ -593,8 +593,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pc-808-soup-servings" title="PC. 808. Soup Servings 有點難觀察出規律的動態規劃題" class="md-nav__link">
-    PC. 808. Soup Servings 有點難觀察出規律的動態規劃題
+  <a href="#pc-808-soup-servings" title="PC. 808. Soup Servings 有點難觀察出規律的動態規劃題(施工中)" class="md-nav__link">
+    PC. 808. Soup Servings 有點難觀察出規律的動態規劃題(施工中)
   </a>
   
 </li>
@@ -927,7 +927,232 @@ ddinnso也可(當初以為要dd視為一組來延神 ，而ddd / dd 只有1.5倍
 </pre></div>
 </td></tr></table>
 
-<h3 id="pc-808-soup-servings">PC. <a href="https://leetcode.com/problems/soup-servings/description/">808. Soup Servings</a> 有點難觀察出規律的動態規劃題</h3>
+<h3 id="pc-808-soup-servings">PC. <a href="https://leetcode.com/problems/soup-servings/description/">808. Soup Servings</a> 有點難觀察出規律的動態規劃題(施工中)</h3>
+<ul>
+<li>思路：以每25毫升為單位切割，因此先把a b湯種的份量/25化繁為簡，接著，以dp表示『已經消費的湯種份量』 a湯種為row b為col，由於每一格均代表消耗的份量，
+因此可以採用由底層推上來的方式，將每一格由之前的四項點推得，並且逐步構築到serve份。<br />
+而猶如題目所說，同時讓ab湯種耗盡時，需要乘上0.5的係數，而耗盡a湯種，因為是目標，故乘上1係數，然而耗盡b湯種並不是我們所要的，故乘上0係數<br />
+如下<br />
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dir1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dir1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">dir1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="n">dir1</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+<span class="p">}</span>
+</pre></div>
+</td></tr></table></li>
+</ul>
+<p>(在題目以下的每個回圈判斷式便可以看到，詳細分析請見程式碼註解)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">double</span> <span class="n">soupServings</span><span class="p">(</span><span class="kt">int</span> <span class="n">all</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">all</span> <span class="o">&gt;</span> <span class="mi">6000</span><span class="p">)</span> <span class="c1">//monotonically increasing since A is always used more than B. (by empirical method)</span>
+            <span class="k">return</span> <span class="mf">1.0</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">serve</span> <span class="o">=</span> <span class="n">ceil</span><span class="p">(</span><span class="n">all</span> <span class="o">/</span> <span class="mf">25.0</span><span class="p">)</span> <span class="p">;</span> <span class="c1">//25 ml as a serving unit,</span>
+        <span class="c1">//一定要用ceil因為即便是沒有滿25ml也要完整的處理完畢，故得用ceil來將未滿一單位的湯種處理，既有的cpp除法會捨去</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">dp</span><span class="p">(</span><span class="n">serve</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span><span class="p">(</span><span class="n">serve</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">));</span> <span class="c1">//each grid represent the rest amount(unit) of a and be which //comes to here</span>
+        <span class="c1">//A row, B col</span>
+        <span class="kt">double</span> <span class="n">dir1</span><span class="p">,</span> <span class="n">dir2</span><span class="p">,</span> <span class="n">dir3</span><span class="p">,</span> <span class="n">dir4</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">serve</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">serve</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">&lt;=</span><span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir1</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">dir1</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">4</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir2</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">dir2</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">3</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+                <span class="p">}</span>
+
+
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir3</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir3</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir3</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">dir3</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">2</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">2</span><span class="p">];</span>
+                <span class="p">}</span>
+
+
+                <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">j</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir4</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir4</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">dir4</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">dir4</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="mi">3</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">dir1</span> <span class="o">+</span> <span class="n">dir2</span> <span class="o">+</span> <span class="n">dir3</span> <span class="o">+</span> <span class="n">dir4</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">serve</span><span class="p">][</span><span class="n">serve</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></p>
                 
                   
                 
