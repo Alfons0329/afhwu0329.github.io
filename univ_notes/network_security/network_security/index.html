@@ -660,6 +660,68 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ch6-transport-level-security" title="Ch.6 Transport-Level Security" class="md-nav__link">
+    Ch.6 Transport-Level Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-record-portocol" title="SSL Record Portocol" class="md-nav__link">
+    SSL Record Portocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cryptographic-computations" title="Cryptographic Computations" class="md-nav__link">
+    Cryptographic Computations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tls-https-http-ssltls-http-under-a-secure-transport-layer" title="TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer" class="md-nav__link">
+    TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" title="SSH" class="md-nav__link">
+    SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-channel-types" title="SSH Channel types" class="md-nav__link">
+    SSH Channel types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" title="Port Forwarding" class="md-nav__link">
+    Port Forwarding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch7-wireless-security" title="Ch.7 Wireless Security" class="md-nav__link">
+    Ch.7 Wireless Security
+  </a>
+  
+</li>
+      
       
       
       
@@ -1209,6 +1271,68 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#ch6-transport-level-security" title="Ch.6 Transport-Level Security" class="md-nav__link">
+    Ch.6 Transport-Level Security
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ssl-record-portocol" title="SSL Record Portocol" class="md-nav__link">
+    SSL Record Portocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cryptographic-computations" title="Cryptographic Computations" class="md-nav__link">
+    Cryptographic Computations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tls-https-http-ssltls-http-under-a-secure-transport-layer" title="TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer" class="md-nav__link">
+    TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh" title="SSH" class="md-nav__link">
+    SSH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssh-channel-types" title="SSH Channel types" class="md-nav__link">
+    SSH Channel types
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#port-forwarding" title="Port Forwarding" class="md-nav__link">
+    Port Forwarding
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ch7-wireless-security" title="Ch.7 Wireless Security" class="md-nav__link">
+    Ch.7 Wireless Security
+  </a>
+  
+</li>
+      
       
       
       
@@ -1594,6 +1718,35 @@ with the CA’s policies</li>
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 <img alt="Screenshot" src="../CRL.png" />
 <strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
+<h2 id="ch6-transport-level-security">Ch.6 Transport-Level Security</h2>
+<h3 id="ssl-record-portocol">SSL Record Portocol</h3>
+<ul>
+<li>Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline</li>
+<li>Message integrity: With a shared secret key to ensure the MAC code
+<img alt="Screenshot" src="../SSLhandshake.png" /></li>
+</ul>
+<h3 id="cryptographic-computations">Cryptographic Computations</h3>
+<h3 id="tls-https-http-ssltls-http-under-a-secure-transport-layer">TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer</h3>
+<h3 id="ssh">SSH</h3>
+<ul>
+<li>3different protocol: User Authencation, Connection and Transport Layer Protocol</li>
+<li>Using the asymmetric encryption.</li>
+<li>Package spec
+<img alt="Screenshot" src="../SSHpackage.png" /></li>
+</ul>
+<h3 id="ssh-channel-types">SSH Channel types</h3>
+<ul>
+<li>Including Session (Remotely execute a command such like ssh <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#97;&#102;&#104;&#119;&#117;&#48;&#51;&#50;&#57;&#64;&#108;&#105;&#110;&#117;&#120;&#49;&#46;&#99;&#115;&#46;&#110;&#99;&#116;&#117;&#46;&#101;&#100;&#117;&#46;&#116;&#119;">&#97;&#102;&#104;&#119;&#117;&#48;&#51;&#50;&#57;&#64;&#108;&#105;&#110;&#117;&#120;&#49;&#46;&#99;&#115;&#46;&#110;&#99;&#116;&#117;&#46;&#101;&#100;&#117;&#46;&#116;&#119;</a>), X11 , Forwarded TCPIP(Remote Port Forwarding) Direct(Local PF)</li>
+</ul>
+<h3 id="port-forwarding">Port Forwarding</h3>
+<p><a href="https://gwokae.mewggle.com/wordpress/2010/08/%E5%88%A9%E7%94%A8ssh-tunnel%E9%80%A3%E7%B7%9A%E8%87%B3%E5%85%A7%E9%83%A8%E7%B6%B2%E8%B7%AF/">SSHPF</a>
+<em> Useful features of SSH
+</em> Insecure TCP -&gt; SSH (Change the port from TCP to SSH)
+<em> SSH force the traffic in the TCP change to the SSH layer.
+</em> <a href="https://blog.fundebug.com/2017/04/24/ssh-port-forwarding/">Local vs Remote PF</a>
+1.Local is impossible<br />
+2.Remote forwarding like below<br /></p>
+<h2 id="ch7-wireless-security">Ch.7 Wireless Security</h2>
                 
                   
                 
