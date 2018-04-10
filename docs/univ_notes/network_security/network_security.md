@@ -6,6 +6,7 @@ Lecturer: Shiuhpyng Shieh <br />
 ### RSA Encryption standard
 
 * Asymmetric encryption standard.
+
 This encryption standard mainly focus on prime factorisation
 更多資訊可以參考[外星人的筆記]()
 #### Course project1. Chosen cipher attack
@@ -316,9 +317,10 @@ with the CA’s policies
 [PKI YouTube video](https://www.youtube.com/watch?v=t0F7fe5Alwg)
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 ![Screenshot](CRL.png)
-**All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
-
+##Ch.5 Cloud Security
+waiting after midterm
 ##Ch.6 Transport-Level Security
+waiting after midterm
 
 ### SSL Record Portocol
 * Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline
@@ -345,3 +347,6 @@ with the CA’s policies
 2.Remote forwarding like below<br />
 
 ##Ch.7 Wireless Security
+waiting after midterm
+
+**All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
