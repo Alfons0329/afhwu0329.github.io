@@ -317,3 +317,31 @@ with the CA’s policies
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 ![Screenshot](CRL.png)
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
+
+##Ch.6 Transport-Level Security
+
+### SSL Record Portocol
+* Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline
+* Message integrity: With a shared secret key to ensure the MAC code
+![Screenshot](SSLhandshake.png)
+### Cryptographic Computations
+### TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
+### SSH
+* 3different protocol: User Authencation, Connection and Transport Layer Protocol
+* Using the asymmetric encryption.
+* Package spec
+![Screenshot](SSHpackage.png)
+
+### SSH Channel types
+* Including Session (Remotely execute a command such like ssh afhwu0329@linux1.cs.nctu.edu.tw), X11 , Forwarded TCPIP(Remote Port Forwarding) Direct(Local PF)
+
+### Port Forwarding
+[SSHPF](https://gwokae.mewggle.com/wordpress/2010/08/%E5%88%A9%E7%94%A8ssh-tunnel%E9%80%A3%E7%B7%9A%E8%87%B3%E5%85%A7%E9%83%A8%E7%B6%B2%E8%B7%AF/)
+* Useful features of SSH
+* Insecure TCP -> SSH (Change the port from TCP to SSH)
+* SSH force the traffic in the TCP change to the SSH layer.
+* [Local vs Remote PF](https://blog.fundebug.com/2017/04/24/ssh-port-forwarding/)
+1.Local is impossible<br />
+2.Remote forwarding like below<br />
+
+##Ch.7 Wireless Security

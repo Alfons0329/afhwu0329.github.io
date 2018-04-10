@@ -48,3 +48,9 @@
 * 既定的自動化刻板印象思考，例如說乾淨比較有道德或是不乾淨就是不道德(Auto thinking and metaphors about the body and the mind)
 * MEtaphor can influence decision：隱喻性思考會影響自己的判斷（就是自動化思考，一些比較偏向已經熟既有框架會影響你的思考行為）
 * 虛擬理解：如果想當初步怎麼樣或是當初怎麼樣，就會有不一樣的結果了
+
+## Lec6. Apr 9, 2018
+* 社會知覺
+* 情感混合：一張臉可以表現出不同表情，一個表情可以傳達出不同的意思，因此讓人覺得比較難分辨。
+* 第一印象多快形成：例如，長的有嬰兒臉，就會說比較像小孩
+* [Thin slicing](https://en.wikipedia.org/wiki/Thin-slicing): 我們在看人的時候通常只抓一點的訊息就做結論了，比較容易偏頗而以偏概全，太快跑到結論去。
