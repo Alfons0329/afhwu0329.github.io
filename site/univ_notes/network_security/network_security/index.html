@@ -355,6 +355,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#concept-correction-here" title="Concept correction here:" class="md-nav__link">
+    Concept correction here:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-type-of-the-cryptanalysis" title="Common type of the cryptanalysis" class="md-nav__link">
     Common type of the cryptanalysis
   </a>
@@ -1082,6 +1089,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#concept-correction-here" title="Concept correction here:" class="md-nav__link">
+    Concept correction here:
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#common-type-of-the-cryptanalysis" title="Common type of the cryptanalysis" class="md-nav__link">
     Common type of the cryptanalysis
   </a>
@@ -1589,6 +1603,10 @@
 Lecturer: Shiuhpyng Shieh <br /></p>
 <h2 id="ch1-introduction">Ch1. Introduction.</h2>
 <h2 id="ch2-symmetric-encryption-and-message-confidentiality">Ch2. Symmetric Encryption and Message Confidentiality</h2>
+<h3 id="concept-correction-here">Concept correction here:</h3>
+<ul>
+<li>Assymetric encryption is not necessarily and absolutely better than the symmetric encryption, they can work with each other.</li>
+</ul>
 <h3 id="common-type-of-the-cryptanalysis">Common type of the cryptanalysis</h3>
 <h4 id="brute-force-attack">Brute force attack</h4>
 <ul>
@@ -1647,10 +1665,19 @@ keep the secret key as safe as possible.</li>
 <h3 id="from-des-to-3des">From DES to 3DES</h3>
 <ul>
 <li>DES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis</li>
-<li>3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.</li>
+<li>
+<p>3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.
+<img alt="Screenshot" src="../DES_procedure.png" /> <br /></p>
+</li>
+<li>
+<p>Please feel free to refer to my classmate's <a href="https://hackmd.io/AhM957LCSuCMNzq0b5c1fw#Cryptography">note</a> for more information</p>
+</li>
+<li>For encryption procedure:
+P--E(K1)--A--D(K2)--B--E(K3)&rarr;C <br />
+C--D(K1)--B--E(K2)--A--D(K3)&rarr;A <br />
+Since the Fiestel architecture, the encryption and decryption method are just the reverse of each other.</li>
+<li>For decryption procedure:</li>
 </ul>
-<p><img alt="Screenshot" src="../DES_procedure.png" /> <br />
-* Please feel free to refer to my classmate's <a href="https://hackmd.io/AhM957LCSuCMNzq0b5c1fw#Cryptography">note</a> for more information</p>
 <h3 id="aes-encryption-standard">AES Encryption standard</h3>
 <ul>
 <li>Make a better encryption of 3DES, namely evolve from 3DES for a stronger and faster encryption algorithm.</li>
@@ -1670,7 +1697,7 @@ Each of the round we take the preceding round's output as the input of this roun
 <h3 id="the-truly-random-number-and-pseudo-random-number">The truly random number and pseudo random number</h3>
 <ul>
 <li>
-<p>Applications of the random number
+<p>Applications of the random number<br />
 1.RSA pub-key generation and other pub-key algorithms.<br />
 2.Session key for encryption in system such as Wi-Fi, e-mail<br />
 <img alt="Screenshot" src="../CSPRNG.png" />
@@ -1691,7 +1718,7 @@ In order to guard the BF attack, the longer key is preferred (However there is a
 <img alt="Screenshot" src="../SCD.png" />
 As we can see the sender and receiver generate the same key for encryption and decryption.
 Image source from textbook <br /></li>
-<li>RC4 Algorithm
+<li>RC4 Algorithm<br />
 1.An algorithm with changeable key length encryption. <br />
 2.SSL TLS WEP WPA use this encryption algorithm<br />
 3.Easy to implement in both HW ans SW, but terminated in 2015 due to attack<br /></li>
@@ -1751,7 +1778,7 @@ totally different ciphertext for cryptographically secure. <br /></p>
 <p>1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
 2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. <strong>If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.</strong><br />
 <img alt="Screenshot" src="../CBCmode.png" /> <br />
-3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption.<br />
+3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption (Reason: ).<br />
 <img alt="Screenshot" src="../CFBmode.png" /> <br />
 4.CounTeR , use the counter directly for the key of encryption. Can be processed parallelly since each block can be processed with its counter and independent with other blocks, random access is suitable as well. And use the same key for decryption due to the properties of XOR operation, once the ciphertext XOR key ---&gt; plaintext is decrypted.<br />
 The CTR mode is both HW and SW efficiency (parallelism are able to implemented in both CPU and compiler, OS ...etc). <br/>

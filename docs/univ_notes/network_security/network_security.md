@@ -5,6 +5,9 @@ Lecturer: Shiuhpyng Shieh <br />
 
 ## Ch2. Symmetric Encryption and Message Confidentiality
 
+### Concept correction here:
+* Assymetric encryption is not necessarily and absolutely better than the symmetric encryption, they can work with each other.
+
 ### Common type of the cryptanalysis
 
 #### Brute force attack
@@ -54,9 +57,14 @@ This encryption standard mainly focus on prime factorisation
 ### From DES to 3DES
 * DES is not so secure since the key is 56bits long, which is quite prone to BF cryptanalysis
 * 3DES lengthens the key of DES (56 * 3 = 168), doing DES 3 times to make the encryption safer.
-
 ![Screenshot](DES_procedure.png) <br />
+
 * Please feel free to refer to my classmate's [note](https://hackmd.io/AhM957LCSuCMNzq0b5c1fw#Cryptography) for more information
+* For encryption procedure:
+P--E(K1)--A--D(K2)--B--E(K3)-->C <br />
+C--D(K1)--B--E(K2)--A--D(K3)-->A <br />
+Since the Fiestel architecture, the encryption and decryption method are just the reverse of each other.
+* For decryption procedure:
 
 ### AES Encryption standard
 * Make a better encryption of 3DES, namely evolve from 3DES for a stronger and faster encryption algorithm.
@@ -74,7 +82,7 @@ Each of the round we take the preceding round's output as the input of this roun
 5.After the aforementioned four steps are done, go to the next encryption box. The operation is bytewise<br />
 
 ### The truly random number and pseudo random number
-* Applications of the random number
+* Applications of the random number<br />
 1.RSA pub-key generation and other pub-key algorithms.<br />
 2.Session key for encryption in system such as Wi-Fi, e-mail<br />
 ![Screenshot](CSPRNG.png)
@@ -93,7 +101,7 @@ In order to guard the BF attack, the longer key is preferred (However there is a
 ![Screenshot](SCD.png)
 As we can see the sender and receiver generate the same key for encryption and decryption.
 Image source from textbook <br />
-* RC4 Algorithm
+* RC4 Algorithm<br />
 1.An algorithm with changeable key length encryption. <br />
 2.SSL TLS WEP WPA use this encryption algorithm<br />
 3.Easy to implement in both HW ans SW, but terminated in 2015 due to attack<br />
@@ -134,7 +142,7 @@ totally different ciphertext for cryptographically secure. <br />
 1.Electronic Code Book where Encryption:  ciphertext[i] = code_book[plaintext[i]] just. Need a decryptor to do reversed tasks.<br />
 2.Cipher Block Chaining, take the step i's ciphertext XOR with next step's plaintext and encrypt again. **If there is a bit error in the ciphertext, it will cause the decryption of plaintext i and plaintext i+1 error since they are chained together from step to step.**<br />
 ![Screenshot](CBCmode.png) <br />
-3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption.<br />
+3.Cipher FeedBack , only the encryptor is needed, 2 times of encryption is equivalent to decryption (Reason: ).<br />
 ![Screenshot](CFBmode.png) <br />
 4.CounTeR , use the counter directly for the key of encryption. Can be processed parallelly since each block can be processed with its counter and independent with other blocks, random access is suitable as well. And use the same key for decryption due to the properties of XOR operation, once the ciphertext XOR key ---> plaintext is decrypted.<br />
 The CTR mode is both HW and SW efficiency (parallelism are able to implemented in both CPU and compiler, OS ...etc). <br/>
