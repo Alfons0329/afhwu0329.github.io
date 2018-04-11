@@ -6,11 +6,25 @@ Lecturer: Shiuhpyng Shieh <br />
 ## Ch2. Symmetric Encryption and Message Confidentiality
 
 ### Common type of the cryptanalysis
-#### Ciphertext only attack
-#### Known plaintext attack
-#### Chosen plaintext attack
-#### Chosen ciphertext attack
 
+#### Brute force attack
+* On avg, half of the keys have to be tested.
+#### Ciphertext only attack
+* Known the encryption algorithm
+* Want to collect all the ciphtertext to find out the plaintext or ultimately, find out what the key is.
+#### Known plaintext attack
+* Use the known plaintext and the correspond ciphertext which encrypted by the encryption algorithm and ultimately find out what the key is.   
+
+#### Chosen plaintext attack
+* Use the dedicatedly and carefully crafted plaintext, figuring out the characteristics about the algorithm and ultimately find out what the key is.
+##### Difference b/w known plaintext and chosen ciphertext
+[See here](https://crypto.stackexchange.com/questions/2846/what-is-the-difference-between-known-plaintext-attack-and-chosen-plaintext-attac)
+
+#### Chosen ciphertext attack
+* As we've done in the course project 1, we use the dedicatedly and carefully crafted plaintext, figuring out the characteristics about the algorithm and ultimately find out what the key is.
+
+### Feistel cipher architecture
+*
 ### Model of symmetric encryption
 * Encrypt and decrypt with the same key, the key should be shared through a secure manner.
 ![Screenshot](symm_encrypt.png)

@@ -363,6 +363,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#brute-force-attack" title="Brute force attack" class="md-nav__link">
+    Brute force attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ciphertext-only-attack" title="Ciphertext only attack" class="md-nav__link">
     Ciphertext only attack
   </a>
@@ -381,6 +388,19 @@
     Chosen plaintext attack
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-bw-known-plaintext-and-chosen-ciphertext" title="Difference b/w known plaintext and chosen ciphertext" class="md-nav__link">
+    Difference b/w known plaintext and chosen ciphertext
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -392,6 +412,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feistel-cipher-architecture" title="Feistel cipher architecture" class="md-nav__link">
+    Feistel cipher architecture
+  </a>
   
 </li>
         
@@ -1063,6 +1090,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#brute-force-attack" title="Brute force attack" class="md-nav__link">
+    Brute force attack
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#ciphertext-only-attack" title="Ciphertext only attack" class="md-nav__link">
     Ciphertext only attack
   </a>
@@ -1081,6 +1115,19 @@
     Chosen plaintext attack
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#difference-bw-known-plaintext-and-chosen-ciphertext" title="Difference b/w known plaintext and chosen ciphertext" class="md-nav__link">
+    Difference b/w known plaintext and chosen ciphertext
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1092,6 +1139,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#feistel-cipher-architecture" title="Feistel cipher architecture" class="md-nav__link">
+    Feistel cipher architecture
+  </a>
   
 </li>
         
@@ -1536,10 +1590,31 @@ Lecturer: Shiuhpyng Shieh <br /></p>
 <h2 id="ch1-introduction">Ch1. Introduction.</h2>
 <h2 id="ch2-symmetric-encryption-and-message-confidentiality">Ch2. Symmetric Encryption and Message Confidentiality</h2>
 <h3 id="common-type-of-the-cryptanalysis">Common type of the cryptanalysis</h3>
+<h4 id="brute-force-attack">Brute force attack</h4>
+<ul>
+<li>On avg, half of the keys have to be tested.</li>
+</ul>
 <h4 id="ciphertext-only-attack">Ciphertext only attack</h4>
+<ul>
+<li>Known the encryption algorithm</li>
+<li>Want to collect all the ciphtertext to find out the plaintext or ultimately, find out what the key is.</li>
+</ul>
 <h4 id="known-plaintext-attack">Known plaintext attack</h4>
+<ul>
+<li>Use the known plaintext and the correspond ciphertext which encrypted by the encryption algorithm and ultimately find out what the key is.   </li>
+</ul>
 <h4 id="chosen-plaintext-attack">Chosen plaintext attack</h4>
+<ul>
+<li>Use the dedicatedly and carefully crafted plaintext, figuring out the characteristics about the algorithm and ultimately find out what the key is.</li>
+</ul>
+<h5 id="difference-bw-known-plaintext-and-chosen-ciphertext">Difference b/w known plaintext and chosen ciphertext</h5>
+<p><a href="https://crypto.stackexchange.com/questions/2846/what-is-the-difference-between-known-plaintext-attack-and-chosen-plaintext-attac">See here</a></p>
 <h4 id="chosen-ciphertext-attack">Chosen ciphertext attack</h4>
+<ul>
+<li>As we've done in the course project 1, we use the dedicatedly and carefully crafted plaintext, figuring out the characteristics about the algorithm and ultimately find out what the key is.</li>
+</ul>
+<h3 id="feistel-cipher-architecture">Feistel cipher architecture</h3>
+<p>*</p>
 <h3 id="model-of-symmetric-encryption">Model of symmetric encryption</h3>
 <ul>
 <li>Encrypt and decrypt with the same key, the key should be shared through a secure manner.
