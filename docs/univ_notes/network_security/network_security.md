@@ -1,7 +1,7 @@
 # Network Security
 Spring 2018 <br />
 Lecturer: Shiuhpyng Shieh <br />
-
+## Ch1. Introduction.
 ## Ch2. Symmetric Encryption and Message Confidentiality
 ### RSA Encryption standard
 
@@ -128,6 +128,13 @@ What's more, the preprocessing can be done as well, even without the presence of
 ### Secure Hash Functions
 ![Screenshot](hashXOR.png) <br />
 1.Collision and preimage-found resistant, making it unable to do the reverse of hash to forge the data. <br />
+
+### Hash collision, strong vs weak
+#### Strong
+Given an arbitrary x there exists no x' with x' != x so that h(x) = h(x')
+#### Weak
+There exist no x and x' with x != x' so that h(x) = h(x')
+
 
 ### SHA Encryption standard
 * Term explanation (waiting for the answer from OAlienO) <br />
