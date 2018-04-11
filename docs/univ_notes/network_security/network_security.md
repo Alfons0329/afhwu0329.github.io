@@ -2,7 +2,21 @@
 Spring 2018 <br />
 Lecturer: Shiuhpyng Shieh <br />
 ## Ch1. Introduction.
+
 ## Ch2. Symmetric Encryption and Message Confidentiality
+
+### Common type of the cryptanalysis
+#### Ciphertext only attack
+#### Known plaintext attack
+#### Chosen plaintext attack
+#### Chosen ciphertext attack
+
+### Model of symmetric encryption
+* Encrypt and decrypt with the same key, the key should be shared through a secure manner.
+![Screenshot](symm_encrypt.png)
+* security of symmetric encryption depends on the secrecy of the key, not the secrecy of the algorithm, which means we should
+keep the secret key as safe as possible.
+
 ### RSA Encryption standard
 
 * Asymmetric encryption standard.
