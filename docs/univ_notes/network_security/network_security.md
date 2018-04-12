@@ -172,7 +172,7 @@ Given an arbitrary x there exists no x' with x' != x so that h(x) = h(x')
 There exist no x and x' with x != x' so that h(x) = h(x')
 
 
-### SHA Encryption standard
+### SHA Note, NOT AN Encryption standard!
 * Term explanation (waiting for the answer from OAlienO) <br />
 1.Message Digest Size: Message digest, MD(same as MD of MD5), of how much data amount we output, such as in the following SHA1 algorithm, we produce 160bits output (hex * 40 = 160). <br />
 ![Screenshot](SHA1ex.png)
