@@ -168,8 +168,9 @@ What's more, the preprocessing can be done as well, even without the presence of
 ### Hash collision, strong vs weak
 #### Strong
 Given an arbitrary x there exists no x' with x' != x so that h(x) = h(x')
+(更厲害，無法找到任取兩個產生相同雜湊數值)
 #### Weak
-There exist no x and x' with x != x' so that h(x) = h(x')
+There exist no given x, and will be infeasible to find x' with x != x' so that h(x) = h(x') (一個已知找無法找到另一個產生相同數值的雜湊)
 
 
 ### SHA Note, NOT AN Encryption standard!
@@ -197,6 +198,9 @@ result is called Avalanche Effect. It ensures the security of hash algorithm.
 **Watch out the color correspondence for better understanding the procedure**
 ![Screenshot](HMAC.png)
 ![Screenshot](HMACwiki.png)
+### HMAC vs CMAC??
+[so hmac vs cmac](CMAC.png)
+* AS we can see from the picture for HMAC (aforementioned) and CMAC, although both of them use the key, but in
 
 ### Message encryption vs Message digestion(hashing), what is the difference?
 [so encryption-vs-digest](https://stackoverflow.com/questions/3332662/encryption-vs-digest) <br />
@@ -212,7 +216,7 @@ Hashing is great for usage in any instance where you want to **compare a value w
 1.For example in SHA family **能計算出一個數位訊息所對應到的，長度固定的字串（又稱訊息摘要）的演算法。且若輸入的訊息不同，它們對應到不同字串的機率很高。**
 **OAlienO : SHA 不是加密因為他沒辦法解回原本的 input**
 
-### Authenticated encryption
+### Authenticated encryption (HMAC x CMAC x  CCM = CMAC + AES block cipher + CTR block mode)
 * A term used to describe encryption systems that simultaneously protect confidentiality and authenticity of communications.
 * Compared with traditional encryption, the authenticated encryption  additionally provides authenticity, while plain encryption provides only confidentiality.
 * Usually more complicated than confidentiality-only or authenticity-only schemes.
@@ -233,7 +237,7 @@ Hashing is great for usage in any instance where you want to **compare a value w
 [Math theory behind this algorithm](https://www.youtube.com/watch?v=Yjrfm_oRO0w)
 ![Screenshot](DHkeymath.png)
 * SSL, TLS, SFTP use it. Like the AES implemetation AES is symmetric encryption and a shared-secret-key exchange is needed for end-to-end data encryption.
-* Both of end to end does not need to know each other (or cant break) his / her provate key but share a same secret key to do secret data exchange.
+* Both of end to end does not need to know each other (or cant break) his / her private key but share a same secret key to do secret data exchange.
 * In this algorithm, we should choose a very big a, b and p s.t. Bob is unable so solve 'a' of Alice's secret and neither is Alice. o.w. Eve will hack into it and solve the shared secret key.
 * Aside from the RSA, why use Diffie Hellman key exchange? <br />
 Since the process of RSA is quite burdensome (numbers in it are extremely huge) so if we can back to the traditional symmetric encryption such as AES (just now we need a "secure pipe" under the "insecure pipe") to perform key exchange.
@@ -245,6 +249,7 @@ Than the end-to-end encryption can be achieved, what's more, this method is fast
 And the wikipedia analogy ,note: sequence different from the image<br />
 ![Screenshot](MITMwiki.png)
 The core idea about this is still the mathematical expression, for example for the secret key K1, since Darth intercepts the message, then he can forge the key with his secret key XD2 ,due to the following mathematical theory about modulo exponential.<br />
+![Screenshot](DHkeymath.png)
 ![Screenshot](MITMmath.png) <br />
 So Alice is able to acquire the secret key via her own private key XA due to the upper math theory. **BUT SHE DOES NOT KNOW THAT YD2 ACTUALLY COMES FROM DARTH and DARTH now share the same key with Alice, so Alice thinks that Darth is Bob!! and the same is true for Bob!!** <br />
 Originally the shared secret key should be lie on the mathematical expression like this<br />
