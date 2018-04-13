@@ -263,6 +263,7 @@ Rather than this <br />
 * Used in the symmetric key crypto system to exchange keys from one end point to another.
 
 ### Kerberos and its components
+* User password will not be transmitted but will be used as a shared secret for the authentication
 * Centralised key distribution and authentication service b/w user and server(3rd party) that relies on symmetric encryption (No public key in it)
 * Generates a symmetric secret key b/w two end points.
 * Distributed system makes computing power better.
