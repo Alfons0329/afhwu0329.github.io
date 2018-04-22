@@ -29,11 +29,13 @@ $Power=1 - \beta$
 * So the less p-value, the less probability that according to the current result, is less likely to be happen that **SUPPOSE (NOTE!! SUPPOSE, NOT THE REAL ONE) $H_0$ IS TRUE**
 
 * A a small p-value means that the observed result is highly unlikely if the null hypothesis were true. Consequently, we conclude (since we do observe this result) that the null hypothesis is unlikely to be true, and reject it.
-* (Self-recognition) the smaller the $\aplpha$ is the smaller area that, for example the dual side test error part(outer part) will be, causing the less error probability to reject $H_0$ which is equivalent to **Even though I reject and describe a new stat , ex $\mu$ I still have the less chance to commit error**
+* (Self-recognition) the smaller the $\alpha$ is the smaller area that, for example the dual side test error part(outer part) will be, causing the less error probability to reject $H_0$ which is equivalent to **Even though I reject and describe a new stat , ex $\mu$ I still have the less chance to commit error**
 For example, $H_0$ says "avg height = 175cm",<br />
 $\alpha$ region 1 is $\mu \lt 170$ $\mu \gt 180$<br />
 and $\alpha$ region 2 is $\mu \lt 165$ $\mu \gt 185$<br />
 suppose $H_0$ is true, then region 2 covers **LESS** area then region 1. This result shows that the sample we observed is further shifted than region 1(亦即，區域二觀測到的數據相較於區域一，更顯外側，代表更偏離虛無假設，棄卻虛無假設的正確率更好，代表棄卻虛無假設犯錯的可性可以降低)
+
 #### Test statistics
-![Screenshot](stats.png)
 * Point estimator
+#### Decide the rejection region
+![Screenshot](stats.png)
