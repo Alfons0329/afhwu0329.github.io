@@ -1,76 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
+{% for nav_item in nav %}
+    {% if nav_item.children %}
+        {% for nav_item in nav_item.children %}
     <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//</loc>
-     <lastmod>2018-04-19</lastmod>
+     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
+     <lastmod>{{nav_item.update_date}}</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-        
+        {% endfor %}
+    {% else %}
     <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/intro_ml/intro_ml/</loc>
-     <lastmod>2018-04-19</lastmod>
+     <loc>{{ config.site_url }}{{ nav_item.abs_url }}</loc>
+     <lastmod>{{nav_item.update_date}}</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/mpslab/mpslab/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/uav_autopilot/uav_autopilot/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/network_security/network_security/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/statistics/stat/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/general/social_psy/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/general/jp_cul/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io/</loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/cs_project/cs_proj/</loc>
-     <lastmod>2018-04-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
+    {% endif %}
+{% endfor %}
 </urlset>
