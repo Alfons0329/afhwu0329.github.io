@@ -26,8 +26,6 @@ ans:<br /> $H_1: \mu_{night} < 25000hrs  , and  ,  H_0: \mu_{night} \geq 25000$
 ![Screenshot](type_error.png)
 * Power of test is if when rejecting $H_0$ and at the same time H1 is true
 $Power=1 - \beta$
-* $P-value$ is the probability that **suppose $H0$ is true**, and the corresponding probability that such sample supporting $H_0$ can be acquired.
-If not so much such sample can be acquired, then we have the confidence to drop off the null hypothesis, which says the least level of significance that we can drop off $H_0$. $H_0$ is usually written in the form that we want to drop off(we do not want such null hypothesis and want to support the alternative hypothesis)
 * So the less p-value, the less probability that according to the current result, is less likely to be happen that **SUPPOSE (NOTE!! SUPPOSE, NOT THE REAL ONE) $H_0$ IS TRUE**
 
 * A a small p-value means that the observed result is highly unlikely if the null hypothesis were true. Consequently, we conclude (since we do observe this result) that the null hypothesis is unlikely to be true, and reject it.
@@ -35,7 +33,7 @@ If not so much such sample can be acquired, then we have the confidence to drop 
 For example, $H_0$ says "avg height = 175cm",<br />
 $\alpha$ region 1 is $\mu \lt 170$ $\mu \gt 180$<br />
 and $\alpha$ region 2 is $\mu \lt 165$ $\mu \gt 185$<br />
-suppose $H_0$ is true, then region 2 covers more area then region 1, thus saying the alternative hypothesis $H_1$ with like avg height != 175cm (maybe 182 cm) in region 1 will cause more area then in region 2 thus the type I error is more significant in region 1 representing a larger $\alpha$ value and which is not we want, what we want is smaller $\alpha$ value.
+suppose $H_0$ is true, then region 2 covers **LESS** area then region 1. This result shows that the sample we observed is further shifted than region 1(亦即，區域二觀測到的數據相較於區域一，更顯外側，代表更偏離虛無假設，棄卻虛無假設的正確率更好，代表棄卻虛無假設犯錯的可性可以降低)
 #### Test statistics
 ![Screenshot](stats.png)
 * Point estimator
