@@ -367,7 +367,19 @@ with the CA’s policies
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 ![Screenshot](CRL.png)
 ##Ch.5 Cloud Security
-waiting after midterm
+###
+### 802.1X, EAP(A framework)
+* Used to control the access of user to the internet.
+* provides a generic transport service for the
+exchange of authentication information between a
+client system and an authentication server.<br />
+* The authentication server gives the instruction to the gate / authenticator such that it can give the client the internet resource he wants or not.
+* ![Screenshot](EAP_layer.png) , auth methods through the EAP layer to reach the data link layer.
+* Procedure as follows <br />
+1.EAPOL(OL stands for data encapsulation)-Start, start the eap<br />
+2.EAPOL(OL stands for data encapsulation)-EAP(REQ/IDENTITY) auth server wants to know the identity />
+3.EAPOL(OL stands for data encapsulation)-EAP(RESPONSE/AUTH) five the clinet response<br />
+4.EAPOL(OL stands for data encapsulation)-Logoff end the connection<br />
 ##Ch.6 Transport-Level Security
 waiting after midterm
 
