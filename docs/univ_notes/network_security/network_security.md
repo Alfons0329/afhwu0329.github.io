@@ -367,7 +367,6 @@ with the CA’s policies
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 ![Screenshot](CRL.png)
 ##Ch.5 Cloud Security
-###
 ### 802.1X, EAP(A framework)
 * Used to control the access of user to the internet.
 * provides a generic transport service for the
@@ -380,8 +379,24 @@ client system and an authentication server.<br />
 2.EAPOL(OL stands for data encapsulation)-EAP(REQ/IDENTITY) auth server wants to know the identity />
 3.EAPOL(OL stands for data encapsulation)-EAP(RESPONSE/AUTH) five the clinet response<br />
 4.EAPOL(OL stands for data encapsulation)-Logoff end the connection<br />
+### Cloud Couputing
+* Definition: Focus on what service cloud should have rather than a "how to" design architecture. a tool for
+describing, discussing, and developing a system-specific
+architecture using a common framework of reference.
+* SaaS provides software such as google drive, PaaS manages the computing platform such as the web(middleware components), and IaaS provides the
+hardware resources such as the network server and hosts...etc
+* Roles in cloud computing. <br />
+1.Carrier: Provide the transport b/w cloud services and consumers<br />
+2.Auditor(稽查員): Assures that THE CP conforms to a certain cloud standards<br />
+3.Broker(經紀人):Help the consumer to manage the cloud service when it is too complicated.<br />
+### Data protection in the cloud
+* Multi instance model: Am unique DBMS in each could subscriber(Risk distribution)
+* Multi tenant model: Allows customers to share computing resources in a public or private cloud. Each tenant's data is isolated and remains invisible to other tenants.
+**The rest of cloud computing will be read before the midterm 2**
 ##Ch.6 Transport-Level Security
-waiting after midterm
+### SSL Architecture
+* SSL connection: each connection is transient , and associated with one session. 
+* SSL session
 
 ### SSL Record Portocol
 * Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline
