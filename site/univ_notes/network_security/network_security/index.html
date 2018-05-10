@@ -2139,13 +2139,16 @@ hardware resources such as the network server and hosts...etc</li>
 <h2 id="ch6-transport-level-security">Ch.6 Transport-Level Security</h2>
 <h3 id="ssl-architecture">SSL Architecture</h3>
 <ul>
-<li>SSL connection: each connection is transient , and associated with one session. </li>
-<li>SSL session</li>
+<li>SSL connection: each connection is transient , and associated with one session.</li>
+<li>SSL session: Association b/w the client and the server
+<a href="https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A">wikipedia</a>
+<a href="http://www.netadmin.com.tw/article_content.aspx?sn=1106140008">NetAdmin</a></li>
 </ul>
 <h3 id="ssl-record-portocol">SSL Record Portocol</h3>
 <ul>
-<li>Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline</li>
+<li>Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline, encrypt the data with secret key.</li>
 <li>Message integrity: With a shared secret key to ensure the MAC code
+such that we may check whether the data has been modified or not.
 <img alt="Screenshot" src="../SSLhandshake.png" /></li>
 </ul>
 <h3 id="cryptographic-computations">Cryptographic Computations</h3>

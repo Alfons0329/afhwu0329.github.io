@@ -395,12 +395,14 @@ hardware resources such as the network server and hosts...etc
 **The rest of cloud computing will be read before the midterm 2**
 ##Ch.6 Transport-Level Security
 ### SSL Architecture
-* SSL connection: each connection is transient , and associated with one session. 
-* SSL session
-
+* SSL connection: each connection is transient , and associated with one session.
+* SSL session: Association b/w the client and the server
+[wikipedia](https://zh.wikipedia.org/wiki/%E5%82%B3%E8%BC%B8%E5%B1%A4%E5%AE%89%E5%85%A8%E6%80%A7%E5%8D%94%E5%AE%9A)
+[NetAdmin](http://www.netadmin.com.tw/article_content.aspx?sn=1106140008)
 ### SSL Record Portocol
-* Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline
+* Confidentiality with Handshake protocol to ensure that no one intercept in the pipeline, encrypt the data with secret key.
 * Message integrity: With a shared secret key to ensure the MAC code
+such that we may check whether the data has been modified or not.
 ![Screenshot](SSLhandshake.png)
 ### Cryptographic Computations
 ### TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
