@@ -840,6 +840,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pre-master-master-secret-private-shared-session-key" title="Pre master, master secret, private, shared / session key" class="md-nav__link">
+    Pre master, master secret, private, shared / session key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cryptographic-computations" title="Cryptographic Computations" class="md-nav__link">
     Cryptographic Computations
   </a>
@@ -1615,6 +1622,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#pre-master-master-secret-private-shared-session-key" title="Pre master, master secret, private, shared / session key" class="md-nav__link">
+    Pre master, master secret, private, shared / session key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cryptographic-computations" title="Cryptographic Computations" class="md-nav__link">
     Cryptographic Computations
   </a>
@@ -2151,8 +2165,20 @@ hardware resources such as the network server and hosts...etc</li>
 such that we may check whether the data has been modified or not.
 <img alt="Screenshot" src="../SSLhandshake.png" /></li>
 </ul>
+<h3 id="pre-master-master-secret-private-shared-session-key">Pre master, master secret, private, shared / session key</h3>
+<ul>
+<li>Pre master key: Allow for the uniform format of the master key.(Aim for the greater consistency)</li>
+<li>Master key is the agreement of both endpoint, master_secret = PRF(pre_master secret, "master secret"(aims for tag of current thing), Client ran + Server ran (or the Alice ran add up with the Bob ran))
+<a href="https://crypto.stackexchange.com/questions/27131/differences-between-the-terms-pre-master-secret-master-secret-private-key">Check here</a></li>
+</ul>
 <h3 id="cryptographic-computations">Cryptographic Computations</h3>
 <h3 id="tls-https-http-ssltls-http-under-a-secure-transport-layer">TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer</h3>
+<ul>
+<li>Port 443 will be used since it invokes the SSL</li>
+<li>The normal HTTP close we just need HTTP close, while the HTTPS we need the TLS which involves the underlying TCP connection.</li>
+<li>TLS requires the two entity of TCP in both client and server side.</li>
+<li>TLS should agree and exchange the closure alerts before closing connection.</li>
+</ul>
 <h3 id="ssh">SSH</h3>
 <ul>
 <li>3different protocol: User Authencation, Connection and Transport Layer Protocol</li>
