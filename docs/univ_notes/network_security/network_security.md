@@ -404,8 +404,17 @@ hardware resources such as the network server and hosts...etc
 * Message integrity: With a shared secret key to ensure the MAC code
 such that we may check whether the data has been modified or not.
 ![Screenshot](SSLhandshake.png)
+### Pre master, master secret, private, shared / session key
+* Pre master key: Allow for the uniform format of the master key.(Aim for the greater consistency)
+* Master key is the agreement of both endpoint, master_secret = PRF(pre_master secret, "master secret"(aims for tag of current thing), Client ran + Server ran (or the Alice ran add up with the Bob ran))
+[Check here](https://crypto.stackexchange.com/questions/27131/differences-between-the-terms-pre-master-secret-master-secret-private-key)
+
 ### Cryptographic Computations
 ### TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
+* Port 443 will be used since it invokes the SSL
+* The normal HTTP close we just need HTTP close, while the HTTPS we need the TLS which involves the underlying TCP connection.
+* TLS requires the two entity of TCP in both client and server side.
+* TLS should agree and exchange the closure alerts before closing connection.
 ### SSH
 * 3different protocol: User Authencation, Connection and Transport Layer Protocol
 * Using the asymmetric encryption.
