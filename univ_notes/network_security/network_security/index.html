@@ -891,6 +891,54 @@
     Ch.7 Wireless Security
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protect-against-wireless-eavesdropping" title="Protect against wireless eavesdropping" class="md-nav__link">
+    Protect against wireless eavesdropping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protect-the-access-point" title="Protect the access point" class="md-nav__link">
+    Protect the access point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-device-security" title="Mobile device security" class="md-nav__link">
+    Mobile device security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80211i-wireless-protocol" title="802.11i Wireless protocol" class="md-nav__link">
+    802.11i Wireless protocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wep-wpa-rsn" title="WEP, WPA, RSN" class="md-nav__link">
+    WEP, WPA, RSN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80211i-fourway-handshake-auth" title="802.11i Fourway handshake auth." class="md-nav__link">
+    802.11i Fourway handshake auth.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -1673,6 +1721,54 @@
     Ch.7 Wireless Security
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protect-against-wireless-eavesdropping" title="Protect against wireless eavesdropping" class="md-nav__link">
+    Protect against wireless eavesdropping
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protect-the-access-point" title="Protect the access point" class="md-nav__link">
+    Protect the access point
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-device-security" title="Mobile device security" class="md-nav__link">
+    Mobile device security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80211i-wireless-protocol" title="802.11i Wireless protocol" class="md-nav__link">
+    802.11i Wireless protocol
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wep-wpa-rsn" title="WEP, WPA, RSN" class="md-nav__link">
+    WEP, WPA, RSN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#80211i-fourway-handshake-auth" title="802.11i Fourway handshake auth." class="md-nav__link">
+    802.11i Fourway handshake auth.
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -2205,8 +2301,53 @@ such that we may check whether the data has been modified or not.
 2.Remote 當遠端伺服器想要連回來時，從自己的角度看將遠端的a埠經由ssh隧道連向（轉發導向）我這端local server的b埠，藉由local server連向我一旁的near host<br /></li>
 </ul>
 <h2 id="ch7-wireless-security">Ch.7 Wireless Security</h2>
-<p>waiting after midterm</p>
-<p><strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
+<ul>
+<li>Wireless devices are tend to have higher security risks than others since the following factors: Channel, Mobility, Resources, Accessibility.</li>
+<li>Common Wireless Network Threats: Accidental association, Malicious association, AD-HOC Networks, Identity theft(MAC Spoofing), MITM attack, DoS, Network injection.</li>
+</ul>
+<h3 id="protect-against-wireless-eavesdropping">Protect against wireless eavesdropping</h3>
+<ul>
+<li>Signal hiding(not so practical) and encryption(kind of practical).</li>
+</ul>
+<h3 id="protect-the-access-point">Protect the access point</h3>
+<ul>
+<li>Main threat is the unauthorized access to the network.</li>
+<li>The 802.1X standard. provides the authentication for device wishing connecting to the LAN/WLAN.</li>
+</ul>
+<h3 id="mobile-device-security">Mobile device security</h3>
+<ul>
+<li>Major security issues are: Lack of physical
+security controls, Use of untrusted
+mobile devices, Use of untrusted
+networks, Use of untrusted
+content, Use of applications
+created by unknown
+parties, Interaction with
+other systems, Use of location
+services</li>
+</ul>
+<h3 id="80211i-wireless-protocol">802.11i Wireless protocol</h3>
+<ul>
+<li>Controlled ports:PDU exchange within LAN b/w supplicant and other systems only if supplicant authorizes such an exchange</li>
+<li>Uncontrolled ports: Allows PDU exchange b/w supplicant and other RS regardless the authentication state.</li>
+<li>BSS, ESS? <a href="https://zh.wikipedia.org/wiki/%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91">Here</a></li>
+</ul>
+<h3 id="wep-wpa-rsn">WEP, WPA, RSN</h3>
+<ul>
+<li>WEP: Use RC4 for encryption, the level of security is unrelated with len of WEP key, 因為RC4是stream cipher的一種，同一個鑰匙絕不能使用二次，所以使用（雖然是用明文傳送的）IV的目的就是要避免重複；然而24位元的IV並沒有長到足以擔保在忙碌的網路上不會重複，而且IV的使用方式也使其可能遭受到關連式鑰匙攻擊, so change to WPA or WPA2 is the safer method。</li>
+<li>WPA: Fixed the vulnerability of WEP.</li>
+</ul>
+<h3 id="80211i-fourway-handshake-auth">802.11i Fourway handshake auth.</h3>
+<p><a href="http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake">Here</a>
+<em> MIC is the message integrity code to ensure the integrity of the message.
+</em> What is the purpose of ANonce and SNonce? As we can see from the 2017mid2 , they are used to generated the PTK for both the STA and AP, also the back SNonce serves like a challenge-response protocol to ensure the freshness and the alive of STA that there is no MITM attack and the same is true for AP.
+<em> The GTK is used for decrypting the data of multicast and broadcast traffic, all of the STAs share the same GTK.
+</em> GTK is distributed after the pairwise keys that already established (Use PK generated before to enctypt the GTK key )
+<em> GTK Changed every time as device leaves network(yes TRANSIENT KEY!)
+</em> TK with TKIP or CCMP are used for traffic key(encryption for data transfer phase)
+provides message integrity and data confidentiality.
+* HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
+<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
                 
                   
                 
