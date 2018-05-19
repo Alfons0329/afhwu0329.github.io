@@ -2338,16 +2338,18 @@ services</li>
 <li>WPA: Fixed the vulnerability of WEP.</li>
 </ul>
 <h3 id="80211i-fourway-handshake-auth">802.11i Fourway handshake auth.</h3>
-<p><a href="http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake">Here</a>
-<em> MIC is the message integrity code to ensure the integrity of the message.
-</em> What is the purpose of ANonce and SNonce? As we can see from the 2017mid2 , they are used to generated the PTK for both the STA and AP, also the back SNonce serves like a challenge-response protocol to ensure the freshness and the alive of STA that there is no MITM attack and the same is true for AP.
-<em> The GTK is used for decrypting the data of multicast and broadcast traffic, all of the STAs share the same GTK.
-</em> GTK is distributed after the pairwise keys that already established (Use PK generated before to enctypt the GTK key )
-<em> GTK Changed every time as device leaves network(yes TRANSIENT KEY!)
-</em> TK with TKIP or CCMP are used for traffic key(encryption for data transfer phase)
-provides message integrity and data confidentiality.
-* HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
-<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></p>
+<ul>
+<li><a href="http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake">Here</a></li>
+<li>MIC is the message integrity code to ensure the integrity of the message.</li>
+<li>What is the purpose of ANonce and SNonce? As we can see from the 2017mid2 , they are used to generated the PTK for both the STA and AP, also the back SNonce serves like a challenge-response protocol to ensure the freshness and the alive of STA that there is no MITM attack and the same is true for AP.</li>
+<li>The GTK is used for decrypting the data of multicast and broadcast traffic, all of the STAs share the same GTK.</li>
+<li>GTK is distributed after the pairwise keys that already established (Use PK generated before to enctypt the GTK key )</li>
+<li>GTK Changed every time as device leaves network(yes TRANSIENT KEY!)</li>
+<li>TK with TKIP or CCMP are used for traffic key(encryption for data transfer phase)
+provides message integrity and data confidentiality.</li>
+<li>HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
+<strong>All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute</strong></li>
+</ul>
                 
                   
                 
