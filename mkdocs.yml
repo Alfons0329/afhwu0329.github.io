@@ -62,4 +62,4 @@ markdown_extensions:
     - pymdownx.smartsymbols
     - pymdownx.superfences
     - pymdownx.tilde
-    - mdx_math
+    # - mdx_math

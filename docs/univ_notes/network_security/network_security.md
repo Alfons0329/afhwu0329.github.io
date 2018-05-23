@@ -410,14 +410,18 @@ such that we may check whether the data has been modified or not.
 [Check here](https://crypto.stackexchange.com/questions/27131/differences-between-the-terms-pre-master-secret-master-secret-private-key)
 
 ### Cryptographic Computations
+
 ### TLS, HTTPS = HTTP + SSL/TLS HTTP under a secure transport layer
 * Port 443 will be used since it invokes the SSL
 * The normal HTTP close we just need HTTP close, while the HTTPS we need the TLS which involves the underlying TCP connection.
 * TLS requires the two entity of TCP in both client and server side.
 * TLS should agree and exchange the closure alerts before closing connection.
 ### SSH
-* 3different protocol: User Authencation, Connection and Transport Layer Protocol
-* Using the asymmetric encryption.
+* Cryptographic network protocol
+* 3different protocol: User authentication, Connection and Transport Layer Protocol
+* Using the asymmetric encryption for user authentication(identify the private key of the user ti ensure the user is really him).
+* Authentication method
+![Screenshot](SSHAuth.png)
 * Package spec
 ![Screenshot](SSHpackage.png)
 
@@ -430,10 +434,49 @@ such that we may check whether the data has been modified or not.
 * Insecure TCP -> SSH (Change the port from TCP to SSH)
 * SSH force the traffic in the TCP change to the SSH layer.
 * [Local vs Remote PF](https://blog.fundebug.com/2017/04/24/ssh-port-forwarding/)
-1.Local is impossible<br />
-2.Remote forwarding like below<br />
+
+* Local vs Remote ??
+1.Local 自己連向更遠端的伺服器，從自己的角度看將自己的a埠經由ssh隧道連向（轉發導向）遠端remote server的b埠，藉由remote server傳到更遠端的faraway host<br />
+2.Remote 當遠端伺服器想要連回來時，從自己的角度看將遠端的a埠經由ssh隧道連向（轉發導向）我這端local server的b埠，藉由local server連向我一旁的near host<br />
 
 ##Ch.7 Wireless Security
-waiting after midterm
+* Wireless devices are tend to have higher security risks than others since the following factors: Channel, Mobility, Resources, Accessibility.
+* Common Wireless Network Threats: Accidental association, Malicious association, AD-HOC Networks, Identity theft(MAC Spoofing), MITM attack, DoS, Network injection.
 
+###Protect against wireless eavesdropping
+* Signal hiding(not so practical) and encryption(kind of practical).
+
+###Protect the access point
+* Main threat is the unauthorized access to the network.
+* The 802.1X standard. provides the authentication for device wishing connecting to the LAN/WLAN.
+
+###Mobile device security
+* Major security issues are: Lack of physical
+security controls, Use of untrusted
+mobile devices, Use of untrusted
+networks, Use of untrusted
+content, Use of applications
+created by unknown
+parties, Interaction with
+other systems, Use of location
+services
+
+###802.11i Wireless protocol
+* Controlled ports:PDU exchange within LAN b/w supplicant and other systems only if supplicant authorizes such an exchange
+* Uncontrolled ports: Allows PDU exchange b/w supplicant and other RS regardless the authentication state.
+* BSS, ESS? [Here](https://zh.wikipedia.org/wiki/%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91)
+###WEP, WPA, RSN
+* WEP: Use RC4 for encryption, the level of security is unrelated with len of WEP key, 因為RC4是stream cipher的一種，同一個鑰匙絕不能使用二次，所以使用（雖然是用明文傳送的）IV的目的就是要避免重複；然而24位元的IV並沒有長到足以擔保在忙碌的網路上不會重複，而且IV的使用方式也使其可能遭受到關連式鑰匙攻擊, so change to WPA or WPA2 is the safer method。
+* WPA: Fixed the vulnerability of WEP.
+
+###802.11i Fourway handshake auth.
+* [Here](http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake)
+* MIC is the message integrity code to ensure the integrity of the message.
+* What is the purpose of ANonce and SNonce? As we can see from the 2017mid2 , they are used to generated the PTK for both the STA and AP, also the back SNonce serves like a challenge-response protocol to ensure the freshness and the alive of STA that there is no MITM attack and the same is true for AP.
+* The GTK is used for decrypting the data of multicast and broadcast traffic, all of the STAs share the same GTK.
+* GTK is distributed after the pairwise keys that already established (Use PK generated before to enctypt the GTK key )
+* GTK Changed every time as device leaves network(yes TRANSIENT KEY!)
+* TK with TKIP or CCMP are used for traffic key(encryption for data transfer phase)
+provides message integrity and data confidentiality.
+* HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
