@@ -479,4 +479,63 @@ services
 * TK with TKIP or CCMP are used for traffic key(encryption for data transfer phase)
 provides message integrity and data confidentiality.
 * HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
+
+## Ch8. EMAIL Security
+###PGP(Pretty Good Privacy)
+* Provides a confidentiality and authentication service that
+can be used for electronic mail and file storage applications
+* PGP also provides the message authentication and the message integrity.
+* Services
+1.Digital signature: DSS, RSA , SHA<br />
+2.Message encryption: CAST, IDEA, 3DES<br />
+3.Compression: zip<br />
+4.email compatibility: Base64 encryption <br />
+![Screenshot](PGPworkflow.png)
+![Screenshot](PGPworkflow2.png)
+####PGP Authencation
+* RSA ensures that the message will not be changed in transmission due to its power of encryption
+* SHA ensures that no one can generated the message with the same hash code
+####PGP Confidentiality
+* 64bits CFB is used, using the block cipher , symmetric encryption.
+* In PGP, each symmetric key is used only once.
+* Encrypt with the receiver's public key.
+####PGP Compression
+* PGP compresses the msg after signature but before encryption.
+* If sign after the compression, then the version of compression will be constrained since different compression leads to different encoding thus different hash result even with the same source data.
+####PGP E-mail Compatibility
+* Radix64(B64) encoding to convert them into printable ASCII chars.
+* Append the CRC to protect the transmission error.
+
+###S/MIME
+* Security enhancement for the MIME
+* Another standard besides PGP
+####MIME
+* MIME improve from SMTP
+* 5 Headers are defined, to fully describe the email, MIME-ver, content type, content-transfer encoding, content-ID, content description.
+
+####S/MIME  Functionality
+* Enveloped data: encrypted content of any type **and
+encrypted content encryption keys** for one or
+more recipients.
+* Signed data, message digest of content and digital signature with the private key of the signer. **Recipient without S/MIME compatibility are unable to view the data**
+* Clear-signed data: Only the digital signature is encoded using
+base64 **recipients without S/MIME
+capability can view the message content,
+although they cannot verify the signature**
+
+####Cryptographic algorithms used in S/MIME
+![Screenshot](SMIMEalgo.png)
+* Smime secures the MIME with a signature ,encryption, or both
+* Clear signing does not involve transforming the message to be signed.
+
+####S/MIME Certificate Processing
+* Managers and/or users must configure each client with a list of trusted keys and with certificate revocation lists.
+-->Local wil maintaining the certs needed
+to verify incoming signatures and to encrypt outgoing messages.(要用別人的證書來檢驗別人的數位簽章是否有效，以及要用自己的證書來為自己的訊息加密，以及簽署。)
+
+
+###DKIM
+* cryptographically signing e-mail messages, permitting a signing domain to claim responsibility for a message in the mail stream
+[YouTube](https://www.youtube.com/watch?v=yHv1OPcc-gw&t=134s)
+
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
