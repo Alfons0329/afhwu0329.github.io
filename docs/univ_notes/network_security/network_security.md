@@ -561,7 +561,7 @@ to verify incoming signatures and to encrypt outgoing messages.(MACV人的證書
 ### 2016mid2
 * WEP WPA TKIP all use RC4
 
-####以下有討論的題目
+#### 以下有討論的題目
 * 11
 
 A(O)SNonce ANonce
@@ -580,7 +580,7 @@ A: a--noncea-->b b--nonceb-->a one way 2times, 2 way four times??
 C: both吧?, replay attack沒有用因為會有nonce確保信息是最新的
 
 ### 2017mid2
-####以下有討論的題目
+#### 以下有討論的題目
 * 5
 
 全部
