@@ -366,7 +366,8 @@ with the CA’s policies
 [PKI YouTube video](https://www.youtube.com/watch?v=t0F7fe5Alwg)
 * PKI is a framework that some vendor and use...etc should follow, and PKI associates a public key with a verified person/system.
 ![Screenshot](CRL.png)
-##Ch.5 Cloud Security
+
+## Ch.5 Cloud Security
 ### 802.1X, EAP(A framework)
 * Used to control the access of user to the internet.
 * provides a generic transport service for the
@@ -393,7 +394,7 @@ hardware resources such as the network server and hosts...etc
 * Multi instance model: Am unique DBMS in each could subscriber(Risk distribution)
 * Multi tenant model: Allows customers to share computing resources in a public or private cloud. Each tenant's data is isolated and remains invisible to other tenants.
 **The rest of cloud computing will be read before the midterm 2**
-##Ch.6 Transport-Level Security
+## Ch.6 Transport-Level Security
 ### SSL Architecture
 * SSL connection: each connection is transient , and associated with one session.
 * SSL session: Association b/w the client and the server
@@ -439,18 +440,18 @@ such that we may check whether the data has been modified or not.
 1.Local 自己連向更遠端的伺服器，從自己的角度看將自己的a埠經由ssh隧道連向（轉發導向）遠端remote server的b埠，藉由remote server傳到更遠端的faraway host<br />
 2.Remote 當遠端伺服器想要連回來時，從自己的角度看將遠端的a埠經由ssh隧道連向（轉發導向）我這端local server的b埠，藉由local server連向我一旁的near host<br />
 
-##Ch.7 Wireless Security
+## Ch.7 Wireless Security
 * Wireless devices are tend to have higher security risks than others since the following factors: Channel, Mobility, Resources, Accessibility.
 * Common Wireless Network Threats: Accidental association, Malicious association, AD-HOC Networks, Identity theft(MAC Spoofing), MITM attack, DoS, Network injection.
 
-###Protect against wireless eavesdropping
+### Protect against wireless eavesdropping
 * Signal hiding(not so practical) and encryption(kind of practical).
 
-###Protect the access point
+### Protect the access point
 * Main threat is the unauthorized access to the network.
 * The 802.1X standard. provides the authentication for device wishing connecting to the LAN/WLAN.
 
-###Mobile device security
+### Mobile device security
 * Major security issues are: Lack of physical
 security controls, Use of untrusted
 mobile devices, Use of untrusted
@@ -461,15 +462,15 @@ parties, Interaction with
 other systems, Use of location
 services
 
-###802.11i Wireless protocol
+### 802.11i Wireless protocol
 * Controlled ports:PDU exchange within LAN b/w supplicant and other systems only if supplicant authorizes such an exchange
 * Uncontrolled ports: Allows PDU exchange b/w supplicant and other RS regardless the authentication state.
 * BSS, ESS? [Here](https://zh.wikipedia.org/wiki/%E6%97%A0%E7%BA%BF%E5%B1%80%E5%9F%9F%E7%BD%91)
-###WEP, WPA, RSN
+### WEP, WPA, RSN
 * WEP: Use RC4 for encryption, the level of security is unrelated with len of WEP key, 因為RC4是stream cipher的一種，同一個鑰匙絕不能使用二次，所以使用（雖然是用明文傳送的）IV的目的就是要避免重複；然而24位元的IV並沒有長到足以擔保在忙碌的網路上不會重複，而且IV的使用方式也使其可能遭受到關連式鑰匙攻擊, so change to WPA or WPA2 is the safer method。
 * WPA: Fixed the vulnerability of WEP.
 
-###802.11i Fourway handshake auth.
+### 802.11i Fourway handshake auth.
 * [Here](http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake)
 * MIC is the message integrity code to ensure the integrity of the message.
 * What is the purpose of ANonce and SNonce? As we can see from the 2017mid2 , they are used to generated the PTK for both the STA and AP, also the back SNonce serves like a challenge-response protocol to ensure the freshness and the alive of STA that there is no MITM attack and the same is true for AP.
@@ -481,7 +482,7 @@ provides message integrity and data confidentiality.
 * HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
 
 ## Ch8. EMAIL Security
-###PGP(Pretty Good Privacy)
+### PGP(Pretty Good Privacy)
 * Provides a confidentiality and authentication service that
 can be used for electronic mail and file storage applications
 * PGP also provides the message authentication and the message integrity.
@@ -492,28 +493,28 @@ can be used for electronic mail and file storage applications
 4.email compatibility: Base64 encryption <br />
 ![Screenshot](PGPworkflow.png)
 ![Screenshot](PGPworkflow2.png)
-####PGP Authencation
+#### PGP Authencation
 * RSA ensures that the message will not be changed in transmission due to its power of encryption
 * SHA ensures that no one can generated the message with the same hash code
-####PGP Confidentiality
+#### PGP Confidentiality
 * 64bits CFB is used, using the block cipher , symmetric encryption.
 * In PGP, each symmetric key is used only once.
 * Encrypt with the receiver's public key.
-####PGP Compression
+#### PGP Compression
 * PGP compresses the msg after signature but before encryption.
 * If sign after the compression, then the version of compression will be constrained since different compression leads to different encoding thus different hash result even with the same source data.
-####PGP E-mail Compatibility
+#### PGP E-mail Compatibility
 * Radix64(B64) encoding to convert them into printable ASCII chars.
 * Append the CRC to protect the transmission error.
 
-###S/MIME
+### S/MIME
 * Security enhancement for the MIME
 * Another standard besides PGP
-####MIME
+#### MIME
 * MIME improve from SMTP
 * 5 Headers are defined, to fully describe the email, MIME-ver, content type, content-transfer encoding, content-ID, content description.
 
-####S/MIME  Functionality
+#### S/MIME  Functionality
 * Enveloped data: encrypted content of any type **and
 encrypted content encryption keys** for one or
 more recipients.
@@ -523,19 +524,39 @@ base64 **recipients without S/MIME
 capability can view the message content,
 although they cannot verify the signature**
 
-####Cryptographic algorithms used in S/MIME
+#### Cryptographic algorithms used in S/MIME
 ![Screenshot](SMIMEalgo.png)
 * Smime secures the MIME with a signature ,encryption, or both
 * Clear signing does not involve transforming the message to be signed.
 
-####S/MIME Certificate Processing
+#### S/MIME Certificate Processing
 * Managers and/or users must configure each client with a list of trusted keys and with certificate revocation lists.
 -->Local wil maintaining the certs needed
-to verify incoming signatures and to encrypt outgoing messages.(要用別人的證書來檢驗別人的數位簽章是否有效，以及要用自己的證書來為自己的訊息加密，以及簽署。)
+to verify incoming signatures and to encrypt outgoing messages.(MACV人的證書來檢驗別人的數位簽有以及要用自己的證書來為
+* 自己的訊息加密，以及簽署。)
 
 
-###DKIM
-* cryptographically signing e-mail messages, permitting a signing domain to claim responsibility for a message in the mail stream
+### DKIM
+* cryptographically signing e-mail messages, permitting a signing domain t()o claim responsibility for a message in the mail stream
 [YouTube](https://www.youtube.com/watch?v=yHv1OPcc-gw&t=134s)
+
+## 2nd midterm note
+### 2014mid2
+* 客戶端在進行EAP拓展認證協議的時候是透過uncontrolled port和認證伺服器溝通，這個協議的標準制定在802.1X
+
+* 在每一個SSL session和cinnection中 他們的參數會彼此互相分享，例如加密方法與秘鑰匙長度，session 和conenction他們的差別在於:SSL session與SSL connection是不同的概念。 SSL session指的是通過握手而產生的一些參數和加密秘鑰的集合；然而SSL connection是指利用某個session建立起來的活動的會話。換句話來說，connection是會話的進程，而session是建立這個會話所需要的一些參數。
+* SSL中 加密、MAC、壓縮可能的順序有六種，但其中合理的可能只有compress 在 MAC前 因為壓縮後資料的編碼可，能會改變，導致加密困難。
+* WEP的缺點就是 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘聞，加上RC4是一種stream cipher模式，需要夠長的key，但WEP只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
+* PMK-->PTK(暫態)-->KCK(EAP confirmation，用來保障四次握手交換協定鑰匙交換的完整性)+KEK(EAP encryption, 用來保證四次握手交換中GTK 的機密性，就是確保這個鑰匙不不會被盜用)+TK(traffic encryption, user trafic 的機密性與完整性)
+* WPA加密的4路交互協定，因為有 SNonce 和 ANonce 用來組成TK，故能確保freshness
+[更詳細請點此](http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake)
+* 2014最後一提，如果是用郵件的本身內容來加密，而並非郵件的雜湊數值加密依然可稱作簽章，但是效果相當差，因為是整份郵件，計算量太大了，加上因為適用寄件人的私鑰加密，因此很容易用寄件人的公鑰打開，再加上隨便亂說解密前的東西就是簽章便會造成風險
+### 2015mid2
+* EAP支持的方法有EAP-TLS, MD5, POTP, PSK , PWD, TTLS, IKEV2, FAST, SIM, AKA, GTC EKE
+* 客戶端在進行EAP拓展認證協議的時候是透過uncontrolled port和認證伺服器溝通，原因在於uncontrolled的端末可讓AS和STATION溝通，不論狀態，但是controlled需要認證過後才行，因此在一剛開始的時候並不適用(一剛開始一定是還沒有認證過的狀態)，這個協議的標準制定在802.1X
+
+### 2016mid2
+
+### 2017mid2
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
