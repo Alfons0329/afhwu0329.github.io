@@ -546,11 +546,12 @@ to verify incoming signatures and to encrypt outgoing messages.(MACV人的證書
 
 * 在每一個SSL session和cinnection中 他們的參數會彼此互相分享，例如加密方法與秘鑰匙長度，session 和conenction他們的差別在於:SSL session與SSL connection是不同的概念。 SSL session指的是通過握手而產生的一些參數和加密秘鑰的集合；然而SSL connection是指利用某個session建立起來的活動的會話。換句話來說，connection是會話的進程，而session是建立這個會話所需要的一些參數。
 * SSL中 加密、MAC、壓縮可能的順序有六種，但其中合理的可能只有compress 在 MAC前 因為壓縮後資料的編碼可，能會改變，導致加密困難。
-* WEP的缺點就是 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘聞，加上RC4是一種stream cipher模式，需要夠長的key，但WEP只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
+* WEP的缺點就是 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘文，加上RC4是一種stream cipher模式，需要夠長的key，但WEP只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
 * PMK-->PTK(暫態)-->KCK(EAP confirmation，用來保障四次握手交換協定鑰匙交換的完整性)+KEK(EAP encryption, 用來保證四次握手交換中GTK 的機密性，就是確保這個鑰匙不不會被盜用)+TK(traffic encryption, user traffic 的機密性與完整性，在用戶和伺服器之間的資料加密)
 * WPA加密的4路交互協定，因為有 SNonce 和 ANonce 用來組成TK，故能確保freshness
 [更詳細請點此](http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake)
 * 2014最後一題，如果是用郵件的本身內容來加密，而並非郵件的雜湊數值加密依然可稱作簽章，但是效果相當差，因為是整份郵件，計算量太大了，加上因為是用寄件人的私鑰加密，因此很容易用寄件人的公鑰打開，再加上隨便亂說解密前的東西就是簽章便會造成風險
+
 ### 2015mid2
 * EAP支持的方法有EAP-TLS, MD5, POTP, PSK , PWD, TTLS, IKEV2, FAST, SIM, AKA, GTC EKE
 * 客戶端在進行EAP拓展認證協議的時候是透過uncontrolled port和認證伺服器溝通，原因在於uncontrolled的端末可讓AS和STATION溝通，不論狀態，但是controlled需要認證過後才行，因此在一剛開始的時候並不適用(一剛開始一定是還沒有認證過的狀態)，這個協議的標準制定在802.1X
@@ -559,20 +560,43 @@ to verify incoming signatures and to encrypt outgoing messages.(MACV人的證書
 
 ### 2016mid2
 * WEP WPA TKIP all use RC4
+
 ####以下有討論的題目
 * 11
+
 A(O)SNonce ANonce
 B(X)應該是TK(?)
 C(O)用Nonce
 D(O) E(X)應為AP
 * 12
+
 A:對，因為有Nonce組成TK，
 B:應該對，吧? 但是GROUP KEY提到如果有一個裝置離開了，就會變更，
 C:沒有，吧? 因為他是採用RC4stream cipher，KEY會一直變  
 D: TKIP也是採用RC4的stream cipher 所以KEY會一直變
 * 13
+
 A: a--noncea-->b b--nonceb-->a one way 2times, 2 way four times??
 C: both吧?, replay attack沒有用因為會有nonce確保信息是最新的
+
 ### 2017mid2
+####以下有討論的題目
+* 5
+
+全部
+
+* 6
+
+a,b,c,d,e,f,g,h
+
+* 7
+(i) 用來產生PTK
+
+(ii)因為週期性的設定為0，那麼同樣為0的兩個nonce有可能代表不同的時間點，所以容易遭受replay attack
+
+* 8
+(i) WEP key只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
+
+(ii) 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘文
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
