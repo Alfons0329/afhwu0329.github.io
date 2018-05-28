@@ -482,7 +482,7 @@ provides message integrity and data confidentiality.
 * HMAC-SHA1 are used to generated nonce, expand pairwise keys and to generate GTK, PTK(transient key)
 
 ## Ch8. EMAIL Security
-### PGP(Pretty Good Privacy)
+### (Pretty Good Privacy)
 * Provides a confidentiality and authentication service that
 can be used for electronic mail and file storage applications
 * PGP also provides the message authentication and the message integrity.
@@ -494,12 +494,12 @@ can be used for electronic mail and file storage applications
 ![Screenshot](PGPworkflow.png)
 ![Screenshot](PGPworkflow2.png)
 #### PGP Authencation
-* RSA ensures that the message will not be changed in transmission due to its power of encryption
+* RSA ensures that only the mail sender signed with the digital sender, encrypt w his/her private key, can be decrypted with his/her public key, thus ensures the identity.
 * SHA ensures that no one can generated the message with the same hash code
 #### PGP Confidentiality
 * 64bits CFB is used, using the block cipher , symmetric encryption.
-* In PGP, each symmetric key is used only once.
-* Encrypt with the receiver's public key.
+* In PGP, each symmetric key is used only once.(The session key is bound with the message and transmitted.)
+* Encrypt the sesion key with the receiver's public key.
 #### PGP Compression
 * PGP compresses the msg after signature but before encryption.
 * If sign after the compression, then the version of compression will be constrained since different compression leads to different encoding thus different hash result even with the same source data.
@@ -568,16 +568,35 @@ A(O)SNonce ANonce
 B(X)應該是TK(?)
 C(O)用Nonce
 D(O) E(X)應為AP
+
+> TA:
+> B: (O) 是利用 PMK 來加密。
+> handshake 並沒有提供 authentication 的功能，所以 D、E 應該都是錯的。你的其他答案都是對的。
+
 * 12
 
 A:對，因為有Nonce組成TK，
 B:應該對，吧? 但是GROUP KEY提到如果有一個裝置離開了，就會變更，
 C:沒有，吧? 因為他是採用RC4stream cipher，KEY會一直變  
 D: TKIP也是採用RC4的stream cipher 所以KEY會一直變
+
+> TA:
+![](https://i.imgur.com/ySs4Eam.png)
+WEP key 都是固定，IV 才會一直改變。
+
+> A: No. WEP key 是固定的，所有人共享
+> B: Yes. WEP key 是固定的，所有人共享
+> C: No. data packet 是用 RC4(IV,WEP key) 產生的 key 加密，IV會一直改變因此產生的 key 也會一直變。
+> D: No. 理由同上。
+
 * 13
 
 A: a--noncea-->b b--nonceb-->a one way 2times, 2 way four times??
 C: both吧?, replay attack沒有用因為會有nonce確保信息是最新的
+
+> TA:
+> A: one way 2 times, two way 3 times
+> C: both
 
 ### 2017mid2
 #### 以下有討論的題目
@@ -585,18 +604,28 @@ C: both吧?, replay attack沒有用因為會有nonce確保信息是最新的
 
 全部
 
+>TA: 你是對的
+
 * 6
 
 a,b,c,d,e,f,g,h
+
+>TA: 你是對的
 
 * 7
 (i) 用來產生PTK
 
 (ii)因為週期性的設定為0，那麼同樣為0的兩個nonce有可能代表不同的時間點，所以容易遭受replay attack
 
+> TA: 你是對的
+
 * 8
 (i) WEP key只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
 
 (ii) 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘文
+
+> TA:
+> (i) 正確來說 WEP key 是固定的，IV 是 24bits 並且會隨時改變。弱點的確是容易重複。
+> (ii) 因此當找到 IV 重複的情況時，兩個加密的封包(C1,C2)會造成 => C1 xor C2 = P1 xor P2, 之後便可用frequency analysis 破解出明文。
 
 **All the pics , images credits to the original author, I only use it for the education purpose, please DO NOT distribute**
