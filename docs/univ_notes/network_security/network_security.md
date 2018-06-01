@@ -496,7 +496,7 @@ can be used for electronic mail and file storage applications
 #### PGP Authencation
 * RSA ensures that only the mail sender signed with the digital sender, encrypt w his/her private key, can be decrypted with his/her public key, thus ensures the identity.
 * SHA ensures that no one can generated the message with the same hash code
-#### PGP Confidentiality
+#### PGP Confidentiality and Authentication
 * 64bits CFB is used, using the block cipher , symmetric encryption.
 * In PGP, each symmetric key is used only once.(The session key is bound with the message and transmitted.)
 * Encrypt the sesion key with the receiver's public key.
@@ -545,9 +545,9 @@ to verify incoming signatures and to encrypt outgoing messages.(MACV人的證書
 * 客戶端在進行EAP拓展認證協議的時候是透過uncontrolled port和認證伺服器溝通，這個協議的標準制定在802.1X
 
 * 在每一個SSL session和cinnection中 他們的參數會彼此互相分享，例如加密方法與秘鑰匙長度，session 和conenction他們的差別在於:SSL session與SSL connection是不同的概念。 SSL session指的是通過握手而產生的一些參數和加密秘鑰的集合；然而SSL connection是指利用某個session建立起來的活動的會話。換句話來說，connection是會話的進程，而session是建立這個會話所需要的一些參數。
-* SSL中 加密、MAC、壓縮可能的順序有六種，但其中合理的可能只有compress 在 MAC前 因為壓縮後資料的編碼可，能會改變，導致加密困難。
+* (修正過!)SSL中 加密、MAC、壓縮可能的順序有六種，但其中合理的可能**只有加密在壓縮之後!(壓縮前就加密，因為資料已經變成祕文，有可能壓縮會ERROR)**
 * WEP的缺點就是 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘文，加上RC4是一種stream cipher模式，需要夠長的key，但WEP只有24bits，因此很容易重複(stream cipher是希望key不要重複，因此2^24太小，容易重複)
-* PMK-->PTK(暫態)-->KCK(EAP confirmation，用來保障四次握手交換協定鑰匙交換的完整性)+KEK(EAP encryption, 用來保證四次握手交換中GTK 的機密性，就是確保這個鑰匙不不會被盜用)+TK(traffic encryption, user traffic 的機密性與完整性，在用戶和伺服器之間的資料加密)
+* PMK-->PTK(暫態)-->KCK(EAP confirmation，用來保障四次握手交換協定鑰匙交換的完整性)+KEK(EAP encryption, 用來保證四次握手交換中GTK、RSN IE 的機密性，就是確保這個鑰匙不不會被盜用)+TK(traffic encryption, user traffic 的機密性與完整性，在用戶和伺服器之間的資料加密)
 * WPA加密的4路交互協定，因為有 SNonce 和 ANonce 用來組成TK，故能確保freshness
 [更詳細請點此](http://kezeodsnx.pixnet.net/blog/post/35561270-4-way-handshake)
 * 2014最後一題，如果是用郵件的本身內容來加密，而並非郵件的雜湊數值加密依然可稱作簽章，但是效果相當差，因為是整份郵件，計算量太大了，加上因為是用寄件人的私鑰加密，因此很容易用寄件人的公鑰打開，再加上隨便亂說解密前的東西就是簽章便會造成風險
@@ -570,7 +570,7 @@ C(O)用Nonce
 D(O) E(X)應為AP
 
 > TA:
-> B: (O) 是利用 PMK 來加密。
+> B: (O) 是利用 PMK 來加密。 (應該還是TK  助教可能給錯)
 > handshake 並沒有提供 authentication 的功能，所以 D、E 應該都是錯的。你的其他答案都是對的。
 
 * 12
@@ -580,7 +580,7 @@ B:應該對，吧? 但是GROUP KEY提到如果有一個裝置離開了，就會�
 C:沒有，吧? 因為他是採用RC4stream cipher，KEY會一直變  
 D: TKIP也是採用RC4的stream cipher 所以KEY會一直變
 
-> TA:
+> TA: 
 ![](https://i.imgur.com/ySs4Eam.png)
 WEP key 都是固定，IV 才會一直改變。
 
@@ -594,7 +594,7 @@ WEP key 都是固定，IV 才會一直改變。
 A: a--noncea-->b b--nonceb-->a one way 2times, 2 way four times??
 C: both吧?, replay attack沒有用因為會有nonce確保信息是最新的
 
-> TA:
+> TA: 
 > A: one way 2 times, two way 3 times
 > C: both
 
@@ -624,7 +624,7 @@ a,b,c,d,e,f,g,h
 
 (ii) 因為C1 = P1 XOR RC4(IV, K). 如果蒐集夠多的資料則很容易找出許多的Ci Pi對，這樣就容易找出之中的RC4加密關係，進而破解秘文
 
-> TA:
+> TA: 
 > (i) 正確來說 WEP key 是固定的，IV 是 24bits 並且會隨時改變。弱點的確是容易重複。
 > (ii) 因此當找到 IV 重複的情況時，兩個加密的封包(C1,C2)會造成 => C1 xor C2 = P1 xor P2, 之後便可用frequency analysis 破解出明文。
 
