@@ -749,7 +749,7 @@ a,b,c,d,e,f,g,h
 
 ### IPSEC的應用
 
-* 確保在LAN，公私有全
+* 確保在LAN，公司安全
   在網路上遠端連結的安全
   * 建立與夥伴的內外網連結機制
   * 建立電子商務相關的安全機制
@@ -764,7 +764,7 @@ a,b,c,d,e,f,g,h
 
 * IPSEC 能確保以下四項
   * 路由廣播來自授權過的路由器(from authorized router)
-  * A router seeking to establish or maintain a neighbor relationshi with a router in another routing domain is an authorized router(繞口令 懶得翻譯)
+  * A router seeking to establish or maintain a neighbor relationship with a router in another routing domain is an authorized router(繞口令 懶得翻譯)
   * 能找到最初始發IP封包的router (A redirect message comes from the router to which the initial IP packet was sent )
   * 路由更新(routing update)不會被偽造
 
@@ -788,7 +788,7 @@ a,b,c,d,e,f,g,h
   ---|---|---
   保護項目|upper layer protocols|entier IP packet
   保護對象|host-to-host encapsulation(Encryption), authentication(Auth Header)|gateway-to-gateway(or host)
-  機制|在原有的IP投中插入適當的IPSEC Header，資料擴充量較為少，但是每一個主機都要時做IPSEC才可以，比較對於軟體不方便|直接在外包一個新的IP頭(src 自己、dst 遠端，謂之new ip header)以及端口，但在個人電腦軟體不需要新稱時做IPSEC，只要在路由器上面有即可，使不同的區域網路連線間用IPSEC，即有安全的VPN連線
+  機制|在原有的IP投中插入適當的IPSEC Header，資料擴充量較為少，但是每一個主機都要時做IPSEC才可以，比較對於用戶不方便|直接在外包一個新的IP頭(src 自己、dst 遠端，謂之new ip header)以及端口，但在個人電腦軟體不需要新稱時做IPSEC，只要在路由器上面有即可，使不同的區域網路連線間用IPSEC，即有安全的VPN連線
 
 ### 安全關聯(Security Association)
 
@@ -799,7 +799,7 @@ a,b,c,d,e,f,g,h
 * 兩個重要的東西來確保安全關聯的運作
 
   * 安全關聯資料庫(SAD): 定義每一個SA的參數(亦即IPSEC標頭(AH或是ESP)中SPI的數值)，舉凡參數號，序號(seq number counter 防止重放攻擊), 序號溢出標示(seq number counter overflow), 防重放攻擊視窗(anti replay window), AH、ESP information, 有效時間(SA lifetime), 協議模式(IPSEC protocol mode), 這條路上最大傳輸單元(path MTU)
-  * 安全政策資料庫(SPD): 存放IPSEC的規則，用來定義那些流量要走IPSEC
+  * 安全政策資料庫(SPD): 存放IPSEC的規則，用來定義那些流量要走IPSEC（a table）
 
 * [Ipsec 的SPD和SAD详解 - CSDN博客](https://blog.csdn.net/bytxl/article/details/49615371) 與搭配課本的圖表一起看，可以知道，在SPD中查到有相符的來源與目的以及端口後，就可以套用其中SPD的規則，也就是網址中的執行協議或是pdf中的action。
   ![](https://i.imgur.com/GLWAWka.png)
@@ -970,7 +970,7 @@ a,b,c,d,e,f,g,h
 
 ### 行動的程式碼(mobile code)
 
-* def: (QQ 好難翻譯，直接硬背定義吧): Refers to programs that can be shipped unchanged to a heterogeneous collection of platforms and execute with identical semantics，跨平台但是功能相同。
+* def: (QQ 好難翻譯，直接硬背定義吧): Refers to programs that can be shipped unchanged to a heterogeneous collection of platforms and execute with identical semantics，跨平台但是功能相同。(讓程式可以裝載到各種不同的平台而且執行的目的通能相同)
 * 可作為木馬、蠕蟲、病毒的傳播機制
 * 常見的攻擊手法
   * cross-site scripting
@@ -992,7 +992,7 @@ a,b,c,d,e,f,g,h
 
 * def(wikipedia): 特徵與特洛伊木馬一樣具有偽裝性，表面上沒有危害、甚至還附有使用者需要的功能，卻會在使用者不經意間，對使用者的電腦系統產生破壞或竊取資料，特別是使用者的各種帳戶及口令等重要且需要保密的資訊，甚至控制使用者的電腦系統。
 * 藏有 我隱藏的攻擊程式碼(就像木馬裡面的士兵)
-* 無法自動操輟，要有遠多server來執行
+* 無法自動操輟，要有遠端server來執行
 * 可以間接地達成攻擊(就像要經由木馬進到特洛伊城)
   * 怎麼個間接?? 維基百科的說明: 運行了木馬程式的服務端以後，會產生一個有著容易迷惑用戶的名稱的進程，暗中打開埠，向指定地點發送資料（如網路遊戲的密碼，即時通訊軟體密碼和用戶上網密碼等），駭客甚至可以利用這些打開的埠進入電腦系統。
 * 有以下三種模式:
@@ -1090,3 +1090,157 @@ a,b,c,d,e,f,g,h
   * 事發前: 讓他們的buffer能大一點，即使被DDoS也撐得住
   * 事發當下: 利碼偵測，減少損失
   * 事發後: 溯源，找誰攻擊的(不太實際)
+
+## Ch12. Firewalls
+
+### Firewall characteristics
+
+- 基本上，防火牆的用途就是隔離網路(隔離成數個ZONE)。
+
+  #### design goals for a firewall
+- all traffic inside to outside, and vice versa, must pass through the firewall
+  (所有內到外或是外到內的流量都必須要經過防火牆)
+- only authorized traffic will be allowd to pass
+  (只有經過授權的流量才可以被允許通過 EX. 區域安全政策的設定)
+- the firewall is immune to penetration
+  (防火牆本身對侵入具有免疫力)
+
+  #### techniques that firewalls use to control access and enforce the site's security policy
+- service control
+  - 決定何種內部或外部的服務可以被使用
+- direction control
+  - 對於特定服務可以決定哪個方向的流量可以被通過
+- user control
+  - 根據使用者決定是否能讓他有存取權(使用權)
+- behavior control
+  - 監控特定服務的使用情況
+
+    #### firewall expectations
+- 是一個check point，可以把未授權的user擋在受保護的網路外、可以禁止有潛在危險的服務、可以防止IP spoofing(IP假造)及routing attack
+- 是一個監測跟安全有關的事件的平台
+- 可以是提供一些跟安全無關的Internet functions的平台 (ex. NAT)
+- 可以是提供IPsec的平台
+
+  #### firewall limitations
+- 無法抵擋繞過防火牆的攻擊(例如筆電在外被感染，然後帶回公司內網讓大家都感染)
+- 無法防範在防火牆內的wireless communication between local systems (因為根本沒有reach到防火牆)
+- 對於internal threat無法防範
+
+### Types of Firewalls
+
+- ![](https://i.imgur.com/VCs2P5k.png)
+
+- ==Packet filtering firewall==(設定規則檢查IP封包)
+
+  - 可以設定一連串的rules來決定此packet可不可以通過
+  - 缺點
+    - 因為不會檢查upper layer data，所以無法防止特定應用程式的漏洞攻擊(他跑在傳輸層)
+    - 因為此類防火牆可以存取的資源有限，所以功能也蠻有限的
+    - 不支援進階的使用者認證(advanced user auth)
+    - 利用TCP/IP protocol的問題能攻擊此類型的防火牆(因為這個防火牆架設在傳輸層)
+    - 因為決定access control的變數不多，若一不小心錯誤設定某些變數，則很有可能讓不安全的封包一不小心就通過了
+  - 優點
+    - 很簡單
+    - 對user來說很容易懂、而且很快速
+  - 缺點
+      – 難以設計出一組長期有效又正確的無誤過濾規則。
+      – 無法處理應用層協定，所以對於封包資料段或特定應用服務弱點的攻擊方式無能為力。
+      – 缺乏驗證能力。
+      – 安全性較差。
+  - Attacks And Countermeasures
+    - IP address spoofing(偽造IP位址)
+      - hacker把外部pkt的source IP address設成內部某一IP address，然後試圖從外面傳到內部(讓人誤以為是內部的而掉以輕心)
+      - **solution**: 丟棄掉從外部進來但是source IP address是內部位址的pkt
+    - Source routing attacks(來源路由攻擊)
+      - the source station specifies route that a pkt should take, and it hopes that it will *bypass* the security measures that do not analyze the source routing information(來源端可以指定封包行經網際網路的路由，希望用這個資訊來躲避可能有幾個沒有做安全檢查的路由器)
+      - **solution**: 丟棄掉所有含有routing information的pkt
+    - Tiny fragment attacks(極小封包攻擊)
+      - 入侵者將pkt分割成多個fragment，使得TCP header資訊被分散到很多個fragment(而且要用pattern來看的話也不容易看，因為pattern也會被切割，**趨勢科技說: 小型片段封包可能被用於阻絕服務程式攻擊，或用於規避安全機制或偵測。**)
+      - **solution**: enforce a rule that the first fragment of a pkt must contain a predefined minimum amount of the transport header(前面一定要有完整的封包標頭header，以確保資料的完整性確認資料是不被切割的)
+
+- ==Stateful inspection firewall==
+
+  - stateful: 
+    - 優點: 可以分辨不同的連線狀態(因為連線狀態可以由srcIP dstIP UDP、TCP port判斷)，可以判斷封包是否屬於現存的連線，是且允許的話就讓她快速通過，不是就額外處理
+    - 缺點: 需要額外硬體(trade off)，效能較封包過濾差、也沒辦法處理上層的協定，因為，如圖，他建立在傳輸層而跟上層的應用層無關。
+  - stateless:
+    - 優點: 簡單依據現有的模式過濾、不須額外硬體
+    - 缺點: 可能較容易受攻擊，例如IP Spoofing可以偽造IP讓防火牆以為可以，(用stateful因為識別的標籤很多，可以區分偽造IP的封包和實際IP的封包(因為也許可以用其他header確認，來說是不是跟現有允許的一樣)，但是stateless就沒有這個功能)
+
+- == PROXY 概念 ==
+
+- def: 強調用戶端程式必需與代理伺服器接洽，再透過它來與目的機器連通，而非直接讓用戶端連接真正的目的地。
+
+- ==Application proxy firewall==
+
+  - 若gateway沒有為特定應用(因為現在在應用層)做proxy則該類的服務就不被支援，因此也不能通過防火牆
+  - gateway也可以設定成只支援、接受某些特定的feature，使得該服務可以被接受，而拒絕其他服務的要求
+  - 優點: 比packet filtering firewall更安全(因為直接過濾了封包內容(pkt contents)與命令，以確保某應用層協定的內容安全(例 HTTP, FTP, EMAIL)
+  - 缺點: additional processing overhead on each connection(要額外處理每個連線 -> 造成負擔)，還要針對不同應用程式類營寫不同的代理方法，成本高。
+
+- ==Circuit-level proxy firewall==
+
+  - not permit end-to-end TCP connections => 而是建立兩條TCP connections
+    - 會建立二個TCP連線處理，**一條是內部與circuit-level proxy、另外一條是circuit-level proxy與外部**(透過proxy firewall做為中繼站，也就是 內部--proxy--外部的概念，可以隱藏內部IP位址。)
+    - ![](https://i.imgur.com/NsbPQmf.png)
+  - security function consists of **determining which connections will be allowed**、直接用連線等級的方式定義說哪幾條連線是允許的。
+  - 優點: 較應用層代理快速、一般目的共用代理服務，可支援許多應用層協定的代理存取功能。
+  - 缺點: 需要修改用戶端應用程式或TCP/IP協定堆疊，無法處理應用層協定、ICMP也不行(因為他是network層)。
+
+### Bastion host
+
+- def: 一個被防火牆管理員認可的關鍵系統(x 翻得好爛)
+- 通常是application proxy或circuit-level proxy的平台
+- characteristics(建議考前一天看，偏死記)
+  - 執行安全的作業系統
+  - 只有網路管理人認為是必要的服務才會被安裝
+  - 會有額外認證的功能
+  - 每個proxy都被設定成只支援標準服務的一部份
+  - 每個proxy都只能讓特定的主機存取
+  - 每個proxy都會透過記錄流量 連線和連線的時間長短來維護檢查所需的資訊
+  - 每個proxy都是專門為網路安全設計的小小軟體套件
+  - **每個在bastion host上的proxy都是獨立的 -> 就算某個proxy出問題也不會影響其他proxy(重要，我覺得會考!)**
+  - 除了一開始啟動的設定檔外，不需要存取硬碟 -> 入侵者無法將有危險的檔案值入bastion host
+  - 每個proxy都只有一般使用者的權限，且在bastion host中隱密且安全的目錄中執行
+
+### Host-based firewall
+
+- a software module used to secure an individual host
+  (用來檢驗indivitual host的軟體模組，host在server或是個人電腦都可)
+- Filters and restricts the flow of packets
+- Common location is a server
+- 優點
+  - Filtering rules can be tailored to the host environment (過濾的規則可以應用於host environment)
+  - 可用於與獨立的防火牆結合 -> 提供其他layer的保護
+  - 層層獨立，互不影響(independent topology)
+
+### Personal firewall
+
+- controls the traffic between a PC or workstation on one side and the Internet or enterprise network on the other side
+  (控制 個人電腦或工作站 到 網路或企業網路 的流量)
+- deny unauthorized remote access to the computer(阻止未經授權的遠端存取)
+- can monitor outgoing activity in an attempt to detect and block worms and other malware(可以監控外界的活動 -> 發現並阻止蠕蟲和其他惡意軟件，或說可以監控outgoing，向外流出的流量，阻擋蠕蟲攻擊(因為蠕蟲繁殖後會向外跑，尋找新的目標))
+- is less complex
+
+  ### DMZ
+- def: 介於內部網路與Internet間的區域(子網路) ，作為內外網路間的安全性緩衝地帶。
+- 在防火牆架構中，DMZ區域是提供Internet使用者存取網際網路伺服器的網路區域，如Webserver或DNS server 。
+- DMZ和內部網路是分隔開來的，因此即使遭到攻擊也不會危及內部網路。
+- ![](https://i.imgur.com/kmy0Z3N.png)
+
+### Firewall locations and Topologies(建議考前一天看，偏死記)
+
+- Host-resident firewall
+  - includes personal firewall software and firewall software on servers
+- Screening router
+  - a single router between internal and external networks with stateless or full packet filtering(有過濾機制的router，可以從screening這個名詞看出，就是有監控功能)
+- Single bastion inline
+  - a single firewall between an internal and external router(內網與外網的router中間的防火牆)
+- Single bastion T
+  - single bastion inline but has a third network interface on bastion to a DMZ(在bastion和防火牆之間還有一個介面)
+- Double bastion inline
+  - DMZ is sandwiched between bastion firewalls(DMZ夾在兩個bastion firewall之間)
+- Double bastion T
+  - DMZ is on a *separate network interface* on the bastion firewall
+- Distributed firewall configuration
+  - used by some large businesses and government organizations
