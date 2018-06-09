@@ -744,7 +744,7 @@ a,b,c,d,e,f,g,h
 
 * 在網路層(OSI 第三層，介於DATA LINK層和傳輸層之間)的安全機制
 * 需要能確保兩件事
-  * 網路裝置能遠離未授權的監控與控制網路流量
+  * 網路裝置能遠離未與控制網路流量
   * end to end user 流量追蹤將使用認證與加密機制來確保安全
 
 ### IPSEC的應用
@@ -755,8 +755,8 @@ a,b,c,d,e,f,g,h
   * 建立電子商務相關的安全機制
 * 能確保在IP層的流量安全，及認證( can encrypt and/or authenticate all traffic at the IP level)
 * 好處:
-  * 如果將IPSEC放在防火牆，那麼所有流過他的流量都可以被安全的保護
-  * 當放在防火牆時，他可以抵抗某種流量的攻擊，那種攻擊就是他必須要用IP位置才能接入防火牆內部，(此時防火牆是唯一內外的通路)因此IPSEC自然而然把它擋下來
+  * 如果將IPSEC放在防火牆，那麼所有流過他的流量都可以被安全的保護，且公司或工作群組內的流量也不會因此而產生負擔
+  * 如果所有的外來訊息都必須使用IP，而防火牆是網際網路進入內部的唯一管道時，就不用擔心會有讓過防火牆IPSec的途徑(IPSec一定會擋下來)
   * IPSEC對於上層是看不到的，因此使用者不需要重新調整設定。
   * 可以提供給個人安全，或是特定使用者(因為使用者會有自己的IP，因此我們能透過分配特定的IP到特定的IPSEC給他安全機制) 例如有個人的虛擬網路或是在大企業底下的子網路就能派上用場。
 
@@ -764,7 +764,7 @@ a,b,c,d,e,f,g,h
 
 * IPSEC 能確保以下四項
   * 路由廣播來自授權過的路由器(from authorized router)
-  * A router seeking to establish or maintain a neighbor relationship with a router in another routing domain is an authorized router(繞口令 懶得翻譯)
+  * A router seeking to establish or maintain a neighbor relationship with a router in another routing domain is an authorized router(保證相鄰的路由器也是經過授權的)
   * 能找到最初始發IP封包的router (A redirect message comes from the router to which the initial IP packet was sent )
   * 路由更新(routing update)不會被偽造
 
@@ -784,15 +784,16 @@ a,b,c,d,e,f,g,h
 
     ### 兩種模式 transport mode 或是 tunnel mode
 * 其差別在於資料封裝的不同(封裝機制的不同)
-  差異項目: | transport mode | tunnel mode
-  ---|---|---
-  保護項目|upper layer protocols|entier IP packet
-  保護對象|host-to-host encapsulation(Encryption), authentication(Auth Header)|gateway-to-gateway(or host)
-  機制|在原有的IP投中插入適當的IPSEC Header，資料擴充量較為少，但是每一個主機都要時做IPSEC才可以，比較對於用戶不方便|直接在外包一個新的IP頭(src 自己、dst 遠端，謂之new ip header)以及端口，但在個人電腦軟體不需要新稱時做IPSEC，只要在路由器上面有即可，使不同的區域網路連線間用IPSEC，即有安全的VPN連線
+
+| 差異項目 | transport mode                                                      | tunnel mode                                                                                                   |
+| ---- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| 保護項目 | upper layer protocols                                               | entier IP packet                                                                                              |
+| 保護對象 | host-to-host encapsulation(Encryption), authentication(Auth Header) | gateway-to-gateway(or host)                                                                                   |
+| 機制   | 在原有的IP投中插入適當的IPSEC Header，資料擴充量較為少，但是每一個主機都要時做IPSEC才可以，比較對於用戶不方便    | 直接在外包一個新的IP頭(src 自己、dst 遠端，謂之new ip header)以及端口，但在個人電腦軟體不需要新稱時做IPSEC，只要在路由器上面有即可，使不同的區域網路連線間用IPSEC，即有安全的VPN連線 |
 
 ### 安全關聯(Security Association)
 
-* def: 在兩個網路實體之間，所建立起的共享網路安全屬性。
+* def: 在兩個網路實體之間，所建立起的共享網路安全屬性。(介於發送者與接收者之間的單向關係)
 
 * ex: 在IP封包中，以鐘點地址的IPV4 V6封包中的SPI資訊作為安全關聯的定義(SPI 安全參數 in the enclosed extension header)
 
@@ -804,7 +805,7 @@ a,b,c,d,e,f,g,h
 * [Ipsec 的SPD和SAD详解 - CSDN博客](https://blog.csdn.net/bytxl/article/details/49615371) 與搭配課本的圖表一起看，可以知道，在SPD中查到有相符的來源與目的以及端口後，就可以套用其中SPD的規則，也就是網址中的執行協議或是pdf中的action。
   ![](https://i.imgur.com/GLWAWka.png)
 
-* 英文單字: outbound: 送去外面、向外發送的；inbound: 送去裡面，項內送的
+* 英文單字: outbound: 送去外面、向外發送的；inbound: 送去裡面，向內送的
 
 * 以下為流程圖兩張 
   ![](https://i.imgur.com/exZKs5J.png)
@@ -844,7 +845,7 @@ a,b,c,d,e,f,g,h
 ### 傳輸與隧道複合(transport-tunnel bundle)
 
 * def: 先認證再加密，採用內AH transport SA, 外ESP tunnel SA，有些原因如下
-  * 竄改資料經由驗證一定會發現，故不可能，所以也不需要先加密，先認證就好了
+  * 竄改資料經由驗證一定會發現，故不可能，所以也不需要先加密，先認證就好了(如果有人攔截並修改驗證的資料一定會被發現)
   * 先認證後就可以把認證資訊存在目的端(destination)，提供將來識別用
     C * 結果就是整個認證的inner packet都被加密了，而且還附上了新的ItP頭 C
 
@@ -932,7 +933,7 @@ a,b,c,d,e,f,g,h
 
 * 巨集病毒可以**感染支持文件的腳本程式碼**
 * 嚴重危害的原因
-  * 平台無關性(platform-**INDEPENDENT**)
+  * 平台無關性(platform-**INDEPENDENT**)(病毒可以跨平台)
   * 感染文件(感染支持文件的腳本，使文件無法順利運行)，而非執行的程式碼
   * 這些文件都很常見，例如word(夾帶於其中)，使其散播容易
   * 因為是感染文件而非系統，因此較難以阻止散播
@@ -957,7 +958,7 @@ a,b,c,d,e,f,g,h
   * 隨機: 隨機感染不同IP，會造成很大的網路流量，就算在攻擊展開前(因為要一直隨機找目標，較為混亂，頗吃網路流量資源)
   * 目標列表(hit list): 攻擊者已經有攻擊列表，接著按表操課，因為已經先建好攻擊列表，在scan機器的時候就很快，很難抓出感染特徵
   * 拓樸的(topological): 用已經感染的機器來找出其他可攻擊目標
-  * 區域子網(local subnet): 
+  * 區域子網(local subnet):如果host是在防火牆後被感染的，蠕蟲會利用子網路的架構找他的子網路當目標
 
 * 蠕蟲的技術(worm technology)
 
@@ -1067,15 +1068,15 @@ a,b,c,d,e,f,g,h
 * 通常會在防火牆上執行，例如在email web proxy上
 * 兩種監測方式
   * 入口監測(ingress): 在企業網路與外網的交界，例如border router、external firewall的一部分
-  * 出口監測(egress): 也是在交界，例如，可以檢測出發的流量，看看有沒有異常
+  * 出口監測(egress): 也是在交界，例如，可以檢測出發的流量，看看有沒有異常 **可以找到攻擊的來源**
 
 ### 對抗蠕蟲
 
 * A等級: 特徵為主(signature-based)
 * B等級: 過濾為主(filter-based): 和A類似但是靠蠕蟲的內容而非signature
 * C等級: 有效**載荷**為主(payload): 看看發出的**封包**是否有worm
-* D等級: threshold random walk(TRW): 隨機指定監測
-* E等級: 頻率限制(rate limiting): 因為蠕蟲要掃描目標，所以可以限制scan類型(scan like)的流量來避免蠕蟲繼續擴散 
+* D等級: threshold random walk(TRW): 隨機指定監測，隨機指定某個連線來檢查她
+* E等級: 頻率限制(rate limiting): 因為蠕蟲要掃描目標，所以可以限制scan類型(scan like)(或是到某機器)的流量來避免蠕蟲繼續擴散 
 * F等級: 頻率停止(rate halting): 當超過某一個能判斷到蠕蟲特徵的閾值，直接切斷流量
 
 ### DDoS
@@ -1090,6 +1091,95 @@ a,b,c,d,e,f,g,h
   * 事發前: 讓他們的buffer能大一點，即使被DDoS也撐得住
   * 事發當下: 利碼偵測，減少損失
   * 事發後: 溯源，找誰攻擊的(不太實際)
+
+    ## Ch11. Intruder
+
+### thee classes of intuder
+
+- Masquerader : 未經授權的使用者侵入
+
+- Misfeasor : 訪問未獲授權訪問的數據，程序或資源的合法用戶
+
+- Clandestine user : 一個人對系統進行監督控制，並使用此控制迴避auditing control和access control，或者壓制audit collection
+  (奪取系統管理員控制權限的人)
+
+  ### 對抗hackers的系統
+
+- 入侵檢測系統(IDS)
+
+- 入侵預防系統(IPS)
+
+- Computer emergency response team(CERT) : expert group that handles computer security incidents.
+
+  ### insider attack
+
+- most difficult to detect and prevent
+
+- 對應政策:
+
+  - 使用者需要多少資源讓他們做事就授權多少(不用一次給全部的權限)
+  - 用log紀錄哪些user進來了並使用了哪些指令
+  - 用比較有保護性的授權方式保護重要資源
+  - 使用結束後刪除使用者電腦與網路的聯繫
+  - 使用結束後保留備份(作為沒亂用權限的證據)
+
+    ### way to protect password file
+
+- one-way function: 只儲存密碼經過單向函數運算後的資料(例如雜湊數值，而非密碼本身)(The system stores only the value of a function based on the user’s password)
+
+- access control: 限定只有一個或少數幾個帳戶可以存取密碼檔(Access to the password file is limited to one or a very few accounts)
+
+  ### intrusion detection
+
+- 系統的第二道防線(system’s second line of defense )，因為已經有人突破柵欄進來了，現在就是要監測那個進來的人。
+
+- Profiles of Behavior of Intruders and Authorized Users(那張圖)說明 :    the nature of the task confronting the designer of an intrusion detection system. Although the typical behavior of an intruder differs from the typical behavior of an authorized user, there is an overlap in these behaviors. Thus, a loose interpretation of intruder behavior, which will catch more intruders, will also lead to a number of "false positives," or authorized users identified as intruders. On the other hand, an attempt to limit false positives by a tight interpretation of intruder behavior will lead to an increase in false negatives, or intruders not identified as intruders. Thus, there is an element of compromise and art in the practice of intrusion detection.
+
+- audit record 
+
+  - Fundamental tool for intrusion detection
+  - 利用特定的紀錄筆來分析為欄位使用的情形，使用指令偵測系統將碰撞找出
+
+- Threshold detection : 計算某一事件發生的次數，如果次數超過一個特定數字就代表有可能遭受入侵(簡陋且沒效率的方法)
+
+- Profile-based : 以過去的行為和現在的比較後，如果有重大偏差(detecting significant deviations)代表可能遭受攻擊
+
+- Rule-Based Intrusion Dectection : 嘗試訂定一些規則規矩，專門用來檢查出系統是否有不當的入侵的方法
+
+  - Rule-based anomaly detection
+  - Rule-based penetration identification 
+  - USTAT 
+
+- 分散式入侵者檢測(distributed intrusion detection)
+
+  - def: 對於一整個組織需要應付對於整個網路拓樸支撐起來的主機架構，希望能將數個主機的入侵檢測系統聯合起來用
+  - 但可能會有以下困境:
+    - 不同主機的audit record可能不一樣，需要處理格式問題
+
+      ### honeypot
+
+- 是一個電腦術語，專指用來偵測或抵禦未經授權操作或者是駭客攻擊的陷阱
+
+- 詳細def: 蜜罐通常偽裝成看似有利用價值的網路、資料、電腦系統，並故意設置了bug，用來吸引駭客攻擊。由於蜜罐事實上並未對網路提供任何有價值的服務，所以任何對蜜罐的嘗試都是可疑的。蜜罐中還可能裝有監控軟體，用以監視駭客入侵後的舉動。
+
+- 可以將駭客從真正重要的系統引開到蜜罐(蜜罐做為誘餌)，蜜罐和真實系統是isolated的
+
+- 也能利用蜜罐來藉機蒐集攻擊者的資訊(蜜罐是被monitored的)
+
+### pdf p29 30(考前一天看，內容偏死記)
+
+### password management
+
+- Front line of defense against intruders 
+- implementation
+  - Crypt(3) : 爛
+    - 用來嚇阻密碼猜測攻擊
+    - 但是因為最早使用，所以相容性較好。而今仍然被廣泛使用
+  - MD5 secure hash algorithm : 中
+    - 功能好，但是比Crypt(3)慢(trade off) 
+  - Bcrypt : 好
+    - UNIX系統中最安全的加鹽+雜湊方法 
+    - 功能更好，但是又更慢了(trade off)
 
 ## Ch12. Firewalls
 
@@ -1164,12 +1254,12 @@ a,b,c,d,e,f,g,h
     - 優點: 可以分辨不同的連線狀態(因為連線狀態可以由srcIP dstIP UDP、TCP port判斷)，可以判斷封包是否屬於現存的連線，是且允許的話就讓她快速通過，不是就額外處理
     - 缺點: 需要額外硬體(trade off)，效能較封包過濾差、也沒辦法處理上層的協定，因為，如圖，他建立在傳輸層而跟上層的應用層無關。
   - stateless:
-    - 優點: 簡單依據現有的模式過濾、不須額外硬體
+    - 優點: 簡單依據現有的封包資訊過濾、不須額外硬體
     - 缺點: 可能較容易受攻擊，例如IP Spoofing可以偽造IP讓防火牆以為可以，(用stateful因為識別的標籤很多，可以區分偽造IP的封包和實際IP的封包(因為也許可以用其他header確認，來說是不是跟現有允許的一樣)，但是stateless就沒有這個功能)
 
-- == PROXY 概念 ==
+- ==PROXY 概念==
 
-- def: 強調用戶端程式必需與代理伺服器接洽，再透過它來與目的機器連通，而非直接讓用戶端連接真正的目的地。
+  - def: 強調用戶端程式必需與代理伺服器接洽，再透過它來與目的機器連通，而非直接讓用戶端連接真正的目的地。
 
 - ==Application proxy firewall==
 
@@ -1186,6 +1276,10 @@ a,b,c,d,e,f,g,h
   - security function consists of **determining which connections will be allowed**、直接用連線等級的方式定義說哪幾條連線是允許的。
   - 優點: 較應用層代理快速、一般目的共用代理服務，可支援許多應用層協定的代理存取功能。
   - 缺點: 需要修改用戶端應用程式或TCP/IP協定堆疊，無法處理應用層協定、ICMP也不行(因為他是network層)。
+
+### Firewall comparison
+
+![](https://i.imgur.com/bZGm7ZF.png)
 
 ### Bastion host
 
@@ -1227,14 +1321,15 @@ a,b,c,d,e,f,g,h
 - 在防火牆架構中，DMZ區域是提供Internet使用者存取網際網路伺服器的網路區域，如Webserver或DNS server 。
 - DMZ和內部網路是分隔開來的，因此即使遭到攻擊也不會危及內部網路。
 - ![](https://i.imgur.com/kmy0Z3N.png)
+- ![](https://i.imgur.com/NWqtrCm.png)
 
 ### Firewall locations and Topologies(建議考前一天看，偏死記)
 
 - Host-resident firewall
   - includes personal firewall software and firewall software on servers
 - Screening router
-  - a single router between internal and external networks with stateless or full packet filtering(有過濾機制的router，可以從screening這個名詞看出，就是有監控功能)
-- Single bastion inline
+  - a single router between internal and external networks with stateless or full packet filtering(有過濾機制的router，可以從screening這個名詞看出，就是有監控功能4.)
+- Single bastion nline
   - a single firewall between an internal and external router(內網與外網的router中間的防火牆)
 - Single bastion T
   - single bastion inline but has a third network interface on bastion to a DMZ(在bastion和防火牆之間還有一個介面)
@@ -1244,3 +1339,137 @@ a,b,c,d,e,f,g,h
   - DMZ is on a *separate network interface* on the bastion firewall
 - Distributed firewall configuration
   - used by some large businesses and government organizations
+
+---
+
+## Final exam note
+
+### 2012Final(Jan. 11 2013)
+
+- (3) IPSec 可以用滑動視窗來阻擋重放攻擊，具體流程如下，首先在滑動視窗中，如果有一個封包的序列號小於視窗最小的(也就是位於視窗的左側，則是為重放攻擊，因為那是之前已經接收過的封包)，如果封包序列號可以落在視窗中，而且之前還沒有被接收過，則是為新的封包接收他，如果已經有mark為接收過則也是蟲放攻擊，拋棄他，如果封包再視窗的右邊，右邊都是還沒接收過的，是一個全新的封包，則將其接受後，把視窗往右滑動。
+
+- (4) keyspace大的password會比較安全，而已經建立於dictionary的是最不安全的密碼
+
+- (5) 檢測攻擊者的兩種方法
+
+  - statistical檢測，採用的是用一些統計資訊(例如流量、端口使用、時間)等等找出攻擊行為。
+  - rule檢測，利用一些專家設定可能是攻擊、入侵者的規則來找出。
+  - 差別在於後者的規則是綁死的，較不能應變新的，但是能較快(套用既有規則)；前者是動態感知的，能應變新的，但是會比較慢(一種trade off)
+
+- (6) 監控資料中，資料可能會相當龐大，每一個都看的話太耗時了，所以要有**選擇性**(selectivity)
+
+- (7) 見上方筆記，簡單來說蜜罐就是一個和主要nerwork隔開的系統，偽裝豐富、有利用價值的資訊**吸引印駭客往那裏走**，從而**保護主要網路裝置**，並且蜜罐是**被監測**的，因此可以用於**收集攻擊者的資料以便資安分析**。
+
+- (8) ![](https://i.imgur.com/NWqtrCm.png)
+
+- (9) 攻擊的方法請建上方筆記，影響packet filter的方法如下
+
+  - IP spoofing: 有些使用IP來源的封包過濾器可能會被騙(因為攻擊者可以將封包偽造成一個可信任的IP在上頭，進而達成欺騙的目的)
+  - src routing: 自訂routing方法的話，假設我知道那些router是沒有好的封包安全機制，我就可以故意經過他來達成躲避檢測的笑過
+  - tiny fragment: 使用許多小封包來DoS
+
+- (10)
+
+  - stateful: 簡單來說就是有紀錄封包狀態的封包過濾器，只有符合現有允許狀態的封包材可以讓它過去，否則就禁止；題目的TCP封包為例，如果filter讓現在這個SYN的封包通過，則可記錄有關此封的狀態，將來有類似的封包來，符合狀態便可使其通過。
+  - stateless: 只用現有封包的資訊(如 header等等)來決定是否通過，如果有人偽造了一個一模一樣header的封包，便可以欺騙過他(因為沒有之前的狀態可供比對)，侵入系統。
+
+### 2015final(Dec. 29 2015)
+
+- (1)firewall通常無法到達application 層過濾應用程式傳送的資料
+- (2)
+  - (a) security association 為單向
+- (6)
+  - egress可以用來找到attack src
+- (7) 定議題，請見上面筆記。
+- (9) 見上面表格，中文的那個
+- (10) 背誦題，見上面筆記
+- (11) 因為密碼有加鹽(隨機str append)過後才hash，所以會不一樣
+- (12) statistical偵測法比較能因應新的攻擊，原因乃是他比較動態，會檢查使用著的資料用量、行為、端口、網路位置等等；然而rule based用已經寫死的既有規則來偵測，因為寫死了所以很糟，無法對新的有所變通，故stat方法才能對抗、新穎、未知的威脅。
+
+#### 以下有疑問，還煩請助教解答:
+
+- (5) meta病毒和poly病毒的區別? poly應該是只有改變自己的signature，或是部分的code；但是meta是整個突變成新的，不僅signature變了，code也完全不同，嘛?
+- (7) reflexive 和 non-reflexive DDoS 的區別?，reflexive好像還會經由第三方來間接發送DDoS封包，使主謀更難被查到，進而隱身，嗎?
+- (13)，http屬於web，所以畫在external外?
+  ![](https://i.imgur.com/knmx9MQ.png)
+
+### 2016final(Jan. 3 2017)
+
+- exam paper(for TA)
+- ![](https://i.imgur.com/kdL25iw.jpg)
+
+#### 因為沒有正解，所以以下有疑問的也煩請助教解答:
+
+- (1) 連線公司的分部，應該採用tunnel mode就好，如這張圖(cooperate network通常會用tunnel mode)，因為這樣不用每一個分部的電腦都要具備IPSEC功能，比較簡單，而在加上要加密，則使用ESP in transport mode
+  ![](https://i.imgur.com/NwwA7aX.png)
+  封包如這個tunnel最後的結果
+  ![](https://i.imgur.com/uUbEWjh.png)
+
+- (2) 
+
+  - (a)yes, by using the sliding window with seq number, 
+  - (b) drop it
+
+- (3)
+
+  - (a)AH
+  - (b)ESP
+  - (c)ESP with auth
+
+- (4)
+
+  - (a)突變(metamorphism)
+  - (b)多型態(polymorphism)
+  - (補充)
+    - Polymorphic code: The (same) code takes many forms (like encryptions)
+    - Oligomorphic code: The (same) code takes one of a few predefined forms (and thus can be possibly matched against signatures that can cover all cases)
+    - Metamorphic code: The code mutates, so the code itself is different in each execution (but the functionality the same)
+
+- (5)
+
+  - (a) 統計可以而規則不行: 新的威脅，因為新的威脅不會符合任何一個規則，是必得用較為動態的統計方式偵測。
+  - (b) 規則可以而統計不行: 在統計數據上辨認不出而規則可以的(例如某個侵入性攻擊並不會觸犯任何一個threshold的設定)，因此他是一種統計例外，需要用規則性檢測來處理。
+
+- (6)
+
+  - 使用者帳戶在資料庫建立的時候: 會將使用者的<帳號，salt的隨機字串，以及hash(salt(password))>三元組存在db。
+  - 使用者輸入密碼登入系統的時候: 使用者輸入帳號密碼後，對應去query那個db entry，並且將當初的salt數值取出 <br> hash(salt(typein_password)) ?= hash(salt(stored_password)) 來確認是不是一個合法的登入。
+
+- (7)
+
+  - (a) 
+    - IPS (Intrusion Protection System): 防患未然，防患入侵的系統(在入侵前)。
+    - IDS (Intrusion Detecion System): 即時處理，在入侵後趕緊發現並處理，使損失降至最低。
+    - role: 過濾資訊，將可能造成攻擊的流量先擋下，嗎?
+  - (b) tiny fragment能攻擊成功的原因如下: 首先，因為封包很小，用來辨識惡意封包的pattern辨認系統可能無法分辨(因為pattern也被切割了)，(或簡單說就是封包太小得以規避安全檢測)，再來，如果用封包size 小也可以躲避size檢測的機制。
+
+- (8)
+
+  - (a) 侵入系統中偽裝成root的非法使用者
+  - (b) bot 是被惡意軟體或攻擊者控制的網路系統，而許多個bot合作一樣的事情就是殭屍網路(botnet、zombie net) 會用來發動DDoS攻擊
+  - (c) 因為監測向外流出的封包，因此可以用來測到蠕蟲軟體要從內部向外竄出尋找下一個目標 (不知道這樣解釋是否正確，還希望助教解答)
+  - (d) 用以檢測蠕蟲，隨機確認連線是否達某個可能被判定為worm事件的流量
+
+- (9)
+
+  - (a) 分散式阻斷服務攻擊，藉由發送大量流量來讓目標網路系統疲於應付，甚至癱瘓，而造成合法使用者無法存取該網路系統的資源。
+  - (b) 有透過第三方網路系統、間接形式的DDoS，可以讓駭客的I易於隱匿。
+  - (c) 又稱SYN Flood，一直項系統發布SYN封包，系統便會回應SYN-ACK，基於TCP三方交握原則，(因為自己也要回應一個ACK才能建立連線，，否則因為系統以為我們沒收到，他變得重傳封包)，也正因如此我們就發一堆SYN但不回應系統的SYN-ACK，讓系統疲於重新傳送封包而癱瘓其資源。
+  - (d) 一直向系統發布ICMP控制封包，而耗盡頻寬
+
+- (10) 尋找可能有弱點、漏洞的port以進行攻擊(不知道這樣解釋是否正確，還希望助教解答)
+
+### 2017final (Jan. 2 2018)
+
+- (1) 
+
+  - (a) 三個原因: 惡意軟體太多種、防毒軟體更新資料庫的速度感不上惡意軟體推陳出新的速度(道高一尺魔高一丈?)、
+  - (b) 三種: polymorphism, metamorphism, stealthy malwares
+
+- (2) 不知道耶，但推測應該是cross-site scripting(還希望助教解答)
+
+  - def: 是一種網站應用程式的安全漏洞攻擊，是代碼注入的一種。它允許惡意使用者將程式碼注入到網頁上，其他使用者在觀看網頁時就會受到影響。這類攻擊通常包含了HTML以及使用者端腳本語言。
+
+- (3) 
+
+  - (b) 從被控制的zombie電腦發送多個ICMP控制封包，經由第三方的reflexive server，間接的攻擊受害者主機
