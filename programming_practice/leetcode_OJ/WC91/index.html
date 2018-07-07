@@ -1221,8 +1221,28 @@
 54
 55
 56
-57</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">//WRONG ANSWER CODE</span>
-<span class="k">class</span> <span class="nc">Solution</span>
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<span class="cm">TLE in very large testcases(vector with length more than 30000), testcases 83/93</span>
+<span class="cm">the algorithm is implemented in the sliding-window.</span>
+<span class="cm">need to optimize to O(N)</span>
+<span class="cm">*/</span>
+<span class="k">class</span> <span class="nc">Solutio</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">shortestSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target_val</span><span class="p">)</span>
@@ -1234,48 +1254,60 @@
         <span class="p">}</span>
         <span class="kt">int</span> <span class="n">start_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">end_idx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cur_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
         <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">min_len</span> <span class="o">=</span> <span class="mi">9999999</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">end_idx</span> <span class="o">&gt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">cur_sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
             <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">start_idx</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">end_idx</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="n">cur_sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
             <span class="p">}</span>
-            <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;sum is &quot;</span> <span class="o">&lt;&lt;</span> <span class="n">cur_sum</span> <span class="o">&lt;&lt;</span><span class="n">endl</span><span class="p">;</span>
+            <span class="c1">// printf(&quot;sum is %d\n&quot;, cur_sum);</span>
             <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">&lt;</span> <span class="n">target_val</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;end_idx++ since too small</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">end_idx</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="c1">// printf(&quot;end_idx++ since too small\n&quot;);</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">end_idx</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="c1">//keep adding the elements, extending the right side of the window</span>
                 <span class="p">{</span>
                     <span class="n">end_idx</span><span class="o">++</span><span class="p">;</span>
                 <span class="p">}</span>
-                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">end_idx</span> <span class="o">==</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span> <span class="cm">/*&amp;&amp; arr[start_idx] &lt; 0*/</span><span class="p">)</span> <span class="c1">//shrink the subarray if start_idx element is negative</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">end_idx</span> <span class="o">==</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">)</span> <span class="c1">//shrink the subarray, try to toss away some negative values</span>
                 <span class="p">{</span>
-                    <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target_val</span><span class="p">)</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target_val</span><span class="p">)</span> <span class="c1">//if successfully toss away enough negative value, then the min_len can be updated</span>
                     <span class="p">{</span>
-                        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;update min len </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                        <span class="c1">// printf(&quot;update min len \n&quot;);</span>
                         <span class="n">min_len</span> <span class="o">=</span> <span class="n">min</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">end_idx</span> <span class="o">-</span> <span class="n">start_idx</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
                     <span class="p">}</span>
-                    <span class="n">start_idx</span><span class="o">++</span><span class="p">;</span>
+                    <span class="n">start_idx</span><span class="o">++</span><span class="p">;</span> <span class="c1">//shrink the left side of the window</span>
                 <span class="p">}</span>
             <span class="p">}</span>
-            <span class="k">else</span>
+            <span class="k">else</span> <span class="c1">//if the target value is reached, then we can try to shrink the left side of the window to try to make the window narrower</span>
             <span class="p">{</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;start_idx++ since enough</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
-                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;cur_sum %d go third minus %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">cur_sum</span><span class="p">,</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span><span class="p">]);</span>
+                <span class="c1">//printf(&quot;start_idx++ since enough\n&quot;);</span>
+                <span class="c1">//printf(&quot;cur_sum %d go third minus %d\n&quot;, cur_sum, arr[start_idx]);</span>
                 <span class="n">min_len</span> <span class="o">=</span> <span class="n">min</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">end_idx</span> <span class="o">-</span> <span class="n">start_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">)</span> <span class="c1">//shrink the leftside</span>
                 <span class="p">{</span>
                     <span class="n">start_idx</span><span class="o">++</span><span class="p">;</span>
                 <span class="p">}</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target_val</span><span class="p">)</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">==</span> <span class="n">end_idx</span><span class="p">)</span> <span class="c1">//moving forward to prevent locked situation</span>
+                <span class="p">{</span>
+                    <span class="n">start_idx</span><span class="o">++</span><span class="p">;</span>
+                    <span class="n">end_idx</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target_val</span><span class="p">)</span> <span class="c1">//update the min value if the shrinked sliding window still satisfies the criteria</span>
                 <span class="p">{</span>
                     <span class="n">min_len</span> <span class="o">=</span> <span class="n">min</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">end_idx</span> <span class="o">-</span> <span class="n">start_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
                 <span class="p">}</span>
             <span class="p">}</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;start_idx %d, end_idx %d min_len%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">target_val</span><span class="p">,</span> <span class="n">cur_sum</span><span class="p">,</span><span class="n">start_idx</span><span class="p">,</span> <span class="n">end_idx</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
+            <span class="c1">//I think the TLE mainly due to this part since my time complexity is not O(N) but O(N^2)</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">==</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">end_idx</span> <span class="o">==</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="c1">//if we reach the end of the vector, pop the last element, to do again for the smaller array.</span>
+            <span class="p">{</span>
+                <span class="n">arr</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+                <span class="n">start_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">end_idx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="c1">// printf(&quot;start_idx %d, end_idx %d min_len%d\n&quot; ,start_idx, end_idx, min_len);</span>
         <span class="p">}</span>
-        <span class="k">return</span> <span class="p">(</span><span class="n">min_len</span> <span class="o">==</span> <span class="mi">9999999</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">min_len</span><span class="p">;</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">min_len</span> <span class="o">==</span> <span class="mi">9999999</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">min_len</span><span class="p">;</span> <span class="c1">//check the return answer</span>
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
