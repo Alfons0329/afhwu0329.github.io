@@ -555,8 +555,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pd-862-shortest-subarray-with-sum-at-least-k" title="PD 862. Shortest Subarray with Sum at Least K 堆的應用" class="md-nav__link">
-    PD 862. Shortest Subarray with Sum at Least K 堆的應用
+  <a href="#pd-862-shortest-subarray-with-sum-at-least-k-deque" title="PD 862. Shortest Subarray with Sum at Least K deque應用" class="md-nav__link">
+    PD 862. Shortest Subarray with Sum at Least K deque應用
   </a>
   
 </li>
@@ -636,8 +636,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pd-862-shortest-subarray-with-sum-at-least-k" title="PD 862. Shortest Subarray with Sum at Least K 堆的應用" class="md-nav__link">
-    PD 862. Shortest Subarray with Sum at Least K 堆的應用
+  <a href="#pd-862-shortest-subarray-with-sum-at-least-k-deque" title="PD 862. Shortest Subarray with Sum at Least K deque應用" class="md-nav__link">
+    PD 862. Shortest Subarray with Sum at Least K deque應用
   </a>
   
 </li>
@@ -1161,10 +1161,11 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="pd-862-shortest-subarray-with-sum-at-least-k">PD <a href="https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/">862. Shortest Subarray with Sum at Least K</a> 堆的應用</h2>
-<p>still working now
-<br />
-* 思路(wrong answer)
+<h2 id="pd-862-shortest-subarray-with-sum-at-least-k-deque">PD <a href="https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/">862. Shortest Subarray with Sum at Least K</a> deque應用</h2>
+<p><br />
+<em> <strong>TLE VERSION</strong>
+</em> 思路:精簡之後的暴力解，雖然使用了滑動視窗，但是時間並沒有壓在O(N^2)，基本上還是近乎查找每一個所有可能的subarray而已。
+<em> 分析 Time complexity O(N^2) Space complexity O(1) (only some helper variables)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1231,13 +1232,7 @@
 64
 65
 66
-67
-68
-69
-70
-71
-72
-73</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+67</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
 <span class="cm">TLE in very large testcases(vector with length more than 30000), testcases 83/93</span>
 <span class="cm">the algorithm is implemented in the sliding-window.</span>
 <span class="cm">need to optimize to O(N)</span>
@@ -1261,10 +1256,8 @@
             <span class="p">{</span>
                 <span class="n">cur_sum</span> <span class="o">+=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
             <span class="p">}</span>
-            <span class="c1">// printf(&quot;sum is %d\n&quot;, cur_sum);</span>
             <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">&lt;</span> <span class="n">target_val</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="c1">// printf(&quot;end_idx++ since too small\n&quot;);</span>
                 <span class="k">if</span><span class="p">(</span><span class="n">end_idx</span> <span class="o">!=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span><span class="c1">//keep adding the elements, extending the right side of the window</span>
                 <span class="p">{</span>
                     <span class="n">end_idx</span><span class="o">++</span><span class="p">;</span>
@@ -1273,7 +1266,6 @@
                 <span class="p">{</span>
                     <span class="k">if</span><span class="p">(</span><span class="n">cur_sum</span> <span class="o">-</span> <span class="n">arr</span><span class="p">[</span><span class="n">start_idx</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">target_val</span><span class="p">)</span> <span class="c1">//if successfully toss away enough negative value, then the min_len can be updated</span>
                     <span class="p">{</span>
-                        <span class="c1">// printf(&quot;update min len \n&quot;);</span>
                         <span class="n">min_len</span> <span class="o">=</span> <span class="n">min</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">end_idx</span> <span class="o">-</span> <span class="n">start_idx</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
                     <span class="p">}</span>
                     <span class="n">start_idx</span><span class="o">++</span><span class="p">;</span> <span class="c1">//shrink the left side of the window</span>
@@ -1281,8 +1273,6 @@
             <span class="p">}</span>
             <span class="k">else</span> <span class="c1">//if the target value is reached, then we can try to shrink the left side of the window to try to make the window narrower</span>
             <span class="p">{</span>
-                <span class="c1">//printf(&quot;start_idx++ since enough\n&quot;);</span>
-                <span class="c1">//printf(&quot;cur_sum %d go third minus %d\n&quot;, cur_sum, arr[start_idx]);</span>
                 <span class="n">min_len</span> <span class="o">=</span> <span class="n">min</span><span class="p">((</span><span class="kt">unsigned</span> <span class="kt">int</span><span class="p">)</span><span class="n">end_idx</span> <span class="o">-</span> <span class="n">start_idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_len</span><span class="p">);</span>
                 <span class="k">if</span><span class="p">(</span><span class="n">start_idx</span> <span class="o">&lt;</span> <span class="n">end_idx</span><span class="p">)</span> <span class="c1">//shrink the leftside</span>
                 <span class="p">{</span>
@@ -1305,9 +1295,95 @@
                 <span class="n">start_idx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
                 <span class="n">end_idx</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
             <span class="p">}</span>
-            <span class="c1">// printf(&quot;start_idx %d, end_idx %d min_len%d\n&quot; ,start_idx, end_idx, min_len);</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">min_len</span> <span class="o">==</span> <span class="mi">9999999</span><span class="p">)</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">min_len</span><span class="p">;</span> <span class="c1">//check the return answer</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+---
+</em> <strong>AC VERSION</strong>
+<em> 改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。
+</em> 思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[i] - prefix_sum[j] 代表從第i 向
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">shortestSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">window_left</span><span class="p">;</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">end</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">window_left</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">window_left</span><span class="p">.</span><span class="n">back</span><span class="p">()]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">window_left</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">window_left</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">beg</span> <span class="o">=</span> <span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+                <span class="n">window_left</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+
+                <span class="k">if</span><span class="p">(</span><span class="n">ans</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">ans</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">beg</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">ans</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">end</span> <span class="o">-</span> <span class="n">beg</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">window_left</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">end</span><span class="p">);</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
