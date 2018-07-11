@@ -752,7 +752,7 @@
 <li>走訪的同時也不忘了使用set 儲存visited path以防重複走訪，也就是標記過已經進行DFS過的節點。</li>
 </ul>
 </li>
-<li>分析 Time complexity = O(N), Space complexity = O(N) where N is # of nodes in that BT.</li>
+<li>分析: Time complexity = O(N), Space complexity = O(N) where N is # of nodes in that BT.</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -932,7 +932,7 @@
 </ul>
 <p>綜合以上兩點便能得到以下的code，<strong>其中迴圈跳出條件為，每一個二進位數字矩陣，每一個col的一的個數均大於零的個數（局部最佳解），每一個row的MSB都是1(源自於方才的數學計算式)</strong>
 <br />
-* 分析 Time complexity = O(row * col), Space complexity (with auxilary vector of pair) = O(col)</p>
+* 分析: Time complexity = O(row * col), Space complexity (with auxiliary vector of pair) = O(col)</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>  1
   2
   3
@@ -1150,10 +1150,11 @@
 </td></tr></table>
 
 <h2 id="pd-862-shortest-subarray-with-sum-at-least-k-deque">PD <a href="https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/">862. Shortest Subarray with Sum at Least K</a> deque應用</h2>
-<p><br />
-<em> <strong>TLE VERSION</strong>
-</em> 思路:精簡之後的暴力解，雖然使用了滑動視窗，但是時間並沒有壓在O(N^2)，基本上還是近乎查找每一個所有可能的subarray而已。
-<em> 分析 Time complexity O(N^2) Space complexity O(1) (only some helper variables)
+<p><br /></p>
+<ul>
+<li><strong>TLE VERSION</strong></li>
+<li>思路:精簡之後的暴力解，雖然使用了滑動視窗，但是時間並沒有壓在O(N^2)，基本上還是近乎查找每一個所有可能的subarray而已。</li>
+<li>分析: Time complexity O(N^2) Space complexity O(1) (only some helper variables)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1288,11 +1289,17 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
----
-</em> <strong>AC VERSION</strong>
-<em> 改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。
-</em> 思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[i] - prefix_sum[j] 代表從第i 向
+</td></tr></table></li>
+</ul>
+<hr />
+<ul>
+<li><strong>AC VERSION</strong></li>
+<li>改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。</li>
+<li>思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和</li>
+<li>分析: Time complexity: O(N) Space complexity O(N) (auxiliary deque)</li>
+<li>備註:下面的printf可以自己放測資跑跑看，比較好理解流程唷 :D
+<a href="https://imgur.com/a/IdWjobH">photo</a></li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1330,10 +1337,7 @@
 35
 36
 37
-38
-39
-40
-41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+38</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">shortestSubarray</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> <span class="p">{</span>
         <span class="kt">int</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
@@ -1343,39 +1347,36 @@
             <span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
         <span class="p">}</span>
 
-        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mh">0x7fffffff</span><span class="p">;</span>
 
         <span class="n">deque</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">window_left</span><span class="p">;</span>
 
-        <span class="k">for</span><span class="p">(</span><span class="kt">size_t</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">end</span><span class="o">++</span><span class="p">)</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">end</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">end</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">end</span><span class="o">++</span><span class="p">)</span>
         <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;end now %d   back &quot;</span><span class="p">,</span> <span class="n">end</span><span class="p">);</span>
             <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">window_left</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">window_left</span><span class="p">.</span><span class="n">back</span><span class="p">()]</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span>
             <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">window_left</span><span class="p">.</span><span class="n">back</span><span class="p">());</span>
                 <span class="n">window_left</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
             <span class="p">}</span>
-            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">window_left</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   front   while loop 2   front &quot;</span><span class="p">);</span>
+            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">window_left</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">-</span> <span class="n">prefix_sum</span><span class="p">[</span><span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">()]</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="c1">//區間和大於等於木雕哦要愈短愈好，所以從deque的front(比較早進來的&lt;也就是比較左邊的，向右縮減，最後期望縮短到最小又能符合大於等於目標值(亦即，這個區間(prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和)能符合 prefix_sum[end] - prefix_sum[window_left.front()] &gt;= target)的長度，每次就向右邊縮短一格(見下方)</span>
             <span class="p">{</span>
                 <span class="kt">int</span> <span class="n">beg</span> <span class="o">=</span> <span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
-                <span class="n">window_left</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
-
-                <span class="k">if</span><span class="p">(</span><span class="n">ans</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-                <span class="p">{</span>
-                    <span class="n">ans</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">beg</span><span class="p">;</span>
-                <span class="p">}</span>
-                <span class="k">else</span>
-                <span class="p">{</span>
-                    <span class="n">ans</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">end</span> <span class="o">-</span> <span class="n">beg</span><span class="p">);</span>
-                <span class="p">}</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">window_left</span><span class="p">.</span><span class="n">front</span><span class="p">());</span>
+                <span class="n">window_left</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span><span class="c1">//目前這一格的長度找出後，向右邊縮短一格，接著重新跑這個while迴圈，看看能不能繼續符合他的目標數值要求，可以的話就在繼續縮短，不可以就跳離迴圈</span>
+                <span class="n">ans</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span> <span class="o">-</span> <span class="n">beg</span><span class="p">);</span> <span class="c1">//找出比較短的長度</span>
             <span class="p">}</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;back </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
             <span class="n">window_left</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">end</span><span class="p">);</span>
         <span class="p">}</span>
 
-        <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">ans</span> <span class="o">==</span> <span class="mh">0x7fffffff</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">ans</span><span class="p">;</span>
 
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table></p>
+</td></tr></table>
                 
                   
                 
