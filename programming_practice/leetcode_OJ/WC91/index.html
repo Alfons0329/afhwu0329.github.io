@@ -572,6 +572,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC92/" title="WC92" class="md-nav__link">
+      WC92
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -651,7 +663,7 @@
                 
                 <h1 id="leetcode_oj-wc91">leetcode_OJ WC91 解題心得</h1>
 <ul>
-<li>Contest time: Jul 2,2018</li>
+<li>Contest time: Jul 1,2018</li>
 </ul>
 <h2 id="pa-860-lemonade-change">PA. <a href="https://leetcode.com/problems/lemonade-change/description/">860. Lemonade Change</a> 水題</h2>
 <ul>
@@ -1295,7 +1307,7 @@
 <ul>
 <li><strong>AC VERSION</strong></li>
 <li>改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。</li>
-<li>思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和</li>
+<li>思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和，再以以下程式碼求解(具體更詳細的思路請見程式碼的註解)</li>
 <li>分析: Time complexity: O(N) Space complexity O(N) (auxiliary deque)</li>
 <li>備註:下面的printf可以自己放測資跑跑看，比較好理解流程唷 :D
 <a href="https://imgur.com/a/IdWjobH">photo</a></li>
@@ -1411,6 +1423,20 @@
             </div>
           </a>
         
+        
+          <a href="../WC92/" title="WC92" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                WC92
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
