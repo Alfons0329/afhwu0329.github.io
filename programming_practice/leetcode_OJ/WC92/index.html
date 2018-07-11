@@ -913,7 +913,7 @@
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="c1">//printf(&quot;%d is a leaf \n&quot;, it-&gt;first-&gt;val);</span>
+                <span class="c1">//</span>
                 <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="n">deepest</span><span class="p">)</span>
                 <span class="p">{</span>
                     <span class="n">deepest</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">depth</span><span class="p">;</span>
@@ -921,7 +921,7 @@
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;deepest %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">deepest_node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+
         <span class="n">node_info_map_2</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">deepest_node</span><span class="p">);</span>
 
         <span class="c1">//find the 2nd deepest leaf if same depth, then update the sceond one for the LCA</span>
@@ -929,7 +929,7 @@
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">first</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="c1">//printf(&quot;%d is a leaf \n&quot;, it-&gt;first-&gt;val);</span>
+                <span class="c1">//</span>
                 <span class="k">if</span><span class="p">(</span><span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">depth</span> <span class="o">==</span> <span class="n">deepest</span><span class="p">)</span>
                 <span class="p">{</span>
                     <span class="n">deepest</span> <span class="o">=</span> <span class="n">it</span><span class="o">-&gt;</span><span class="n">second</span><span class="p">.</span><span class="n">depth</span><span class="p">;</span>
@@ -942,7 +942,7 @@
         <span class="p">{</span>
             <span class="k">return</span> <span class="n">deepest_node</span><span class="p">;</span>
         <span class="p">}</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;deepest_2nd_node %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">deepest_2nd_node</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">);</span>
+
         <span class="n">climbup_LCA</span><span class="p">(</span><span class="n">deepest_node</span><span class="p">,</span> <span class="n">deepest_2nd_node</span><span class="p">);</span>
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
@@ -1078,11 +1078,7 @@
 73
 74
 75
-76
-77
-78
-79
-80</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/**</span>
+76</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
 <span class="cm"> * struct TreeNode {</span>
 <span class="cm"> *     int val;</span>
@@ -1106,10 +1102,6 @@
         <span class="n">dfs_information</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
         <span class="n">node_info_map</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span> <span class="c1">//for the root itself without runtime error</span>
         <span class="n">res</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span> <span class="c1">//initialize</span>
-        <span class="cm">/*for(map&lt;TreeNode* , node_info&gt;::iterator it = node_info_map.begin(); it != node_info_map.end(); it++)</span>
-<span class="cm">        {</span>
-<span class="cm">            printf(&quot;%d has the parent %d with its own depth %d \n&quot;, it-&gt;first-&gt;val, it-&gt;second.parent-&gt;val, it-&gt;second.depth);</span>
-<span class="cm">        }*/</span>
         <span class="n">climbup_LCA</span><span class="p">(</span><span class="n">node_p</span><span class="p">,</span> <span class="n">node_q</span><span class="p">);</span>
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
@@ -1135,7 +1127,7 @@
     <span class="c1">//climb up to find the LCA, using depth comparison algorithm</span>
     <span class="kt">void</span> <span class="nf">climbup_LCA</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_q</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="c1">//printf(&quot;node_p %d node_q %d\n&quot;, node_p-&gt;val, node_q-&gt;val);</span>
+        <span class="c1">//</span>
         <span class="k">if</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span> <span class="o">==</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_q</span><span class="p">].</span><span class="n">parent</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">res</span> <span class="o">=</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span><span class="p">;</span>
@@ -1283,7 +1275,7 @@
 </ul>
 <h2 id="pd865-shortest-path-to-get-all-keys">PD.<a href="https://leetcode.com/contest/weekly-contest-92/problems/shortest-path-to-get-all-keys/">865. Shortest Path to Get All Keys</a></h2>
 <ul>
-<li>還沒做，好像是dijkstra的變化題，程度尚不夠，之後再來試試看囉:D </li>
+<li>還沒做，好像是dijkstra的變化題，程度尚不夠，之後再來試試看囉:D</li>
 </ul>
                 
                   
