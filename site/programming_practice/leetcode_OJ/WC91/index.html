@@ -1150,10 +1150,11 @@
 </td></tr></table>
 
 <h2 id="pd-862-shortest-subarray-with-sum-at-least-k-deque">PD <a href="https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/">862. Shortest Subarray with Sum at Least K</a> deque應用</h2>
-<p><br />
-<em> <strong>TLE VERSION</strong>
-</em> 思路:精簡之後的暴力解，雖然使用了滑動視窗，但是時間並沒有壓在O(N^2)，基本上還是近乎查找每一個所有可能的subarray而已。
-<em> 分析: Time complexity O(N^2) Space complexity O(1) (only some helper variables)
+<p><br /></p>
+<ul>
+<li><strong>TLE VERSION</strong></li>
+<li>思路:精簡之後的暴力解，雖然使用了滑動視窗，但是時間並沒有壓在O(N^2)，基本上還是近乎查找每一個所有可能的subarray而已。</li>
+<li>分析: Time complexity O(N^2) Space complexity O(1) (only some helper variables)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1288,13 +1289,17 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
----
-</em> <strong>AC VERSION</strong>
-<em> 改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。
-</em> 思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和
-<em> 分析: Time complexity: O(N) Space complexity O(N) (auxiliary deque)
-</em> 備註:下面的printf可以自己放測資跑跑看，比較好理解流程唷 :D <img alt="Screenshot" src="https://imgur.com/a/IdWjobH" />
+</td></tr></table></li>
+</ul>
+<hr />
+<ul>
+<li><strong>AC VERSION</strong></li>
+<li>改進: 採用deque(和queue一樣FCFS的資料結構，但是可以頭尾都出去的雙隊列)，採用prefix_sum來找到哪個區間的prefix_sum 是負的，那代表經過那段區間只會變小，可以捨棄他。</li>
+<li>思路: 首先將各個array到該點的prefix_sum寫出來，其中prefix_sum[i] = sum(arr[0] + arr[1] + ... arr[i - 1]) (加總到前一項的和)，接著，由於 prefix_sum[j] - prefix_sum[i] 代表從第i項到第j - 1項目的區間和</li>
+<li>分析: Time complexity: O(N) Space complexity O(N) (auxiliary deque)</li>
+<li>備註:下面的printf可以自己放測資跑跑看，比較好理解流程唷 :D
+<a href="https://imgur.com/a/IdWjobH">photo</a></li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1371,7 +1376,7 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table></p>
+</td></tr></table>
                 
                   
                 
