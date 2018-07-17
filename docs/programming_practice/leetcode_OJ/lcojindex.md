@@ -9,3 +9,5 @@
 [WC78](WC78.md) <br />
 [WC79](WC79.md) <br />
 [WC91](WC91.md) <br />
+[WC92](WC92.md) <br />
+[WC93](WC93.md) <br />
