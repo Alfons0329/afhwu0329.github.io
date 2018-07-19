@@ -579,8 +579,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pd-871-minimum-number-of-refueling-stops" title="PD. 871. Minimum Number of Refueling Stops 貌似是動態規劃的題目，尚未作答，等週末來試試" class="md-nav__link">
-    PD. 871. Minimum Number of Refueling Stops 貌似是動態規劃的題目，尚未作答，等週末來試試
+  <a href="#pd-871-minimum-number-of-refueling-stops-priority_queue" title="PD. 871. Minimum Number of Refueling Stops priority_queue回溯法" class="md-nav__link">
+    PD. 871. Minimum Number of Refueling Stops priority_queue回溯法
   </a>
   
 </li>
@@ -648,8 +648,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pd-871-minimum-number-of-refueling-stops" title="PD. 871. Minimum Number of Refueling Stops 貌似是動態規劃的題目，尚未作答，等週末來試試" class="md-nav__link">
-    PD. 871. Minimum Number of Refueling Stops 貌似是動態規劃的題目，尚未作答，等週末來試試
+  <a href="#pd-871-minimum-number-of-refueling-stops-priority_queue" title="PD. 871. Minimum Number of Refueling Stops priority_queue回溯法" class="md-nav__link">
+    PD. 871. Minimum Number of Refueling Stops priority_queue回溯法
   </a>
   
 </li>
@@ -892,7 +892,292 @@
 <ul>
 <li>題解請<a href="https://leetcode.com/problems/advantage-shuffle/discuss/150785/C++-greedy-solution-with-explanation-in-both-Chinese(zh-TW)-and-English">見此</a>(雙語版本同步刊載於討論區)</li>
 </ul>
-<h2 id="pd-871-minimum-number-of-refueling-stops">PD. <a href="https://leetcode.com/problems/minimum-number-of-refueling-stops/description/">871. Minimum Number of Refueling Stops</a> 貌似是動態規劃的題目，尚未作答，等週末來試試</h2>
+<h2 id="pd-871-minimum-number-of-refueling-stops-priority_queue">PD. <a href="https://leetcode.com/problems/minimum-number-of-refueling-stops/description/">871. Minimum Number of Refueling Stops</a> priority_queue回溯法</h2>
+<ul>
+<li>題意: 給定目標距離與最初的汽油量，其中加油站會在某些距離，經過的時候可以將加油的汽油全部移轉過來，此時加油站的汽油將會用罄(全有全無)，並且一公里的行車會消耗汽油一公升(油耗真爛?)，問找出最少家由次數同時又能抵達目標，若無法則回傳-1</li>
+<li>WA思路: 這題當下沒有解出只有WA，看了提示解出，比較難。以下是原本錯誤的作法<ul>
+<li>首先每一次都盡量走到最遠的加油站。</li>
+<li>再看當前可以找(也就是距離station position - my position &lt;= current gas fuel)的加油站中，能補充最多的(包括往回走)</li>
+<li>但貪心算法忽略了: 如果走來這裡前，事先補充過幾個加油站，雖會造成加油次數變多，但也可能更遠，例如 target = 200 startFuel = 100, stations = [[10, 60],[100, 80]]，<strong>錯誤算法會先走到 100 加油站 之後又逆回10加油站去加油 導致最後汽油量變成50(80-(100-10)+60) 哪都不能去</strong></li>
+<li>缺失分析: 實際上，上方的第三點想法是錯的，因為根本不食用回去加油的方法，而是走到此，再加上"當初如果經過該加油站所能延伸的距離"</li>
+</ul>
+</li>
+</ul>
+<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<span class="cm">wrong answer testcase102 : 1000</span>
+<span class="cm">299</span>
+<span class="cm">[[13,21],[26,115],[100,47],[225,99],[299,141],[444,198],[608,190],[636,157],[647,255],[841,123]]</span>
+<span class="cm">*/</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">minRefuelStops</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startFuel</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">stations</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">startFuel</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">stations</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">startFuel</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">dp</span><span class="p">[</span><span class="mi">500</span><span class="p">][</span><span class="mi">500</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">},</span> <span class="n">cur_fuel</span> <span class="o">=</span> <span class="n">startFuel</span><span class="p">,</span> <span class="n">car_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">refuel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">best_choice</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">max_refuel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stations_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">can_reach_next</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">closest_next_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">closest_next_dist</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
+        <span class="k">while</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;car_pos %d fuel_now %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">car_pos</span><span class="p">,</span> <span class="n">cur_fuel</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">car_pos</span> <span class="o">+</span> <span class="n">cur_fuel</span> <span class="o">&gt;=</span> <span class="n">target</span> <span class="o">||</span> <span class="n">car_pos</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="c1">//should have the highest priority</span>
+            <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;reach target!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">can_reach_next</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span><span class="c1">//search the next, closest stations to go, reachable or not (check the requirement of break if unreachable)</span>
+            <span class="n">closest_next_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">closest_next_dist</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stations</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">abs</span><span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">car_pos</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">closest_next_dist</span> <span class="o">&amp;&amp;</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="cm">/*still useable*/</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">closest_next_dist</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+                    <span class="n">closest_next_pos</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">closest_next_pos</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">car_pos</span> <span class="o">&gt;</span> <span class="n">cur_fuel</span> <span class="o">||</span> <span class="n">closest_next_dist</span> <span class="o">==</span> <span class="n">INT_MAX</span><span class="p">)</span><span class="c1">//unracehable with current fuel</span>
+            <span class="p">{</span>
+                <span class="n">printf</span><span class="p">(</span><span class="s">&quot;unreachable to all</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+
+            <span class="n">max_refuel</span> <span class="o">=</span> <span class="n">stations_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stations</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="c1">//find all reachable stations with max fuel to refill</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="cm">/*stations[i][0] - car_pos &gt;= 0*/</span><span class="n">cur_fuel</span> <span class="o">&gt;=</span> <span class="n">abs</span><span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">car_pos</span><span class="p">)</span><span class="cm">/*reachable with current fuel*/</span><span class="o">&amp;&amp;</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_refuel</span> <span class="cm">/*bigger fuel slot*/</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;i %d i0 %d i1 %d ok </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]);</span>
+                    <span class="n">max_refuel</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span>
+                    <span class="n">stations_pos</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="n">cur_fuel</span> <span class="o">-=</span> <span class="n">abs</span><span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">stations_pos</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">car_pos</span><span class="p">);</span> <span class="c1">//drive</span>
+            <span class="n">car_pos</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="n">stations_pos</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span> <span class="c1">//reach</span>
+            <span class="n">cur_fuel</span> <span class="o">+=</span> <span class="n">stations</span><span class="p">[</span><span class="n">stations_pos</span><span class="p">][</span><span class="mi">1</span><span class="p">];</span> <span class="c1">//refill</span>
+            <span class="c1">// stations[stations_pos][0] = INT_MAX; //marked such station as used to prevent duplicate using</span>
+            <span class="n">stations</span><span class="p">[</span><span class="n">stations_pos</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">//used out such fuel</span>
+            <span class="n">refuel</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;select stations_pos %d, car_pos is now %d, car_fuel is now %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">stations_pos</span><span class="p">,</span> <span class="n">car_pos</span><span class="p">,</span> <span class="n">cur_fuel</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">refuel</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
+<em> 改正後 AC思路: <strong>採用 priority_queue優先隊列回溯</strong>
+    * 首先一直走
+    * 直到在某個加油站停下時，燃料已經呈現負債，這時候回溯之前走過的加油站，依據優先隊列先找出最多油量的加油站。
+    * 途中若 <strong>當前的位置加上汽油量足以走到終點</strong> 則直接跳出回傳結果(另外，若回溯也無法補足負債的燃料，代表無論如何都找不到，因為即便加了油也無法前進，代表到不了target)，
+        * 走完所有加油站後若還沒有到終點，則繼續回溯之前走過的加油站，最後在一樣看 <strong>當前的位置加上汽油量足以走到終點</strong> 決定是否回傳-1。
+    * 自己跑過一便會想得比較清楚，例如方才的target = 200 startFuel = 100, stations = [[10, 60],[100, 80]] 首先一路走到尾端 此時油量剩下0 位置在100，開始回溯 首先將[100, 80]pop 出來，代表我如果在100加油可以再從100走80，得到180，此時加油次數1；再來將[10, 60]pop 出來，代表我 <strong>當初如果</strong> 有在10加油，我可以更再延伸60KM，於是能走到240
+    * 改進概念: 走到後發現沒油，回溯不是直接走去該加油站，而是加上該加油站我當初如果走過，會再延伸多少。
+</em> 分析: Time complexity O(N log N) (log N for priority_queue structure maintenance, heap), Space complexity O(N), (the priority_queue)
+* 心得: 這題讓我學會客製化優先隊列的寫法，因為要自訂上面是最大的所以寫了compare 裡面要放operator多載才可以用，不然會有priority_queue argument的compile error (詳情可以自行google，我也是查過才發現這個新寫法)</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<span class="cm">AC version, try using the priority queue. we keep traversing through the stations without refuling, that means try our best with current fuel.</span>
+<span class="cm">Once we traverse to a gas station with the negative fuel,</span>
+<span class="cm">we refill the tank with the gas station we have visited before(pushed in to the traversed_stations priority queue)</span>
+<span class="cm">to check if we can reach even further if we refueled before using the retroactive method.</span>
+<span class="cm">----------------------------------------------------------------------------------------------------------------</span>
+<span class="cm">Please try the following testcases for understanding how the code runs</span>
+<span class="cm">1000</span>
+<span class="cm">299</span>
+<span class="cm">[[13,21],[26,115],[100,47],[225,99],[299,141],[444,198],[608,190],[636,157],[647,255],[841,123]]</span>
+<span class="cm">*/</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">struct</span> <span class="n">mycompare</span>
+    <span class="p">{</span>
+        <span class="kt">bool</span> <span class="k">operator</span><span class="p">()(</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span> <span class="p">,</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="n">p1</span><span class="p">,</span> <span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span> <span class="p">,</span><span class="kt">int</span><span class="o">&gt;&amp;</span><span class="n">p2</span><span class="p">)</span> <span class="c1">//pair first for station position and second for how much gas does a staion hace</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">p1</span><span class="p">.</span><span class="n">second</span> <span class="o">&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">second</span><span class="p">;</span> <span class="c1">//sort descending to get the largest element first</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="kt">int</span> <span class="nf">minRefuelStops</span><span class="p">(</span><span class="kt">int</span> <span class="n">target</span><span class="p">,</span> <span class="kt">int</span> <span class="n">startFuel</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">stations</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">stations</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="p">(</span><span class="n">startFuel</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">priority_queue</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span> <span class="p">,</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">pair</span><span class="o">&lt;</span><span class="kt">int</span> <span class="p">,</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="p">,</span> <span class="n">mycompare</span><span class="o">&gt;</span> <span class="n">traversed_stations</span><span class="p">;</span> <span class="c1">//logN query</span>
+        <span class="kt">int</span> <span class="n">cur_fuel</span> <span class="o">=</span> <span class="n">startFuel</span><span class="p">,</span> <span class="n">car_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">has_chance_to_refuel</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">refuel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">stations</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cur_fuel</span> <span class="o">-=</span> <span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">car_pos</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">car_pos</span> <span class="o">+</span> <span class="n">cur_fuel</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">traversed_stations</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">cur_fuel</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">//traverse to certain gas station but we ran out of fuel, that we have to trace back to see if we can refuel before</span>
+            <span class="p">{</span>
+                <span class="n">cur_fuel</span> <span class="o">+=</span> <span class="n">traversed_stations</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+                <span class="n">refuel</span><span class="o">++</span><span class="p">;</span>
+                <span class="n">traversed_stations</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">cur_fuel</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">car_pos</span> <span class="o">=</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">];</span>
+            <span class="n">traversed_stations</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">make_pair</span><span class="p">(</span><span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">stations</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]));;</span>
+            <span class="n">has_chance_to_refuel</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">//if hasn&#39;t reach the target yet</span>
+        <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">traversed_stations</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">car_pos</span> <span class="o">+</span> <span class="n">cur_fuel</span> <span class="o">&lt;</span> <span class="n">target</span><span class="p">)</span> <span class="c1">//traverse to certain gas station but we ran out of fuel, that we have to trace back to see if we can refuel before</span>
+        <span class="p">{</span>
+            <span class="n">cur_fuel</span> <span class="o">+=</span> <span class="n">traversed_stations</span><span class="p">.</span><span class="n">top</span><span class="p">().</span><span class="n">second</span><span class="p">;</span>
+            <span class="c1">// car_pos = traversed_stations.top().first;</span>
+            <span class="n">refuel</span><span class="o">++</span><span class="p">;</span>
+            <span class="n">traversed_stations</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">car_pos</span> <span class="o">+</span> <span class="n">cur_fuel</span> <span class="o">&gt;=</span> <span class="n">target</span><span class="p">)</span> <span class="o">?</span> <span class="nl">refuel</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span> <span class="c1">//able to reach the target destination or not</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
