@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
     
     
       
@@ -899,11 +899,11 @@
 <li>首先每一次都盡量走到最遠的加油站。</li>
 <li>再看當前可以找(也就是距離station position - my position &lt;= current gas fuel)的加油站中，能補充最多的(包括往回走)</li>
 <li>但貪心算法忽略了: 如果走來這裡前，事先補充過幾個加油站，雖會造成加油次數變多，但也可能更遠，例如 target = 200 startFuel = 100, stations = [[10, 60],[100, 80]]，<strong>錯誤算法會先走到 100 加油站 之後又逆回10加油站去加油 導致最後汽油量變成50(80-(100-10)+60) 哪都不能去</strong></li>
-<li>缺失分析: 實際上，上方的第三點想法是錯的，因為根本不食用回去加油的方法，而是走到此，再加上"當初如果經過該加油站所能延伸的距離"</li>
+<li>缺失分析: 實際上，上方的第三點想法是錯的，因為根本不是用回去加油的方法，而是走到此，再加上"當初如果經過該加油站所能延伸的距離"</li>
 </ul>
 </li>
 </ul>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -1042,15 +1042,22 @@
 <span class="p">};</span>
 </pre></div>
 </td></tr></table>
-<em> 改正後 AC思路: <strong>採用 priority_queue優先隊列回溯</strong>
-    * 首先一直走
-    * 直到在某個加油站停下時，燃料已經呈現負債，這時候回溯之前走過的加油站，依據優先隊列先找出最多油量的加油站。
-    * 途中若 <strong>當前的位置加上汽油量足以走到終點</strong> 則直接跳出回傳結果(另外，若回溯也無法補足負債的燃料，代表無論如何都找不到，因為即便加了油也無法前進，代表到不了target)，
-        * 走完所有加油站後若還沒有到終點，則繼續回溯之前走過的加油站，最後在一樣看 <strong>當前的位置加上汽油量足以走到終點</strong> 決定是否回傳-1。
-    * 自己跑過一便會想得比較清楚，例如方才的target = 200 startFuel = 100, stations = [[10, 60],[100, 80]] 首先一路走到尾端 此時油量剩下0 位置在100，開始回溯 首先將[100, 80]pop 出來，代表我如果在100加油可以再從100走80，得到180，此時加油次數1；再來將[10, 60]pop 出來，代表我 <strong>當初如果</strong> 有在10加油，我可以更再延伸60KM，於是能走到240
-    * 改進概念: 走到後發現沒油，回溯不是直接走去該加油站，而是加上該加油站我當初如果走過，會再延伸多少。
-</em> 分析: Time complexity O(N log N) (log N for priority_queue structure maintenance, heap), Space complexity O(N), (the priority_queue)
-* 心得: 這題讓我學會客製化優先隊列的寫法，因為要自訂上面是最大的所以寫了compare 裡面要放operator多載才可以用，不然會有priority_queue argument的compile error (詳情可以自行google，我也是查過才發現這個新寫法)</p>
+
+<ul>
+<li>改正後 AC思路: <strong>採用 priority_queue優先隊列回溯</strong><ul>
+<li>首先一直走</li>
+<li>直到在某個加油站停下時，燃料已經呈現負債，這時候回溯之前走過的加油站，依據優先隊列先找出最多油量的加油站。</li>
+<li>途中若 <strong>當前的位置加上汽油量足以走到終點</strong> 則直接跳出回傳結果(另外，若回溯也無法補足負債的燃料，代表無論如何都找不到，因為即便加了油也無法前進，代表到不了target)，<ul>
+<li>走完所有加油站後若還沒有到終點，則繼續回溯之前走過的加油站，最後在一樣看 <strong>當前的位置加上汽油量足以走到終點</strong> 決定是否回傳-1。</li>
+</ul>
+</li>
+<li>自己跑過一便會想得比較清楚，例如方才的target = 200 startFuel = 100, stations = [[10, 60],[100, 80]] 首先一路走到尾端 此時油量剩下0 位置在100，開始回溯 首先將[100, 80]pop 出來，代表我如果在100加油可以再從100走80，得到180，此時加油次數1；再來將[10, 60]pop 出來，代表我 <strong>當初如果</strong> 有在10加油，我可以更再延伸60KM，於是能走到240</li>
+<li>改進概念: 走到後發現沒油，回溯不是直接走去該加油站，而是加上該加油站我當初如果走過，會再延伸多少。</li>
+</ul>
+</li>
+<li>分析: Time complexity O(N log N) (log N for priority_queue structure maintenance, heap), Space complexity O(N), (the priority_queue)</li>
+<li>心得: 這題讓我學會客製化優先隊列的寫法，因為要自訂上面是最大的所以寫了compare 裡面要放operator多載才可以用，不然會有priority_queue argument的compile error (詳情可以自行google，我也是查過才發現這個新寫法)</li>
+</ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1244,7 +1251,7 @@
     
       <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
