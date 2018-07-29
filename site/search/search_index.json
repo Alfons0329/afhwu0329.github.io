@@ -1733,7 +1733,7 @@
         {
             "location": "/programming_practice/leetcode_OJ_WC/WC95/", 
             "text": "leetcode_OJ WC95 \u89e3\u984c\u5fc3\u5f97\n\n\n\n\nContest time: Jul 22, 2018\n\n\n\n\n876. Middle of the Linked List\n Linked list \u4e2d\u9593\u9ede\n\n\n\n\n\u984c\u610f\uff1a\u5982\u984c\n\n\n\u601d\u8def\uff1a\u6c34\u984c\uff0c\u76f4\u63a5\u89e3\u5373\u53ef\n\n\n\u5206\u6790\uff1aTime complexity O(N), Space complexity O(1)\n\n 1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n/**\n\n\n * Definition for singly-linked list.\n\n\n * struct ListNode {\n\n\n *     int val;\n\n\n *     ListNode *next;\n\n\n *     ListNode(int x) : val(x), next(NULL) {}\n\n\n * };\n\n\n */\n\n\nclass\n \nSolution\n\n\n{\n\n\npublic\n:\n\n    \nListNode\n*\n \nmiddleNode\n(\nListNode\n*\n \nhead\n)\n\n    \n{\n\n        \nListNode\n*\n \nh2\n \n=\n \nhead\n;\n\n        \nint\n \ncnt\n \n=\n \n0\n;\n\n        \nwhile\n(\nhead\n \n!=\n \nNULL\n)\n\n        \n{\n\n            \ncnt\n++\n;\n\n            \nhead\n \n=\n \nhead\n-\nnext\n;\n\n        \n}\n\n        \ncnt\n \n/=\n \n2\n;\n\n        \nwhile\n(\ncnt\n--\n)\n\n        \n{\n\n            \nh2\n \n=\n \nh2\n-\nnext\n;\n\n        \n}\n\n        \nreturn\n \nh2\n;\n\n    \n}\n\n\n\n};", 
-            "title": "WC94"
+            "title": "WC95"
         }, 
         {
             "location": "/programming_practice/leetcode_OJ_WC/WC95/#leetcode_oj-wc95", 
