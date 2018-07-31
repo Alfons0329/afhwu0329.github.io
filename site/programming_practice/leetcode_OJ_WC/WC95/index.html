@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
     
     
       
@@ -588,6 +588,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#877-stone-gamenim-game" title="877. Stone Game簡單版Nim game + 一點數學" class="md-nav__link">
+    877. Stone Game簡單版Nim game + 一點數學
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="()[]" class="md-nav__link">
+    ()[]
+  </a>
+  
+</li>
+      
       
       
       
@@ -636,6 +650,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#877-stone-gamenim-game" title="877. Stone Game簡單版Nim game + 一點數學" class="md-nav__link">
+    877. Stone Game簡單版Nim game + 一點數學
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="()[]" class="md-nav__link">
+    ()[]
+  </a>
+  
+</li>
+      
       
       
       
@@ -657,12 +685,12 @@
                 
                 <h1 id="leetcode_oj-wc95">leetcode_OJ WC95 解題心得</h1>
 <ul>
-<li>Contest time: Jul 22, 2018</li>
+<li>Contest time: Jul 29, 2018</li>
 </ul>
 <h2 id="876-middle-of-the-linked-list-linked-list"><a href="https://leetcode.com/problems/middle-of-the-linked-list/description/">876. Middle of the Linked List</a> Linked list 中間點</h2>
 <ul>
 <li>題意：如題</li>
-<li>思路：水題，直接解即可</li>
+<li>思路：水題，計算長度找到中點，直接解即可</li>
 <li>分析：Time complexity O(N), Space complexity O(1)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
@@ -724,6 +752,38 @@
 </pre></div>
 </td></tr></table></li>
 </ul>
+<h2 id="877-stone-gamenim-game"><a href="https://leetcode.com/problems/stone-game/description/">877. Stone Game</a>簡單版Nim game + 一點數學</h2>
+<ul>
+<li>題意：有點類似簡單版的nim game，有偶數堆石頭(石頭數加總為奇數，因此沒有平手)，玩家雙方（一對一單挑）每次拿取<code class="codehilite">頭或是尾端的堆，一次拿光</code>，每個人都有最優思路，問先者是否可在當前盤面有必勝解。</li>
+<li>
+<p>思路：若我是先者，可以觀察奇數index 或是偶數index加總較大，因而有必勝法則（先者必勝），因此恆常true)</p>
+<ul>
+<li>舉例來說 [3,7,9,4] 先者可以觀察到3 + 9 &gt; 7 + 4，因此先者將3取走(後者就只能取4 or 7) 最後先者取得9獲勝。</li>
+</ul>
+</li>
+<li>
+<p>心得與注意事項：剛開始以為最優思路是<code class="codehilite">greedy algorithm</code>，但這樣只有<code class="codehilite">當前最佳解</code>，很<code class="codehilite">可能因為拿了當前的最佳解，導致後面的人拿比我這個更好的</code>，因而輸掉(例如上面的[3,9,7,4])。</p>
+</li>
+<li>Time complexity O(1), Space complexity O(1)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">class</span> <span class="n">Solution</span>
+<span class="p">{</span>
+<span class="nl">public</span><span class="p">:</span>
+    <span class="kt">bool</span> <span class="n">stoneGame</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">piles</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></li>
+</ul>
+<h2 id="_1">()[]</h2>
                 
                   
                 
@@ -790,7 +850,7 @@
     
       <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
