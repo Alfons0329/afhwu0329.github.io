@@ -603,8 +603,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#879-profitable-schemes-dp" title="879. Profitable Schemes 背包DP，還沒研究好，週五來寫" class="md-nav__link">
-    879. Profitable Schemes 背包DP，還沒研究好，週五來寫
+  <a href="#879-profitable-schemes-dp" title="879. Profitable Schemes 背包DP/動態規劃/自己不熟悉的題型" class="md-nav__link">
+    879. Profitable Schemes 背包DP/動態規劃/自己不熟悉的題型
   </a>
   
 </li>
@@ -672,8 +672,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#879-profitable-schemes-dp" title="879. Profitable Schemes 背包DP，還沒研究好，週五來寫" class="md-nav__link">
-    879. Profitable Schemes 背包DP，還沒研究好，週五來寫
+  <a href="#879-profitable-schemes-dp" title="879. Profitable Schemes 背包DP/動態規劃/自己不熟悉的題型" class="md-nav__link">
+    879. Profitable Schemes 背包DP/動態規劃/自己不熟悉的題型
   </a>
   
 </li>
@@ -989,7 +989,122 @@
 <li>分析：Time complexity: O(log (1e18)), Space complexity O(1)</li>
 <li>後續討論疑問：如果把 <code class="codehilite">up_bound = mid</code> 改為 <code class="codehilite">up_bound = mid - 1</code> 有時答案會差一，有人知道為什麼嗎，還請程式高手賜教，感謝:)</li>
 </ul>
-<h2 id="879-profitable-schemes-dp"><a href="https://leetcode.com/problems/profitable-schemes/description/">879. Profitable Schemes</a> 背包DP，還沒研究好，週五來寫</h2>
+<h2 id="879-profitable-schemes-dp"><a href="https://leetcode.com/problems/profitable-schemes/description/">879. Profitable Schemes</a> 背包DP/動態規劃/自己不熟悉的題型</h2>
+<ul>
+<li>題意：給定人數N、獲利目標P、每件任務(總共G件)所需求人數與對應利潤，問有幾種組合可以獲利達標?</li>
+<li>思路：看了一下教學才寫出，是0-1背包問題(請<a href="http://www.csie.ntnu.edu.tw/~u91029/KnapsackProblem.html#3">點此連結到演算法筆記</a>)<ul>
+<li>首先建立一張動態規劃用表格 [工作][當前利潤][人數]的三維表格，表示做完當前i個工作賺j元花費k人數的可能數。</li>
+<li>走訪表格，i j k 開始走訪進行狀態轉移，每種任務都可以做與不做<ul>
+<li>若當前可用人數減去此任務需求人數 &lt; 0 則此任務不可做，是故會跟上一個任務一樣的組合情形，亦即
+<code class="codehilite">if(k - cur_k &lt; 0){dp[i][j][k] = dp[i - 1][j][k] % MOD; //currrent mission cannot be done, use the last mission}</code></li>
+<li>若當前目標利潤減去當前任務所提供的利潤 &lt; 0，代表該任務利潤極大，則是不做加上做，而做了要查詢0利潤的先前建表，防止越界。
+<code class="codehilite">else if(j - cur_p &lt; 0){dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][0][k - cur_k]) % MOD;}</code>
+<code class="codehilite">第二步驟解釋不太到位，也是這題比較難想的地方，還望各位刷提高手賜教更好的解釋，感激</code></li>
+<li>剩下就不做這一次＋做了之後的總和，做了就去查詢先前的結果
+<code class="codehilite">else{dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][j - cur_p][k - cur_k]) % MOD;}</code></li>
+<li>最後將 dp[size of tasks(做完全部)][P(目標利潤)][people from 0 to G]加總取mod就是答案</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分析：Time complexity O(NGP), Space complexity O(NGP)</li>
+<li>心得：動態規劃一直是自己的弱項，即便寫完hard這題，也是看著影片想的，總覺得有點不踏實，之後再繼續練更多的題型補強囉:)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define LL long long</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">const</span> <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="nf">profitableSchemes</span><span class="p">(</span><span class="kt">int</span> <span class="n">G</span><span class="p">,</span> <span class="kt">int</span> <span class="n">P</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">group</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">profit</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">sz</span> <span class="o">=</span> <span class="n">group</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="n">LL</span> <span class="n">dp</span><span class="p">[</span><span class="n">sz</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">P</span> <span class="o">+</span> <span class="mi">1</span><span class="p">][</span><span class="n">G</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span> <span class="c1">//use profit for DP, 1 or padding</span>
+        <span class="n">memset</span><span class="p">(</span><span class="n">dp</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">dp</span><span class="p">));</span>
+        <span class="n">dp</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">//doing nothing is 1</span>
+        <span class="n">LL</span> <span class="n">cur_k</span><span class="p">,</span> <span class="n">cur_p</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">sz</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">cur_k</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="n">cur_p</span> <span class="o">=</span> <span class="n">profit</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+            <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">P</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">G</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">cur_k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span> <span class="c1">//currrent mission cannot be done, use the last mission</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">-</span> <span class="n">cur_p</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="n">k</span> <span class="o">-</span> <span class="n">cur_k</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span>
+                    <span class="p">{</span>
+                        <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">+</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="n">j</span> <span class="o">-</span> <span class="n">cur_p</span><span class="p">][</span><span class="n">k</span> <span class="o">-</span> <span class="n">cur_k</span><span class="p">])</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">LL</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">G</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">ans</span> <span class="o">+=</span> <span class="n">dp</span><span class="p">[</span><span class="n">sz</span><span class="p">][</span><span class="n">P</span><span class="p">][</span><span class="n">k</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">ans</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div>
+</td></tr></table></li>
+</ul>
                 
                   
                 
