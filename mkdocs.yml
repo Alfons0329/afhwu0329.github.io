@@ -37,6 +37,8 @@ pages:
             - WC93: programming_practice/leetcode_OJ_WC/WC93.md
             - WC94: programming_practice/leetcode_OJ_WC/WC94.md
             - WC95: programming_practice/leetcode_OJ_WC/WC95.md
+        - leetcode_OJ Single:
+            - Tree: programming_practice/leetcode_OJ_Single/tree.md
 
 
     #- Extracurricular activities:
