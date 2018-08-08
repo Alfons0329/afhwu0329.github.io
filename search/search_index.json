@@ -1759,6 +1759,41 @@
             "location": "/programming_practice/leetcode_OJ_WC/WC95/#879-profitable-schemes-dp", 
             "text": "\u984c\u610f\uff1a\u7d66\u5b9a\u4eba\u6578N\u3001\u7372\u5229\u76ee\u6a19P\u3001\u6bcf\u4ef6\u4efb\u52d9(\u7e3d\u5171G\u4ef6)\u6240\u9700\u6c42\u4eba\u6578\u8207\u5c0d\u61c9\u5229\u6f64\uff0c\u554f\u6709\u5e7e\u7a2e\u7d44\u5408\u53ef\u4ee5\u7372\u5229\u9054\u6a19?  \u601d\u8def\uff1a\u770b\u4e86\u4e00\u4e0b\u6559\u5b78\u624d\u5beb\u51fa\uff0c\u662f0-1\u80cc\u5305\u554f\u984c(\u8acb \u9ede\u6b64\u9023\u7d50\u5230\u6f14\u7b97\u6cd5\u7b46\u8a18 )  \u9996\u5148\u5efa\u7acb\u4e00\u5f35\u52d5\u614b\u898f\u5283\u7528\u8868\u683c [\u5de5\u4f5c][\u7576\u524d\u5229\u6f64][\u4eba\u6578]\u7684\u4e09\u7dad\u8868\u683c\uff0c\u8868\u793a\u505a\u5b8c\u7576\u524di\u500b\u5de5\u4f5c\u8cfaj\u5143\u82b1\u8cbbk\u4eba\u6578\u7684\u53ef\u80fd\u6578\u3002  \u8d70\u8a2a\u8868\u683c\uff0ci j k \u958b\u59cb\u8d70\u8a2a\u9032\u884c\u72c0\u614b\u8f49\u79fb\uff0c\u6bcf\u7a2e\u4efb\u52d9\u90fd\u53ef\u4ee5\u505a\u8207\u4e0d\u505a  \u82e5\u7576\u524d\u53ef\u7528\u4eba\u6578\u6e1b\u53bb\u6b64\u4efb\u52d9\u9700\u6c42\u4eba\u6578   0 \u5247\u6b64\u4efb\u52d9\u4e0d\u53ef\u505a\uff0c\u662f\u6545\u6703\u8ddf\u4e0a\u4e00\u500b\u4efb\u52d9\u4e00\u6a23\u7684\u7d44\u5408\u60c5\u5f62\uff0c\u4ea6\u5373 if(k - cur_k   0){dp[i][j][k] = dp[i - 1][j][k] % MOD; //currrent mission cannot be done, use the last mission}  \u82e5\u7576\u524d\u76ee\u6a19\u5229\u6f64\u6e1b\u53bb\u7576\u524d\u4efb\u52d9\u6240\u63d0\u4f9b\u7684\u5229\u6f64   0\uff0c\u4ee3\u8868\u8a72\u4efb\u52d9\u5229\u6f64\u6975\u5927\uff0c\u5247\u662f\u4e0d\u505a\u52a0\u4e0a\u505a\uff0c\u800c\u505a\u4e86\u8981\u67e5\u8a620\u5229\u6f64\u7684\u5148\u524d\u5efa\u8868\uff0c\u9632\u6b62\u8d8a\u754c\u3002 else if(j - cur_p   0){dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][0][k - cur_k]) % MOD;}  \u7b2c\u4e8c\u6b65\u9a5f\u89e3\u91cb\u4e0d\u592a\u5230\u4f4d\uff0c\u4e5f\u662f\u9019\u984c\u6bd4\u8f03\u96e3\u60f3\u7684\u5730\u65b9\uff0c\u9084\u671b\u5404\u4f4d\u5237\u63d0\u9ad8\u624b\u8cdc\u6559\u66f4\u597d\u7684\u89e3\u91cb\uff0c\u611f\u6fc0  \u5269\u4e0b\u5c31\u4e0d\u505a\u9019\u4e00\u6b21\uff0b\u505a\u4e86\u4e4b\u5f8c\u7684\u7e3d\u548c\uff0c\u505a\u4e86\u5c31\u53bb\u67e5\u8a62\u5148\u524d\u7684\u7d50\u679c else{dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][j - cur_p][k - cur_k]) % MOD;}  \u6700\u5f8c\u5c07 dp[size of tasks(\u505a\u5b8c\u5168\u90e8)][P(\u76ee\u6a19\u5229\u6f64)][people from 0 to G]\u52a0\u7e3d\u53d6mod\u5c31\u662f\u7b54\u6848      \u5206\u6790\uff1aTime complexity O(NGP), Space complexity O(NGP)  \u5fc3\u5f97\uff1a\u52d5\u614b\u898f\u5283\u4e00\u76f4\u662f\u81ea\u5df1\u7684\u5f31\u9805\uff0c\u5373\u4fbf\u5beb\u5b8chard\u9019\u984c\uff0c\u4e5f\u662f\u770b\u8457\u5f71\u7247\u60f3\u7684\uff0c\u7e3d\u89ba\u5f97\u6709\u9ede\u4e0d\u8e0f\u5be6\uff0c\u4e4b\u5f8c\u518d\u7e7c\u7e8c\u7df4\u66f4\u591a\u7684\u984c\u578b\u88dc\u5f37\u56c9:)  1\n 2\n 3\n 4\n 5\n 6\n 7\n 8\n 9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n27\n28\n29\n30\n31\n32\n33\n34\n35\n36\n37\n38\n39\n40\n41\n42\n43\n44\n45\n46\n47 #define LL long long  class   Solution  {  public : \n     const   int   MOD   =   1e9   +   7 ; \n     int   profitableSchemes ( int   G ,   int   P ,   vector int   group ,   vector int   profit ) \n     { \n         int   sz   =   group . size (); \n         LL   dp [ sz   +   1 ][ P   +   1 ][ G   +   1 ];   //use profit for DP, 1 or padding \n         memset ( dp ,   0 ,   sizeof ( dp )); \n         dp [ 0 ][ 0 ][ 0 ]   =   1 ;   //doing nothing is 1 \n         LL   cur_k ,   cur_p ; \n         for ( LL   i   =   1 ;   i   =   sz ;   i ++ ) \n         { \n             cur_k   =   group [ i   -   1 ]; \n             cur_p   =   profit [ i   -   1 ]; \n             for ( LL   j   =   0 ;   j     P   +   1 ;   j ++ ) \n             { \n                 for ( LL   k   =   0 ;   k     G   +   1 ;   k ++ ) \n                 { \n                     if ( k   -   cur_k     0 ) \n                     { \n                         dp [ i ][ j ][ k ]   =   dp [ i   -   1 ][ j ][ k ]   %   MOD ;   //currrent mission cannot be done, use the last mission \n                     } \n                     else   if ( j   -   cur_p     0 ) \n                     { \n                         dp [ i ][ j ][ k ]   =   ( dp [ i   -   1 ][ j ][ k ]   +   dp [ i   -   1 ][ 0 ][ k   -   cur_k ])   %   MOD ; \n                     } \n                     else \n                     { \n                         dp [ i ][ j ][ k ]   =   ( dp [ i   -   1 ][ j ][ k ]   +   dp [ i   -   1 ][ j   -   cur_p ][ k   -   cur_k ])   %   MOD ; \n                     } \n                 } \n             } \n         } \n         LL   ans   =   0 ; \n\n         for ( int   k   =   0 ;   k     G   +   1 ;   k ++ ) \n         { \n             ans   +=   dp [ sz ][ P ][ k ]; \n         } \n\n         return   ans   %   MOD ; \n\n     }  };", 
             "title": "879. Profitable Schemes \u80cc\u5305DP/\u52d5\u614b\u898f\u5283/\u81ea\u5df1\u4e0d\u719f\u6089\u7684\u984c\u578b"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/", 
+            "text": "Tree problems\n\n\n94 Binary Tree Inorder Traversal\n\n\n110 Balanced Binary Tree\n\n\n112 Path Sum\n\n\n236 LCA\n\n\n863 All Nodes Distance K in Binary Tree", 
+            "title": "Tree"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#tree-problems", 
+            "text": "", 
+            "title": "Tree problems"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#94-binary-tree-inorder-traversal", 
+            "text": "", 
+            "title": "94 Binary Tree Inorder Traversal"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#110-balanced-binary-tree", 
+            "text": "", 
+            "title": "110 Balanced Binary Tree"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#112-path-sum", 
+            "text": "", 
+            "title": "112 Path Sum"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#236-lca", 
+            "text": "", 
+            "title": "236 LCA"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#863-all-nodes-distance-k-in-binary-tree", 
+            "text": "", 
+            "title": "863 All Nodes Distance K in Binary Tree"
         }
     ]
 }
