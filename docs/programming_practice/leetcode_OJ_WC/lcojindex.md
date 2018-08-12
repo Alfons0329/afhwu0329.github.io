@@ -12,3 +12,5 @@
 [WC92](WC92.md) <br />
 [WC93](WC93.md) <br />
 [WC94](WC94.md) <br />
+[WC95](WC95.md) <br />
+[WC97](WC97.md) <br />
