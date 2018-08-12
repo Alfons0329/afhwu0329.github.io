@@ -1762,7 +1762,7 @@
         }, 
         {
             "location": "/programming_practice/leetcode_OJ_Single/tree/", 
-            "text": "Tree problems\n\n\n94 Binary Tree Inorder Traversal\n\n\n110 Balanced Binary Tree\n\n\n112 Path Sum\n\n\n236 LCA\n\n\n863 All Nodes Distance K in Binary Tree", 
+            "text": "Tree problems\n\n\n94 \nBinary Tree Inorder Traversal\n\n\n\n\n\u984c\u610f\uff1a\u4e8c\u5143\u6a39\u4e2d\u5e8f\u904d\u6b77\n\n\n\u601d\u8def\uff1a\u76f4\u63a5\u6309\u7167\u4e2d\u5e8f\u904d\u6b77\u7684\u601d\u7dad\u5373\u53ef\n\n\n\n\n\u89e3\u6cd5\u4e00\uff1a\u905e\u8ff4\u89e3\u6cd5\n\n\n1\n\n\n\n\n\n\n\n110 Balanced Binary Tree\n\n\n112 Path Sum\n\n\n236 LCA\n\n\n863 All Nodes Distance K in Binary Tree", 
             "title": "Tree"
         }, 
         {
@@ -1772,8 +1772,13 @@
         }, 
         {
             "location": "/programming_practice/leetcode_OJ_Single/tree/#94-binary-tree-inorder-traversal", 
-            "text": "", 
+            "text": "\u984c\u610f\uff1a\u4e8c\u5143\u6a39\u4e2d\u5e8f\u904d\u6b77  \u601d\u8def\uff1a\u76f4\u63a5\u6309\u7167\u4e2d\u5e8f\u904d\u6b77\u7684\u601d\u7dad\u5373\u53ef", 
             "title": "94 Binary Tree Inorder Traversal"
+        }, 
+        {
+            "location": "/programming_practice/leetcode_OJ_Single/tree/#_1", 
+            "text": "1", 
+            "title": "\u89e3\u6cd5\u4e00\uff1a\u905e\u8ff4\u89e3\u6cd5"
         }, 
         {
             "location": "/programming_practice/leetcode_OJ_Single/tree/#110-balanced-binary-tree", 
