@@ -790,7 +790,7 @@
 </pre></div>
 </td></tr></table>
 
-<h2 id="pb-890-find-and-replace-pattern"><a href="https://leetcode.com/contest/weekly-contest-98/problems/find-and-replace-pattern/">PB. 890. Find and Replace Pattern</a></h2>
+<h2 id="pb-890-find-and-replace-pattern-string-map"><a href="https://leetcode.com/contest/weekly-contest-98/problems/find-and-replace-pattern/">PB. 890. Find and Replace Pattern</a> string + map</h2>
 <ul>
 <li>題意:找出趨勢一樣的單字，在此趨勢一樣是指英文字出先的『頻率、方式』一致，例如 aabb = ccbb = jjkk , apple = knnrx 等</li>
 <li>WA思路:趨勢一樣代表說，我下一個是不一樣的字母，則你也是;我如果是一樣的則你也要一樣，這樣直接做即可（但是接下來會遇到一個問題，稍後下方『缺失分析』會提及）
@@ -880,7 +880,7 @@
 <li>缺失分析:WA的原因在於，這樣會把aba =  xyx = abc 但實際上這題要求連<strong>每一個字母出現頻率也要一樣</strong>，因此最後a b c各自只有一個並不屬於同一類</li>
 <li>改進思路:多一個map來統計，並且對照組的map內容要和pattern一樣，在英文字母一樣的時候不用管，不一樣時要看各自map內容物是否相等，否則返回false</li>
 </ul>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -999,7 +999,16 @@
 <span class="p">};</span>
 </pre></div>
 </td></tr></table>
-* 分析(正解整體):Time complexity: O(N * K), where N is # of words, and K is the length of word, Space complexity O(N * K), each time for each pattern and word, we use a map to assist.</p>
+
+<ul>
+<li>分析(正解整體):Time complexity: O(N * K), where N is # of words, and K is the length of word, Space complexity O(N * K), each time for each pattern and word, we use a map to assist.</li>
+</ul>
+<h2 id="pc-889-construct-binary-tree-from-preorder-and-postorder-traversal-recursively-construct-a-tree"><a href="https://leetcode.com/contest/weekly-contest-98/problems/construct-binary-tree-from-preorder-and-postorder-traversal/">PC. 889. Construct Binary Tree from Preorder and Postorder Traversal</a> Recursively construct a tree.</h2>
+<ul>
+<li>題意:由先序和後序建立一顆二元樹</li>
+<li>思路:<img alt="" src="https://imgur.com/a/s9kTWbG" /> (Picture source credit to: <a href="https://www.youtube.com/watch?v=53aOi0Drp9I">https://www.youtube.com/watch?v=53aOi0Drp9I</a>)</li>
+<li>分析:Time complexity O(N^2), Space complexity O(N)</li>
+</ul>
                 
                   
                 
