@@ -793,7 +793,8 @@
 <h2 id="pb-890-find-and-replace-pattern-string-map"><a href="https://leetcode.com/contest/weekly-contest-98/problems/find-and-replace-pattern/">PB. 890. Find and Replace Pattern</a> string + map</h2>
 <ul>
 <li>題意:找出趨勢一樣的單字，在此趨勢一樣是指英文字出先的『頻率、方式』一致，例如 aabb = ccbb = jjkk , apple = knnrx 等</li>
-<li>WA思路:趨勢一樣代表說，我下一個是不一樣的字母，則你也是;我如果是一樣的則你也要一樣，這樣直接做即可（但是接下來會遇到一個問題，稍後下方『缺失分析』會提及）
+<li>
+<p>WA思路:趨勢一樣代表說，我下一個是不一樣的字母，則你也是;我如果是一樣的則你也要一樣，這樣直接做即可（但是接下來會遇到一個問題，稍後下方『缺失分析』會提及）
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -876,8 +877,11 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table></li>
-<li>缺失分析:WA的原因在於，這樣會把aba =  xyx = abc 但實際上這題要求連<strong>每一個字母出現頻率也要一樣</strong>，因此最後a b c各自只有一個並不屬於同一類</li>
+</td></tr></table></p>
+</li>
+<li>
+<p>缺失分析:WA的原因在於，這樣會把aba =  xyx = abc 但實際上這題要求連<strong>每一個字母出現頻率也要一樣</strong>，因此最後a b c各自只有一個並不屬於同一類</p>
+</li>
 <li>改進思路:多一個map來統計，並且對照組的map內容要和pattern一樣，在英文字母一樣的時候不用管，不一樣時要看各自map內容物是否相等，否則返回false</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1006,10 +1010,195 @@
 <h2 id="pc-889-construct-binary-tree-from-preorder-and-postorder-traversal-recursively-construct-a-tree"><a href="https://leetcode.com/contest/weekly-contest-98/problems/construct-binary-tree-from-preorder-and-postorder-traversal/">PC. 889. Construct Binary Tree from Preorder and Postorder Traversal</a> Recursively construct a tree.</h2>
 <ul>
 <li>題意:由先序和後序建立一顆二元樹</li>
-<li>思路: <a href="https://imgur.com/a/s9kTWbG">https://imgur.com/a/s9kTWbG</a> (Picture source credit to: <a href="https://www.youtube.com/watch?v=53aOi0Drp9I">https://www.youtube.com/watch?v=53aOi0Drp9I</a>)</li>
-<li>分析:Time complexity O(N^2), Space complexity O(N)
-*</li>
+<li>思路: <a href="https://imgur.com/a/s9kTWbG">https://imgur.com/a/s9kTWbG</a> (Picture source credit to: <a href="https://www.youtube.com/watch?v=53aOi0Drp9I">https://www.youtube.com/watch?v=53aOi0Drp9I</a> )<ul>
+<li>
+<p>首先preorder = {root left right}, post order = {left right root}，利用上方的圖片可以看到，舉例來說 pre = [1,2,4,5,3,6,7]. post = [4,5,2,6,7,3,1]，pre = 1 245 367, post = 452 673 1，pre[1]必為左子樹根，正好對應到post[2] (但不盡然每次都是post[2])，因此可以用</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">post</span><span class="p">[</span><span class="n">left_subtree_root_pos</span><span class="p">])</span> <span class="c1">//find the equal for the right subtree</span>
+<span class="p">{</span>
+    <span class="n">left_subtree_root_pos</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span> 
+</pre></div>
+</td></tr></table>
+
+<p>來找出post中left subtree的root位置，接著便能用以下四個(左右子數各自對應之pre post traversal)
+    * post traversal of left subtree = post<a href="../雙端皆為封閉區間 []而非()">0:left_subtree_root_pos</a>
+    * post traversal of right subtree = post<a href="../雙端皆為封閉區間">left_subtree_root_pos + 1:-2</a>
+    * pre traversal of left subtree = pre<a href="../雙端皆為封閉區間">1:left_subtree_root_pos + 1</a>
+    * pre traversal of right subtree = pre<a href="../雙端皆為封閉區間">left_subtree_root_pos + 2:-1</a>
+    * 接著利用root-&gt;left = recursively_construct(left_subtree_pre_traverse, left_subtree_post_traverse) 
+    * 再利用root-&gt;right = recursively_construct(right_subtree_pre_traverse, right_subtree_post_traverse) 
+<em> 分析:Time complexity O(N^2), Space complexity O(N^2) where N is the # of nodes, since each time for every node(N), we have to go through the array of traversed node again(N), which in total is O(N^2)
+</em> 備註:可以用程式碼附的print_subtree_dbg 來看看子樹到底包了哪些東西喔，比較好瞭解，以及一些stdio</p>
+</li>
 </ul>
+</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span> <span class="nc">Solution</span> 
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">constructFromPrePost</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">pre</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">post</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">construct</span><span class="p">(</span><span class="n">pre</span><span class="p">,</span> <span class="n">post</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">construct</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">pre</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">post</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">pre</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">post</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// the base case with leaf</span>
+        <span class="p">{</span>
+            <span class="c1">//printf(&quot;base case presize %d postsize %d\n&quot;, pre.size(), post.size());</span>
+            <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newnode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>    
+            <span class="k">return</span> <span class="n">newnode</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">pre</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">post</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">//the null</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">left_subtree_pre</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">left_subtree_pos</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">right_subtree_pre</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">right_subtree_pos</span><span class="p">;</span>
+
+        <span class="kt">int</span> <span class="n">left_subtree_root_pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">while</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">post</span><span class="p">[</span><span class="n">left_subtree_root_pos</span><span class="p">])</span> <span class="c1">//find the equal for the right subtree</span>
+        <span class="p">{</span>
+            <span class="n">left_subtree_root_pos</span><span class="o">++</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="c1">// printf(&quot;\nleft pos %d with root %d\n&quot;, left_subtree_root_pos, pre[0]);</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">left_subtree_root_pos</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//construct the post traverse of left subtree</span>
+        <span class="p">{</span>
+            <span class="n">left_subtree_pos</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">post</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left_subtree_root_pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">post</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//construct the post traverse of right subtree</span>
+        <span class="p">{</span>
+            <span class="n">right_subtree_pos</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">post</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">left_subtree_root_pos</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//construct the pre traverse of left subtree</span>
+        <span class="p">{</span>
+            <span class="n">left_subtree_pre</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">left_subtree_root_pos</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">post</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="c1">//construct the pre traverse of right subtree</span>
+        <span class="p">{</span>
+            <span class="n">right_subtree_pre</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+
+<span class="c1">//         print_subtree_dbg(&quot;left pos&quot;,left_subtree_pos);</span>
+<span class="c1">//         print_subtree_dbg(&quot;right pos&quot;,right_subtree_pos);</span>
+
+<span class="c1">//         print_subtree_dbg(&quot;left pre&quot;,left_subtree_pre);</span>
+<span class="c1">//         print_subtree_dbg(&quot;right pre&quot;,right_subtree_pre);</span>
+
+        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">newnode</span> <span class="o">=</span> <span class="k">new</span> <span class="n">TreeNode</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span> <span class="c1">//or post[-1]</span>
+        <span class="n">newnode</span><span class="o">-&gt;</span><span class="n">left</span> <span class="o">=</span> <span class="n">construct</span><span class="p">(</span><span class="n">left_subtree_pre</span><span class="p">,</span> <span class="n">left_subtree_pos</span><span class="p">);</span>
+        <span class="n">newnode</span><span class="o">-&gt;</span><span class="n">right</span> <span class="o">=</span> <span class="n">construct</span><span class="p">(</span><span class="n">right_subtree_pre</span><span class="p">,</span> <span class="n">right_subtree_pos</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">newnode</span><span class="p">;</span><span class="c1">//after construct, return it</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">print_subtree_dbg</span><span class="p">(</span><span class="n">string</span> <span class="n">cond</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">vec</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">cond</span> <span class="o">&lt;&lt;</span> <span class="s">&quot; : &quot;</span> <span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">vec</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d &quot;</span><span class="p">,</span> <span class="n">vec</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+        <span class="p">}</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</td></tr></table>
                 
                   
                 
