@@ -1011,9 +1011,8 @@
 <ul>
 <li>題意:由先序和後序建立一顆二元樹</li>
 <li>思路: <a href="https://imgur.com/a/s9kTWbG">https://imgur.com/a/s9kTWbG</a> (Picture source credit to: <a href="https://www.youtube.com/watch?v=53aOi0Drp9I">https://www.youtube.com/watch?v=53aOi0Drp9I</a> )<ul>
-<li>
-<p>首先preorder = {root left right}, post order = {left right root}，利用上方的圖片可以看到，舉例來說 pre = [1,2,4,5,3,6,7]. post = [4,5,2,6,7,3,1]，pre = 1 245 367, post = 452 673 1，pre[1]必為左子樹根，正好對應到post[2] (但不盡然每次都是post[2])，因此可以用</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<li>首先preorder = {root left right}, post order = {left right root}，利用上方的圖片可以看到，舉例來說 pre = [1,2,4,5,3,6,7]. post = [4,5,2,6,7,3,1]，pre = 1 245 367, post = 452 673 1，pre[1]必為左子樹根，正好對應到post[2] (但不盡然每次都是post[2])，因此可以用code中找出ileft subtree的root位置，最後便能用以下四個(左右子數各自對應之pre post traversal)
+ <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">while</span><span class="p">(</span><span class="n">pre</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="n">post</span><span class="p">[</span><span class="n">left_subtree_root_pos</span><span class="p">])</span> <span class="c1">//find the equal for the right subtree</span>
@@ -1021,20 +1020,19 @@
     <span class="n">left_subtree_root_pos</span><span class="o">++</span><span class="p">;</span>
 <span class="p">}</span> 
 </pre></div>
-</td></tr></table>
-
-<p>來找出post中left subtree的root位置，接著便能用以下四個(左右子數各自對應之pre post traversal)
-    * post traversal of left subtree = post<a href="../雙端皆為封閉區間 []而非()">0:left_subtree_root_pos</a>
-    * post traversal of right subtree = post<a href="../雙端皆為封閉區間">left_subtree_root_pos + 1:-2</a>
-    * pre traversal of left subtree = pre<a href="../雙端皆為封閉區間">1:left_subtree_root_pos + 1</a>
-    * pre traversal of right subtree = pre<a href="../雙端皆為封閉區間">left_subtree_root_pos + 2:-1</a>
-    * 接著利用root-&gt;left = recursively_construct(left_subtree_pre_traverse, left_subtree_post_traverse) 
-    * 再利用root-&gt;right = recursively_construct(right_subtree_pre_traverse, right_subtree_post_traverse) 
-<em> 分析:Time complexity O(N^2), Space complexity O(N^2) where N is the # of nodes, since each time for every node(N), we have to go through the array of traversed node again(N), which in total is O(N^2)
-</em> 備註:可以用程式碼附的print_subtree_dbg 來看看子樹到底包了哪些東西喔，比較好瞭解，以及一些stdio</p>
-</li>
+</td></tr></table><ul>
+<li>post traversal of left subtree = post<a href="../雙端皆為封閉區間 []而非()">0:left_subtree_root_pos</a></li>
+<li>post traversal of right subtree = post<a href="../雙端皆為封閉區間">left_subtree_root_pos + 1:-2</a></li>
+<li>pre traversal of left subtree = pre<a href="../雙端皆為封閉區間">1:left_subtree_root_pos + 1</a></li>
+<li>pre traversal of right subtree = pre<a href="../雙端皆為封閉區間">left_subtree_root_pos + 2:-1</a></li>
+<li>接著利用root-&gt;left = recursively_construct(left_subtree_pre_traverse, left_subtree_post_traverse) </li>
 </ul>
 </li>
+<li>再利用root-&gt;right = recursively_construct(right_subtree_pre_traverse, right_subtree_post_traverse) </li>
+</ul>
+</li>
+<li>分析:Time complexity O(N^2), Space complexity O(N^2) where N is the # of nodes, since each time for every node(N), we have to go through the array of traversed node again(N), which in total is O(N^2)</li>
+<li>備註:可以用程式碼附的print_subtree_dbg 來看看子樹到底包了哪些東西喔，比較好瞭解，以及一些stdio</li>
 </ul>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
