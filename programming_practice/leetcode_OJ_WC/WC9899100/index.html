@@ -1021,10 +1021,10 @@
 <span class="p">}</span> 
 </pre></div>
 </td></tr></table><ul>
-<li>post traversal of left subtree = post<a href="../雙端皆為封閉區間 []而非()">0:left_subtree_root_pos</a></li>
-<li>post traversal of right subtree = post<a href="../雙端皆為封閉區間">left_subtree_root_pos + 1:-2</a></li>
-<li>pre traversal of left subtree = pre<a href="../雙端皆為封閉區間">1:left_subtree_root_pos + 1</a></li>
-<li>pre traversal of right subtree = pre<a href="../雙端皆為封閉區間">left_subtree_root_pos + 2:-1</a></li>
+<li>post traversal of left subtree = post[0:left_subtree_root_pos] (雙端皆為封閉區間 []而非())</li>
+<li>post traversal of right subtree = post[left_subtree_root_pos + 1:-2] (雙端皆為封閉區間)</li>
+<li>pre traversal of left subtree = pre[1:left_subtree_root_pos + 1] (雙端皆為封閉區間)</li>
+<li>pre traversal of right subtree = pre[left_subtree_root_pos + 2:-1] (雙端皆為封閉區間)</li>
 <li>接著利用root-&gt;left = recursively_construct(left_subtree_pre_traverse, left_subtree_post_traverse) </li>
 </ul>
 </li>
