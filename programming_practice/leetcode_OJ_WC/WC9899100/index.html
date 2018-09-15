@@ -1623,7 +1623,17 @@
 <h2 id="pc-894-all-possible-full-binary-trees"><a href="https://leetcode.com/contest/weekly-contest-99/problems/all-possible-full-binary-trees/">PC. 894. All Possible Full Binary Trees</a> 所有可能的二元樹</h2>
 <ul>
 <li>題意: 就是所有的二元樹可能，建出後把root放到vector返回</li>
-<li>思路: 遞迴求解，因為完整二元樹必定有奇數個節點，因此若進入的N不是奇數直接返回空vector，接著逐步建立，切割為i個節點的left subtree和n - i - 1(包含根部)的right subtree遞迴下去解玩再接起來</li>
+<li>思路: 遞迴求解，因為完整二元樹必定有奇數個節點，因此若進入的N不是奇數直接返回空vector，接著逐步建立，切割為i個節點的left subtree和n - i - 1(包含根部)的right subtree遞迴下去解，再接起來如下程式碼
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">left</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">left</span> <span class="o">&lt;</span> <span class="n">N</span><span class="p">;</span> <span class="n">left</span> <span class="o">+=</span> <span class="mi">2</span> <span class="cm">/*(since no even number)*/</span><span class="p">)</span> <span class="c1">//left subtree node count</span>
+        <span class="p">{</span>
+            <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">left_subtree</span> <span class="o">=</span> <span class="n">allPossibleFBT</span><span class="p">(</span><span class="n">left</span><span class="p">);</span>
+            <span class="n">vector</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*&gt;</span> <span class="n">right_subtree</span> <span class="o">=</span> <span class="n">allPossibleFBT</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="n">left</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+</pre></div>
+</td></tr></table>
+左右都會是FBT，因此 += 2的迴圈能避開偶數情形，最後奇數+奇數+1正好也是奇數，沒有問題</li>
 <li>分析: Time Conplexity O(2^N), Space complexity O(2^N) (卡塔蘭數)
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
