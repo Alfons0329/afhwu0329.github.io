@@ -1,74 +1,123 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/intro_ml/intro_ml/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/mpslab/mpslab/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/uav_autopilot/uav_autopilot/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/network_security/network_security/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/statistics/stat/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/general/social_psy/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io//univ_notes/general/jp_cul/</loc>
-     <lastmod>2018-09-16</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
     <url>
      <loc>https://alfons0329.github.io/afhwu0329.github.io/</loc>
-     <lastmod></lastmod>
+     <lastmod>2018-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     <url>
-     <loc>https://alfons0329.github.io/afhwu0329.github.io/</loc>
-     <lastmod></lastmod>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/intro_ml/intro_ml/</loc>
+     <lastmod>2018-10-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
-    
-
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/mpslab/mpslab/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/uav_autopilot/uav_autopilot/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/network_security/network_security/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/statistics/stat/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/general/social_psy/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/univ_notes/general/jp_cul/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/lcojindex/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC67/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC70/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC74/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC75/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC76/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC78/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC79/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC91/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC92/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC93/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC94/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC95/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC97/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC9899/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_Single/tree/</loc>
+     <lastmod>2018-10-16</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
 </urlset>
