@@ -41,12 +41,11 @@ pages:
         - leetcode_OJ Single:
             - Tree: programming_practice/leetcode_OJ_Single/tree.md
 
-
-    #- Extracurricular activities:
 extra:
     social:
         - type: 'github'
           link: 'https://github.com/Alfons0329'
+
 extra_css:
     - docs/theme/extra.css
     - docs/theme/extra.scss
@@ -69,4 +68,3 @@ markdown_extensions:
     - pymdownx.smartsymbols
     - pymdownx.superfences
     - pymdownx.tilde
-    # - mdx_math
