@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -280,18 +281,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
       Junior 1st sem. STM32 Microprocessor Embedded Lab
     </a>
@@ -318,18 +307,6 @@
   <li class="md-nav__item">
     <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -666,7 +643,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -763,81 +740,7 @@
 <p>如題目所述，會需要用到一些位元運算，因此稍嫌麻煩，居然寫了一個多小時才寫出來。
 中途還被變更的題說明耍了一道，而且題目說明根本說錯了gg。</p>
 <p>cti itc 可以在十六進位和char互相轉換，頗為方便。而stringstream可以把字串在視為輸入處理一次轉成十六盡位在輸入給整數。
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt;</span><span class="cp"></span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
@@ -912,8 +815,7 @@
         <span class="k">return</span> <span class="s">&quot;#&quot;</span><span class="o">+</span><span class="n">sr</span><span class="o">+</span><span class="n">sr</span><span class="o">+</span><span class="n">sg</span><span class="o">+</span><span class="n">sg</span><span class="o">+</span><span class="n">sb</span><span class="o">+</span><span class="n">sb</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <h2 id="pb801-minimum-swaps-to-make-sequences-increasing">PB.<a href="https://leetcode.com/contest/weekly-contest-76/problems/minimum-swaps-to-make-sequences-increasing/">801. Minimum Swaps To Make Sequences Increasing</a> 動態規劃</h2>
 <p>從題目的性質可以看出，每一個階段均要不斷求解這個階段是否要交換（重疊子問題），以符合嚴格遞增的序列。
 但是在每一個遞增中，如果每一個元素和它前一個元素都符合嚴格增（最優子結構），那麼整個數列也會是一個嚴格增。
@@ -922,47 +824,7 @@
 <a href="https://hk.saowen.com/a/4828e12cd690ddf64c6469a905194c7672628d731f560080578408609b5cf760">參考連結:什麼時候用動態規劃演算法</a> <br />
 <a href="https://discuss.leetcode.com/topic/121082/minimum-swaps-to-make-sequences-increasing/6">出題者解析</a>
 <strong>解析的翻譯翔見程式碼中的註解</strong> <br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">minSwap</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">B</span><span class="p">)</span>
@@ -1003,8 +865,7 @@
 
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <h2 id="pc-802-find-eventual-safe-states">PC. <a href="https://leetcode.com/problems/find-eventual-safe-states/description/">802. Find Eventual Safe States</a> 圖論經典題，查找環以及可能觸及環之所有點</h2>
 <p>利用一個資料結構來儲存所有點的類型 -1代表尚未處理 0代表不在環上，或是不可能觸及到他人的環 1代表是環的一部分
 優化只尋找還沒處理過得點，其他再把標記為0的點，放到結果裡面。<br />
@@ -1013,89 +874,7 @@
 <a href="https://github.com/Alfons0329/Programming_Competition/blob/master/LeetCode%20Weekly%20Contest/Weekly_Contest_76/PC_TLE.cpp">TLE 81/111 提早跳出，但依然TLE</a> <br />
 以下代碼優化到 101/111 但依然TLE了 先『精神』ac一下。
 代碼邏輯見註解
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82
-83</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -1178,8 +957,7 @@
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
                 
                   
                 
@@ -1258,9 +1036,9 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

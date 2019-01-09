@@ -58,7 +58,7 @@ extra_javascript:
 markdown_extensions:
     - pymdownx.arithmatex
     - admonition
-    - codehilite(guess_lang=true,linenums=true)
+    - codehilite
     - pymdownx.caret
     - pymdownx.critic
     - pymdownx.details

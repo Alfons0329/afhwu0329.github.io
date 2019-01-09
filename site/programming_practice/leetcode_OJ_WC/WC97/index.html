@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -280,18 +281,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
       Junior 1st sem. STM32 Microprocessor Embedded Lab
     </a>
@@ -318,18 +307,6 @@
   <li class="md-nav__item">
     <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -673,7 +650,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -778,65 +755,7 @@
 <li>題意：找只在自己的句子中出現過一次而對方未出現的詞彙</li>
 <li>思路：水題，map計數跑兩次即可。</li>
 <li>分析：Time complexity O(N), Space complexity O(N)
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">uncommonFromSentences</span><span class="p">(</span><span class="n">string</span> <span class="n">A</span><span class="p">,</span> <span class="n">string</span> <span class="n">B</span><span class="p">)</span>
@@ -895,8 +814,7 @@
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="889-spiral-matrix-iii"><a href="https://leetcode.com/problems/spiral-matrix-iii/description/">889. Spiral Matrix III</a> 模擬</h2>
 <ul>
@@ -904,47 +822,7 @@
 <li>思路：模擬，先從題目給的圖片可看出行走的距離是一個1 1 2 2 3 3 4 4 5 5 6 6每兩組遞增一次一，一樣用<code class="codehilite">for loop + dx dy (或說drow dcolumn)代表要走的方向</code>，每次走一點看看是否在界內即可。
 不用想太難，想說還要自己建一個grid在看是否界內，這樣太麻煩，只要想像成有 <strong>無限大的地圖持續走訪，看看是否在邊界即可</strong></li>
 <li>分析：Time complexity O(max(ROW, COL) ^ 2), Space complexity O(ROW * COL)
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">spiralMatrixIII</span><span class="p">(</span><span class="kt">int</span> <span class="n">R</span><span class="p">,</span> <span class="kt">int</span> <span class="n">C</span><span class="p">,</span> <span class="kt">int</span> <span class="n">r0</span><span class="p">,</span> <span class="kt">int</span> <span class="n">c0</span><span class="p">)</span>
@@ -985,8 +863,7 @@
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="890-possible-bipartition"><a href="https://leetcode.com/problems/possible-bipartition/description/">890. Possible Bipartition</a> 二分圖檢測</h2>
 <ul>
@@ -1000,39 +877,7 @@
 <li>分析：Time complexity O(V + E)(vector of dislikes acts as an adjacent list method for graph), Space complexity O(V + E) (adjacent list plus the visited array to mark the traversed vertices) <a href="https://www.quora.com/Why-is-the-complexity-of-DFS-O-V+E">想知道使用相鄰list 時間複雜度分析後是O(V + E)而非O(V*E)可以看這篇</a></li>
 <li>心得，本以為很難，想到是二分圖檢測居然一次過了，完全出乎意料呢:D，以前圖論問題頗卡，算是罩門，光是一個深度優先搜索寫了半天還是無窮遞迴解不下去，算是為自己的圖論算法打下信心囉 :D</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">is_bipartie</span><span class="p">;</span>
@@ -1066,7 +911,6 @@
 
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
 
 <h2 id="891-super-egg-drop-dp"><a href="https://leetcode.com/problems/super-egg-drop/description/">891. Super Egg Drop</a> DP難題，尚未完成，之後有空寫，還望包涵</h2>
                 
@@ -1147,9 +991,9 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

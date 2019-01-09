@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -275,18 +276,6 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
         
           
           
@@ -1621,18 +1610,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../general/social_psy/" title="Junior 2nd sem. Social Psychology" class="md-nav__link">
       Junior 2nd sem. Social Psychology
     </a>
@@ -1903,7 +1880,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -3358,14 +3335,7 @@ Image source from textbook <br /></li>
 </ul>
 <p>RC4 Encryption procedure <br />
 1.Shuffle the key, make it randomised.
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="n">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">255</span>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="n">from</span> <span class="mi">0</span> <span class="n">to</span> <span class="mi">255</span>
      <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">:=</span> <span class="n">i</span>
  <span class="n">endfor</span>
  <span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
@@ -3374,17 +3344,8 @@ Image source from textbook <br /></li>
      <span class="n">swap</span> <span class="n">values</span> <span class="n">of</span> <span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="n">and</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
  <span class="n">endfor</span>
 </pre></div>
-</td></tr></table>
 2.Get even more shuffle data, each time for a input byte, locate the i and j value by take the value in the key, XOR the inputByte with the key (since the reverse of XOR operation is itself, once we insert the ciphertext we'll get plaintext, and converse is true as well.)
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nl">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
+<div class="codehilite"><pre><span></span><span class="nl">i</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
 <span class="nl">j</span> <span class="p">:</span><span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="nl">GeneratingOutput</span><span class="p">:</span>
     <span class="nl">i</span> <span class="p">:</span><span class="o">=</span> <span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="n">mod</span> <span class="mi">256</span>   <span class="c1">//a</span>
@@ -3393,8 +3354,7 @@ Image source from textbook <br /></li>
     <span class="nl">k</span> <span class="p">:</span><span class="o">=</span> <span class="n">inputByte</span> <span class="o">^</span> <span class="n">S</span><span class="p">[(</span><span class="n">S</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">S</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="o">%</span> <span class="mi">256</span><span class="p">]</span> <span class="c1">//XOR operation suit for this case. Reverse operation also works</span>
     <span class="n">output</span> <span class="n">K</span>
 <span class="n">endwhile</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <h4 id="block-cipher">Block cipher</h4>
 <ul>
 <li>
@@ -4974,13 +4934,13 @@ C: both</p>
           </a>
         
         
-          <a href="../../statistics/stat/" title="Junior 2nd sem. Statistics" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../general/social_psy/" title="Junior 2nd sem. Social Psychology" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Junior 2nd sem. Statistics
+                Junior 2nd sem. Social Psychology
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -5017,9 +4977,9 @@ C: both</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
