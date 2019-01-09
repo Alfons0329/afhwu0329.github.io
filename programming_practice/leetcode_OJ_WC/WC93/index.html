@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -280,18 +281,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
       Junior 1st sem. STM32 Microprocessor Embedded Lab
     </a>
@@ -318,18 +307,6 @@
   <li class="md-nav__item">
     <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -673,7 +650,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -778,50 +755,7 @@
 <li>思路：直接解即可，用雙指標測量兩個鄰近的1的距離(不一定要相鄰，題目解說有點不清楚)，其中的to_binary是實用的數字轉二進位字串的方法。</li>
 <li>分析 Time complexity = O(N), Space complexity (with auxilary string structure to store the binary number) = O(N)</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -866,7 +800,6 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
 
 <h2 id="pb-869-reordered-power-of-2-stl">PB. <a href="https://leetcode.com/problems/reordered-power-of-2/description/">869. Reordered Power of 2</a> STL活用</h2>
 <ul>
@@ -878,58 +811,7 @@
 </ul>
 </li>
 <li>分析 Time complexity = O(logN!??)(<strong>不確定，待確認，希望有先進能賜教，總覺得不太可能到fraction，不然沒有機會ac</strong>), Space complexity (with auxilary string structure to store the number) = O(N)
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define pb push_back</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define pb push_back</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -981,8 +863,7 @@
         <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="pc870-advantage-shuffle">PC.<a href="https://leetcode.com/problems/advantage-shuffle/description/">870. Advantage Shuffle</a> 貪心算法</h2>
 <ul>
@@ -999,75 +880,7 @@
 </ul>
 </li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<div class="codehilite"><pre><span></span><span class="cm">/*</span>
 <span class="cm">wrong answer testcase102 : 1000</span>
 <span class="cm">299</span>
 <span class="cm">[[13,21],[26,115],[100,47],[225,99],[299,141],[444,198],[608,190],[636,157],[647,255],[841,123]]</span>
@@ -1137,7 +950,6 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
 
 <ul>
 <li>改正後 AC思路: <strong>採用 priority_queue優先隊列回溯</strong><ul>
@@ -1154,69 +966,7 @@
 <li>分析: Time complexity O(N log N) (log N for priority_queue structure maintenance, heap), Space complexity O(N), (the priority_queue)</li>
 <li>心得: 這題讓我學會客製化優先隊列的寫法，因為要自訂上面是最大的所以寫了compare 裡面要放operator多載才可以用，不然會有priority_queue argument的compile error (詳情可以自行google，我也是查過才發現這個新寫法)</li>
 </ul>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cm">/*</span>
+<div class="codehilite"><pre><span></span><span class="cm">/*</span>
 <span class="cm">AC version, try using the priority queue. we keep traversing through the stations without refuling, that means try our best with current fuel.</span>
 <span class="cm">Once we traverse to a gas station with the negative fuel,</span>
 <span class="cm">we refill the tank with the gas station we have visited before(pushed in to the traversed_stations priority queue)</span>
@@ -1280,7 +1030,6 @@
 
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
                 
                   
                 
@@ -1359,9 +1108,9 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

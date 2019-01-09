@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -280,18 +281,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
       Junior 1st sem. STM32 Microprocessor Embedded Lab
     </a>
@@ -318,18 +307,6 @@
   <li class="md-nav__item">
     <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -666,7 +643,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -763,50 +740,7 @@
 <h2 id="pa-762-prime-number-of-set-bits-in-binary-representation">PA. <a href="https://leetcode.com/problems/prime-number-of-set-bits-in-binary-representation/description/">762. Prime Number of Set Bits in Binary Representation</a> 位元操作水題</h2>
 <ul>
 <li>思路：位元運算抓一，看看一的個數是否為質數
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">bitcnt</span><span class="p">(</span><span class="kt">int</span> <span class="n">num</span><span class="p">)</span>
@@ -850,81 +784,12 @@
         <span class="k">return</span> <span class="n">cnt</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="pb-763-partition-labels">PB. <a href="https://leetcode.com/problems/partition-labels/description/">763. Partition Labels</a> 貪心演算法推理題</h2>
 <ul>
 <li>思路：必須讓所有char開始結束均屬於同一個區塊，故利用struct紀錄每一個char的最早開始位置，與最晚結束位置。若字元x的開始位置x_start介於當前最小開始(min_start)與結束(max_end)之間，並且字元x的結束位置大於當前的max_end 則必須再將max_end延伸，否則無法符合題目需求讓char最小開始與最大結束街位在同一個區塊。 每次都找當前最遠的並檢查是否更新（區域最優解），是屬於貪心算法的一種
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="k">struct</span> <span class="n">stend</span>
@@ -993,8 +858,7 @@
         <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="pc-764-largest-plus-sign">PC. <a href="https://leetcode.com/problems/largest-plus-sign/description/">764. Largest Plus Sign</a> 動態規劃</h2>
 <ul>
@@ -1002,88 +866,7 @@
 首先把四個方向（朝上 朝下 朝左 朝右 連續的1給記載 例如朝右行進 0110111 &rarr; 0120123
 朝左行進&rarr; 0210321 的寫法），最後全部走訪過一遍後，對於每一點取min(u,d,l,r)連續一的個數就是當前能組成＋號的order（度數）
 最後重新走訪一遍找出對於每一點最大的order。
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65
-66
-67
-68
-69
-70
-71
-72
-73
-74
-75
-76
-77
-78
-79
-80
-81
-82</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">orderOfLargestPlusSign</span><span class="p">(</span><span class="kt">int</span> <span class="n">MAXN</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">mines</span><span class="p">)</span>
@@ -1165,8 +948,7 @@
     <span class="p">}</span>
 
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
                 
                   
@@ -1246,9 +1028,9 @@
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

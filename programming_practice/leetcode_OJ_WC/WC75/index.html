@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -280,18 +281,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
       Junior 1st sem. STM32 Microprocessor Embedded Lab
     </a>
@@ -318,18 +307,6 @@
   <li class="md-nav__item">
     <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -673,7 +650,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -777,25 +754,7 @@
 <h2 id="pa-796-rotate-string">PA. <a href="https://leetcode.com/contest/weekly-contest-75/problems/rotate-string/">796. Rotate String</a> 簡單字串題</h2>
 <ul>
 <li>思路：水題不解釋
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -814,8 +773,7 @@
         <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></li>
+</pre></div></li>
 </ul>
 <h2 id="pb-797-all-path-from-src-to-dst">PB. <a href="https://leetcode.com/problems/all-paths-from-source-to-target/description/">797. ALl path from src to dst</a> 圖論題，起終點所有可能路徑 <br /></h2>
 <p><strong>從起點到終點的所有路徑，圖論演算法經典題目!!!!!!!!!!!!!!!!!!!!!</strong> <br /></p>
@@ -823,61 +781,7 @@
 <li>思路：dfs深度優先搜索 <br /></li>
 </ul>
 <p>這個是WA的代碼，總會有些case沒有找到，因為在output deg那裡的邏輯些許錯誤 <br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -932,8 +836,7 @@
     <span class="p">}</span>
 
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <p>這個是正確解法的代碼，使用的演算法便是：DFS深度優先搜索，以找出起終點的所有路徑 <br />
 <a href="https://www.geeksforgeeks.org/find-paths-given-source-destination/">Geekforgeeks reference</a></p>
 <p><a href="http://blog.sina.com.cn/s/blog_5ff8e88e01013lot.html">weibo</a>
@@ -943,65 +846,7 @@ weibo的作法採用非遞迴做法 <br />
 3.走到了終點之後，『退回上一步』，也是最重要的一個步驟，因為還有可能有其他路徑，故從終點的上一個步驟<br />
 4.下面的代碼中，原本44行的return寫上後會造成答案減少，原因在於做backtrace的時候，退回包刮終點也要標記為沒有走訪過，
 如果終點仍然標記為走訪過，那麼之後第二條路徑要走到終點的時候便會看到終點已經走訪過，便不再向前走去終點，而導致結果不齊全<br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
 <span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -1060,8 +905,7 @@ weibo的作法採用非遞迴做法 <br />
     <span class="p">}</span>
 
 <span class="p">};</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <h2 id="pc-799-champagne-tower">PC. <a href="https://leetcode.com/contest/weekly-contest-75/problems/champagne-tower/">799. Champagne Tower</a> 數學規劃與觀察題</h2>
 <ul>
 <li>思路：雖然題目有點嚇人，但只是個障眼法，剛開始想說一次在第一盃添加一次，再讓每一次的流水依序往下流竄，如果有杯子已經滿水位，就將row++
@@ -1070,36 +914,7 @@ weibo的作法採用非遞迴做法 <br />
 <p>事實上，只要先將最高的那一杯水，任意裝滿他的pour量，先不用在乎是否已經超出滿水位，只要先把多出的水依序流竄，並且左右均分即可，而會多出的水位就是
 當前水位 - 一杯水 之後再將這個堆出的水位評分給樓下兩杯即可。
 <strong>很智障的是 以為樓下兩杯是 row+1 col-1 and row+1 col+1</strong> 利馬拿了一個RE，實際上應該是col col+1啦w</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">double</span> <span class="n">champagneTower</span><span class="p">(</span><span class="kt">int</span> <span class="n">poured</span><span class="p">,</span> <span class="kt">int</span> <span class="n">query_row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">query_glass</span><span class="p">)</span>
@@ -1130,7 +945,6 @@ weibo的作法採用非遞迴做法 <br />
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-</td></tr></table>
 
 <h2 id="pd-800-smallest-rotation-with-highest-score-on">PD. <a href="https://leetcode.com/problems/smallest-rotation-with-highest-score/">800. Smallest rotation with highest score</a> 數學推理+區間查詢線性優化O(N)</h2>
 <p><strong>此題的時間複雜度一定要在O(N)，必須使用區間查詢算法，大神室友馬上想到線段樹segment tree查找</strong>
@@ -1143,60 +957,21 @@ weibo的作法採用非遞迴做法 <br />
 而另外一種當前無法得分的，便要[index+1 (開外掛移到最右邊), total_len - (value - index)(繼續移動，value - index 代表與最大移動次數的相差，也就是它必須向右移動val - index這個差值才有分，向右移動的至少次數，換過來講用 len 來扣除就是向左移動的最大次數)]
 <br /></p>
 <p>求出每一個數字應該有的區間，把他們映射到區間查詢段，使用python的pair表示開始和結束 <br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#one segment for this ones</span>
         <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">,</span><span class="n">total_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">index</span><span class="p">)])</span> <span class="c1">#segment start and end</span>
     <span class="k">else</span><span class="p">:</span> <span class="c1">#two segments for this one</span>
         <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
         <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">value</span><span class="p">])</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <p>最後找到prefix sum (加總到此時的總和)，思緒見註解 <br />
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
+<div class="codehilite"><pre><span></span><span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)):</span> <span class="c1">#+1 padding</span>
     <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#go in the interval, overlapping with all the other segment</span>
     <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#leave the interval, cancelling the infulence of segment overlapping</span>
-</pre></div>
-</td></tr></table></p>
+</pre></div></p>
 <p>整體AC代碼如下 <br /></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">bestRotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
         <span class="n">best</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="n">shift</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1227,7 +1002,6 @@ weibo的作法採用非遞迴做法 <br />
 
         <span class="k">return</span> <span class="n">shift</span>
 </pre></div>
-</td></tr></table>
                 
                   
                 
@@ -1306,9 +1080,9 @@ weibo的作法採用非遞迴做法 <br />
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       

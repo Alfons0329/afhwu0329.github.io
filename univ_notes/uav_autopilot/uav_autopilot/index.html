@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.4, mkdocs-material-2.9.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,9 +44,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.ba0fd1a6.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
-        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.6079476c.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
       
         
@@ -55,16 +55,17 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
     
       <link rel="stylesheet" href="../../../docs/theme/extra.css">
     
@@ -211,11 +212,11 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <span class="md-nav__button md-logo">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
-    </span>
+    </a>
     alfons0329's Blog
   </label>
   
@@ -275,18 +276,6 @@
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../intro_ml/intro_ml/" title="Junior 1st sem. Intro. to Machine Learning" class="md-nav__link">
-      Junior 1st sem. Intro. to Machine Learning
-    </a>
-  </li>
-
         
           
           
@@ -459,18 +448,6 @@
   <li class="md-nav__item">
     <a href="../../network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
       Junior 2nd sem. Network Security
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../statistics/stat/" title="Junior 2nd sem. Statistics" class="md-nav__link">
-      Junior 2nd sem. Statistics
     </a>
   </li>
 
@@ -751,7 +728,7 @@
     <label class="md-nav__link" for="nav-3-2">
       leetcode_OJ Single
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
       <label class="md-nav__title" for="nav-3-2">
         leetcode_OJ Single
       </label>
@@ -942,34 +919,26 @@ Required dependencies are the followings <br />
 3.CMake 2.6 or higher <br />
 4.GCC 4.4.x or later <br /></li>
 </ul>
-<p><table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>sudo apt-get install libopencv-dev python-opencv
+<p><div class="codehilite"><pre><span></span>sudo apt-get install libopencv-dev python-opencv
 </pre></div>
-</td></tr></table>
 Once installed
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>pkg-config --modversion opencv
+<div class="codehilite"><pre><span></span>pkg-config --modversion opencv
 </pre></div>
-</td></tr></table>
 If the version is shown, then we're good to rock with opencv. <br /></p>
 <ul>
 <li>Build your opencv_file.cpp with CMake or g++ standards</li>
 </ul>
 <p>1.With CMake (Don't forget to add CMakeLists.txt)</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
+<div class="codehilite"><pre><span></span><span class="err">cmake_minimum_required(VERSION</span> <span class="err">2.8)</span>
 <span class="err">project(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">)</span>
 <span class="err">find_package(</span> <span class="err">OpenCV</span> <span class="err">REQUIRED</span> <span class="err">)</span>
 <span class="err">add_executable(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">&lt;project_name&gt;.cpp</span> <span class="err">)</span>
 <span class="err">target_link_libraries(</span> <span class="err">&lt;project_name&gt;</span> <span class="err">${OpenCV_LIBS}</span> <span class="err">)</span>
 </pre></div>
-</td></tr></table>
 
 <p>2.With g++ and flags for opencv libraries
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
-</pre></div>
-</td></tr></table></p>
+<div class="codehilite"><pre><span></span>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
+</pre></div></p>
 <h3 id="todays-course-contents">Today's course contents</h3>
 <p>Basic understanding of image processing and image data format.
 <a href="../DIP_1.pdf">Course week1 pdf</a></p>
@@ -995,53 +964,13 @@ such method is quite useful in the image transformation.</p>
 3.Count and mapping to the relative proportion * max_value, then that's all <br /></li>
 </ul>
 <p>NOTE!!!! THE DEFAULT IMG MAT IS 3-CHANNEL TYPE, NOT ONE CHANNEL GREY-SCALE, SO IF WE DONT DO THE GREY SCALE CONVERSION, ONLY &#8531; OF THE IMAGE WILL BE PROCESSED, THUS THE FOLLOWING CODE IS NEEDED
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">Mat</span> <span class="n">input_img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+<div class="codehilite"><pre><span></span><span class="n">Mat</span> <span class="n">input_img</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 <span class="c1">//since the bgr channel is used for default action, then the BGR 3 channel image must be converted to GREY channel</span>
 <span class="n">cvtColor</span><span class="p">(</span><span class="n">input_img</span><span class="p">,</span> <span class="n">input_img</span><span class="p">,</span> <span class="n">CV_BGR2GRAY</span><span class="p">);</span>
 <span class="n">Mat</span> <span class="n">output_img</span> <span class="o">=</span> <span class="n">input_img</span><span class="p">.</span><span class="n">clone</span><span class="p">();</span>
 <span class="n">histogram_equal</span><span class="p">(</span><span class="n">input_img</span><span class="p">,</span> <span class="n">output_img</span><span class="p">);</span>
-</pre></div>
-</td></tr></table></p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">histogram_equal</span><span class="p">(</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span> <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">)</span>
+</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="kt">void</span> <span class="nf">histogram_equal</span><span class="p">(</span><span class="n">Mat</span><span class="o">&amp;</span> <span class="n">input</span><span class="p">,</span> <span class="n">Mat</span><span class="o">&amp;</span> <span class="n">output</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">hash_distribution</span><span class="p">;</span>
     <span class="n">vector</span><span class="o">&lt;</span><span class="kt">double</span><span class="o">&gt;</span> <span class="n">intensity_cdf</span><span class="p">;</span>
@@ -1078,7 +1007,6 @@ such method is quite useful in the image transformation.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
 
 <h2 id="lab3-brief-introduction-to-computer-vision-mar-15-2018">Lab3. Brief introduction to Computer Vision  Mar 15, 2018</h2>
 <h3 id="binary-machine-vision">Binary Machine Vision</h3>
@@ -1173,9 +1101,9 @@ such method is quite useful in the image transformation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a59e2a89.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
-      <script>app.initialize({version:"0.17.4",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       
