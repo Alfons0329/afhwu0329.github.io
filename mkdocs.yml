@@ -12,7 +12,7 @@ theme:
     feature:
         tabs: false
 #site contents, which will be connected to the docs/ directories
-pages:
+nav:
     - Home: index.md
     - Learning notes:
         - Junior 1st sem. STM32 Microprocessor Embedded Lab: univ_notes/mpslab/mpslab.md
