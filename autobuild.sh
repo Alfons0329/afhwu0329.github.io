@@ -2,5 +2,11 @@
 mkdocs build
 mkdocs gh-deploy
 git add -u && git add -A
-git commit -m "Auto update this repository"
-git push
+
+if [ $# -ge 2 ];
+    git commit -m $2
+    git push
+else
+    git commit -m "Auto update this repository"
+    git push
+fi
