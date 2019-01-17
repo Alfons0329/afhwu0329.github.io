@@ -20,6 +20,9 @@ nav:
         - Junior 2nd sem. Network Security: univ_notes/network_security/network_security.md
         - Junior 2nd sem. Social Psychology: univ_notes/general/social_psy.md
         - Junior 2nd sem. Japanese Culture: univ_notes/general/jp_cul.md
+        - Senior 1st sem. Parallel Programming: univ_notes/pp/pp.md
+        - Senior 1st sem. System Administration: univ_notes/sa/sa.md
+        - My Graduation Project in Dept of Computer Science NCTU: univ_notes/proj/proj.md
     - Programming practice:
         - leetcode_OJ Weekly Contest:
             - Index: programming_practice/leetcode_OJ_WC/lcojindex.md
