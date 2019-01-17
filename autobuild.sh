@@ -3,6 +3,7 @@ mkdocs build
 mkdocs gh-deploy
 git add -u && git add -A
 
+echo "cnt $#"
 if [ $# -ge 2 ];
 then
     git commit -m $2
