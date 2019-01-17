@@ -3,10 +3,9 @@ mkdocs build
 mkdocs gh-deploy
 git add -u && git add -A
 
-echo "cnt $#"
-if [ $# -ge 2 ];
+if [ $# -ge 1 ];
 then
-    git commit -m $2
+    git commit -m "$1"
     git push
 else
     git commit -m "Auto update this repository"

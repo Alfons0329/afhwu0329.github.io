@@ -1,4 +1,4 @@
-# Network Security (大家網安期中考加油，by 安鳳)
+# Network Security
 Spring 2018 <br />
 Lecturer: Shiuhpyng Shieh <br />
 ## Ch1. Introduction.
