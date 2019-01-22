@@ -669,6 +669,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC120/" title="WC106" class="md-nav__link">
+      WC106
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -784,7 +796,7 @@
                 
                 <h1 id="leetcode_oj-wc106">leetcode_OJ WC106 解題心得</h1>
 <ul>
-<li>這次全部解完，第四題居然只在一堂通識課完成 😀</li>
+<li>這次全部解完，第四題居然只在一堂通識課完成 😀</li>
 </ul>
 <h2 id="pa-922-sort-array-by-parity-ii">PA. <a href="https://leetcode.com/contest/weekly-contest-106/problems/sort-array-by-parity-ii/">922. Sort Array By Parity II</a> 水題</h2>
 <ul>
@@ -889,7 +901,86 @@
 <li>在查看各種方法的組合數： C(a,1) * C(b,1) * C(c,1)   or   C(a,2) * C(b,1)    or    C(a,3)</li>
 </ul>
 </li>
-<li>分析：Time complexity O(101^2), Space complexity O(1)</li>
+<li>分析：Time complexity O(101^2), Space complexity O(1)
+<div class="codehilite"><pre><span></span><span class="cp">#define LL long long</span>
+<span class="k">const</span> <span class="kt">int</span> <span class="n">MOD</span> <span class="o">=</span> <span class="mf">1e9</span> <span class="o">+</span> <span class="mi">7</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">Solution</span> 
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">threeSumMulti</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">A</span><span class="p">,</span> <span class="kt">int</span> <span class="n">target</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">unordered_map</span><span class="o">&lt;</span><span class="n">LL</span><span class="p">,</span> <span class="n">LL</span><span class="o">&gt;</span><span class="n">my</span><span class="p">;</span>
+        <span class="n">LL</span> <span class="n">n</span> <span class="o">=</span> <span class="n">A</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+        <span class="n">LL</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">my</span><span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>    
+        <span class="p">}</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">it1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">it1</span> <span class="o">&lt;</span> <span class="mi">101</span><span class="p">;</span> <span class="o">++</span><span class="n">it1</span><span class="p">)</span>
+        <span class="p">{</span>  
+            <span class="k">if</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">it1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">continue</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">for</span><span class="p">(</span><span class="n">LL</span> <span class="n">it2</span> <span class="o">=</span> <span class="n">it1</span><span class="p">;</span> <span class="n">it2</span> <span class="o">&lt;</span> <span class="mi">101</span><span class="p">;</span> <span class="o">++</span><span class="n">it2</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">LL</span> <span class="n">fir</span> <span class="o">=</span> <span class="n">it1</span><span class="p">;</span>
+                <span class="n">LL</span> <span class="n">sec</span> <span class="o">=</span> <span class="n">it2</span><span class="p">;</span>
+                <span class="n">LL</span> <span class="n">thr</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">fir</span> <span class="o">-</span> <span class="n">sec</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">thr</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">my</span><span class="p">[</span><span class="n">it2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="c1">//unable to use</span>
+                <span class="p">{</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">fir</span> <span class="o">&lt;=</span> <span class="n">sec</span> <span class="o">&amp;&amp;</span> <span class="n">sec</span> <span class="o">&lt;=</span> <span class="n">thr</span><span class="p">))</span> <span class="c1">//maLLain the order to prevent duplicated</span>
+                <span class="p">{</span>
+                    <span class="k">continue</span><span class="p">;</span>
+                <span class="p">}</span>
+
+                <span class="k">if</span><span class="p">((</span><span class="n">fir</span> <span class="o">==</span> <span class="n">sec</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">fir</span> <span class="o">==</span> <span class="n">thr</span><span class="p">))</span>
+                <span class="p">{</span>
+                    <span class="n">res</span> <span class="o">+=</span><span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">fir</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">((</span><span class="n">fir</span> <span class="o">==</span> <span class="n">sec</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">fir</span> <span class="o">!=</span> <span class="n">thr</span><span class="p">))</span>  <span class="c1">//2 and 1</span>
+                <span class="p">{</span>
+                    <span class="n">res</span> <span class="o">+=</span><span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">fir</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">thr</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">((</span><span class="n">fir</span> <span class="o">==</span> <span class="n">thr</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">fir</span> <span class="o">!=</span> <span class="n">sec</span><span class="p">))</span> <span class="c1">//2 and 1</span>
+                <span class="p">{</span>
+                    <span class="n">res</span> <span class="o">+=</span><span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">fir</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">sec</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">);</span>
+
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">((</span><span class="n">thr</span> <span class="o">==</span> <span class="n">sec</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">fir</span> <span class="o">!=</span> <span class="n">thr</span><span class="p">))</span> <span class="c1">//2 and 1</span>
+                <span class="p">{</span>
+                    <span class="n">res</span> <span class="o">+=</span><span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">sec</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">fir</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="c1">//all different</span>
+                <span class="p">{</span>
+                    <span class="n">res</span> <span class="o">+=</span><span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">fir</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">sec</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cnr</span><span class="p">(</span><span class="n">my</span><span class="p">[</span><span class="n">thr</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">MOD</span> <span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">res</span> <span class="o">%=</span> <span class="n">MOD</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)(</span><span class="n">res</span> <span class="o">%</span> <span class="n">MOD</span><span class="p">);</span> <span class="c1">//test</span>
+
+    <span class="p">}</span>
+
+    <span class="n">LL</span> <span class="n">cnr</span><span class="p">(</span> <span class="n">LL</span> <span class="n">n</span><span class="p">,</span> <span class="n">LL</span> <span class="n">k</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="n">k</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="n">k</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+
+        <span class="n">LL</span> <span class="n">result</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span> <span class="n">LL</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">k</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span> <span class="p">)</span> <span class="p">{</span>
+            <span class="n">result</span> <span class="o">*=</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">result</span> <span class="o">/=</span> <span class="n">i</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div></li>
 </ul>
 <h2 id="pd-924-minimize-malware-spread-dfs">PD. <a href="https://leetcode.com/contest/weekly-contest-106/problems/minimize-malware-spread/">924. Minimize Malware Spread</a> DFS找出最多連通的起點</h2>
 <ul>
@@ -980,13 +1071,13 @@
           </a>
         
         
-          <a href="../../leetcode_OJ_Single/tree/" title="Tree" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../WC120/" title="WC106" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Tree
+                WC106
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
