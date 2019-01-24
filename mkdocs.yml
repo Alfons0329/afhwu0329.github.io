@@ -23,6 +23,8 @@ nav:
         - Senior 1st sem. Parallel Programming: univ_notes/pp/pp.md
         - Senior 1st sem. System Administration: univ_notes/sa/sa.md
         - My Graduation Project in Dept of Computer Science NCTU: univ_notes/proj/proj.md
+        - JLPT Exam:
+            - N3 in 5 days: univ_notes/jlpt/n3/n3.md
     - Programming practice:
         - leetcode_OJ Weekly Contest:
             - Index: programming_practice/leetcode_OJ_WC/lcojindex.md
