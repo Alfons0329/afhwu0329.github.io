@@ -9,7 +9,7 @@
 * Started to learn programming in Oct. 2015 from no background knowledge.
 
 ### Related link
-[ [Curriculum Vitae](docs/CV_LaTeX/index.html) | [Resume](https://www.cakeresume.com/alfons-cs04) | [GitHub page](https://github.com/Alfons0329) | [LinkedIn page](https://www.linkedin.com/in/alfons-hwu-7baab4167/) | [Mail me](alfons.cs04@g2.nctu.edu.tw) ]
+[ [Curriculum Vitae](docs/CV_LaTeX/CV.pdf) | [Resume](https://www.cakeresume.com/alfons-cs04) | [GitHub page](https://github.com/Alfons0329) | [LinkedIn page](https://www.linkedin.com/in/alfons-hwu-7baab4167/) | [Mail me](alfons.cs04@g2.nctu.edu.tw) ]
 
 ### Language abilities
 * TOEIC 925(L480 R445) and TOEFL iBT102(26/28/23/25) both on First try <br />
