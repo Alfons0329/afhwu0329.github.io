@@ -941,17 +941,9 @@
 <span class="kt">int</span> <span class="n">r_depth</span> <span class="o">=</span> <span class="n">dfs_depth</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
 , return the max depth of them. Later, recursive the structure again until the recursion calling stack has been done.</li>
-<li>Analysis: Time complexity O(N), Space complexity O(N)
-<div class="codehilite"><pre><span></span><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * struct TreeNode {</span>
-<span class="cm"> *     int val;</span>
-<span class="cm"> *     TreeNode *left;</span>
-<span class="cm"> *     TreeNode *right;</span>
-<span class="cm"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
-<span class="cm"> * };</span>
-<span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span>
+<li>Analysis: Time complexity O(N), Space complexity O(N)</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">int</span> <span class="n">max_depth</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
@@ -971,8 +963,8 @@
         <span class="k">return</span> <span class="n">max_depth</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">};</span>
-</pre></div></li>
-</ul>
+</pre></div>
+
 <h2 id="110-balanced-binary-tree"><a href="https://leetcode.com/problems/balanced-binary-tree/">110. Balanced Binary Tree</a></h2>
 <ul>
 <li>Thought: Descend down the tree, retrieve the depth of left and right subtree, if <ul>
@@ -983,16 +975,7 @@
 <li>Visualization of Calling Stack <img alt="" src="https://i.imgur.com/pvhNSI6.jpg" /></li>
 <li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * struct TreeNode {</span>
-<span class="cm"> *     int val;</span>
-<span class="cm"> *     TreeNode *left;</span>
-<span class="cm"> *     TreeNode *right;</span>
-<span class="cm"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
-<span class="cm"> * };</span>
-<span class="cm"> */</span>
-<span class="k">class</span> <span class="nc">Solution</span>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">is_bal</span><span class="p">;</span>
@@ -1020,8 +1003,47 @@
 <span class="p">};</span>
 </pre></div>
 
-<h2 id="112-path-sum">112. Path Sum</h2>
-<h2 id="113-path-sum-ii">113. Path Sum II</h2>
+<h2 id="112-path-sum"><a href="https://leetcode.com/problems/path-sum/">112. Path Sum</a></h2>
+<ul>
+<li>Thought(WA, in the comment part of code)
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">// if reaching the leaf and at the same time sum has been decreased to 0, answer is right.</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">|</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// descend for the left subtree and right subtree</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div></li>
+<li>Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -&gt; left_null, such incomplete path will return true due to the recursive call in  <code class="codehilite">hasPathSum(root -&gt; right, sum - root -&gt; val)</code> and <code class="codehilite">if(root == NULL) { return sum == 0; }</code> owing to 1 - 1 == 0 and reach null</li>
+<li>Revision: STOP when traverse to <code class="codehilite">leaf node</code> rather than <code class="codehilite">null node</code></li>
+</ul>
+<p><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">//directly return false if it is an empty tree</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="nb">false</span><span class="p">;</span> 
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">//stop at the leaf node to check if the residue of sum equals to the value of leaf node.</span>
+        <span class="p">{</span>
+            <span class="k">return</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span> <span class="o">==</span> <span class="n">sum</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">||</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">);</span> <span class="c1">//descending to check if left or right path gives at least one path for the creterium.</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+* Analysis: Time complexity O(N), Space complexity O(N)</p>
+<h2 id="113-path-sum-ii"><a href="https://leetcode.com/problems/path-sum-ii/">113. Path Sum II</a></h2>
+<ul>
+<li></li>
+</ul>
 <h2 id="236-lca">236. LCA</h2>
 <h2 id="863-all-nodes-distance-k-in-binary-tree">863. All Nodes Distance K in Binary Tree</h2>
                 
