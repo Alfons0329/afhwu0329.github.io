@@ -59,16 +59,8 @@ int r_depth = dfs_depth(root->right, cur_depth + 1);
 ```
 , return the max depth of them. Later, recursive the structure again until the recursion calling stack has been done.
 * Analysis: Time complexity O(N), Space complexity O(N)
+
 ```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution
 {
 public:
@@ -102,15 +94,6 @@ public:
 * Analysis: Time complexity O(N), Space complexity O(N)
 
 ```cpp
-/**
- * Definition for a binary tree node.
- * struct TreeNode {
- *     int val;
- *     TreeNode *left;
- *     TreeNode *right;
- *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
- * };
- */
 class Solution
 {
 public:
@@ -138,7 +121,48 @@ public:
     }
 };
 ```
-## 112. Path Sum
-## 113. Path Sum II
+
+## [112. Path Sum](https://leetcode.com/problems/path-sum/)
+
+* Thought(WA, in the comment part of code)
+```cpp
+class Solution 
+{
+public:
+    bool hasPathSum(TreeNode* root, int sum) 
+    {
+        if(root == NULL) // if reaching the leaf and at the same time sum has been decreased to 0, answer is right.
+        {
+            return sum == 0; 
+        }
+        return hasPathSum(root -> left, sum - root->val) | hasPathSum(root -> right, sum - root -> val); // descend for the left subtree and right subtree
+    }
+};
+```
+* Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -> left_null, such incomplete path will return true due to the recursive call in  `hasPathSum(root -> right, sum - root -> val)` and `if(root == NULL) { return sum == 0; }` owing to 1 - 1 == 0 and reach null
+* Revision: STOP when traverse to `leaf node` rather than `null node`
+
+```cpp
+class Solution 
+{
+public:
+    bool hasPathSum(TreeNode* root, int sum) 
+    {
+        if(root == NULL) //directly return false if it is an empty tree
+        {
+            return false; 
+        }
+        if(root != NULL && root ->left == NULL && root -> right == NULL) //stop at the leaf node to check if the residue of sum equals to the value of leaf node.
+        {
+            return root -> val == sum;
+        }
+        return hasPathSum(root -> left, sum - root->val) || hasPathSum(root -> right, sum - root -> val); //descending to check if left or right path gives at least one path for the creterium.
+    }
+};
+```
+* Analysis: Time complexity O(N), Space complexity O(N)
+
+## [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/)
+* 
 ## 236. LCA
 ## 863. All Nodes Distance K in Binary Tree
