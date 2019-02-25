@@ -12,8 +12,8 @@
 [ [Curriculum Vitae](https://alfons0329.github.io/afhwu0329.github.io/CV_LaTeX/CV.pdf) | [Resume](https://www.cakeresume.com/alfons-cs04) | [GitHub page](https://github.com/Alfons0329) | [LinkedIn page](https://www.linkedin.com/in/alfons-hwu-7baab4167/) | [Mail me](alfons.cs04@g2.nctu.edu.tw) ]
 
 ### Language abilities
-* TOEIC 925(L480 R445) and TOEFL iBT102(26/28/23/25) both on First try <br />
-* Tried on Japanese JLPT N3(Intermediate level) on Dec. 2018, waiting for the score on Jan 23, 2019, announcement
+* TOEIC 925(L480 R445) and TOEFL iBT102(26/28/23/25) both on first attempt. <br />
+* Japanese JLPT N3(Intermediate level) on Dec. 2018, scored 116/180 with only 5 days of preparation in first attempt.
 
 ### Leisure activities
 * Photography, with Fujifilm X-T20, XF1855 and XC50230 OIS II
