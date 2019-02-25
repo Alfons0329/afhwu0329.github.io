@@ -1,6 +1,6 @@
 # Tree problems part 1
 
-## [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
+## [94. Binary Tree Inorder Traversal Using Stack](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
 
 * Thought: By using the non-trivial solution(non-recursive)
 , we may descend to the left subtree and collecting them, once we reach the null node(i.e. end of the tree, we break immediately(dont push)), pop out the node on the top of the stack and push the value to the result array, then go the the right subtree.
