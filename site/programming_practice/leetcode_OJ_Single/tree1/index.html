@@ -13,7 +13,7 @@
         <meta name="description" content="CS coding practice, university notes, life ,gaming ,travel and photography">
       
       
-        <link rel="canonical" href="https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_Single/tree/">
+        <link rel="canonical" href="https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_Single/tree1/">
       
       
       
@@ -40,7 +40,7 @@
     
     
       
-        <title>Tree - alfons0329's Blog</title>
+        <title>Part 1(94, 104, 110, 112, 113) - alfons0329's Blog</title>
       
     
     
@@ -107,7 +107,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#tree-problems" tabindex="1" class="md-skip">
+      <a href="#tree-problems-part-1" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -133,7 +133,7 @@
                 alfons0329's Blog
               </span>
               <span class="md-header-nav__topic">
-                Tree
+                Part 1(94, 104, 110, 112, 113)
               </span>
             
           
@@ -701,6 +701,27 @@
   
 
 
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-1" type="checkbox" id="nav-4-2-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-2-1">
+      Tree
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="4">
+      <label class="md-nav__title" for="nav-4-2-1">
+        Tree
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
   <li class="md-nav__item md-nav__item--active">
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
@@ -709,11 +730,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Tree
+        Part 1(94, 104, 110, 112, 113)
       </label>
     
-    <a href="./" title="Tree" class="md-nav__link md-nav__link--active">
-      Tree
+    <a href="./" title="Part 1(94, 104, 110, 112, 113)" class="md-nav__link md-nav__link--active">
+      Part 1(94, 104, 110, 112, 113)
     </a>
     
       
@@ -761,20 +782,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#236-lca" title="236. LCA" class="md-nav__link">
-    236. LCA
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#863-all-nodes-distance-k-in-binary-tree" title="863. All Nodes Distance K in Binary Tree" class="md-nav__link">
-    863. All Nodes Distance K in Binary Tree
-  </a>
-  
-</li>
-      
       
       
       
@@ -783,6 +790,11 @@
   
 </nav>
     
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -851,20 +863,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#236-lca" title="236. LCA" class="md-nav__link">
-    236. LCA
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#863-all-nodes-distance-k-in-binary-tree" title="863. All Nodes Distance K in Binary Tree" class="md-nav__link">
-    863. All Nodes Distance K in Binary Tree
-  </a>
-  
-</li>
-      
       
       
       
@@ -881,10 +879,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/Alfons0329/afhwu0329.github.io/edit/master/docs/programming_practice/leetcode_OJ_Single/tree.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/Alfons0329/afhwu0329.github.io/edit/master/docs/programming_practice/leetcode_OJ_Single/tree1.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="tree-problems">Tree problems</h1>
+                <h1 id="tree-problems-part-1">Tree problems part 1</h1>
 <h2 id="94-binary-tree-inorder-traversal"><a href="https://leetcode.com/problems/binary-tree-inorder-traversal/description/">94. Binary Tree Inorder Traversal</a></h2>
 <ul>
 <li>Thought: By using the non-trivial solution(non-recursive)
@@ -1015,14 +1013,15 @@
         <span class="p">{</span>
             <span class="k">return</span> <span class="n">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">;</span> 
         <span class="p">}</span>
-        <span class="k">return</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">|</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// descend for the left subtree and right subtree</span>
+        <span class="k">return</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span> <span class="o">|</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// descend for the left subtree and right subtree  </span>
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div></li>
 <li>Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -&gt; left_null, such incomplete path will return true due to the recursive call in  <code class="codehilite">hasPathSum(root -&gt; right, sum - root -&gt; val)</code> and <code class="codehilite">if(root == NULL) { return sum == 0; }</code> owing to 1 - 1 == 0 and reach null</li>
 <li>Revision: STOP when traverse to <code class="codehilite">leaf node</code> rather than <code class="codehilite">null node</code></li>
+<li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
-<p><div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
 <span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
     <span class="kt">bool</span> <span class="n">hasPathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">)</span> 
@@ -1039,13 +1038,47 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
-* Analysis: Time complexity O(N), Space complexity O(N)</p>
+
 <h2 id="113-path-sum-ii"><a href="https://leetcode.com/problems/path-sum-ii/">113. Path Sum II</a></h2>
 <ul>
-<li></li>
+<li>Thought: Similar to <code class="codehilite">112. Path Sum</code>, but now add a vector to trace the path that has been traversed through. More detailed explanations are in the comment part of code</li>
+<li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
-<h2 id="236-lca">236. LCA</h2>
-<h2 id="863-all-nodes-distance-k-in-binary-tree">863. All Nodes Distance K in Binary Tree</h2>
+<p><img alt="" src="https://imgur.com/J70aT7s.png" /></p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">res</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">pathSum</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">)</span> 
+    <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">tmp</span><span class="p">;</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">sum</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">tmp</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span> 
+        <span class="p">}</span>
+
+        <span class="n">tmp</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">);</span> <span class="c1">// push the non leaf node into the stack(now with vector)</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span><span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">//if it is leaf node</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span> <span class="o">==</span> <span class="n">sum</span><span class="p">)</span> <span class="c1">// check if satisfies the criterium</span>
+            <span class="p">{</span>
+                <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">tmp</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="n">tmp</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">// pop the leaf node from the stack since such node is the end of one root-to-leaf path    </span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span> <span class="c1">//descend for the left subtree</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">,</span> <span class="n">tmp</span><span class="p">);</span> <span class="c1">// descend for the right subtree</span>
+        <span class="n">tmp</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span> <span class="c1">// pop the node out from stack if such node has been done(i.e. finished visiting left subtree and right subtree)</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
                 
                   
                 

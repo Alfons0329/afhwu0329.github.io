@@ -1,4 +1,4 @@
-# Tree problems
+# Tree problems part 1
 
 ## [94. Binary Tree Inorder Traversal](https://leetcode.com/problems/binary-tree-inorder-traversal/description/)
 
@@ -135,12 +135,13 @@ public:
         {
             return sum == 0; 
         }
-        return hasPathSum(root -> left, sum - root->val) | hasPathSum(root -> right, sum - root -> val); // descend for the left subtree and right subtree
+        return hasPathSum(root -> left, sum - root->val) | hasPathSum(root -> right, sum - root -> val); // descend for the left subtree and right subtree  
     }
 };
 ```
 * Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -> left_null, such incomplete path will return true due to the recursive call in  `hasPathSum(root -> right, sum - root -> val)` and `if(root == NULL) { return sum == 0; }` owing to 1 - 1 == 0 and reach null
 * Revision: STOP when traverse to `leaf node` rather than `null node`
+* Analysis: Time complexity O(N), Space complexity O(N)
 
 ```cpp
 class Solution 
@@ -160,9 +161,47 @@ public:
     }
 };
 ```
-* Analysis: Time complexity O(N), Space complexity O(N)
 
 ## [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/)
-* 
-## 236. LCA
-## 863. All Nodes Distance K in Binary Tree
+
+* Thought: Similar to `112. Path Sum`, but now add a vector to trace the path that has been traversed through. More detailed explanations are in the comment part of code
+* Analysis: Time complexity O(N), Space complexity O(N)
+
+![](https://imgur.com/J70aT7s.png)
+
+```cpp
+class Solution 
+{
+public:
+    vector<vector<int>> res;
+    vector<vector<int>> pathSum(TreeNode* root, int sum) 
+    {
+        vector<int> tmp;
+        dfs(root, sum, tmp);
+        return res;
+    }
+    void dfs(TreeNode* root, int sum, vector<int>& tmp)
+    {
+        if(root == NULL)
+        {
+            return; 
+        }
+            
+        tmp.push_back(root -> val); // push the non leaf node into the stack(now with vector)
+        
+        if(root != NULL && root ->left == NULL && root -> right == NULL) //if it is leaf node
+        {
+            if(root -> val == sum) // check if satisfies the criterium
+            {
+                res.push_back(tmp);
+            }
+            tmp.pop_back(); // pop the leaf node from the stack since such node is the end of one root-to-leaf path    
+            return;
+        }
+        dfs(root -> left, sum - root->val, tmp); //descend for the left subtree
+        dfs(root -> right, sum - root -> val, tmp); // descend for the right subtree
+        tmp.pop_back(); // pop the node out from stack if such node has been done(i.e. finished visiting left subtree and right subtree)
+    }
+};
+```
+

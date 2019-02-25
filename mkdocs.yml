@@ -46,7 +46,8 @@ nav:
             - WC106: programming_practice/leetcode_OJ_WC/WC106.md
             - WC120: programming_practice/leetcode_OJ_WC/WC120.md
         - leetcode_OJ Single:
-            - Tree: programming_practice/leetcode_OJ_Single/tree.md
+            - Tree:
+                - Part 1(94, 104, 110, 112, 113): programming_practice/leetcode_OJ_Single/tree1.md
 
 extra:
     social:
