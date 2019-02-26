@@ -40,7 +40,7 @@
     
     
       
-        <title>Tree problems part 2 - alfons0329's Blog</title>
+        <title>Part 2(256, 863) - alfons0329's Blog</title>
       
     
     
@@ -133,7 +133,7 @@
                 alfons0329's Blog
               </span>
               <span class="md-header-nav__topic">
-                Tree problems part 2
+                Part 2(256, 863)
               </span>
             
           
@@ -376,27 +376,15 @@
           
 
 
-  <li class="md-nav__item">
-    <a href="../../../univ_notes/proj/proj.md" title="My Graduation Project in Dept of Computer Science NCTU" class="md-nav__link">
-      My Graduation Project in Dept of Computer Science NCTU
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-9" type="checkbox" id="nav-3-9">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
     
-    <label class="md-nav__link" for="nav-3-9">
+    <label class="md-nav__link" for="nav-3-8">
       JLPT Exam
     </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="10">
-      <label class="md-nav__title" for="nav-3-9">
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="9">
+      <label class="md-nav__title" for="nav-3-8">
         JLPT Exam
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -408,8 +396,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../univ_notes/jlpt/n3/n3/" title="N3 in 5 days" class="md-nav__link">
-      N3 in 5 days
+    <a href="../../../univ_notes/jlpt/n3/n3/" title="Pass N3 in 5 days" class="md-nav__link">
+      Pass N3 in 5 days
     </a>
   </li>
 
@@ -428,10 +416,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Programming practice
@@ -675,10 +665,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2" checked>
     
     <label class="md-nav__link" for="nav-4-2">
       leetcode_OJ Single
@@ -694,10 +686,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-1" type="checkbox" id="nav-4-2-1">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-1" type="checkbox" id="nav-4-2-1" checked>
     
     <label class="md-nav__link" for="nav-4-2-1">
       Tree
@@ -718,6 +712,63 @@
     <a href="../tree1/" title="Part 1(94, 104, 110, 112, 113)" class="md-nav__link">
       Part 1(94, 104, 110, 112, 113)
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Part 2(256, 863)
+      </label>
+    
+    <a href="./" title="Part 2(256, 863)" class="md-nav__link md-nav__link--active">
+      Part 2(256, 863)
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#236-lca" title="236. LCA" class="md-nav__link">
+    236. LCA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#863-all-nodes-distance-k-in-binary-tree" title="863. All Nodes Distance K in Binary Tree" class="md-nav__link">
+    863. All Nodes Distance K in Binary Tree
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -790,7 +841,89 @@
                 
                 
                 <h1 id="tree-problems-part-2">Tree problems part 2</h1>
-<h2 id="236-lca">236. LCA</h2>
+<h2 id="236-lca"><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. LCA</a></h2>
+<ul>
+<li>Thought: </li>
+<li>(1) Store the information of the <code class="codehilite">parent node</code> of each node. </li>
+<li>(2) Ascend the node if the node is deeper in order to get closer to the common parent, finally the lowest common ancestor will match . It is quite intuitive. You may imagine by drawing a picture.</li>
+<li>
+<p>The rest of the explanations are written in the comment part of the code</p>
+</li>
+<li>
+<p>Analysis: Time complexity O(N), Space complexity O(N)</p>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="k">struct</span> <span class="n">node_info</span>
+    <span class="p">{</span>
+        <span class="n">TreeNode</span><span class="o">*</span> <span class="n">parent</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">depth</span><span class="p">;</span>
+    <span class="p">};</span>
+    <span class="n">map</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">*</span><span class="p">,</span> <span class="n">node_info</span><span class="o">&gt;</span> <span class="n">node_info_map</span><span class="p">;</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="n">res</span><span class="p">;</span>
+    <span class="n">TreeNode</span><span class="o">*</span> <span class="nf">lowestCommonAncestor</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_q</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">dfs_information</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+        <span class="n">node_info_map</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span> <span class="c1">// for the root itself, preventing runtime error</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span> <span class="c1">// initialize</span>
+        <span class="n">climbup_LCA</span><span class="p">(</span><span class="n">node_p</span><span class="p">,</span> <span class="n">node_q</span><span class="p">);</span> <span class="c1">// solve</span>
+        <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// step1, traverse the tree first to find the child-parent pair</span>
+    <span class="kt">void</span> <span class="nf">dfs_information</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span> <span class="n">depth</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="n">node_info_map</span><span class="p">[</span><span class="n">root</span><span class="p">].</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span> <span class="c1">// Store the child-parent information for left child node if it is a non-null one</span>
+        <span class="p">{</span>
+            <span class="n">node_info_map</span><span class="p">[</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="n">dfs_information</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">)</span> <span class="c1">// Store the child-parent information for right child node if it is a non-null one</span>
+        <span class="p">{</span>
+            <span class="n">node_info_map</span><span class="p">[</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">].</span><span class="n">parent</span> <span class="o">=</span> <span class="n">root</span><span class="p">;</span>
+            <span class="n">dfs_information</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// step2, climb up to find the LCA, using depth comparison algorithm</span>
+    <span class="kt">void</span> <span class="nf">climbup_LCA</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_p</span><span class="p">,</span> <span class="n">TreeNode</span><span class="o">*</span> <span class="n">node_q</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span> <span class="o">==</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_q</span><span class="p">].</span><span class="n">parent</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span> <span class="o">==</span> <span class="n">node_q</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">node_q</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_q</span><span class="p">].</span><span class="n">parent</span> <span class="o">==</span> <span class="n">node_p</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">node_p</span><span class="p">;</span>
+            <span class="k">return</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// the deeper node has to climb up one depth</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">depth</span> <span class="o">&gt;</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_q</span><span class="p">].</span><span class="n">depth</span><span class="p">)</span> 
+        <span class="p">{</span>
+            <span class="n">climbup_LCA</span><span class="p">(</span><span class="n">node_info_map</span><span class="p">[</span><span class="n">node_p</span><span class="p">].</span><span class="n">parent</span><span class="p">,</span> <span class="n">node_q</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">climbup_LCA</span><span class="p">(</span><span class="n">node_p</span><span class="p">,</span> <span class="n">node_info_map</span><span class="p">[</span><span class="n">node_q</span><span class="p">].</span><span class="n">parent</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
 <h2 id="863-all-nodes-distance-k-in-binary-tree">863. All Nodes Distance K in Binary Tree</h2>
                 
                   
@@ -808,6 +941,27 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../tree1/" title="Part 1(94, 104, 110, 112, 113)" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Part 1(94, 104, 110, 112, 113)
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
