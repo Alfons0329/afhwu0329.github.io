@@ -1,7 +1,6 @@
 # Microprocessor Lab
 Fall 2017<br />
-Lecturer: [S.L. Tsao](https://www.cs.nctu.edu.tw/cswebsite/members/detail/sltsao) in CS@NCTU <br />
-Time: 5EF @EDB27_NCTU 3IJK @EC222_NCTU<br />
+Lecturer: [S.L. Tsao](https://www.cs.nctu.edu.tw/cswebsite/members/detail/sltsao) @CS, NCTU Taiwan<br />
 
 ## Microprocessor Lab Final Project
 

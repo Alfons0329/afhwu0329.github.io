@@ -1,6 +1,6 @@
 # Network Security
 Spring 2018 <br />
-Lecturer: Shiuhpyng Shieh <br />
+Lecturer: Shiuhpyng Shieh @CS, NCTU Taiwan<br />
 ## Ch1. Introduction.
 
 ## Ch2. Symmetric Encryption and Message Confidentiality

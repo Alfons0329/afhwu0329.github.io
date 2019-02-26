@@ -1,7 +1,6 @@
 # UAV Drone autopilot, computer vision and image processing.
 Spring 2018<br />
-Lecturer: [K.W. Chen](https://www.cs.nctu.edu.tw/cswebsite/members/detail/kuanwen) in CS@NCTU <br />
-Time: 4IJK @EC330_NCTU<br />
+Lecturer: [K.W. Chen](https://www.cs.nctu.edu.tw/cswebsite/members/detail/kuanwen) @CS, NCTU Taiwan<br />
 
 ## Lab1. Introduction to Open CV and installation Mar 01, 2018
 [Lab1 pdf](Lab1.pdf)
