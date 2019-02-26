@@ -48,6 +48,7 @@ nav:
         - leetcode_OJ Single:
             - Tree:
                 - Part 1(94, 104, 110, 112, 113): programming_practice/leetcode_OJ_Single/tree1.md
+                - Part 2(256, 863): programming_practice/leetcode_OJ_Single/tree2.md
 
 extra:
     social:

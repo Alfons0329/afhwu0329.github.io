@@ -88,8 +88,8 @@ public:
 
 
 * Thought: Descend down the tree, retrieve the depth of left and right subtree, if 
-	* (1)reach the null node, just return depth - 1 to represend the depth of its parent.
-	* (2)normal, return after the l_depth and r_depth have been retrieved, return the max depth comparing l_depth and r_depth representing the depth of such subtree(root will retrieve the depth of left subtree and right subtree and return the max value b/w two.)
+	* (1) Reach the null node, just return depth - 1 to represend the depth of its parent.
+	* (2) Normal, return after the l_depth and r_depth have been retrieved, return the max depth comparing l_depth and r_depth representing the depth of such subtree(root will retrieve the depth of left subtree and right subtree and return the max value b/w two.)
 * Visualization of Calling Stack ![](https://i.imgur.com/pvhNSI6.jpg)
 * Analysis: Time complexity O(N), Space complexity O(N)
 
