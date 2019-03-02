@@ -51,17 +51,17 @@ nav:
             - Interview Preparation Kit:
                 - Array: programming_practice/Hackerrank/ipk_arr.md 
                 - Dictionaries and Hashmaps: programming_practice/Hackerrank/ipk_dic_hash.md 
-                - Soring: 
+                #- Soring: 
                 - String Manipulation: ipk_str.md
-                - Greedy Algorithms: 
-                - Search:
-                - Dynamic Programming: 
-                - Stack and Queues:
-                - Graphs:
-                - Trees:
-                - Linked Llists:
-                - Recursion and Backtracking:
-                - Miscellaneous: 
+                #- Greedy Algorithms: 
+                #- Search:
+                #- Dynamic Programming: 
+                #- Stack and Queues:
+                #- Graphs:
+                #- Trees:
+                #- Linked Llists:
+                #- Recursion and Backtracking:
+                #- Miscellaneous: 
 
 
 extra:

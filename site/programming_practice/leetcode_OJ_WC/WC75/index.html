@@ -1,0 +1,1286 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="CS coding practice, university notes, life ,gaming ,travel and photography">
+      
+      
+        <link rel="canonical" href="https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_WC/WC75/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
+    
+    
+      
+        <title>WC75 - alfons0329's Blog</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#2196f3">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+      <link rel="stylesheet" href="../../../docs/theme/extra.css">
+    
+      <link rel="stylesheet" href="../../../docs/theme/extra.scss">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="__github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#leetcode_oj-wc75" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                alfons0329's Blog
+              </span>
+              <span class="md-header-nav__topic">
+                WC75
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/Alfons0329/afhwu0329.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://alfons0329.github.io/afhwu0329.github.io/" title="alfons0329's Blog" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    alfons0329's Blog
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/Alfons0329/afhwu0329.github.io/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#__github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      GitHub
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../CV_LaTeX/CV.pdf" title="CV" class="md-nav__link">
+      CV
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Learning notes
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Learning notes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/mpslab/mpslab/" title="Junior 1st sem. STM32 Microprocessor Embedded Lab" class="md-nav__link">
+      Junior 1st sem. STM32 Microprocessor Embedded Lab
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/uav_autopilot/uav_autopilot/" title="Junior 2nd sem. UAV Autopilot and Image Processing" class="md-nav__link">
+      Junior 2nd sem. UAV Autopilot and Image Processing
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/network_security/network_security/" title="Junior 2nd sem. Network Security" class="md-nav__link">
+      Junior 2nd sem. Network Security
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/general/social_psy/" title="Junior 2nd sem. Social Psychology" class="md-nav__link">
+      Junior 2nd sem. Social Psychology
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/general/jp_cul/" title="Junior 2nd sem. Japanese Culture" class="md-nav__link">
+      Junior 2nd sem. Japanese Culture
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/pp/pp/" title="Senior 1st sem. Parallel Programming" class="md-nav__link">
+      Senior 1st sem. Parallel Programming
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/sa/sa/" title="Senior 1st sem. System Administration" class="md-nav__link">
+      Senior 1st sem. System Administration
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      JLPT Exam
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        JLPT Exam
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../univ_notes/jlpt/n3/n3/" title="Pass N3 in 5 days" class="md-nav__link">
+      Pass N3 in 5 days
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Programming practice
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Programming practice
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-1" type="checkbox" id="nav-4-1" checked>
+    
+    <label class="md-nav__link" for="nav-4-1">
+      leetcode_OJ Weekly Contest
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-1">
+        leetcode_OJ Weekly Contest
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC67/" title="WC67" class="md-nav__link">
+      WC67
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC70/" title="WC70" class="md-nav__link">
+      WC70
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC74/" title="WC74" class="md-nav__link">
+      WC74
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        WC75
+      </label>
+    
+    <a href="./" title="WC75" class="md-nav__link md-nav__link--active">
+      WC75
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pa-796-rotate-string" title="PA. 796. Rotate String 簡單字串題" class="md-nav__link">
+    PA. 796. Rotate String 簡單字串題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pb-797-all-path-from-src-to-dst" title="PB. 797. ALl path from src to dst 圖論題，起終點所有可能路徑 " class="md-nav__link">
+    PB. 797. ALl path from src to dst 圖論題，起終點所有可能路徑 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pc-799-champagne-tower" title="PC. 799. Champagne Tower 數學規劃與觀察題" class="md-nav__link">
+    PC. 799. Champagne Tower 數學規劃與觀察題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd-800-smallest-rotation-with-highest-score-on" title="PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)" class="md-nav__link">
+    PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC76/" title="WC76" class="md-nav__link">
+      WC76
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC78/" title="WC78" class="md-nav__link">
+      WC78
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC79/" title="WC79" class="md-nav__link">
+      WC79
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC91/" title="WC91" class="md-nav__link">
+      WC91
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC92/" title="WC92" class="md-nav__link">
+      WC92
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC93/" title="WC93" class="md-nav__link">
+      WC93
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC94/" title="WC94" class="md-nav__link">
+      WC94
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC95/" title="WC95" class="md-nav__link">
+      WC95
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC97/" title="WC97" class="md-nav__link">
+      WC97
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC9899/" title="WC98+99" class="md-nav__link">
+      WC98+99
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC106/" title="WC106" class="md-nav__link">
+      WC106
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../WC120/" title="WC120" class="md-nav__link">
+      WC120
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2" type="checkbox" id="nav-4-2">
+    
+    <label class="md-nav__link" for="nav-4-2">
+      leetcode_OJ Single
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-2">
+        leetcode_OJ Single
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-2-1" type="checkbox" id="nav-4-2-1">
+    
+    <label class="md-nav__link" for="nav-4-2-1">
+      Tree
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-2-1">
+        Tree
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../leetcode_OJ_Single/tree1/" title="Part 1(94, 104, 110, 112, 113)" class="md-nav__link">
+      Part 1(94, 104, 110, 112, 113)
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../leetcode_OJ_Single/tree2/" title="Part 2(256, 863)" class="md-nav__link">
+      Part 2(256, 863)
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3" type="checkbox" id="nav-4-3">
+    
+    <label class="md-nav__link" for="nav-4-3">
+      Hackerrank
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-4-3">
+        Hackerrank
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4-3-1" type="checkbox" id="nav-4-3-1">
+    
+    <label class="md-nav__link" for="nav-4-3-1">
+      Interview Preparation Kit
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-4-3-1">
+        Interview Preparation Kit
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Hackerrank/ipk_arr/" title="Array" class="md-nav__link">
+      Array
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Hackerrank/ipk_dic_hash/" title="Dictionaries and Hashmaps" class="md-nav__link">
+      Dictionaries and Hashmaps
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ipk_str.md" title="String Manipulation" class="md-nav__link">
+      String Manipulation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pa-796-rotate-string" title="PA. 796. Rotate String 簡單字串題" class="md-nav__link">
+    PA. 796. Rotate String 簡單字串題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pb-797-all-path-from-src-to-dst" title="PB. 797. ALl path from src to dst 圖論題，起終點所有可能路徑 " class="md-nav__link">
+    PB. 797. ALl path from src to dst 圖論題，起終點所有可能路徑 
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pc-799-champagne-tower" title="PC. 799. Champagne Tower 數學規劃與觀察題" class="md-nav__link">
+    PC. 799. Champagne Tower 數學規劃與觀察題
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pd-800-smallest-rotation-with-highest-score-on" title="PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)" class="md-nav__link">
+    PD. 800. Smallest rotation with highest score 數學推理+區間查詢線性優化O(N)
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/Alfons0329/afhwu0329.github.io/edit/master/docs/programming_practice/leetcode_OJ_WC/WC75.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="leetcode_oj-wc75">leetcode_OJ WC75 解題心得</h1>
+<ul>
+<li>Contest time: Mar 11, 2018</li>
+</ul>
+<p>眼睛發炎，打扣途中頗不舒服，只有快速解出PA後，PB DFS沒寫好不斷WA，PD用暴力解然並卵TLE，就，寫個網誌來檢討吧 <br /></p>
+<h2 id="pa-796-rotate-string">PA. <a href="https://leetcode.com/contest/weekly-contest-75/problems/rotate-string/">796. Rotate String</a> 簡單字串題</h2>
+<ul>
+<li>思路：水題不解釋
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">bool</span> <span class="n">rotateString</span><span class="p">(</span><span class="n">string</span> <span class="n">aa</span><span class="p">,</span> <span class="n">string</span> <span class="n">bb</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">string</span> <span class="n">tmp</span><span class="o">=</span><span class="n">aa</span><span class="p">;</span>
+        <span class="n">string</span> <span class="n">tmp2</span><span class="p">;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">aa</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">tmp2</span><span class="o">=</span><span class="n">tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+            <span class="n">tmp</span> <span class="o">=</span> <span class="n">tmp</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">aa</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+            <span class="n">tmp</span><span class="o">+=</span><span class="n">tmp2</span><span class="p">;</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">tmp</span> <span class="o">==</span> <span class="n">bb</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div></li>
+</ul>
+<h2 id="pb-797-all-path-from-src-to-dst">PB. <a href="https://leetcode.com/problems/all-paths-from-source-to-target/description/">797. ALl path from src to dst</a> 圖論題，起終點所有可能路徑 <br /></h2>
+<p><strong>從起點到終點的所有路徑，圖論演算法經典題目!!!!!!!!!!!!!!!!!!!!!</strong> <br /></p>
+<ul>
+<li>思路：dfs深度優先搜索 <br /></li>
+</ul>
+<p>這個是WA的代碼，總會有些case沒有找到，因為在output deg那裡的邏輯些許錯誤 <br />
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">allPathsSourceTarget</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">graph</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="kt">int</span> <span class="n">target</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="kt">int</span> <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">total_size</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res_part</span><span class="p">,</span> <span class="n">output_deg</span><span class="p">;</span>
+        <span class="n">output_deg</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">final_res</span><span class="p">;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">total_size</span><span class="o">+=</span><span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">();</span>
+                <span class="n">output_deg</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="kt">int</span> <span class="n">visited</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tmp</span><span class="p">,</span> <span class="n">undone</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">visited</span> <span class="o">!=</span> <span class="n">total_size</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">res_part</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">pos</span><span class="p">);</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">output_deg</span><span class="p">[</span><span class="n">pos</span><span class="p">])</span>
+            <span class="p">{</span>
+                <span class="n">tmp</span> <span class="o">=</span> <span class="n">pos</span><span class="p">;</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="n">graph</span><span class="p">[</span><span class="n">pos</span><span class="p">][</span><span class="n">output_deg</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+                <span class="n">output_deg</span><span class="p">[</span><span class="n">tmp</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+                <span class="n">visited</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="n">FORI</span><span class="p">(</span><span class="n">output_deg</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+                <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">output_deg</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                        <span class="n">pos</span> <span class="o">=</span> <span class="n">output_deg</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">pos</span><span class="p">].</span><span class="n">size</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">pos</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">res_part</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">target</span><span class="p">);</span>
+                <span class="n">final_res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">res_part</span><span class="p">);</span>
+                <span class="n">res_part</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">final_res</span><span class="p">;</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div></p>
+<p>這個是正確解法的代碼，使用的演算法便是：DFS深度優先搜索，以找出起終點的所有路徑 <br />
+<a href="https://www.geeksforgeeks.org/find-paths-given-source-destination/">Geekforgeeks reference</a></p>
+<p><a href="http://blog.sina.com.cn/s/blog_5ff8e88e01013lot.html">weibo</a>
+weibo的作法採用非遞迴做法 <br />
+1.選取起點<br />
+2.移動，移到的點把它標記為走訪過，若該點不是終點，則擴散查找周圍『還沒有走過的點』<br />
+3.走到了終點之後，『退回上一步』，也是最重要的一個步驟，因為還有可能有其他路徑，故從終點的上一個步驟<br />
+4.下面的代碼中，原本44行的return寫上後會造成答案減少，原因在於做backtrace的時候，退回包刮終點也要標記為沒有走訪過，
+如果終點仍然標記為走訪過，那麼之後第二條路徑要走到終點的時候便會看到終點已經走訪過，便不再向前走去終點，而導致結果不齊全<br />
+<div class="codehilite"><pre><span></span><span class="cp">#define FORI(n) for(int i = 0; i &lt; n; ++ i)</span>
+<span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span><span class="n">final_res</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="n">res</span><span class="p">,</span> <span class="n">visited</span><span class="p">;</span>
+    <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">traversed_path</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">allPathsSourceTarget</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;&amp;</span> <span class="n">graph</span><span class="p">)</span> <span class="c1">//graph in adjacency list</span>
+    <span class="p">{</span>
+        <span class="kt">int</span> <span class="n">dst</span><span class="p">;</span>
+        <span class="n">FORI</span><span class="p">(</span><span class="n">graph</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">()</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">dst</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">visited</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="nb">false</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">dst</span><span class="p">,</span><span class="n">res</span><span class="p">,</span><span class="n">graph</span><span class="p">);</span>
+        <span class="k">return</span> <span class="n">final_res</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="kt">void</span> <span class="n">dfs</span><span class="p">(</span><span class="kt">int</span> <span class="n">cur_node</span><span class="p">,</span> <span class="kt">int</span> <span class="n">dst</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">res</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">graph</span><span class="p">)</span>
+    <span class="p">{</span>
+
+        <span class="n">traversed_path</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">cur_node</span><span class="p">);</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">cur_node</span> <span class="o">==</span> <span class="n">dst</span><span class="p">)</span>
+        <span class="p">{</span>
+
+            <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">copied_stk</span> <span class="o">=</span> <span class="n">traversed_path</span><span class="p">;</span>
+            <span class="k">while</span><span class="p">(</span><span class="n">copied_stk</span><span class="p">.</span><span class="n">size</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="n">res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">copied_stk</span><span class="p">.</span><span class="n">top</span><span class="p">());</span>
+                <span class="n">copied_stk</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+            <span class="p">}</span>
+            <span class="n">reverse</span><span class="p">(</span><span class="n">res</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">res</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+
+            <span class="n">final_res</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+            <span class="n">res</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+            <span class="c1">//return ;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+
+            <span class="n">FORI</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">cur_node</span><span class="p">].</span><span class="n">size</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">graph</span><span class="p">[</span><span class="n">cur_node</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span>
+                <span class="p">{</span>
+                    <span class="n">dfs</span><span class="p">(</span><span class="n">graph</span><span class="p">[</span><span class="n">cur_node</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">dst</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">graph</span><span class="p">);</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="c1">//back trace if there will be still some nodes have to be visited but now path are blocked since adj nodes are marked visited</span>
+        <span class="n">visited</span><span class="p">[</span><span class="n">cur_node</span><span class="p">]</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+        <span class="n">cur_node</span> <span class="o">=</span> <span class="n">traversed_path</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+        <span class="n">traversed_path</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+    <span class="p">}</span>
+
+<span class="p">};</span>
+</pre></div></p>
+<h2 id="pc-799-champagne-tower">PC. <a href="https://leetcode.com/contest/weekly-contest-75/problems/champagne-tower/">799. Champagne Tower</a> 數學規劃與觀察題</h2>
+<ul>
+<li>思路：雖然題目有點嚇人，但只是個障眼法，剛開始想說一次在第一盃添加一次，再讓每一次的流水依序往下流竄，如果有杯子已經滿水位，就將row++
+再度往下流竄，直到底，然不僅時間複雜度太高也在第260個測資WA了 <br /></li>
+</ul>
+<p>事實上，只要先將最高的那一杯水，任意裝滿他的pour量，先不用在乎是否已經超出滿水位，只要先把多出的水依序流竄，並且左右均分即可，而會多出的水位就是
+當前水位 - 一杯水 之後再將這個堆出的水位評分給樓下兩杯即可。
+<strong>很智障的是 以為樓下兩杯是 row+1 col-1 and row+1 col+1</strong> 利馬拿了一個RE，實際上應該是col col+1啦w</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
+<span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+    <span class="kt">double</span> <span class="n">champagneTower</span><span class="p">(</span><span class="kt">int</span> <span class="n">poured</span><span class="p">,</span> <span class="kt">int</span> <span class="n">query_row</span><span class="p">,</span> <span class="kt">int</span> <span class="n">query_glass</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">double</span> <span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">cups</span><span class="p">;</span>
+        <span class="n">cups</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">101</span><span class="p">);</span> <span class="c1">//padding</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">101</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">push_back</span><span class="p">(</span><span class="mf">0.0</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">cups</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">poured</span><span class="p">;</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">100</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">i</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mf">1.0</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="p">;</span>
+                    <span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="p">(</span><span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span> <span class="o">/</span> <span class="mf">2.0</span> <span class="p">;</span>
+                    <span class="n">cups</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">cups</span><span class="p">[</span><span class="n">query_row</span><span class="p">][</span><span class="n">query_glass</span><span class="p">];</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+
+<h2 id="pd-800-smallest-rotation-with-highest-score-on">PD. <a href="https://leetcode.com/problems/smallest-rotation-with-highest-score/">800. Smallest rotation with highest score</a> 數學推理+區間查詢線性優化O(N)</h2>
+<p><strong>此題的時間複雜度一定要在O(N)，必須使用區間查詢算法，大神室友馬上想到線段樹segment tree查找</strong>
+<a href="https://www.geeksforgeeks.org/find-the-point-where-maximum-intervals-overlap/">區間查詢算法概念，從暴力到NlogN 到N</a> <br />
+* 思路，可以看出有兩種情形，一種是本來就會得分的(value &lt;= index)，一種是還沒有得分的 else<br />
+第一類型<br />
+首先第一種本來就可以得分，例如[2,3,1,4,0]中的1 , 0，向右移動自然可以得分，所以他的右邊可以的步數便是[index+1(直接向左移動到最右側（超過後重新從結尾回來），必然符合的開外掛模式),len-1（移動到他下一個）]
+以及[0(不動)，index - value（例如上面的1在2 至多移動到1的位置，也就是 2 - 1 一步）] <br />
+第二類型<br />
+而另外一種當前無法得分的，便要[index+1 (開外掛移到最右邊), total_len - (value - index)(繼續移動，value - index 代表與最大移動次數的相差，也就是它必須向右移動val - index這個差值才有分，向右移動的至少次數，換過來講用 len 來扣除就是向左移動的最大次數)]
+<br /></p>
+<p>求出每一個數字應該有的區間，把他們映射到區間查詢段，使用python的pair表示開始和結束 <br />
+<div class="codehilite"><pre><span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#one segment for this ones</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">,</span><span class="n">total_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">index</span><span class="p">)])</span> <span class="c1">#segment start and end</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1">#two segments for this one</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">value</span><span class="p">])</span>
+</pre></div></p>
+<p>最後找到prefix sum (加總到此時的總和)，思緒見註解 <br />
+<div class="codehilite"><pre><span></span><span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)):</span> <span class="c1">#+1 padding</span>
+    <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#go in the interval, overlapping with all the other segment</span>
+    <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#leave the interval, cancelling the infulence of segment overlapping</span>
+</pre></div></p>
+<p>整體AC代碼如下 <br /></p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">bestRotation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="n">best</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">shift</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">total_len</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+        <span class="c1">#start_pos_arr = []</span>
+        <span class="n">pair</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1">#initial the start_pos_arr to record the starting position of the given array</span>
+        <span class="c1">#initial score</span>
+        <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">value</span><span class="p">:</span> <span class="c1">#one segment for this ones</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">,</span><span class="n">total_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">value</span> <span class="o">-</span> <span class="n">index</span><span class="p">)])</span> <span class="c1">#segment start and end</span>
+            <span class="k">else</span><span class="p">:</span> <span class="c1">#two segments for this one</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">total_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">])</span>
+                <span class="n">pair</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="o">-</span> <span class="n">value</span><span class="p">])</span>
+
+
+        <span class="n">segment_query</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">total_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1">#aux arrat for the prefix sum, segment query</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">pair</span><span class="p">)):</span> <span class="c1">#+1 padding</span>
+            <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span> <span class="c1">#go in the interval, overlapping with all the other segment</span>
+            <span class="n">segment_query</span><span class="p">[</span><span class="n">pair</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span> <span class="c1">#leave the interval, cancelling the infulence of segment overlapping</span>
+
+        <span class="n">cur_pts</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segment_query</span><span class="p">)):</span>
+             <span class="n">cur_pts</span> <span class="o">+=</span> <span class="n">segment_query</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+             <span class="k">if</span><span class="p">(</span> <span class="n">cur_pts</span> <span class="o">&gt;</span> <span class="n">best</span><span class="p">):</span>
+                 <span class="n">best</span> <span class="o">=</span> <span class="n">cur_pts</span>
+                 <span class="n">shift</span> <span class="o">=</span> <span class="n">i</span>
+
+        <span class="k">return</span> <span class="n">shift</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../WC74/" title="WC74" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                WC74
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../WC76/" title="WC76" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                WC76
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/Alfons0329" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+    
+      
+    
+  </body>
+</html>
