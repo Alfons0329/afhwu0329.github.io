@@ -27,7 +27,6 @@ nav:
             - Pass N3 in 5 days: univ_notes/jlpt/n3/n3.md
     - Programming practice:
         - leetcode_OJ Weekly Contest:
-            - Index: programming_practice/leetcode_OJ_WC/lcojindex.md
             - WC67: programming_practice/leetcode_OJ_WC/WC67.md
             - WC70: programming_practice/leetcode_OJ_WC/WC70.md
             - WC74: programming_practice/leetcode_OJ_WC/WC74.md
@@ -48,6 +47,22 @@ nav:
             - Tree:
                 - Part 1(94, 104, 110, 112, 113): programming_practice/leetcode_OJ_Single/tree1.md
                 - Part 2(256, 863): programming_practice/leetcode_OJ_Single/tree2.md
+        - Hackerrank:
+            - Interview Preparation Kit:
+                - Array: programming_practice/Hackerrank/ipk_arr.md 
+                - Dictionaries and Hashmaps: programming_practice/Hackerrank/ipk_dic_hash.md 
+                - Soring: 
+                - String Manipulation: ipk_str.md
+                - Greedy Algorithms: 
+                - Search:
+                - Dynamic Programming: 
+                - Stack and Queues:
+                - Graphs:
+                - Trees:
+                - Linked Llists:
+                - Recursion and Backtracking:
+                - Miscellaneous: 
+
 
 extra:
     social:
