@@ -53,7 +53,7 @@ nav:
                 - Dictionaries and Hashmaps: programming_practice/Hackerrank/ipk_dic_hash.md 
                 #- Soring: 
                 - String Manipulation: programming_practice/Hackerrank/ipk_str.md
-                #- Greedy Algorithms: 
+                - Greedy Algorithms:  programming_practice/Hackerrank/ipk_greed.md
                 #- Search:
                 #- Dynamic Programming: 
                 #- Stack and Queues:
