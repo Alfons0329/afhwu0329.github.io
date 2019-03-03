@@ -25,3 +25,41 @@ vector<int> rotLeft(vector<int> a, int d)
     return res;
 }
 ```
+
+## [Subset I](https://leetcode.com/problems/subsets/)
+
+* Thought: There are up to 2^N possibilities, brute force will definitely failed. Since it counts up to 2^N
+* Analysis: Time complexity O(N * 2 ^ N), where N is the cardinality of set, we check all 2 ^ N possibles and use bit manipulation (right shift up to length N in binary represenation). Space complexity: O(2 ^ N), store all the possible subsets.
+
+```cpp
+class Solution 
+{
+    public:
+    vector<vector<int>> subsets(vector<int>& nums) 
+    {
+        int n = nums.size();
+        int m = 1 << n, cnt = 0, i = 0;
+        vector<vector <int> > res(0, vector<int>());
+        vector<int> tmp;
+        while(--m)
+        {
+            cnt = 0;
+            i = m;
+            while(i > 0)
+            {
+                if(i & 1)
+                {
+                    tmp.push_back(nums[nums.size() - cnt - 1]);
+                }
+                cnt++;
+                i >>= 1; //shift right to check the next occurance
+            }
+            res.push_back(tmp);
+            tmp.clear();
+        }
+        tmp.clear();
+        res.push_back(tmp);//including the empty one
+        return res;
+    }
+};
+```
