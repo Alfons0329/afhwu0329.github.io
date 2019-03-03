@@ -18,11 +18,6 @@
 * Analysis: Time complexity: O(N), iterating the whole string and implement the statistical data, Space complexity: O(N), by using a map data to store the statistical data.
 
 ```cpp
-#include <bits/stdc++.h>
-#include <unordered_map>
-using namespace std;
-
-// Complete the isValid function below.
 string isValid(string s) 
 {
     // step (1)
@@ -76,3 +71,4 @@ string isValid(string s)
     
     return "NO"; // step 4-6
 }
+```

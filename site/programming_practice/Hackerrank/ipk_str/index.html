@@ -935,66 +935,60 @@
 <p>Analysis: Time complexity: O(N), iterating the whole string and implement the statistical data, Space complexity: O(N), by using a map data to store the statistical data.</p>
 </li>
 </ul>
-<p>```cpp</p>
-<h1 id="include">include <bits/stdc++.h></h1>
-<h1 id="include_1">include <unordered_map></h1>
-<p>using namespace std;</p>
-<p>// Complete the isValid function below.
-string isValid(string s) 
-{
-    // step (1)
-    unordered_map<char, int> map_1; // stat data for character occurance
-    string res;
-    int n = s.size();</p>
-<div class="codehilite"><pre><span></span>for(int i = 0; i &lt; n; i++)
-{
-    map_1[s[i]]++;
-}
+<div class="codehilite"><pre><span></span><span class="n">string</span> <span class="nf">isValid</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="c1">// step (1)</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">map_1</span><span class="p">;</span> <span class="c1">// stat data for character occurance</span>
+    <span class="n">string</span> <span class="n">res</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
 
-// step (2), (3)
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">map_1</span><span class="p">[</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
 
-map&lt;int, int&gt; freq_cnt; // order matters
-for(unordered_map&lt;char, int&gt;::iterator it = map_1.begin() ;it != map_1.end(); it++)
-{
-    freq_cnt[it -&gt; second]++;
-}
-if(freq_cnt.size() &gt; 2) // step 4-1
-{
-    return &quot;NO&quot;;
-} 
-else if(freq_cnt.size() == 1) // all the same frequency, ex aabbccddee, we only have 2 : 5 // step 4-2
-{
-    return &quot;YES&quot;;
-}
+    <span class="c1">// step (2), (3)</span>
 
-map&lt;int, int&gt;::iterator it = freq_cnt.begin();
-int f1 = it -&gt; first;
-int lower_freq_cnt = it -&gt; second;
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">freq_cnt</span><span class="p">;</span> <span class="c1">// order matters</span>
+    <span class="k">for</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">map_1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="p">;</span><span class="n">it</span> <span class="o">!=</span> <span class="n">map_1</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">freq_cnt</span><span class="p">[</span><span class="n">it</span> <span class="o">-&gt;</span> <span class="n">second</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">freq_cnt</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="c1">// step 4-1</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;NO&quot;</span><span class="p">;</span>
+    <span class="p">}</span> 
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">freq_cnt</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// all the same frequency, ex aabbccddee, we only have 2 : 5 // step 4-2</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;YES&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
 
-map&lt;int, int&gt;::iterator it2 = ++it;
-int f2 = it2 -&gt; first;
-int higher_freq_cnt = it2 -&gt; second;
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">freq_cnt</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+    <span class="kt">int</span> <span class="n">f1</span> <span class="o">=</span> <span class="n">it</span> <span class="o">-&gt;</span> <span class="n">first</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">lower_freq_cnt</span> <span class="o">=</span> <span class="n">it</span> <span class="o">-&gt;</span> <span class="n">second</span><span class="p">;</span> 
 
-int lower_freq = min(f1, f2), higher_freq = max(f1, f2);
+    <span class="n">map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it2</span> <span class="o">=</span> <span class="o">++</span><span class="n">it</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">f2</span> <span class="o">=</span> <span class="n">it2</span> <span class="o">-&gt;</span> <span class="n">first</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">higher_freq_cnt</span> <span class="o">=</span> <span class="n">it2</span> <span class="o">-&gt;</span> <span class="n">second</span><span class="p">;</span>
 
-if(lower_freq == 1 &amp;&amp; lower_freq_cnt == 1) // step 4-3
-{
-    return &quot;YES&quot;;
-}
-else if(higher_freq - lower_freq == 1 &amp;&amp; higher_freq_cnt == 1) // step 4-4
-{
-    return &quot;YES&quot;;
-}
-else if(higher_freq - lower_freq &gt; 1) // step 4-5 
-{
-    return &quot;NO&quot;;
-}
+    <span class="kt">int</span> <span class="n">lower_freq</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">),</span> <span class="n">higher_freq</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">f2</span><span class="p">);</span>
 
-return &quot;NO&quot;; // step 4-6
+    <span class="k">if</span><span class="p">(</span><span class="n">lower_freq</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">lower_freq_cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// step 4-3</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;YES&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">higher_freq</span> <span class="o">-</span> <span class="n">lower_freq</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">higher_freq_cnt</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// step 4-4</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;YES&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">higher_freq</span> <span class="o">-</span> <span class="n">lower_freq</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// step 4-5 </span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;NO&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="s">&quot;NO&quot;</span><span class="p">;</span> <span class="c1">// step 4-6</span>
+<span class="p">}</span>
 </pre></div>
-
-
-<p>}</p>
                 
                   
                 
