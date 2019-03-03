@@ -902,7 +902,7 @@
 <h2 id="sherlok-and-anagrams"><a href="https://www.hackerrank.com/challenges/sherlock-and-anagrams/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=dictionaries-hashmaps">Sherlok and Anagrams</a></h2>
 <ul>
 <li>Thought 1(TLE): Brute force to find all the possible substring pair of length from 1 to n where n is the given string length. </li>
-<li>Analysis: Time complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N^4)</span><script type="math/tex">O(N^4)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N^4)</span><script type="math/tex">O(N^4)</script></span></script></span>, Space complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></script></span> (combination of substrings, but quite unsure, please let me know if I am wrong) 
+<li>Analysis: Time complexity: O(N^4), Space complexity: O(N), although it seems to be a nested loop and calls the function <code class="codehilite">check_anagram</code> n times, the time complexity is actually N. Since in <code class="codehilite"><span class="kd">function</span> <span class="nx">call</span></code> the memory will be allocated in stack, after the call ends, it will be released (may think of recursion stack overflow to understand this), each allocate in stack is up to length N of the string, and being released later, thus won't grow up to N^2 <br />
 <div class="codehilite"><pre><span></span><span class="c1">// Complete the sherlockAndAnagrams function below. ie how many pairs of substring anagrams??</span>
 <span class="kt">bool</span> <span class="nf">check_anagram</span><span class="p">(</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span>
 <span class="p">{</span>
@@ -919,7 +919,6 @@
     <span class="p">{</span>
         <span class="n">mp1</span><span class="p">[</span><span class="n">s2</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">--</span><span class="p">;</span>
     <span class="p">}</span>
-
     <span class="k">for</span><span class="p">(</span><span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">mp1</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">it</span> <span class="o">!=</span> <span class="n">mp1</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="n">it</span><span class="o">++</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">if</span><span class="p">(</span><span class="n">it</span> <span class="o">-&gt;</span> <span class="n">second</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
@@ -972,12 +971,12 @@
     <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
 <span class="p">}</span>
 </pre></div></li>
-<li>Fault: The idea is too brute force, <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">N^4</span><script type="math/tex">N^4</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">N^4</span><script type="math/tex">N^4</script></span></script></span> does take lots of time.</li>
+<li>Fault: The idea is too brute force, N^4 does take lots of time.</li>
 <li>
 <p>Thought 2(AC, optimized from thought 1): When we got some substrings that forms a group for anagram, such as [abc, cba, bac]. We don't actually need to select each by each to count the occurances. Due to the same group of anagram, 2 of them makes a pair, by using the <code class="codehilite">combinatoric method</code>, such that C(num_of_elements, 2) is the answer. More detailed explanations are written in the comment section of the following code.</p>
 </li>
 <li>
-<p>Analysis: Time complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N^3 log N)</span><script type="math/tex">O(N^3 log N)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N^3 log N)</span><script type="math/tex">O(N^3 log N)</script></span></script></span>, Space complexity <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N^2)</span><script type="math/tex">O(N^2)</script></span></script></span> due to the combination of substrings <code class="codehilite">C(N, 2)</code> on a string of length N. </p>
+<p>Analysis: Time complexity: O(N^3 log N), Space complexity O(N^2) due to storing the combinations of substrings in one main string. </p>
 </li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">sherlockAndAnagrams</span><span class="p">(</span><span class="n">string</span> <span class="n">s</span><span class="p">)</span> 
