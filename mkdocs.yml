@@ -54,8 +54,8 @@ nav:
                 #- Soring: 
                 - String Manipulation: programming_practice/Hackerrank/ipk_str.md
                 - Greedy Algorithms:  programming_practice/Hackerrank/ipk_greed.md
-                #- Search:
-                #- Dynamic Programming: 
+                - Search: programming_practice/Hackerrank/ipk_search.md
+                - Dynamic Programming: programming_practice/Hackerrank/ipk_dp.md
                 #- Stack and Queues:
                 #- Graphs:
                 #- Trees:
