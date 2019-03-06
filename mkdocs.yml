@@ -51,7 +51,6 @@ nav:
             - Interview Preparation Kit:
                 - Array: programming_practice/Hackerrank/ipk_arr.md 
                 - Dictionaries and Hashmaps: programming_practice/Hackerrank/ipk_dic_hash.md 
-                #- Soring: 
                 - String Manipulation: programming_practice/Hackerrank/ipk_str.md
                 - Greedy Algorithms:  programming_practice/Hackerrank/ipk_greed.md
                 - Search: programming_practice/Hackerrank/ipk_search.md
