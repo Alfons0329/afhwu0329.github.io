@@ -862,6 +862,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#candies" title="Candies" class="md-nav__link">
+    Candies
+  </a>
+  
+</li>
+      
       
       
       
@@ -915,6 +922,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#candies" title="Candies" class="md-nav__link">
+    Candies
+  </a>
+  
+</li>
+      
       
       
       
@@ -937,7 +951,7 @@
                 <h1 id="interview-preparation-kit-dynamic-programming">Interview preparation kit, Dynamic Programming</h1>
 <h2 id="max-array-sum"><a href="https://www.hackerrank.com/challenges/max-array-sum/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=dynamic-programming">Max Array Sum</a></h2>
 <ul>
-<li>Thought: Each of the dp[i] represent the maximum array sum in arr[0:1] (start side and end side are both included), consider each of the element in array, there will be 2 possibilities<ul>
+<li>Thought: Each of the dp[i] represent the maximum array sum in arr[0:1] (start side and end side are both included), consider each of the element in array, there will be 2 possibilities, hence the subproblem for DP<ul>
 <li>(1) If we include this element, then the maximum subset [0:i] sum will be arr[i - 2] + arr[i] due to denial of adjacent numbers in subset.</li>
 <li>(2) If we do not want such element, then the maximum subset [0:i] sum will be arr[i - 1], i.e. querying the closest answer.</li>
 </ul>
@@ -956,6 +970,60 @@
     <span class="p">}</span>
 
     <span class="k">return</span> <span class="n">dp</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div></li>
+</ul>
+<h2 id="candies"><a href="https://www.hackerrank.com/challenges/candies/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=dynamic-programming">Candies</a></h2>
+<ul>
+<li>Thought: through the following steps <ul>
+<li>(1) We can simply see that, the amount of candies each student receives depends on the amount of neighbor's candies, hence the subproblem for DP<ul>
+<li>Collecting the statistical data of "how many CONTINUOUS LOWER ELEMENT" on either the left or right side?</li>
+</ul>
+</li>
+<li>(2) Iterate the whole array, the minimum candies that this student requires is max(left_continuous_lower[i], right_continuous_lower[i]) + 1(at least one candy for each student)<ul>
+<li>Think the mountain as an example: 
+<div class="codehilite"><pre><span></span>    Score               1 2 3 4 3 2 1
+    Left cnt lower      0 1 2 3 0 0 0
+    Right cnt lower     0 0 0 3 2 1 0
+</pre></div></li>
+<li>Explanation: for student 3(0 base), he should get 3 (+ 1) cadies as minimum since there is 3 continuous less element on the left side and so is right, assigning 1 to the leftmost and rightmost element, we will get the optimum solution being: 1 2 3 4 3 2 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Analysis: Time complexity O(N), Space complexity O(N) for the DP array
+<div class="codehilite"><pre><span></span><span class="kt">long</span> <span class="nf">candies</span><span class="p">(</span><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">ull</span><span class="o">&gt;</span> <span class="n">left_cont_less_cnt</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">ull</span><span class="o">&gt;</span> <span class="n">right_cont_less_cnt</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+    <span class="c1">// init, step (1)</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">left_cont_less_cnt</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">left_cont_less_cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="n">m</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span><span class="o">--</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="p">{</span>
+            <span class="n">right_cont_less_cnt</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">right_cont_less_cnt</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// dp process, step (2)</span>
+    <span class="n">ull</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">res</span> <span class="o">+=</span> <span class="n">max</span><span class="p">(</span><span class="n">left_cont_less_cnt</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">right_cont_less_cnt</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+
 <span class="p">}</span>
 </pre></div></li>
 </ul>
