@@ -55,8 +55,8 @@ nav:
                 - Greedy Algorithms:  programming_practice/Hackerrank/ipk_greed.md
                 - Search: programming_practice/Hackerrank/ipk_search.md
                 - Dynamic Programming: programming_practice/Hackerrank/ipk_dp.md
-                #- Stack and Queues:
-                #- Graphs:
+                - Stack and Queues: programming_practice/Hackerrank/ipk_stack_queue.md
+                - Graphs: programming_practice/Hackerrank/ipk_graph.md
                 #- Trees:
                 #- Linked Llists:
                 #- Recursion and Backtracking:
