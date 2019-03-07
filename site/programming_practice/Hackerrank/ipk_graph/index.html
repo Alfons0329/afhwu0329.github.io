@@ -963,12 +963,106 @@
 <ul>
 <li>Thought: Run through the following steps<ul>
 <li>(1) Make adjacent list</li>
-<li>(2)</li>
+<li>(2) Traverse nodes, mark the current nodes as traversed to prevent stack overflow, if encounter the node of the same color, update the result and set res = 0 for next searching</li>
+<li>(3) Keep DFS until all the node has been traversed and all the function has been returned</li>
 </ul>
 </li>
-<li>Analysis:</li>
+<li>Analysis: <ul>
+<li>Time complexity: O(V + E), typical graph dfs traversal</li>
+<li>Space complexity: O(V + E), storing the edge and node data</li>
 </ul>
-<div class="codehilite"><pre><span></span>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;bits/stdc++.h&gt;</span><span class="cp"></span>
+
+<span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="n">vector</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span> <span class="n">split_string</span><span class="p">(</span><span class="n">string</span><span class="p">);</span>
+
+<span class="c1">// Complete the findShortest function below.</span>
+
+<span class="cm">/*</span>
+<span class="cm"> * For the unweighted graph, &lt;name&gt;:</span>
+<span class="cm"> *</span>
+<span class="cm"> * 1. The number of nodes is &lt;name&gt;_nodes.</span>
+<span class="cm"> * 2. The number of edges is &lt;name&gt;_edges.</span>
+<span class="cm"> * 3. An edge exists between &lt;name&gt;_from[i] to &lt;name&gt;_to[i].</span>
+<span class="cm"> *</span>
+<span class="cm"> */</span>
+
+
+<span class="kt">void</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span> <span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&gt;</span> <span class="n">edges</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">visited</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span> <span class="n">ids</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_id</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">res</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_len</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">cur_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span><span class="c1">// mark current node as traversed</span>
+
+    <span class="c1">// if the color of current node is what we want, update the result, but NO NEED TO RETURN </span>
+    <span class="c1">// since there will be other path not visited, go to the other path will be suitable.</span>
+
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">edges</span><span class="p">[</span><span class="n">cur_id</span><span class="p">].</span><span class="n">size</span><span class="p">();</span><span class="c1">// how many mnodes are &quot;being connected&quot; by current node?</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ids</span><span class="p">[</span><span class="n">cur_id</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">val</span> <span class="o">&amp;&amp;</span> <span class="n">cur_len</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">cur_len</span><span class="p">);</span>
+        <span class="n">cur_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="c1">// restart from current node</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="n">cur_id</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span> <span class="c1">// if untraversed</span>
+            <span class="p">{</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">edges</span><span class="p">[</span><span class="n">cur_id</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">res</span><span class="p">,</span> <span class="n">cur_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">// keep searching</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">visited</span><span class="p">[</span><span class="n">edges</span><span class="p">[</span><span class="n">cur_id</span><span class="p">][</span><span class="n">i</span><span class="p">]])</span> <span class="c1">// if untraversed</span>
+            <span class="p">{</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">edges</span><span class="p">[</span><span class="n">cur_id</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">res</span><span class="p">,</span> <span class="n">cur_len</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>    
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">findShortest</span><span class="p">(</span><span class="kt">int</span> <span class="n">graph_nodes</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">graph_from</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">graph_to</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">long</span><span class="o">&gt;</span> <span class="n">ids</span><span class="p">,</span> <span class="kt">int</span> <span class="n">val</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="c1">// init </span>
+    <span class="kt">int</span> <span class="n">res</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">m</span> <span class="o">=</span> <span class="n">graph_from</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// edge size</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">ids</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="c1">// node size </span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="n">edges</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">());</span> <span class="c1">// edge relations of node_1 -&gt; node_2 -&gt; node_3, n + 1 for padding one base</span>
+    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">color_cnt</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">visited</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+
+    <span class="c1">// make adjacent list</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">m</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">edges</span><span class="p">[</span><span class="n">graph_from</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">push_back</span><span class="p">(</span><span class="n">graph_to</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="c1">// make the edge relations</span>
+        <span class="n">edges</span><span class="p">[</span><span class="n">graph_to</span><span class="p">[</span><span class="n">i</span><span class="p">]].</span><span class="n">push_back</span><span class="p">(</span><span class="n">graph_from</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span> <span class="c1">// make the edge relations</span>
+    <span class="p">}</span>
+
+    <span class="c1">// find the starting node of that color</span>
+    <span class="kt">int</span> <span class="n">start_id</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">color_cnt</span><span class="p">[</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">ids</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">val</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="n">start_id</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// starting dfs</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">color_cnt</span><span class="p">[</span><span class="n">start_id</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">start_id</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">//only one for that color, return -1 directly or no such color</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">dfs</span><span class="p">(</span><span class="n">edges</span><span class="p">,</span> <span class="n">visited</span><span class="p">,</span> <span class="n">ids</span><span class="p">,</span> <span class="n">start_id</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;res %d </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span> <span class="o">==</span> <span class="n">INT_MAX</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">res</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">res</span> <span class="o">==</span> <span class="n">INT_MAX</span> <span class="o">?</span> <span class="o">-</span><span class="mi">1</span> <span class="o">:</span> <span class="n">res</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
                 
                   
