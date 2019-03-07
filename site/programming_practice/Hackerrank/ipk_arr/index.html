@@ -952,7 +952,9 @@
 <h2 id="left-rotation"><a href="https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=arrays">Left rotation</a></h2>
 <ul>
 <li>Thought: Rotate as intuition, but note that if <code class="codehilite">index - rot_cnt (which is d)</code> then the position should be <code class="codehilite">size - (rot_cnt - index)</code></li>
-<li>Analysis: Time complexityL O(N), Space complexity: O(N)
+<li>Analysis: <ul>
+<li>Time complexityL O(N)</li>
+<li>Space complexity: O(N)
 <div class="codehilite"><pre><span></span><span class="c1">// Complete the rotLeft function below.</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">rotLeft</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> 
 <span class="p">{</span>
@@ -974,10 +976,16 @@
 <span class="p">}</span>
 </pre></div></li>
 </ul>
+</li>
+</ul>
 <h2 id="subset-i"><a href="https://leetcode.com/problems/subsets/">Subset I</a></h2>
 <ul>
 <li>Thought: There are up to 2^N possibilities, brute force will definitely failed. Since it counts up to 2^N</li>
-<li>Analysis: Time complexity O(N * 2 ^ N), where N is the cardinality of set, we check all 2 ^ N possibles and use bit manipulation (right shift up to length N in binary represenation). Space complexity: O(2 ^ N), store all the possible subsets.</li>
+<li>Analysis: <ul>
+<li>Time complexity O(N * 2 ^ N), where N is the cardinality of set, we check all 2 ^ N possibles and use bit manipulation (right shift up to length N in binary represenation). </li>
+<li>Space complexity: O(2 ^ N), store all the possible subsets.</li>
+</ul>
+</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
 <span class="p">{</span>

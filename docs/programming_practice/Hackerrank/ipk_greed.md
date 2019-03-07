@@ -2,7 +2,9 @@
 
 ## [Minimum absolute difference in array](https://www.hackerrank.com/challenges/minimum-absolute-difference-in-an-array/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=greedy-algorithms)
 * Thought: `No need to brute force`, since it emphasizes on the abs diff b/w two numbers, then we can easily sort the whole array, and the diff b/w two consecutive elements will be the minimum.
-* Thought: Time complexity: O(NlogN), Space complexity: O(logN), due to quick sort (std::sort) 
+* Thought: 
+    * Time complexity: O(NlogN), due to quick sort (std::sort) 
+    * Space complexity: O(N), due to quick sort (std::sort) 
 ```cpp
 int minimumAbsoluteDifference(vector<int> arr) 
 {

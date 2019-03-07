@@ -6,7 +6,9 @@
     * (1) If we include this element, then the maximum subset [0:i] sum will be arr[i - 2] + arr[i] due to denial of adjacent numbers in subset.
     * (2) If we do not want such element, then the maximum subset [0:i] sum will be arr[i - 1], i.e. querying the closest answer.
 * Note: It is usually hard to directly come up with a DP transformation function, rather it will be easier to come up with a recursive / search solution first. Sometimes, padding is needed, do not forget!
-* Analysis: Time complexity O(N), Space complexity O(N) for the DP array
+* Analysis: 
+    * Time complexity:O(N)
+    * Space complexity: O(N) for the DP array
 ```cpp
 int maxSubsetSum(vector<int> arr) 
 {
@@ -37,7 +39,9 @@ int maxSubsetSum(vector<int> arr)
             Right cnt lower     0 0 0 3 2 1 0
         ```
         * Explanation: for student 3(0 base), he should get 3 (+ 1) cadies as minimum since there is 3 continuous less element on the left side and so is right, assigning 1 to the leftmost and rightmost element, we will get the optimum solution being: 1 2 3 4 3 2 1
-* Analysis: Time complexity O(N), Space complexity O(N) for the DP array
+* Analysis: 
+    * Time complexity: O(N)
+    * Space complexity: O(N) for the DP array
 ```cpp
 long candies(int n, vector<int> arr) 
 {

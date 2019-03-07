@@ -5,7 +5,9 @@
 * Thought: This problem is similar to [this video](https://www.youtube.com/watch?v=XKu_SEDAykw&t=923s), which serves as an example of google's interview.
 the only difference is we print the position of matched pairs, like pos_i and pos_j with criteria cost[pos_i] + cost[pos_j] equals to K
 There is no need for brute force in O(N^2), or binary search in O(NlogN), only need a map to store the occurances of each price.
-* Analysis: Time complexity: O(N), iterating the whole string and implement the statistical data, Space complexity: O(N), by using a map data to store the statistical data.
+* Analysis: 
+    * Time complexity: O(N), iterating the whole string and implement the statistical data
+    * Space complexity: O(N), by using a map data to store the statistical data.
 
 ```cpp
 void whatFlavors(vector<int> cost, int money) 
@@ -48,7 +50,9 @@ void whatFlavors(vector<int> cost, int money)
 
 ## [Pairs](https://www.hackerrank.com/challenges/pairs/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=search)
 * Thought: Similar to the first problem in this page, use map to check the occurance will be fine, solve in linear time and there is no need for brute force solution 
-* Analysis: Time complexity: O(N), iterating the whole string and implement the statistical data, Space complexity: O(N), by using a map data to store the statistical data.
+* Analysis: 
+    * Time complexity: O(N), iterating the whole string and implement the statistical data
+    * Space complexity: O(N), by using a map data to store the statistical data.
 
 ```cpp
 int pairs(int k, vector<int> arr) 

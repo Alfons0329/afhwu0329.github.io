@@ -15,7 +15,9 @@
         * (4-5) No matter the occurance of occurance, if higher frequency - lower frequency exceeds 1, then it fails, such as bbbbbbcc (bbbbbbc has been filtered in 4-3)
         * (4-6) The rest failed
 
-* Analysis: Time complexity: O(N), iterating the whole string and implement the statistical data, Space complexity: O(N), by using a map data to store the statistical data.
+* Analysis: 
+    * Time complexity: O(N), iterating the whole string and implement the statistical data
+    * Space complexity: O(N), by using a map data to store the statistical data.
 
 ```cpp
 string isValid(string s) 

@@ -3,7 +3,9 @@
 ## [Left rotation](https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=arrays)
 
 * Thought: Rotate as intuition, but note that if `index - rot_cnt (which is d)` then the position should be `size - (rot_cnt - index)`
-* Analysis: Time complexityL O(N), Space complexity: O(N)
+* Analysis: 
+    * Time complexityL O(N)
+    * Space complexity: O(N)
 ```cpp
 // Complete the rotLeft function below.
 vector<int> rotLeft(vector<int> a, int d) 
@@ -29,7 +31,9 @@ vector<int> rotLeft(vector<int> a, int d)
 ## [Subset I](https://leetcode.com/problems/subsets/)
 
 * Thought: There are up to 2^N possibilities, brute force will definitely failed. Since it counts up to 2^N
-* Analysis: Time complexity O(N * 2 ^ N), where N is the cardinality of set, we check all 2 ^ N possibles and use bit manipulation (right shift up to length N in binary represenation). Space complexity: O(2 ^ N), store all the possible subsets.
+* Analysis: 
+    * Time complexity O(N * 2 ^ N), where N is the cardinality of set, we check all 2 ^ N possibles and use bit manipulation (right shift up to length N in binary represenation). 
+    * Space complexity: O(2 ^ N), store all the possible subsets.
 
 ```cpp
 class Solution 
