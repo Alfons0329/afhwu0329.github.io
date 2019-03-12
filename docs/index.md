@@ -5,6 +5,7 @@
 ### Education
 * BS in Dept. of Computer Science at National Chaio Tung University Taiwan (Sep 2015 - Jun 2019)
     --- Qualified for Exchange Student in School of Computer Science, Carnegie Mellon University <br />
+* MS in Graduate Institute of Computer Science at National Taiwan University (Expected Sep 2019 - Jun 2021)
 * Interested in AI, Machine Learning, Computer Security, Parallel Programming,and System-Related Topics.
 * Started to learn programming in Oct. 2015 from no background knowledge.
 
