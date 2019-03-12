@@ -57,9 +57,9 @@ nav:
                 - Dynamic Programming: programming_practice/Hackerrank/ipk_dp.md
                 - Stack and Queues: programming_practice/Hackerrank/ipk_stack_queue.md
                 - Graphs: programming_practice/Hackerrank/ipk_graph.md
-                #- Trees:
+                - Trees: programming_practice/Hackerrank/ipk_tree.md
                 #- Linked Llists:
-                #- Recursion and Backtracking:
+                - Recursion and Backtracking: programming_practice/Hackerrank/ipk_recur.md
                 #- Miscellaneous: 
 
 
