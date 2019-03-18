@@ -873,9 +873,45 @@
       
     
     
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Trees
+      </label>
+    
     <a href="./" title="Trees" class="md-nav__link md-nav__link--active">
       Trees
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lca" title="LCA" class="md-nav__link">
+    LCA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-this-a-bst" title="[Is this a BST?]" class="md-nav__link">
+    [Is this a BST?]
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -924,6 +960,29 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lca" title="LCA" class="md-nav__link">
+    LCA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#is-this-a-bst" title="[Is this a BST?]" class="md-nav__link">
+    [Is this a BST?]
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -938,6 +997,69 @@
                 
                 
                 <h1 id="interview-preparation-kit-tree">Interview preparation kit, Tree</h1>
+<h2 id="lca"><a href="https://www.hackerrank.com/challenges/binary-search-tree-lowest-common-ancestor/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees">LCA</a></h2>
+<ul>
+<li>Please refer <a href="https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_Single/tree2/#236-lca">here</a> for LCA.</li>
+</ul>
+<h2 id="is-this-a-bst">[Is this a BST?]</h2>
+<ul>
+<li>Thought: Given the property of BST, where <code class="codehilite">root&#39;s value &gt; max of left subtree but &lt; min of right shubtree</code>. So we descend down the whole tree and check the property recursively. For more information, please check the comment part of the code.</li>
+<li>Analysis: <ul>
+<li>Time complexity: O(N), where N is the nodes of given tree.</li>
+<li>Spacee complexity: O(N), where N is the nodes of given tree. or O(1) if the tree itself does not taken into account.
+<div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">checkBST</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+       <span class="k">return</span> <span class="nb">true</span><span class="p">;</span> 
+    <span class="p">}</span>
+
+    <span class="kt">int</span> <span class="n">lsub_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rsub_min</span> <span class="o">=</span> <span class="n">INT_MAX</span><span class="p">;</span>
+    <span class="n">sub_treemax</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">lsub_max</span><span class="p">);</span>
+    <span class="n">sub_treemin</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">rsub_min</span><span class="p">);</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">data</span> <span class="o">&lt;=</span> <span class="n">lsub_max</span><span class="p">)</span> <span class="c1">// violates the property</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">data</span> <span class="o">&gt;=</span> <span class="n">rsub_min</span><span class="p">)</span> <span class="c1">// violates the property</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nb">false</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">checkBST</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">checkBST</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">)</span> <span class="p">;</span> <span class="c1">// descend and recursively checking the whole tree</span>
+
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sub_treemax</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">sub_max</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">sub_max</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">data</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">);</span>
+    <span class="n">sub_treemax</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">);</span>
+    <span class="n">sub_treemax</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sub_max</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">sub_treemin</span><span class="p">(</span><span class="n">Node</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">sub_min</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">sub_min</span> <span class="o">=</span> <span class="n">min</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">data</span><span class="p">,</span> <span class="n">sub_min</span><span class="p">);</span>
+    <span class="c1">// printf(&quot;data %d, submin update to %d\n&quot;, root -&gt; data, sub_min);</span>
+    <span class="n">sub_treemin</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span><span class="p">,</span> <span class="n">sub_min</span><span class="p">);</span>
+    <span class="n">sub_treemin</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">right</span><span class="p">,</span> <span class="n">sub_min</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
                 
                   
                 
