@@ -4,7 +4,7 @@
 
 * Please refer [here](https://alfons0329.github.io/afhwu0329.github.io/programming_practice/leetcode_OJ_Single/tree2/#236-lca) for LCA.
 
-## [Is this a BST?]
+## [Is this a BST?](https://www.hackerrank.com/challenges/ctci-is-binary-search-tree/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees)
 
 * Thought: Given the property of BST, where `root's value > max of left subtree but < min of right shubtree`. So we descend down the whole tree and check the property recursively. For more information, please check the comment part of the code.
 * Analysis: 
