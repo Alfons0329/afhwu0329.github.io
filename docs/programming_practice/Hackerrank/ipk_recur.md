@@ -45,8 +45,15 @@ int stepPerms(int n)
 
 * Thought: Just directly implement as the problem statement, don't forget to pre-sum the string since the testcase such as 12345 repeated 99999999 times will cause TLE if we concatnate them together.
 * Analysis: 
-    * Time Complexity: ()
-    * Space Complexity: ()
+    * Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be log(log(N)) `T(n) = O(logN) + T(logN)`
+        ```
+        example:
+        123 * 999 presum 6 * 999
+        5994 --> 27
+        27 --> 9
+        ends
+        ```
+    * Space Complexity: O(N) for storing the given number in an array
 
 ```python
 
