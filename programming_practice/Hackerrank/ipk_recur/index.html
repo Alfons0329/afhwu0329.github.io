@@ -1005,8 +1005,8 @@
 <li>
 <p>Analysis:</p>
 <ul>
-<li>Time complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></script></span>, recursion with memoization, each node of the recursion tree will be generated once</li>
-<li>Space complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></script></span>, recursion with memoization, same as above</li>
+<li>Time complexity: $$ O(N) $$, recursion with memoization, each node of the recursion tree will be generated once</li>
+<li>Space complexity: $$ O(N) $$, recursion with memoization, same as above</li>
 </ul>
 </li>
 </ul>
@@ -1046,14 +1046,14 @@
 <ul>
 <li>Thought: Just directly implement as the problem statement, don't forget to pre-sum the string since the testcase such as 12345 repeated 99999999 times will cause TLE if we concatnate them together.</li>
 <li>Analysis: <ul>
-<li>Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">log(log(N))</span><script type="math/tex">log(log(N))</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">log(log(N))</span><script type="math/tex">log(log(N))</script></span></script></span> ,so <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">T(n) = O(logN) + T(logN)</span><script type="math/tex">T(n) = O(logN) + T(logN)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">T(n) = O(logN) + T(logN)</span><script type="math/tex">T(n) = O(logN) + T(logN)</script></span></script></span>
+<li>Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be $$ log(log(N)) $$ ,so $$ T(n) = O(logN) + T(logN) $$
     example:
     123 * 999 presum 6 * 999
     5994 &rarr; 27
     27 &rarr; 9
     ends
     ```</li>
-<li>Space Complexity: <span><span class="MathJax_Preview"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></span><script type="math/tex"><span><span class="MathJax_Preview">O(N)</span><script type="math/tex">O(N)</script></span></script></span> for storing the given number in an array</li>
+<li>Space Complexity: $$ O(N) $$ for storing the given number in an array</li>
 </ul>
 </li>
 </ul>
@@ -1153,6 +1153,8 @@
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+        <script src="../../../mathjaxhekper.js"></script>
       
     
     
