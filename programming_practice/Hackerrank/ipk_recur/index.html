@@ -1036,8 +1036,14 @@
 <p>Thought: Just directly implement as the problem statement, don't forget to pre-sum the string since the testcase such as 12345 repeated 99999999 times will cause TLE if we concatnate them together.</p>
 </li>
 <li>Analysis: <ul>
-<li>Time Complexity: ()</li>
-<li>Space Complexity: ()</li>
+<li>Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be log(log(N)) <code class="codehilite">T(n) = O(logN) + T(logN)</code>
+    <div class="codehilite"><pre><span></span><span class="n">example</span><span class="o">:</span>
+<span class="mi">123</span> <span class="o">*</span> <span class="mi">999</span> <span class="n">presum</span> <span class="mi">6</span> <span class="o">*</span> <span class="mi">999</span>
+<span class="mi">5994</span> <span class="o">--&gt;</span> <span class="mi">27</span>
+<span class="mi">27</span> <span class="o">--&gt;</span> <span class="mi">9</span>
+<span class="n">ends</span>
+</pre></div></li>
+<li>Space Complexity: O(N) for storing the given number in an array</li>
 </ul>
 </li>
 </ul>
