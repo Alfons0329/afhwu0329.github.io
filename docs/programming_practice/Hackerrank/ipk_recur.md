@@ -5,8 +5,8 @@
 * Thought: Each of the staircase, up to nth staircase can be expressed as `s[n] = s[n - 1] + s[n - 2] + s[n - 3]` since we can climb 1, 2 or 3 steps at once. Don't forget to add some basecases
 
 * Analysis:
-    * Time complexity: $$O(N)$$, recursion with memoization, each node of the recursion tree will be generated once
-    * Space complexity: $$O(N)$$, recursion with memoization, same as above
+    * Time complexity: $$ O(N) $$, recursion with memoization, each node of the recursion tree will be generated once
+    * Space complexity: $$ O(N) $$, recursion with memoization, same as above
 
 ```cpp
 #include <bits/stdc++.h>
@@ -45,14 +45,14 @@ int stepPerms(int n)
 
 * Thought: Just directly implement as the problem statement, don't forget to pre-sum the string since the testcase such as 12345 repeated 99999999 times will cause TLE if we concatnate them together.
 * Analysis: 
-    * Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be $$log(log(N))$$ ,so $$T(n) = O(logN) + T(logN)$$
+    * Time Complexity: log(N) where N is the magnitude of the number, i.e. itself. Since the magnitude is N, its length will be log(N) according to some high school math knowledge. For the next recursion it will be $$ log(log(N)) $$ ,so $$ T(n) = O(logN) + T(logN) $$
         example:
         123 * 999 presum 6 * 999
         5994 --> 27
         27 --> 9
         ends
         ```
-    * Space Complexity: $$O(N)$$ for storing the given number in an array
+    * Space Complexity: $$ O(N) $$ for storing the given number in an array
 
 ```python
 
