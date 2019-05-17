@@ -145,7 +145,7 @@ string isBalanced(string s)
 
 ```
 
-## [Largest Rectangle]()
+## [Largest Rectangle](https://www.hackerrank.com/challenges/largest-rectangle/submissions?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=stacks-queues)
 
 * Thought: Check the maximum width of each element, that is stretch as long as it can, once the lower building is encountered, break.
 * Analysis:

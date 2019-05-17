@@ -5,8 +5,8 @@
 * Thought: Each of the staircase, up to nth staircase can be expressed as `s[n] = s[n - 1] + s[n - 2] + s[n - 3]` since we can climb 1, 2 or 3 steps at once. Don't forget to add some basecases
 
 * Analysis:
-    * Time complexity: $$ O(N) $$, recursion with memoization, each node of the recursion tree will be generated once
-    * Space complexity: $$ O(N) $$, recursion with memoization, same as above
+    * Time complexity: O(N), recursion with memoization, each node of the recursion tree will be generated once
+    * Space complexity: O(N), recursion with memoization, same as above
 
 ```cpp
 #include <bits/stdc++.h>
@@ -85,4 +85,32 @@ def recursive_solve(splitted):
 
 ```
 
+## [Fibonacci Numbers]()
+* Thought: Use DP to cache the result for acceleration
+* Analysis:
+    * Time complexity: O(N)
+    * Space complexity: O(N)
 
+```cpp
+ull fibonacci(ull n)
+{
+    // Complete the function.
+    if(n == 0)
+    {
+        return 0;
+    }
+    else if(n == 1)
+    {
+        return 1;
+    }
+    else if(n == 2)
+    {
+        return 1;
+    }
+    if(dp[n] == 0)
+    {
+        dp[n] = fibonacci(n - 1) + fibonacci (n - 2);
+    }
+    return dp[n];
+}
+```

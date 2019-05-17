@@ -7,7 +7,6 @@
     * Time complexity: O(N^4)
     * Space complexity: O(N), although it seems to be a nested loop and calls the function `check_anagram` n times, the time complexity is actually N. Since in `function call` the memory will be allocated in stack, after the call ends, it will be released (may think of recursion stack overflow to understand this), each allocate in stack is up to length N of the string, and being released later, thus won't grow up to N^2   
 ```cpp
-// Complete the sherlockAndAnagrams function below. ie how many pairs of substring anagrams??
 bool check_anagram(string s1, string s2)
 {
     unordered_map<char, int> mp1;
@@ -126,4 +125,31 @@ int sherlockAndAnagrams(string s)
     return res;
 }
 
+```
+
+## [Ransom Note](https://www.hackerrank.com/challenges/ctci-ransom-note/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=dictionaries-hashmaps)
+* Thought: Just directly use hashmap
+```cpp
+bool ransom_note(vector<string> magazine, vector<string> ransom)
+{
+    map<string, int>magmap;
+    map<string, int>ranmap;
+    for(int i = 0; i < magazine.size(); i++)
+    {
+        magmap[magazine[i]]++;
+    }
+    for(int i = 0; i < ransom.size(); i++)
+    {
+        ranmap[ransom[i]]++;
+    }
+
+    for(map<string, int>::iterator it = ranmap.begin(); it != ranmap.end(); ++it)
+    {
+        if(magmap[it->first] < it->second)
+        {
+            return false;
+        }
+    }
+    return true;
+}
 ```

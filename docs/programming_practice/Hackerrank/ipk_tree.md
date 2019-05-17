@@ -61,3 +61,63 @@ void sub_treemin(Node* root, int& sub_min)
     sub_treemin(root -> right, sub_min);
 }
 ```
+
+## [Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees
+
+* Thought: Dig, traverse until the leaf node and update the height
+* Analysis: 
+    * Time complexity: O(N), where N is the nodes of given tree.
+    * Spacee complexity: O(N), where N is the nodes of given tree. or O(1) if the tree itself does not taken into account.
+
+```cpp
+    int height(Node* root) 
+    {
+        return dfs(root, 0);
+    }
+    int dfs(Node* root, int cur_depth)
+    {
+        return root == NULL ? cur_depth - 1 : max(dfs(root -> left, cur_depth + 1), dfs(root -> right, cur_depth + 1));
+    }
+
+
+```
+
+
+## [Huffman Decoding](https://www.hackerrank.com/challenges/tree-huffman-decoding/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees)
+* Thought: 
+    * Step 1. Iterate throught the encoded string
+    * Step 2. Move according to the encoded string and update the position of iteration 
+    * Step 3. Return the result and concatenate the new characte.r 
+
+* Analysis, assume the alphabet in the leaf are N (i.e. N symbols are constructed to form the huffman tree): 
+    * Time complexity: O(NlogN), since we decode O(N) symbols at most, and each symbols takes O(logN) time to decode (descend the tree), thus total time complexity being O(NlogN).
+```cpp
+char descend_tree(node* root, string decoded, const string& encoded, int& encoded_pos)
+{
+    if(root -> left == NULL && root ->right == NULL)
+    {
+        return root -> data;
+    }
+    if(encoded[encoded_pos] == '0') // goes left (Step 2.)
+    {
+        encoded_pos++;
+        return descend_tree(root -> left, decoded, encoded, encoded_pos);
+    }
+    else // goes right (Step 2.)
+    {
+        encoded_pos++;
+        return descend_tree(root -> right, decoded, encoded, encoded_pos);
+    }
+}
+
+void decode_huff(node * root, string s) 
+{
+    int n = s.size();
+    string final_res(""); 
+    for (int i = 0; i < n;) // Step 1.
+    {
+        final_res += descend_tree(root, "", s, i);
+    }
+    cout << final_res << '\n';
+}
+```
