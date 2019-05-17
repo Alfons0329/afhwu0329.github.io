@@ -906,8 +906,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#height-of-binary-treehttpswwwhackerrankcomchallengestree-height-of-a-binary-treeproblemh_linterviewplaylist_slugs5b5dinterview-preparation-kitplaylist_slugs5b5dtrees" title="[Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees" class="md-nav__link">
-    [Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees
+  <a href="#height-of-binary-tree" title="Height of Binary Tree" class="md-nav__link">
+    Height of Binary Tree
   </a>
   
 </li>
@@ -992,8 +992,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#height-of-binary-treehttpswwwhackerrankcomchallengestree-height-of-a-binary-treeproblemh_linterviewplaylist_slugs5b5dinterview-preparation-kitplaylist_slugs5b5dtrees" title="[Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees" class="md-nav__link">
-    [Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees
+  <a href="#height-of-binary-tree" title="Height of Binary Tree" class="md-nav__link">
+    Height of Binary Tree
   </a>
   
 </li>
@@ -1088,7 +1088,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="height-of-binary-treehttpswwwhackerrankcomchallengestree-height-of-a-binary-treeproblemh_linterviewplaylist_slugs5b5dinterview-preparation-kitplaylist_slugs5b5dtrees">[Height of Binary Tree](<a href="https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees">https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees</a></h2>
+<h2 id="height-of-binary-tree"><a href="https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=trees">Height of Binary Tree</a></h2>
 <ul>
 <li>Thought: Dig, traverse until the leaf node and update the height</li>
 <li>Analysis: <ul>
@@ -1114,7 +1114,7 @@
 <ul>
 <li>Step 1. Iterate throught the encoded string</li>
 <li>Step 2. Move according to the encoded string and update the position of iteration </li>
-<li>Step 3. Return the result and concatenate the new characte.r </li>
+<li>Step 3. Return the result once reach the leaf node and concatenate the new character </li>
 </ul>
 </li>
 <li>
@@ -1123,7 +1123,7 @@
 <li>Time complexity: O(NlogN), since we decode O(N) symbols at most, and each symbols takes O(logN) time to decode (descend the tree), thus total time complexity being O(NlogN).
 <div class="codehilite"><pre><span></span><span class="kt">char</span> <span class="nf">descend_tree</span><span class="p">(</span><span class="n">node</span><span class="o">*</span> <span class="n">root</span><span class="p">,</span> <span class="n">string</span> <span class="n">decoded</span><span class="p">,</span> <span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">encoded</span><span class="p">,</span> <span class="kt">int</span><span class="o">&amp;</span> <span class="n">encoded_pos</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="n">left</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="o">&amp;&amp;</span> <span class="n">root</span> <span class="o">-&gt;</span><span class="n">right</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span> <span class="c1">// Step 3.</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">data</span><span class="p">;</span>
     <span class="p">}</span>

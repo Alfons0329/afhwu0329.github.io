@@ -62,7 +62,7 @@ void sub_treemin(Node* root, int& sub_min)
 }
 ```
 
-## [Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees
+## [Height of Binary Tree](https://www.hackerrank.com/challenges/tree-height-of-a-binary-tree/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=trees)
 
 * Thought: Dig, traverse until the leaf node and update the height
 * Analysis: 
@@ -87,14 +87,14 @@ void sub_treemin(Node* root, int& sub_min)
 * Thought: 
     * Step 1. Iterate throught the encoded string
     * Step 2. Move according to the encoded string and update the position of iteration 
-    * Step 3. Return the result and concatenate the new characte.r 
+    * Step 3. Return the result once reach the leaf node and concatenate the new character 
 
 * Analysis, assume the alphabet in the leaf are N (i.e. N symbols are constructed to form the huffman tree): 
     * Time complexity: O(NlogN), since we decode O(N) symbols at most, and each symbols takes O(logN) time to decode (descend the tree), thus total time complexity being O(NlogN).
 ```cpp
 char descend_tree(node* root, string decoded, const string& encoded, int& encoded_pos)
 {
-    if(root -> left == NULL && root ->right == NULL)
+    if(root -> left == NULL && root ->right == NULL) // Step 3.
     {
         return root -> data;
     }
