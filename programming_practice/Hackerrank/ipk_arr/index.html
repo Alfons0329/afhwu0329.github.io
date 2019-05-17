@@ -809,6 +809,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minimum-swaps-2" title="Minimum Swaps 2" class="md-nav__link">
+    Minimum Swaps 2
+  </a>
+  
+</li>
+      
       
       
       
@@ -977,6 +984,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#minimum-swaps-2" title="Minimum Swaps 2" class="md-nav__link">
+    Minimum Swaps 2
+  </a>
+  
+</li>
+      
       
       
       
@@ -1001,7 +1015,7 @@
 <ul>
 <li>Thought: Rotate as intuition, but note that if <code class="codehilite">index - rot_cnt (which is d)</code> then the position should be <code class="codehilite">size - (rot_cnt - index)</code></li>
 <li>Analysis: <ul>
-<li>Time complexityL O(N)</li>
+<li>Time complexity: O(N)</li>
 <li>Space complexity: O(N)
 <div class="codehilite"><pre><span></span><span class="c1">// Complete the rotLeft function below.</span>
 <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">rotLeft</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">d</span><span class="p">)</span> 
@@ -1066,6 +1080,77 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div>
+
+<h2 id="minimum-swaps-2"><a href="https://www.hackerrank.com/challenges/minimum-swaps-2/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=arrays">Minimum Swaps 2</a></h2>
+<ul>
+<li>
+<p>Thought: Draw the circular relation b/w the numbers according to <a href="https://www.geeksforgeeks.org/minimum-number-swaps-required-sort-array/">this page</a></p>
+</li>
+<li>
+<p>Analysis: </p>
+<ul>
+<li>Time complexity: O(NlogN)</li>
+<li>Space complexity: O(N)
+<div class="codehilite"><pre><span></span><span class="c1">// Complete the minimumSwaps function below.</span>
+<span class="kt">int</span> <span class="nf">dfs_circle</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&amp;</span> <span class="n">arr_padded</span><span class="p">,</span> <span class="kt">int</span> <span class="n">cur_pos</span><span class="p">,</span> <span class="kt">int</span> <span class="n">arrow_cnt</span><span class="p">,</span> <span class="kt">int</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;&amp;</span> <span class="n">visited</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">visited</span><span class="p">[</span><span class="n">cur_pos</span><span class="p">]</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span><span class="c1">// mark current node as traversed</span>
+    <span class="c1">// printf(&quot;DFS to %d\n&quot;, arr_padded[cur_pos]);</span>
+
+    <span class="n">cur_pos</span> <span class="o">=</span> <span class="n">arr_padded</span><span class="p">[</span><span class="n">cur_pos</span><span class="p">];</span> <span class="c1">// move to the next one</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">cur_pos</span><span class="p">]</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">arrow_cnt</span> <span class="o">=</span> <span class="n">dfs_circle</span><span class="p">(</span><span class="n">arr_padded</span><span class="p">,</span> <span class="n">cur_pos</span><span class="p">,</span> <span class="n">arrow_cnt</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">start_num</span><span class="p">,</span> <span class="n">visited</span><span class="p">);</span> <span class="c1">// keep dfs-ing</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">arrow_cnt</span><span class="p">;</span>
+
+<span class="p">}</span>
+<span class="kt">int</span> <span class="nf">minimumSwaps</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">)</span> 
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">(),</span> <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">arr_padded</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">arr</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+    <span class="n">arr_padded</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">arr_padded</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">INT_MAX</span><span class="p">);</span>
+
+    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span> <span class="n">visited</span><span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">false</span><span class="p">);</span>
+    <span class="kt">bool</span> <span class="n">finished_all</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">arr_padded</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">i</span><span class="p">)</span> <span class="c1">// already in the right position, no need for dfs, to avoid stackoverflow</span>
+        <span class="p">{</span>
+            <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+            <span class="k">continue</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="n">finished_all</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+            <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">visited</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">i</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
+                    <span class="n">finished_all</span> <span class="o">=</span> <span class="nb">false</span><span class="p">;</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="n">finished_all</span> <span class="o">==</span> <span class="nb">false</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">res</span> <span class="o">+=</span> <span class="n">dfs_circle</span><span class="p">(</span><span class="n">arr_padded</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">arr_padded</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">visited</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">finished_all</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;final res %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">res</span><span class="p">);</span>
+    <span class="k">return</span> <span class="n">res</span><span class="p">;</span>
+
+<span class="p">}</span>
+</pre></div></li>
+</ul>
+</li>
+</ul>
                 
                   
                 

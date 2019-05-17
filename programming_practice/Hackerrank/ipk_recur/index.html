@@ -917,6 +917,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fibonacci-numbers" title="Fibonacci Numbers" class="md-nav__link">
+    Fibonacci Numbers
+  </a>
+  
+</li>
+      
       
       
       
@@ -977,6 +984,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#fibonacci-numbers" title="Fibonacci Numbers" class="md-nav__link">
+    Fibonacci Numbers
+  </a>
+  
+</li>
+      
       
       
       
@@ -1005,8 +1019,8 @@
 <li>
 <p>Analysis:</p>
 <ul>
-<li>Time complexity: $$ O(N) $$, recursion with memoization, each node of the recursion tree will be generated once</li>
-<li>Space complexity: $$ O(N) $$, recursion with memoization, same as above</li>
+<li>Time complexity: O(N), recursion with memoization, each node of the recursion tree will be generated once</li>
+<li>Space complexity: O(N), recursion with memoization, same as above</li>
 </ul>
 </li>
 </ul>
@@ -1083,6 +1097,38 @@
         <span class="n">tmp_sum</span> <span class="o">+=</span> <span class="nb">int</span><span class="p">(</span><span class="n">digit</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">recursive_solve</span><span class="p">(</span><span class="n">tmp_sum</span><span class="p">)</span>
+</pre></div>
+
+<h2 id="fibonacci-numbers"><a href="">Fibonacci Numbers</a></h2>
+<ul>
+<li>Thought: Use DP to cache the result for acceleration</li>
+<li>Analysis:<ul>
+<li>Time complexity: O(N)</li>
+<li>Space complexity: O(N)</li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">ull</span> <span class="nf">fibonacci</span><span class="p">(</span><span class="n">ull</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// Complete the function.</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="n">fibonacci</span><span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">fibonacci</span> <span class="p">(</span><span class="n">n</span> <span class="o">-</span> <span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="p">];</span>
+<span class="p">}</span>
 </pre></div>
                 
                   
