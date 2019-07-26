@@ -45,6 +45,7 @@ nav:
             - WC120: programming_practice/leetcode_OJ_WC/WC120.md
             # - WC137: programming_practice/leetcode_OJ_WC/WC137.md
             - WC143: programming_practice/leetcode_OJ_WC/WC143.md
+            - WC146: programming_practice/leetcode_OJ_WC/WC146.md
         - leetcode_OJ Single:
             - Tree:
                 - Part 1(94, 104, 110, 112, 113): programming_practice/leetcode_OJ_Single/tree1.md
