@@ -1099,7 +1099,7 @@
 
 <h2 id="pb-921-minimum-add-to-make-parentheses-valid">PB. <a href="https://leetcode.com/contest/weekly-contest-106/problems/minimum-add-to-make-parentheses-valid/">921. Minimum Add to Make Parentheses Valid</a> 括號配對剩餘數</h2>
 <ul>
-<li>題意：給左右括號字串，問至少要加上幾個左右括號才能使括號配對成功，例如 <code class="codehilite">(((</code> 欠缺三個、<code class="codehilite">()))((</code> 欠缺四個（左二右二）</li>
+<li>題意：給左右括號字串，問至少要加上幾個左右括號才能使括號配對成功，例如 <code class="codehilite"><span class="p">(((</span></code> 欠缺三個、<code class="codehilite"><span class="p">()))((</span></code> 欠缺四個（左二右二）</li>
 <li>想法：遇到左括號表示欠配對，將to_match 變數加起來，遇到又括號再將其遞減，倘若to_match又太多了代表右括號過多，再用第二個變數lack表示</li>
 <li>分析：Time complexity O(N), Space complexity O(1)</li>
 </ul>
@@ -1139,15 +1139,15 @@
 <li>想法：本以為這題有點像背包問題，但沒有那麼難，較近似數學組合問題<ul>
 <li>首先用map將各個數字的數量存起來</li>
 <li>由於數字最多到101，因此可以利用 101 * 101暴力搜尋（不用到第三個回圈，只要看map中是否存在即可，亦即 
-<div class="codehilite"><pre><span></span>if(my[thr] == 0 || my[it2] == 0) //unable to use
+<div class="codehilite"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="nv">my</span>[<span class="nv">thr</span>] <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nv">my</span>[<span class="nv">it2</span>] <span class="o">==</span> <span class="mi">0</span><span class="ss">)</span> <span class="o">//</span><span class="nv">unable</span> <span class="nv">to</span> <span class="nv">use</span>
 {
-    continue;
+    <span class="k">continue</span><span class="c1">;</span>
 }
 </pre></div></li>
 <li>為了防止重複，我們會希望數字是遞增的（但不必嚴格增，否則 2 + 2 + 3 = 7 這種就找不到了），亦即
-<div class="codehilite"><pre><span></span>if(!(fir &lt;= sec &amp;&amp; sec &lt;= thr)) //maLLain the order to prevent duplicated
+<div class="codehilite"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="o">!</span><span class="ss">(</span><span class="nv">fir</span> <span class="o">&lt;=</span> <span class="nv">sec</span> <span class="o">&amp;&amp;</span> <span class="nv">sec</span> <span class="o">&lt;=</span> <span class="nv">thr</span><span class="ss">))</span> <span class="o">//</span><span class="nv">maLLain</span> <span class="nv">the</span> <span class="nv">order</span> <span class="nv">to</span> <span class="nv">prevent</span> <span class="nv">duplicated</span>
 {
-    continue;
+    <span class="k">continue</span><span class="c1">;</span>
 }
 </pre></div></li>
 <li>在查看各種方法的組合數： C(a,1) * C(b,1) * C(c,1)   or   C(a,2) * C(b,1)    or    C(a,3)</li>

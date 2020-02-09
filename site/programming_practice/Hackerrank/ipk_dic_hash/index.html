@@ -1026,7 +1026,7 @@
 <li>Thought 1(TLE): Brute force to find all the possible substring pair of length from 1 to n where n is the given string length. </li>
 <li>Analysis: <ul>
 <li>Time complexity: O(N^4)</li>
-<li>Space complexity: O(N), although it seems to be a nested loop and calls the function <code class="codehilite">check_anagram</code> n times, the time complexity is actually N. Since in <code class="codehilite"><span class="kd">function</span> <span class="nx">call</span></code> the memory will be allocated in stack, after the call ends, it will be released (may think of recursion stack overflow to understand this), each allocate in stack is up to length N of the string, and being released later, thus won't grow up to N^2 <br />
+<li>Space complexity: O(N), although it seems to be a nested loop and calls the function <code class="codehilite"><span class="n">check_anagram</span></code> n times, the time complexity is actually N. Since in <code class="codehilite"><span class="k">function</span> <span class="k">call</span></code> the memory will be allocated in stack, after the call ends, it will be released (may think of recursion stack overflow to understand this), each allocate in stack is up to length N of the string, and being released later, thus won't grow up to N^2 <br />
 <div class="codehilite"><pre><span></span><span class="kt">bool</span> <span class="nf">check_anagram</span><span class="p">(</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">string</span> <span class="n">s2</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">mp1</span><span class="p">;</span>
@@ -1098,7 +1098,7 @@
 </li>
 <li>Fault: The idea is too brute force, N^4 does take lots of time.</li>
 <li>
-<p>Thought 2(AC, optimized from thought 1): When we got some substrings that forms a group for anagram, such as [abc, cba, bac]. We don't actually need to select each by each to count the occurances. Due to the same group of anagram, 2 of them makes a pair, by using the <code class="codehilite">combinatoric method</code>, such that C(num_of_elements, 2) is the answer. More detailed explanations are written in the comment section of the following code.</p>
+<p>Thought 2(AC, optimized from thought 1): When we got some substrings that forms a group for anagram, such as [abc, cba, bac]. We don't actually need to select each by each to count the occurances. Due to the same group of anagram, 2 of them makes a pair, by using the <code class="codehilite"><span class="n">combinatoric</span> <span class="k">method</span></code>, such that C(num_of_elements, 2) is the answer. More detailed explanations are written in the comment section of the following code.</p>
 </li>
 <li>
 <p>Analysis: </p>

@@ -1218,10 +1218,10 @@ Required dependencies are the followings <br />
 3.CMake 2.6 or higher <br />
 4.GCC 4.4.x or later <br /></li>
 </ul>
-<p><div class="codehilite"><pre><span></span>sudo apt-get install libopencv-dev python-opencv
+<p><div class="codehilite"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">libopencv</span><span class="o">-</span><span class="n">dev</span> <span class="n">python</span><span class="o">-</span><span class="n">opencv</span>
 </pre></div>
 Once installed
-<div class="codehilite"><pre><span></span>pkg-config --modversion opencv
+<div class="codehilite"><pre><span></span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="c1">--modversion opencv</span>
 </pre></div>
 If the version is shown, then we're good to rock with opencv. <br /></p>
 <ul>
@@ -1236,7 +1236,7 @@ If the version is shown, then we're good to rock with opencv. <br /></p>
 </pre></div>
 
 <p>2.With g++ and flags for opencv libraries
-<div class="codehilite"><pre><span></span>g++ lab1-2.cpp `pkg-config --cflags --libs opencv`
+<div class="codehilite"><pre><span></span><span class="k">g</span><span class="o">++</span> <span class="n">lab1</span><span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="n">cpp</span> <span class="o">`</span><span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="c1">--cflags --libs opencv`</span>
 </pre></div></p>
 <h3 id="todays-course-contents">Today's course contents</h3>
 <p>Basic understanding of image processing and image data format.
