@@ -1088,7 +1088,7 @@
 </ul>
 <h2 id="877-stone-gamenim-game"><a href="https://leetcode.com/problems/stone-game/description/">877. Stone Game</a>簡單版Nim game + 一點數學</h2>
 <ul>
-<li>題意：有點類似簡單版的nim game，有偶數堆石頭(石頭數加總為奇數，因此沒有平手)，玩家雙方（一對一單挑）每次拿取<code class="codehilite">頭或是尾端的堆，一次拿光</code>，每個人都有最優思路，問先者是否可在當前盤面有必勝解。</li>
+<li>題意：有點類似簡單版的nim game，有偶數堆石頭(石頭數加總為奇數，因此沒有平手)，玩家雙方（一對一單挑）每次拿取<code class="codehilite"><span class="err">頭或是尾端的堆，一次拿光</span></code>，每個人都有最優思路，問先者是否可在當前盤面有必勝解。</li>
 <li>
 <p>思路：若我是先者，可以觀察奇數index 或是偶數index加總較大，因而有必勝法則（先者必勝)，因此恆常true)</p>
 <ul>
@@ -1096,7 +1096,7 @@
 </ul>
 </li>
 <li>
-<p>心得與注意事項：剛開始以為最優思路是<code class="codehilite">greedy algorithm</code>，但這樣只有<code class="codehilite">當前最佳解</code>，很<code class="codehilite">可能因為拿了當前的最佳解，導致後面的人拿比我這個更好的</code>，因而輸掉(例如上面的[3,9,7,4])。</p>
+<p>心得與注意事項：剛開始以為最優思路是<code class="codehilite"><span class="n">greedy</span> <span class="n">algorithm</span></code>，但這樣只有<code class="codehilite"><span class="err">當前最佳解</span></code>，很<code class="codehilite"><span class="err">可能因為拿了當前的最佳解，導致後面的人拿比我這個更好的</span></code>，因而輸掉(例如上面的[3,9,7,4])。</p>
 </li>
 <li>分析：Time complexity O(1), Space complexity O(1)
 <div class="codehilite"><pre><span></span><span class="n">class</span> <span class="n">Solution</span>
@@ -1111,7 +1111,7 @@
 </ul>
 <h2 id="878-nth-magical-numbe"><a href="https://leetcode.com/problems/nth-magical-number/description/">878. Nth Magical Numbe</a> 排容+二分搜</h2>
 <ul>
-<li>題意：若一個整數<code class="codehilite">K def as K % A == 0 &amp;&amp; K % B == 0</code> 詢問第 N 個這樣的數字多少</li>
+<li>題意：若一個整數<code class="codehilite"><span class="n">K</span> <span class="n">def</span> <span class="k">as</span> <span class="n">K</span> <span class="o">%</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">K</span> <span class="o">%</span> <span class="n">B</span> <span class="o">==</span> <span class="mi">0</span></code> 詢問第 N 個這樣的數字多少</li>
 <li>思路：暴力解法顯然必TLE，因此要優化成Binary Search找到上下界線</li>
 <li>WA解法
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
@@ -1161,7 +1161,7 @@
 <span class="p">};</span>
 </pre></div></li>
 <li>
-<p>缺失分析：<code class="codehilite">else break</code> 條件設錯，因為即便是數量剛好N，二分搜尋的上下界也不一定包夾、收斂在一起，因此還得繼續查找 <a href="https://leetcode.com/problems/nth-magical-number/discuss/154613/C++JavaPython-Binary-Search">可以參見討論區別人對我的回覆</a></p>
+<p>缺失分析：<code class="codehilite"><span class="k">else</span> <span class="k">break</span></code> 條件設錯，因為即便是數量剛好N，二分搜尋的上下界也不一定包夾、收斂在一起，因此還得繼續查找 <a href="https://leetcode.com/problems/nth-magical-number/discuss/154613/C++JavaPython-Binary-Search">可以參見討論區別人對我的回覆</a></p>
 </li>
 <li>
 <p>AC解法
@@ -1211,7 +1211,7 @@
 </pre></div></p>
 </li>
 <li>分析：Time complexity: O(log (1e18)), Space complexity O(1)</li>
-<li>後續討論疑問：如果把 <code class="codehilite">up_bound = mid</code> 改為 <code class="codehilite">up_bound = mid - 1</code> 有時答案會差一，有人知道為什麼嗎，還請程式高手賜教，感謝:)</li>
+<li>後續討論疑問：如果把 <code class="codehilite"><span class="n">up_bound</span> <span class="o">=</span> <span class="n">mid</span></code> 改為 <code class="codehilite"><span class="n">up_bound</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">-</span> <span class="mi">1</span></code> 有時答案會差一，有人知道為什麼嗎，還請程式高手賜教，感謝:)</li>
 </ul>
 <h2 id="879-profitable-schemes-dp"><a href="https://leetcode.com/problems/profitable-schemes/description/">879. Profitable Schemes</a> 背包DP/動態規劃/自己不熟悉的題型</h2>
 <ul>
@@ -1220,12 +1220,12 @@
 <li>首先建立一張動態規劃用表格 [工作][當前利潤][人數]的三維表格，表示做完當前i個工作賺j元花費k人數的可能數。</li>
 <li>走訪表格，i j k 開始走訪進行狀態轉移，每種任務都可以做與不做<ul>
 <li>若當前可用人數減去此任務需求人數 &lt; 0 則此任務不可做，是故會跟上一個任務一樣的組合情形，亦即
-<code class="codehilite">if(k - cur_k &lt; 0){dp[i][j][k] = dp[i - 1][j][k] % MOD; //currrent mission cannot be done, use the last mission}</code></li>
+<code class="codehilite"><span class="k">if</span><span class="ss">(</span><span class="nv">k</span> <span class="o">-</span> <span class="nv">cur_k</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="ss">)</span>{<span class="nv">dp</span>[<span class="nv">i</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">=</span> <span class="nv">dp</span>[<span class="nv">i</span> <span class="o">-</span> <span class="mi">1</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">%</span> <span class="nv">MOD</span><span class="c1">; //currrent mission cannot be done, use the last mission</span>}</code></li>
 <li>若當前目標利潤減去當前任務所提供的利潤 &lt; 0，代表該任務利潤極大，則是不做加上做，而做了要查詢0利潤的先前建表，防止越界。
-<code class="codehilite">else if(j - cur_p &lt; 0){dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][0][k - cur_k]) % MOD;}</code>
-<code class="codehilite">第二步驟解釋不太到位，也是這題比較難想的地方，還望各位刷提高手賜教更好的解釋，感激</code></li>
+<code class="codehilite"><span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">j</span> <span class="o">-</span> <span class="nv">cur_p</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="ss">)</span>{<span class="nv">dp</span>[<span class="nv">i</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">=</span> <span class="ss">(</span><span class="nv">dp</span>[<span class="nv">i</span> <span class="o">-</span> <span class="mi">1</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">+</span> <span class="nv">dp</span>[<span class="nv">i</span> <span class="o">-</span> <span class="mi">1</span>][<span class="mi">0</span>][<span class="nv">k</span> <span class="o">-</span> <span class="nv">cur_k</span>]<span class="ss">)</span> <span class="o">%</span> <span class="nv">MOD</span><span class="c1">;</span>}</code>
+<code class="codehilite"><span class="err">第二步驟解釋不太到位，也是這題比較難想的地方，還望各位刷提高手賜教更好的解釋，感激</span></code></li>
 <li>剩下就不做這一次＋做了之後的總和，做了就去查詢先前的結果
-<code class="codehilite">else{dp[i][j][k] = (dp[i - 1][j][k] + dp[i - 1][j - cur_p][k - cur_k]) % MOD;}</code></li>
+<code class="codehilite"><span class="k">else</span>{<span class="nv">dp</span>[<span class="nv">i</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">=</span> <span class="ss">(</span><span class="nv">dp</span>[<span class="nv">i</span> <span class="o">-</span> <span class="mi">1</span>][<span class="nv">j</span>][<span class="nv">k</span>] <span class="o">+</span> <span class="nv">dp</span>[<span class="nv">i</span> <span class="o">-</span> <span class="mi">1</span>][<span class="nv">j</span> <span class="o">-</span> <span class="nv">cur_p</span>][<span class="nv">k</span> <span class="o">-</span> <span class="nv">cur_k</span>]<span class="ss">)</span> <span class="o">%</span> <span class="nv">MOD</span><span class="c1">;</span>}</code></li>
 <li>最後將 dp[size of tasks(做完全部)][P(目標利潤)][people from 0 to G]加總取mod就是答案</li>
 </ul>
 </li>

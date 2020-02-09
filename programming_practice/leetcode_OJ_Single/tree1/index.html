@@ -1114,7 +1114,7 @@
 </ul>
 <h2 id="104-maximum-depth-of-binary-tree"><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h2>
 <ul>
-<li>Thought: Use <code class="codehilite">DFS</code> to descend down the left and right subtree respectively. Each descend(either left or right) increase the depth level by one. The result is very clear to understand since we may just collect the depth of left and right subtree and update
+<li>Thought: Use <code class="codehilite"><span class="n">DFS</span></code> to descend down the left and right subtree respectively. Each descend(either left or right) increase the depth level by one. The result is very clear to understand since we may just collect the depth of left and right subtree and update
 <div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">l_depth</span> <span class="o">=</span> <span class="n">dfs_depth</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 <span class="kt">int</span> <span class="n">r_depth</span> <span class="o">=</span> <span class="n">dfs_depth</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span> <span class="n">cur_depth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
 </pre></div>
@@ -1197,8 +1197,8 @@
     <span class="p">}</span>
 <span class="p">};</span>
 </pre></div></li>
-<li>Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -&gt; left_null, such incomplete path will return true due to the recursive call in  <code class="codehilite">hasPathSum(root -&gt; right, sum - root -&gt; val)</code> and <code class="codehilite">if(root == NULL) { return sum == 0; }</code> owing to 1 - 1 == 0 and reach null</li>
-<li>Revision: STOP when traverse to <code class="codehilite">leaf node</code> rather than <code class="codehilite">null node</code></li>
+<li>Fault: If the testcase is [1, 2] 1, then it will fail since the 1(root) -&gt; left_null, such incomplete path will return true due to the recursive call in  <code class="codehilite"><span class="n">hasPathSum</span><span class="p">(</span><span class="n">root</span> <span class="o">-&gt;</span> <span class="k">right</span><span class="p">,</span> <span class="k">sum</span> <span class="o">-</span> <span class="n">root</span> <span class="o">-&gt;</span> <span class="n">val</span><span class="p">)</span></code> and <code class="codehilite"><span class="k">if</span><span class="ss">(</span><span class="nv">root</span> <span class="o">==</span> <span class="nv">NULL</span><span class="ss">)</span> { <span class="k">return</span> <span class="nv">sum</span> <span class="o">==</span> <span class="mi">0</span><span class="c1">; }</span></code> owing to 1 - 1 == 0 and reach null</li>
+<li>Revision: STOP when traverse to <code class="codehilite"><span class="n">leaf</span> <span class="n">node</span></code> rather than <code class="codehilite"><span class="k">null</span> <span class="n">node</span></code></li>
 <li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span> 
@@ -1221,7 +1221,7 @@
 
 <h2 id="113-path-sum-ii"><a href="https://leetcode.com/problems/path-sum-ii/">113. Path Sum II</a></h2>
 <ul>
-<li>Thought: Similar to <code class="codehilite">112. Path Sum</code>, but now add a vector to trace the path that has been traversed through. More detailed explanations are in the comment part of code</li>
+<li>Thought: Similar to <code class="codehilite"><span class="mi">112</span><span class="p">.</span> <span class="n">Path</span> <span class="k">Sum</span></code>, but now add a vector to trace the path that has been traversed through. More detailed explanations are in the comment part of code</li>
 <li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
 <p><img alt="" src="https://imgur.com/J70aT7s.png" /></p>

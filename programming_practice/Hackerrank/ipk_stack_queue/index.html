@@ -1039,21 +1039,21 @@
 <ul>
 <li>Thought: Push into the stack causing the first in the bottom, so pop-push again to the other stack solves the problem. 
 Visualization below
-<div class="codehilite"><pre><span></span>        bottom<span class="o">&lt;-&gt;</span>top         bottom<span class="o">&lt;-&gt;</span>top
+<div class="codehilite"><pre><span></span>        <span class="n">bottom</span><span class="o">&lt;-&gt;</span><span class="n">top</span>         <span class="n">bottom</span><span class="o">&lt;-&gt;</span><span class="n">top</span>
 
-oper        stk_new_ontop       stk_output
-push <span class="m">1</span>      <span class="m">1</span>
-push <span class="m">2</span>      <span class="m">1</span> <span class="m">2</span>
-push <span class="m">3</span>      <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
-pop<span class="p">,</span>rev need                <span class="o">-&gt;</span>  <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
-front                           <span class="m">3</span> <span class="m">2</span> <span class="p">[</span><span class="m">1</span><span class="p">]</span>
-pop                             <span class="m">3</span> <span class="m">2</span>
-pop                             <span class="m">3</span>
-pop
-push <span class="m">4</span>     <span class="m">4</span>    
-push <span class="m">5</span>     <span class="m">4</span> <span class="m">5</span>
-push <span class="m">6</span>     <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
-front<span class="p">,</span>rev need              <span class="o">-&gt;</span>  <span class="m">6</span> <span class="m">5</span> <span class="p">[</span><span class="m">4</span><span class="p">]</span>                              
+<span class="n">oper</span>        <span class="n">stk_new_ontop</span>       <span class="n">stk_output</span>
+<span class="n">push</span> <span class="m">1</span>      <span class="m">1</span>
+<span class="n">push</span> <span class="m">2</span>      <span class="m">1</span> <span class="m">2</span>
+<span class="n">push</span> <span class="m">3</span>      <span class="m">1</span> <span class="m">2</span> <span class="m">3</span>
+<span class="n">pop</span><span class="p">,</span><span class="n">rev</span> <span class="n">need</span>                <span class="o">-&gt;</span>  <span class="m">3</span> <span class="m">2</span> <span class="m">1</span>
+<span class="n">front</span>                           <span class="m">3</span> <span class="m">2</span> <span class="n">[1]</span>
+<span class="n">pop</span>                             <span class="m">3</span> <span class="m">2</span>
+<span class="n">pop</span>                             <span class="m">3</span>
+<span class="n">pop</span>
+<span class="n">push</span> <span class="m">4</span>     <span class="m">4</span>    
+<span class="n">push</span> <span class="m">5</span>     <span class="m">4</span> <span class="m">5</span>
+<span class="n">push</span> <span class="m">6</span>     <span class="m">4</span> <span class="m">5</span> <span class="m">6</span>
+<span class="n">front</span><span class="p">,</span><span class="n">rev</span> <span class="n">need</span>              <span class="o">-&gt;</span>  <span class="m">6</span> <span class="m">5</span> <span class="n">[4]</span>                              
 </pre></div></li>
 <li>Analysis: <ul>
 <li>Time complexity: push O(1), pop O(N) worst, O(1) if output stack still exists, front same as pop</li>
@@ -1102,7 +1102,7 @@ front<span class="p">,</span>rev need              <span class="o">-&gt;</span> 
 </ul>
 <h2 id="balanced-parenthesis"><a href="https://www.hackerrank.com/challenges/balanced-brackets/problem?h_l=interview&amp;playlist_slugs%5B%5D=interview-preparation-kit&amp;playlist_slugs%5B%5D=stacks-queues">Balanced Parenthesis</a></h2>
 <ul>
-<li>Thought: Use stack to trace the balance property, if <code class="codehilite">(, [, {</code> is encountered, push, for right parenthesis, see the following situation<ul>
+<li>Thought: Use stack to trace the balance property, if <code class="codehilite"><span class="p">(,</span> <span class="p">[,</span> <span class="err">{</span></code> is encountered, push, for right parenthesis, see the following situation<ul>
 <li>If the stack is already empty, then unbalanced ex: (())) last ) will meet an empty stack</li>
 <li>If the stack top is not the paired set, ex: ()= with ], then unbalanced</li>
 <li>Otherwise keep iterating through the string</li>

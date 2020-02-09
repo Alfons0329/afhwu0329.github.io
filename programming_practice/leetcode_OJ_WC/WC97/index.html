@@ -1119,7 +1119,7 @@
 <h2 id="889-spiral-matrix-iii"><a href="https://leetcode.com/problems/spiral-matrix-iii/description/">889. Spiral Matrix III</a> 模擬</h2>
 <ul>
 <li>題意：矩陣中逆時針旋轉，問界內的座標有哪些</li>
-<li>思路：模擬，先從題目給的圖片可看出行走的距離是一個1 1 2 2 3 3 4 4 5 5 6 6每兩組遞增一次一，一樣用<code class="codehilite">for loop + dx dy (或說drow dcolumn)代表要走的方向</code>，每次走一點看看是否在界內即可。
+<li>思路：模擬，先從題目給的圖片可看出行走的距離是一個1 1 2 2 3 3 4 4 5 5 6 6每兩組遞增一次一，一樣用<code class="codehilite"><span class="k">for</span> <span class="k">loop</span> <span class="o">+</span> <span class="nv">dx</span> <span class="nv">dy</span> <span class="ss">(</span>或說<span class="nv">drow</span> <span class="nv">dcolumn</span><span class="ss">)</span>代表要走的方向</code>，每次走一點看看是否在界內即可。
 不用想太難，想說還要自己建一個grid在看是否界內，這樣太麻煩，只要想像成有 <strong>無限大的地圖持續走訪，看看是否在邊界即可</strong></li>
 <li>分析：Time complexity O(max(ROW, COL) ^ 2), Space complexity O(ROW * COL)
 <div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Solution</span>
@@ -1169,8 +1169,8 @@
 <ul>
 <li>題意：每一個人都討厭自己以外的某人(edge)，問如何分成兩組(bipartie graph)使每一組裡面的所有人不會互相討厭</li>
 <li>思路：題意如同二分圖檢測問題，解題流程如下<ul>
-<li>首先初始化一些必要的資料結構，例如<code class="codehilite">visited[N + 1]這個array用以紀錄走訪過的點避免重複走訪</code>，其中dislikes就是adjecent list中的edges。</li>
-<li>DFS，沒走過的點標記為-1，<code class="codehilite">走過的點分兩種，一種放0色、另一種1色</code>，查找adjacent list看接下來要走訪點，並且依據當前顏色選擇另一個顏色為相鄰頂點上色(異色)。</li>
+<li>首先初始化一些必要的資料結構，例如<code class="codehilite"><span class="n">visited</span><span class="p">[</span><span class="n">N</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="err">這個</span><span class="nb">array</span><span class="err">用以紀錄走訪過的點避免重複走訪</span></code>，其中dislikes就是adjecent list中的edges。</li>
+<li>DFS，沒走過的點標記為-1，<code class="codehilite"><span class="err">走過的點分兩種，一種放</span><span class="mi">0</span><span class="err">色、另一種</span><span class="mi">1</span><span class="err">色</span></code>，查找adjacent list看接下來要走訪點，並且依據當前顏色選擇另一個顏色為相鄰頂點上色(異色)。</li>
 <li>查找的途中發現相鄰點已經上過色並且是相同色，代表無法切割成二分圖，將結果標示為false</li>
 </ul>
 </li>

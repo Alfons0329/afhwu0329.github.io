@@ -1074,7 +1074,7 @@
 </ul>
 <h2 id="pb-978-longest-turbulent-subarray">PB. <a href="https://leetcode.com/problems/longest-turbulent-subarray/">978. Longest Turbulent Subarray</a> 水題</h2>
 <ul>
-<li>題意：滿足 <code class="codehilite">a1 &lt; a2 &gt; a3 &lt; a4...</code> 或 <code class="codehilite">a1 &gt; a2 &lt; a3 &gt; a4...</code>之最長子陣列</li>
+<li>題意：滿足 <code class="codehilite"><span class="n">a1</span> <span class="o">&lt;</span> <span class="n">a2</span> <span class="o">&gt;</span> <span class="n">a3</span> <span class="o">&lt;</span> <span class="n">a4</span><span class="p">...</span></code> 或 <code class="codehilite"><span class="n">a1</span> <span class="o">&gt;</span> <span class="n">a2</span> <span class="o">&lt;</span> <span class="n">a3</span> <span class="o">&gt;</span> <span class="n">a4</span><span class="p">...</span></code>之最長子陣列</li>
 <li>想法：水題直接做</li>
 <li>分析：Time complexity O(N^2) (會小於許多), Space  complexity O(N)</li>
 </ul>
@@ -1182,7 +1182,7 @@
 </ul>
 <h2 id="pd-980-unique-paths-iii-hamilton-path-dfs-backtracking">PD. <a href="https://leetcode.com/problems/unique-paths-iii/">980. Unique Paths III</a> Hamilton path DFS, backtracking</h2>
 <ul>
-<li>題意：問從起點到終點，有多少<code class="codehilite">Hamilton path</code> <a href="https://zh.wikipedia.org/wiki/%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%BE">Wikipedia reference</a></li>
+<li>題意：問從起點到終點，有多少<code class="codehilite"><span class="n">Hamilton</span> <span class="n">path</span></code> <a href="https://zh.wikipedia.org/wiki/%E5%93%88%E5%AF%86%E9%A1%BF%E5%9B%BE">Wikipedia reference</a></li>
 <li>想法，因為題目規模不大，(row x col) &lt;= 20 數據規模親民，可以直接用暴力的DFS求解（其實是DP想不太出來 XD)，具體描述請見下面程式碼的註解</li>
 <li>分析： Time complexity O(4^(row * col))，因為題目規模不大，可以用暴力解出，再大一點可能就 TLE了，Space complexity O(row * col)</li>
 </ul>

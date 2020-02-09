@@ -1024,7 +1024,7 @@
 <h2 id="236-lca"><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/">236. LCA</a></h2>
 <ul>
 <li>Thought: </li>
-<li>(1) Store the information of the <code class="codehilite">parent node</code> of each node. </li>
+<li>(1) Store the information of the <code class="codehilite"><span class="n">parent</span> <span class="n">node</span></code> of each node. </li>
 <li>(2) Ascend the node if the node is deeper in order to get closer to the common parent, finally the lowest common ancestor will match . It is quite intuitive. You may imagine by drawing a picture.</li>
 <li>The rest of the explanations are written in the comment part of the code</li>
 <li>Analysis: Time complexity O(N), Space complexity O(N)</li>
@@ -1103,8 +1103,8 @@
 <h2 id="863-all-nodes-distance-k-in-binary-tree"><a href="https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/">863. All Nodes Distance K in Binary Tree</a></h2>
 <ul>
 <li>Thought: </li>
-<li>(1) Store the information of the <code class="codehilite">parent node</code> of each node.</li>
-<li>(2) Starting from the target node, traverse the parent node, left child, right child. <code class="codehilite">Remember to mark the node visited, consequently it will prevent child -&gt; parent and parent -&gt; child, two times back and forth resulting in an 0 distance just owing to 2 - 1(child -&gt; parent) - 1(parent -&gt; child), but it is not the case of answer.</code></li>
+<li>(1) Store the information of the <code class="codehilite"><span class="n">parent</span> <span class="n">node</span></code> of each node.</li>
+<li>(2) Starting from the target node, traverse the parent node, left child, right child. <code class="codehilite"><span class="n">Remember</span> <span class="k">to</span> <span class="n">mark</span> <span class="n">the</span> <span class="n">node</span> <span class="n">visited</span><span class="p">,</span> <span class="n">consequently</span> <span class="n">it</span> <span class="n">will</span> <span class="n">prevent</span> <span class="n">child</span> <span class="o">-&gt;</span> <span class="n">parent</span> <span class="k">and</span> <span class="n">parent</span> <span class="o">-&gt;</span> <span class="n">child</span><span class="p">,</span> <span class="n">two</span> <span class="n">times</span> <span class="n">back</span> <span class="k">and</span> <span class="n">forth</span> <span class="n">resulting</span> <span class="k">in</span> <span class="n">an</span> <span class="mi">0</span> <span class="n">distance</span> <span class="n">just</span> <span class="n">owing</span> <span class="k">to</span> <span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span><span class="p">(</span><span class="n">child</span> <span class="o">-&gt;</span> <span class="n">parent</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">(</span><span class="n">parent</span> <span class="o">-&gt;</span> <span class="n">child</span><span class="p">),</span> <span class="n">but</span> <span class="n">it</span> <span class="k">is</span> <span class="k">not</span> <span class="n">the</span> <span class="k">case</span> <span class="k">of</span> <span class="n">answer</span><span class="p">.</span></code></li>
 <li>Analysis: Time complexity O(N), Space complexity O(N)</li>
 </ul>
 <div class="codehilite"><pre><span></span><span class="c1">// 12ms</span>

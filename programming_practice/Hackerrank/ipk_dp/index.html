@@ -1058,9 +1058,9 @@
 </li>
 <li>(2) Iterate the whole array, the minimum candies that this student requires is max(left_continuous_lower[i], right_continuous_lower[i]) + 1(at least one candy for each student)<ul>
 <li>Think the mountain as an example: 
-<div class="codehilite"><pre><span></span>    Score               1 2 3 4 3 2 1
-    Left cnt lower      0 1 2 3 0 0 0
-    Right cnt lower     0 0 0 3 2 1 0
+<div class="codehilite"><pre><span></span>    <span class="n">Score</span>               <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span>
+    <span class="k">Left</span> <span class="n">cnt</span> <span class="k">lower</span>      <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span>
+    <span class="k">Right</span> <span class="n">cnt</span> <span class="k">lower</span>     <span class="mi">0</span> <span class="mi">0</span> <span class="mi">0</span> <span class="mi">3</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">0</span>
 </pre></div></li>
 <li>Explanation: for student 3(0 base), he should get 3 (+ 1) cadies as minimum since there is 3 continuous less element on the left side and so is right, assigning 1 to the leftmost and rightmost element, we will get the optimum solution being: 1 2 3 4 3 2 1</li>
 </ul>
